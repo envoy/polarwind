@@ -57,6 +57,12 @@ heavily uses `@apply` of Tailwind utility classes.
    fully featured. As more use cases emerge, we will add more capabilities and
    customization to the respective components.
 
+## License
+
+Source code is under a [custom license](LICENSE.md) based on MIT. The license restricts
+Polarwind usage to applications that integrate or interoperate with Envoy software or
+services, with additional restrictions for external, stand-alone applications.
+
 ## Trivia
 
 Polarwind is a portmanteau of Polaris and Tailwind CSS.
