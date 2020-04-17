@@ -5,6 +5,7 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "scripts": {
+    "predist": "rm -rf dist",
     "dist": "NODE_ENV=production rollup -c"
   },
   "repository": "https://github.com/envoy/polarwind",
@@ -16,6 +17,10 @@
     "components",
     "library",
     "design-system"
+  ],
+  "files": [
+    "dist",
+    "src"
   ],
   "peerDependencies": {
     "react": "^16.13.1"
