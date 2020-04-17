@@ -13,5 +13,8 @@
     "components",
     "library",
     "design-system"
-  ]
+  ],
+  "peerDependencies": {
+    "react": "^16.13.1"
+  }
 }
