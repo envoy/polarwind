@@ -5,9 +5,10 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "scripts": {
+    "dev": "yarn dist -w",
     "predist": "rm -rf dist",
     "dist": "NODE_ENV=production rollup -c",
-    "dev": "yarn dist -w"
+    "postdist": "postdist.sh"
   },
   "repository": "https://github.com/envoy/polarwind",
   "author": "Envoy, Inc.",
