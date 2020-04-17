@@ -3,6 +3,7 @@ import commonjs from "rollup-plugin-commonjs";
 
 const formats = ["esm", "umd"];
 const plugins = [babel({ exclude: "node_modules/**" }), commonjs()];
+const globals = { react: "React" };
 
 export default [
   {
@@ -12,7 +13,8 @@ export default [
     output: formats.map((format) => ({
       file: `dist/index.${format}.js`,
       format,
-      name: "polarwind",
+      globals,
+      name: "polarwind", // required for umd bundles
     })),
   },
 ];
