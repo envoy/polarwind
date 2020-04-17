@@ -1,0 +1,5 @@
+@import "../styles/common";
+
+.Button {
+  @apply bg-red-200;
+}
