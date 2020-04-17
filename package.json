@@ -2,13 +2,13 @@
   "name": "polarwind",
   "version": "0.0.1",
   "description": "Envoy's product component library",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.esm.js",
+  "main": "index.umd.js",
+  "module": "index.esm.js",
   "scripts": {
-    "dev": "yarn dist -w",
-    "predist": "rm -rf dist",
-    "dist": "NODE_ENV=production rollup -c",
-    "postdist": "postdist.sh"
+    "dev": "yarn build -w",
+    "prebuild": "rm -rf build",
+    "build": "NODE_ENV=production rollup -c",
+    "postbuild": "postbuild.sh"
   },
   "repository": "https://github.com/envoy/polarwind",
   "author": "Envoy, Inc.",
@@ -21,8 +21,10 @@
     "design-system"
   ],
   "files": [
-    "dist",
-    "src"
+    "index.umd.js",
+    "index.esm.js",
+    "polarwind.css",
+    "polarwind.min.css"
   ],
   "peerDependencies": {
     "react": "^16.13.1"

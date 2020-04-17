@@ -1,3 +1,9 @@
 /node_modules
-/dist
+/build
 .DS_Store
+/index.esm.js
+/index.umd.js
+/package
+polarwind-v*.tgz
+/polarwind.css
+/polarwind.min.css

@@ -14,7 +14,7 @@ const minify = process.env.PHASE === "minify";
 
 const options = {
   purgecss: {
-    content: ["./dist/index.esm.js"],
+    content: ["./build/index.esm.js"],
     defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
   },
   cssnano: {},

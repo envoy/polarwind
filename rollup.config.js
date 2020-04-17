@@ -14,18 +14,18 @@ export default [
       babel({ exclude: "node_modules/**" }),
       commonjs(),
       postcss({
-        extract: "dist/polarwind.full.css",
+        extract: "build/polarwind.full.css",
         config: false, // don't use the config file. that'll be used by the postcss-cli
         plugins: [postcssImport, tailwindcss],
       }),
     ],
     output: [
       {
-        file: packageJson.module,
+        file: `build/${packageJson.module}`,
         format: "esm",
       },
       {
-        file: packageJson.main,
+        file: `build/${packageJson.main}`,
         format: "umd",
         globals: { react: "React" },
         name: "polarwind",
