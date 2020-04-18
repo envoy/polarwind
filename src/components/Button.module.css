@@ -1,5 +1,43 @@
 @import "../styles/common";
 
 .Button {
-  @apply bg-red-200;
+  @apply rounded bg-red-300 shadow-red transition ease-in-out duration-150;
+  @apply font-medium text-white;
+
+  &:hover {
+    @apply bg-red-400 shadow-red;
+  }
+
+  &:focus {
+    @apply outline-none shadow-outline-red;
+  }
+
+  &:active {
+    @apply bg-red-500;
+  }
+}
+
+.medium {
+  @apply px-24 pt-9 pb-7;
+  @apply text-base;
+}
+
+.slim {
+  @apply px-16 pt-8 pb-7;
+  @apply text-sm;
+}
+
+.large {
+  @apply px-32 pt-13 pb-11;
+  @apply text-base;
+}
+
+.disabled {
+  @apply bg-red-300;
+  @apply opacity-50;
+  @apply cursor-default;
+
+  &:hover {
+    @apply bg-red-300;
+  }
 }

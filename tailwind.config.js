@@ -20,7 +20,8 @@ module.exports = {
         100: "#ffeceb",
         200: "#ff7c73",
         300: "#ff4438",
-        400: "#a00c1f",
+        400: "#c52015", // hover state in sketch
+        500: "#a00c1f",
       },
       purple: {
         100: "#ececf5",
@@ -71,7 +72,25 @@ module.exports = {
       tight: 1.25,
       normal: 1.5,
     },
-    extend: {},
+    borderRadius: {
+      default: "6px",
+    },
+    spacing: {
+      7: "7px",
+      8: "8px",
+      9: "9px",
+      10: "10px",
+      11: "11px",
+      13: "13px",
+      16: "16px",
+      19: "19px",
+      24: "24px",
+      32: "32px",
+    },
+    boxShadow: {
+      red: "0 2px 12px 0 rgba(255, 68, 56, 0.3)",
+      "outline-red": "0 0 0 3px rgba(255, 124, 115, 0.5)",
+    },
   },
   variants: {},
   plugins: [],
