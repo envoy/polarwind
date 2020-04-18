@@ -42,6 +42,8 @@ module.exports = {
         400: "#bc781f",
       },
     },
+    // typography configs are based on
+    // https://github.com/envoy/garaje/blob/jon/style-guide-updates/app/styles/_type.scss
     fontFamily: {
       sans: [
         "SofiaPro",
@@ -87,6 +89,9 @@ module.exports = {
       24: "24px",
       32: "32px",
     },
+    // it's hard to extend boxShadow since it needs the complete string including color,
+    // which is why the best place to define it is by overriding the entire boxShadow
+    // theme
     boxShadow: {
       red: "0 2px 8px 0 rgba(255, 68, 56, 0.3)",
       "hover-red": "0 2px 12px 0 rgba(255, 68, 56, 0.3)",
