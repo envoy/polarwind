@@ -32,7 +32,7 @@ Polarwind uses Tailwind philosophy of styling the entire state of a component an
 pseudo selectors to override values. This paves the way for mobile-first designs that
 adapt to larger screens.
 
-The transpiled CSS is then tree shaken to remove unused styles via PurgeCSS to produce the
+The transpiled CSS is then trimmed to remove unused styles via PurgeCSS to produce the
 smallest CSS file needed.
 
 ### CSS-in-JS
