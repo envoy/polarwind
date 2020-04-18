@@ -12,7 +12,6 @@ const cx = classNames.bind(styles);
 export const Button = ({ children, disabled, size = "medium" }) => {
   const className = cx({
     Button: true,
-    medium: size === "medium",
     slim: size === "slim",
     large: size === "large",
     disabled,

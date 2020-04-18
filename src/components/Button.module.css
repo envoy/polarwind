@@ -2,24 +2,20 @@
 
 .Button {
   @apply rounded bg-red-300 shadow-red transition ease-in-out duration-150;
-  @apply font-medium text-white;
+  @apply font-medium text-white text-base;
+  @apply px-24 pt-9 pb-7;
 
-  &:hover {
-    @apply bg-red-400 shadow-red;
+  &:hover:enabled {
+    @apply bg-red-400 shadow-hover-red;
   }
 
-  &:focus {
+  &:focus:enabled {
     @apply outline-none shadow-outline-red;
   }
 
-  &:active {
+  &:active:enabled {
     @apply bg-red-500;
   }
-}
-
-.medium {
-  @apply px-24 pt-9 pb-7;
-  @apply text-base;
 }
 
 .slim {
@@ -29,15 +25,9 @@
 
 .large {
   @apply px-32 pt-13 pb-11;
-  @apply text-base;
 }
 
 .disabled {
-  @apply bg-red-300;
   @apply opacity-50;
-  @apply cursor-default;
-
-  &:hover {
-    @apply bg-red-300;
-  }
+  @apply cursor-default pointer-events-none;
 }

@@ -88,8 +88,9 @@ module.exports = {
       32: "32px",
     },
     boxShadow: {
-      red: "0 2px 12px 0 rgba(255, 68, 56, 0.3)",
-      "outline-red": "0 0 0 3px rgba(255, 124, 115, 0.5)",
+      red: "0 2px 8px 0 rgba(255, 68, 56, 0.3)",
+      "hover-red": "0 2px 12px 0 rgba(255, 68, 56, 0.3)",
+      "outline-red": "0 0 0 3px rgba(255, 68, 56, 0.3)",
     },
   },
   variants: {},
