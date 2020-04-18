@@ -46,5 +46,8 @@
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-postcss": "^2.6.4",
     "tailwindcss": "^1.2.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6"
   }
 }
