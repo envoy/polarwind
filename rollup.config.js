@@ -29,8 +29,8 @@ export default [
       {
         file: `build/${packageJson.main}`,
         format: "umd",
-        globals: { react: "React" },
         name: "polarwind",
+        globals: { react: "React", "prop-types": "PropTypes" },
       },
     ],
   },
