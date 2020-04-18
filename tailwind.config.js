@@ -42,7 +42,13 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["SofiaPro", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+      sans: [
+        "SofiaPro",
+        '"Helvetica Neue"',
+        "Helvetica",
+        "Arial",
+        "sans-serif",
+      ],
     },
     fontWeight: {
       normal: 400,
