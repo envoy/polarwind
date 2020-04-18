@@ -13,3 +13,12 @@
    Most things will be set as a theme by setting the `theme` keys directly, instead of
    using `extend`. In the end, it doesn't really matter because unused styles get removed
    by PurgeCSS anyway.
+
+## Recommended setup
+
+1. Use vscode
+
+2. Install the recommended vscode extensions
+
+   - Tailwind CSS IntelliSense: autocompletes this project's tailwind utility classes
+   - stylelint: eslint but for CSS. vscode's default css linter warns on modern CSS
