@@ -33,11 +33,11 @@
   @apply cursor-default pointer-events-none;
 }
 
-.outline {
-  @apply bg-transparent border-slate-300 text-slate-700 shadow-none;
+.plain {
+  @apply bg-transparent border-transparent text-slate-700 shadow-none;
 
   &:hover:enabled {
-    @apply bg-transparent border-slate-400 text-slate-600 shadow-none;
+    @apply bg-transparent text-slate-600 shadow-none;
   }
 
   &:focus:enabled {
@@ -47,5 +47,14 @@
   &:active:enabled {
     @apply text-slate-800;
     @apply bg-slate-100; /* sketch has #fbfbfb but that doesn't exist */
+  }
+}
+
+.outline {
+  composes: plain;
+  @apply border-slate-300;
+
+  &:hover:enabled {
+    @apply border-slate-400;
   }
 }
