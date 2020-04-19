@@ -9,12 +9,13 @@ const cx = classNames.bind(styles);
  * Plain buttons, which look similar to links, are used for less important or less
  * commonly used actions, such as "view settings".
  */
-export const Button = ({ children, disabled, size = "medium" }) => {
+export const Button = ({ children, disabled, outline, size = "medium" }) => {
   const className = cx({
     Button: true,
     slim: size === "slim",
     large: size === "large",
     disabled,
+    outline,
   });
 
   return (
@@ -29,6 +30,11 @@ Button.propTypes = {
   children: PropTypes.string,
   /** Disables the button, disallowing interaction */
   disabled: PropTypes.bool,
+  /**
+   * Gives the button a subtle alternative to the default button styling, appropriate for
+   * certain backdrops
+   */
+  outline: PropTypes.bool,
   /** Changes the size of the button, giving it more or less padding */
   size: PropTypes.oneOf(["slim", "medium", "large"]),
 };

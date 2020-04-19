@@ -11,10 +11,11 @@ module.exports = {
         100: "#f4f4f4",
         200: "#e9e8e8",
         300: "#d3d2d2",
-        400: "#918f8f",
-        500: "#706d6e",
-        600: "#4f4c4d",
-        700: "#231f20",
+        400: "#c8c7c7", // border hover
+        500: "#918f8f",
+        600: "#706d6e",
+        700: "#4f4c4d",
+        800: "#231f20",
       },
       red: {
         100: "#ffeceb",
@@ -93,10 +94,13 @@ module.exports = {
     // which is why the best place to define it is by overriding the entire boxShadow
     // theme
     boxShadow: {
+      none: "none",
+      outline: "0 0 0 3px rgba(211, 210, 210, 0.2)",
       red: "0 2px 8px 0 rgba(255, 68, 56, 0.3)",
       "hover-red": "0 2px 12px 0 rgba(255, 68, 56, 0.3)",
       "outline-red": "0 0 0 3px rgba(255, 68, 56, 0.3)",
     },
+    extend: {},
   },
   variants: {},
   plugins: [],
