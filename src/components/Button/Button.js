@@ -11,10 +11,21 @@ export const Button = ({
   children,
   className,
   disabled,
+  icon,
   plain,
   outline,
   size = "medium",
 }) => {
+  let iconMarkup;
+  if (icon && size !== "large") {
+    const Icon = icon;
+    iconMarkup = (
+      <span className={styles.icon}>
+        <Icon />
+      </span>
+    );
+  }
+
   className = cx(
     {
       Button: true,
@@ -28,6 +39,7 @@ export const Button = ({
 
   return (
     <button className={className} disabled={disabled}>
+      {iconMarkup}
       <span>{children}</span>
     </button>
   );
@@ -38,6 +50,8 @@ Button.propTypes = {
   children: PropTypes.string,
   /** Disables the button, disallowing interaction */
   disabled: PropTypes.bool,
+  /** Icon to display to the left of the button content */
+  icon: PropTypes.node,
   /** Similar to outline but without a border, appropriate for tertiary actions */
   plain: PropTypes.bool,
   /**

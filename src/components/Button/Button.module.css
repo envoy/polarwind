@@ -26,6 +26,12 @@
 .slim {
   @apply px-4 py-2.5;
   @apply text-sm leading-sm-normal;
+
+  .icon {
+    svg {
+      @apply h-base;
+    }
+  }
 }
 
 .large {
@@ -62,5 +68,13 @@
   &:hover:enabled,
   &:focus:enabled {
     @apply border-slate-400;
+  }
+}
+
+.icon {
+  @apply inline-block -ml-1 mr-1;
+
+  svg {
+    @apply h-lg;
   }
 }
