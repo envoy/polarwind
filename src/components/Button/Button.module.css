@@ -1,4 +1,4 @@
-@import "../styles/common";
+@import "../../styles/common";
 
 .Button {
   @apply rounded border border-red-300 bg-red-300 shadow-red transition ease-in-out duration-150;

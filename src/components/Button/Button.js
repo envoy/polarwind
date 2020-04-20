@@ -6,8 +6,8 @@ const cx = classNames.bind(styles);
 
 /**
  * Buttons are used primarily for actions, such as "Add", "Close", "Cancel", or "Save".
- * Plain buttons, which look similar to links, are used for less important or less
- * commonly used actions, such as "view settings".
+ * Plain buttons are used for less important or less commonly used actions, such as "view
+ * settings".
  */
 export const Button = ({
   children,
