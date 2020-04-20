@@ -1,0 +1,131 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Button } from "./Button";
+
+<Meta title="Actions/Button" component={Button} />
+
+# Button
+
+<Description of={Button} />
+
+## Props
+
+<Props of={Button} />
+
+## Examples
+
+### Normal button
+
+Used most in the interface. Only use another style if a button requires more or less
+visual weight.
+
+<Preview>
+  <Story name="Slim button">
+    <Button size="slim">Add product</Button>
+  </Story>
+  <Story name="Medium button">
+    <Button>Add product</Button>
+  </Story>
+  <Story name="Large button">
+    <Button size="large">Add product</Button>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Disabled slim button">
+    <Button size="slim" disabled>
+      Add product
+    </Button>
+  </Story>
+  <Story name="Disabled medium button">
+    <Button disabled>Add product</Button>
+  </Story>
+  <Story name="Disabled large button">
+    <Button size="large" disabled>
+      Add product
+    </Button>
+  </Story>
+</Preview>
+
+### Outline button
+
+Use against shaded or colorful backgrounds. An outline button will maintain the
+appropriate visual weight and won’t clash with the background color.
+
+<Preview>
+  <Story name="Slim outline button">
+    <Button outline size="slim">
+      Add product
+    </Button>
+  </Story>
+  <Story name="Outline button">
+    <Button outline>Add product</Button>
+  </Story>
+  <Story name="Large outline button">
+    <Button outline size="large">
+      Add product
+    </Button>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Disabled slim outline button">
+    <Button outline size="slim" disabled>
+      Add product
+    </Button>
+  </Story>
+  <Story name="Disabled outline button">
+    <Button outline disabled>
+      Add product
+    </Button>
+  </Story>
+  <Story name="Disabled large outline button">
+    <Button outline size="large" disabled>
+      Add product
+    </Button>
+  </Story>
+</Preview>
+
+### Plain button
+
+Use for less important or less commonly used actions since they’re less prominent. For
+example, plain buttons are used as actions in cards.
+
+<Preview>
+  <Story name="Slim plain button">
+    <Button plain size="slim">
+      Add products
+    </Button>
+  </Story>
+  <Story name="Plain button">
+    <Button plain>Add products</Button>
+  </Story>
+  <Story name="Large plain button">
+    <Button plain size="large">
+      Add products
+    </Button>
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Disabled slim plain button">
+    <Button plain size="slim" disabled>
+      Add products
+    </Button>
+  </Story>
+  <Story name="Disabled plain button">
+    <Button plain disabled>
+      Add products
+    </Button>
+  </Story>
+  <Story name="Disabled large plain button">
+    <Button plain size="large" disabled>
+      Add products
+    </Button>
+  </Story>
+</Preview>
