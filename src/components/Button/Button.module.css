@@ -37,7 +37,7 @@
   @apply bg-transparent border-transparent text-slate-700 shadow-none;
 
   &:hover:enabled {
-    @apply bg-transparent text-slate-600 shadow-none;
+    @apply bg-transparent text-slate-600 shadow-none border-transparent;
   }
 
   &:focus:enabled {
@@ -55,7 +55,8 @@
   composes: plain;
   @apply border-slate-300;
 
-  &:hover:enabled {
+  &:hover:enabled,
+  &:focus:enabled {
     @apply border-slate-400;
   }
 }
