@@ -10,7 +10,8 @@
     "build": "NODE_ENV=production rollup -c",
     "postbuild": "postbuild.sh",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build-storybook:docs": "build-storybook --docs -o public"
   },
   "repository": "https://github.com/envoy/polarwind",
   "author": "Envoy, Inc.",
