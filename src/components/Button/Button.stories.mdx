@@ -13,119 +13,62 @@ import { Button } from "./Button";
 
 <Description of={Button} />
 
-## Examples
-
-### Normal button
-
-Used most in the interface. Only use another style if a button requires more or less
-visual weight.
-
-<Preview>
-  <Story name="Slim button">
-    <Button size="slim">Add product</Button>
-  </Story>
-  <Story name="Medium button">
+<Preview withToolbar>
+  <Story name="Standard button">
     <Button>Add product</Button>
   </Story>
-  <Story name="Large button">
-    <Button size="large">Add product</Button>
-  </Story>
 </Preview>
-
-<Preview>
-  <Story name="Disabled slim button">
-    <Button size="slim" disabled>
-      Add product
-    </Button>
-  </Story>
-  <Story name="Disabled medium button">
-    <Button disabled>Add product</Button>
-  </Story>
-  <Story name="Disabled large button">
-    <Button size="large" disabled>
-      Add product
-    </Button>
-  </Story>
-</Preview>
-
-### Outline button
-
-Use against shaded or colorful backgrounds. An outline button will maintain the
-appropriate visual weight and won’t clash with the background color.
-
-<Preview>
-  <Story name="Slim outline button">
-    <Button outline size="slim">
-      Add product
-    </Button>
-  </Story>
-  <Story name="Outline button">
-    <Button outline>Add product</Button>
-  </Story>
-  <Story name="Large outline button">
-    <Button outline size="large">
-      Add product
-    </Button>
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="Disabled slim outline button">
-    <Button outline size="slim" disabled>
-      Add product
-    </Button>
-  </Story>
-  <Story name="Disabled outline button">
-    <Button outline disabled>
-      Add product
-    </Button>
-  </Story>
-  <Story name="Disabled large outline button">
-    <Button outline size="large" disabled>
-      Add product
-    </Button>
-  </Story>
-</Preview>
-
-### Plain button
-
-Use for less important or less commonly used actions since they’re less prominent. For
-example, plain buttons are used as actions in cards.
-
-<Preview>
-  <Story name="Slim plain button">
-    <Button plain size="slim">
-      View settings
-    </Button>
-  </Story>
-  <Story name="Plain button">
-    <Button plain>View settings</Button>
-  </Story>
-  <Story name="Large plain button">
-    <Button plain size="large">
-      View settings
-    </Button>
-  </Story>
-</Preview>
-
-<Preview>
-  <Story name="Disabled slim plain button">
-    <Button plain size="slim" disabled>
-      View settings
-    </Button>
-  </Story>
-  <Story name="Disabled plain button">
-    <Button plain disabled>
-      View settings
-    </Button>
-  </Story>
-  <Story name="Disabled large plain button">
-    <Button plain size="large" disabled>
-      View settings
-    </Button>
-  </Story>
-</Preview>
-
-## Props
 
 <Props of={Button} />
+
+## Usage
+
+### Sizes
+
+Apart from the standard button, we support slim and large variant buttons.
+
+<Preview>
+  <Story name="Sizes">
+    <div className="flex justify-around">
+      <Button size="slim">Add product</Button>
+      <Button size="large">Add product</Button>
+    </div>
+  </Story>
+</Preview>
+
+### Styles
+
+An outline button will maintain the appropriate visual weight and won’t clash with the
+background color. For secondary actions, the outline style is appropriate while the plain
+style can be used for tertiary actions.
+
+<Preview>
+  <Story name="Styles">
+    <div className="flex justify-around">
+      <div>
+        <Button className="mr-1">Invite</Button>
+        <Button outline>Invite and add another</Button>
+      </div>
+      <Button plain>Cancel</Button>
+    </div>
+  </Story>
+</Preview>
+
+### Disabled
+
+Used to indicate that the button is not clickable. This is used in situations where a
+condition has not been fulfilled, for example, when a form has a validation error.
+
+<Preview>
+  <Story name="Disabled">
+    <div className="flex justify-around">
+      <Button disabled>Add product</Button>
+      <Button outline disabled>
+        Add product
+      </Button>
+      <Button plain disabled>
+        Add product
+      </Button>
+    </div>
+  </Story>
+</Preview>
