@@ -6,24 +6,26 @@ const cx = classNames.bind(styles);
 
 /**
  * Buttons are used primarily for actions, such as "Add", "Close", "Cancel", or "Save".
- * Plain buttons are used for less important or less commonly used actions, such as "view
- * settings".
  */
 export const Button = ({
   children,
+  className,
   disabled,
   plain,
   outline,
   size = "medium",
 }) => {
-  const className = cx({
-    Button: true,
-    slim: size === "slim",
-    large: size === "large",
-    disabled,
-    outline,
-    plain,
-  });
+  className = cx(
+    {
+      Button: true,
+      slim: size === "slim",
+      large: size === "large",
+      disabled,
+      outline,
+      plain,
+    },
+    className
+  );
 
   return (
     <button className={className} disabled={disabled}>
