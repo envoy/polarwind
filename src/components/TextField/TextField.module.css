@@ -2,7 +2,7 @@
   @apply rounded;
 
   label {
-    @apply text-slate-600 text-sm mb-8;
+    @apply text-slate-600 text-sm inline-flex items-center;
   }
 
   input {
@@ -39,5 +39,12 @@
 
   p {
     @apply text-yellow-400 text-xs leading-normal mt-4;
+  }
+}
+
+.required {
+  label::after {
+    @apply block bg-red-300 rounded h-4 w-4 ml-4;
+    content: " ";
   }
 }
