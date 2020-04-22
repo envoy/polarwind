@@ -1,6 +1,10 @@
 .TextField {
   @apply rounded;
 
+  label {
+    @apply text-slate-600 text-sm mb-8;
+  }
+
   input {
     @apply block w-full appearance-none;
     @apply border border-slate-300 rounded p-8 outline-none;
