@@ -16,6 +16,10 @@
       @apply shadow-outline-blue;
     }
   }
+
+  p {
+    @apply text-xs leading-normal text-slate-500 mt-4;
+  }
 }
 
 /**
@@ -38,7 +42,13 @@
   }
 
   p {
-    @apply text-yellow-400 text-xs leading-normal mt-4;
+    @apply text-yellow-400;
+  }
+}
+
+.success {
+  p {
+    @apply text-green-300;
   }
 }
 
