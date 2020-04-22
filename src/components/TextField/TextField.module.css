@@ -1,8 +1,3 @@
-/**
- * The wrapper is required so that we can display the glow on focus. We've already used up
- * the input's box-shadow as a way to apply a 2px border without changing the size of the
- * input
- */
 .TextField {
   @apply rounded;
 
@@ -19,17 +14,26 @@
   }
 }
 
-.focus {
+/**
+ * The wrapper is required so that we can display the glow on focus. We've already used up
+ * the input's box-shadow as a way to apply a 2px border without changing the size of the
+ * input
+ */
+.focus .input-shadow {
   @apply shadow-blue;
 }
 
 .error {
-  &.focus {
+  &.focus .input-shadow {
     @apply shadow-yellow;
   }
 
   input,
   input:focus:enabled {
     @apply border-yellow-300 shadow-outline-yellow;
+  }
+
+  p {
+    @apply text-yellow-400 text-xs leading-normal mt-4;
   }
 }

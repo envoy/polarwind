@@ -18,6 +18,8 @@ export const TextField = ({ error, type = "text" }) => {
     setFocus(false);
   };
 
+  const errorMarkup = error && <p>{error}</p>;
+
   const className = cx({
     TextField: true,
     error: error && error.length > 1,
@@ -26,7 +28,10 @@ export const TextField = ({ error, type = "text" }) => {
 
   return (
     <div className={className}>
-      <input type={type} onFocus={onFocus} onBlur={onBlur}></input>
+      <div className="input-shadow">
+        <input type={type} onFocus={onFocus} onBlur={onBlur} />
+      </div>
+      {errorMarkup}
     </div>
   );
 };
