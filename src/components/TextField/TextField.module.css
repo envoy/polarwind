@@ -22,3 +22,14 @@
 .focus {
   @apply shadow-blue;
 }
+
+.error {
+  &.focus {
+    @apply shadow-yellow;
+  }
+
+  input,
+  input:focus:enabled {
+    @apply border-yellow-300 shadow-outline-yellow;
+  }
+}

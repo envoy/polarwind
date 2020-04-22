@@ -104,6 +104,8 @@ module.exports = {
       "outline-red": "0 0 0 3px rgba(255, 68, 56, 0.3)",
       blue: "0 1px 3px 0 rgba(65, 65, 162, 0.2)",
       "outline-blue": "0 0 0 1px #4141a2",
+      yellow: "0 1px 3px 0 rgba(242, 165, 63, 0.2)",
+      "outline-yellow": "0 0 0 1px #f2a53f",
     },
     extend: {},
   },

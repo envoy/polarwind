@@ -20,3 +20,16 @@ import { TextField } from "./TextField";
 </Preview>
 
 <Props of={TextField} />
+
+# Usage
+
+## With error
+
+When the `error` prop is set, the field will display an error state. The error message
+will take precedence over the `helpText` if set.
+
+<Preview>
+  <Story name="With error">
+    <TextField error="Name can't be empty" />
+  </Story>
+</Preview>
