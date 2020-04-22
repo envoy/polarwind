@@ -42,6 +42,9 @@ module.exports = {
         300: "#f2a53f",
         400: "#bc781f",
       },
+      blue: {
+        100: "#4141a2",
+      },
     },
     // typography configs are based on
     // https://github.com/envoy/garaje/blob/jon/style-guide-updates/app/styles/_type.scss
@@ -99,6 +102,8 @@ module.exports = {
       red: "0 2px 8px 0 rgba(255, 68, 56, 0.3)",
       "hover-red": "0 2px 12px 0 rgba(255, 68, 56, 0.3)",
       "outline-red": "0 0 0 3px rgba(255, 68, 56, 0.3)",
+      blue: "0 1px 3px 0 rgba(65, 65, 162, 0.2)",
+      "outline-blue": "0 0 0 1px #4141a2",
     },
     extend: {},
   },

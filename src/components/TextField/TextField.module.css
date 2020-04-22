@@ -1,0 +1,24 @@
+/**
+ * The wrapper is required so that we can display the glow on focus. We've already used up
+ * the input's box-shadow as a way to apply a 2px border without changing the size of the
+ * input
+ */
+.TextField {
+  @apply rounded;
+
+  input {
+    @apply block w-full appearance-none;
+    @apply border border-slate-300 rounded p-8 outline-none;
+    @apply text-slate-700 leading-normal;
+
+    &:focus:enabled {
+      @apply border-blue-100;
+      /** the hack to get 2px border without changing the size of the input */
+      @apply shadow-outline-blue;
+    }
+  }
+}
+
+.focus {
+  @apply shadow-blue;
+}
