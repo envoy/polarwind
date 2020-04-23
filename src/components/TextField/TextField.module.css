@@ -8,12 +8,6 @@
     @apply border border-slate-300 rounded p-8 outline-none;
     @apply text-slate-700 leading-normal;
 
-    &:focus:enabled {
-      @apply border-blue-100;
-      /** the hack to get 2px border without changing the size of the input */
-      @apply shadow-outline-blue;
-    }
-
     &::placeholder {
       @apply text-slate-500;
     }
@@ -36,6 +30,12 @@
 .focus {
   .inputShadow {
     @apply shadow-blue;
+  }
+
+  input {
+    @apply border-blue-100;
+    /** the hack to get 2px border without changing the size of the input */
+    @apply shadow-outline-blue;
   }
 }
 

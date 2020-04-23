@@ -12,18 +12,19 @@ const cx = classNames.bind(styles);
  */
 export const TextField = ({
   error,
+  focused,
   helpText,
   label,
   success,
   required,
   type = "text",
 }) => {
-  const [focus, setFocus] = useState(false);
+  const [focus, setFocus] = useState(focused || false);
   const onFocus = () => {
-    setFocus(true);
+    setFocus(focused || true);
   };
   const onBlur = () => {
-    setFocus(false);
+    setFocus(focused || false);
   };
 
   const labelHidden = type === "search";
@@ -73,6 +74,8 @@ export const TextField = ({
 TextField.propTypes = {
   /** Error to display beneath the label */
   error: PropTypes.string,
+  /** Forces the focused state of the input */
+  focused: PropTypes.bool,
   /** Additional hint text to display */
   helpText: PropTypes.string,
   /** Label for the input */

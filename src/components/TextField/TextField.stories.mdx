@@ -66,3 +66,17 @@ will still be able to read the visually hidden label.
     <TextField type="search" label="Search" />
   </Story>
 </Preview>
+
+## Focused state
+
+Forces the focused state of the text fields
+
+<Preview>
+  <Story name="Focused">
+    <div className="flex flex-col justify-around h-1">
+      <TextField label="Name" focused />
+      <TextField label="Name" error="Bad news" focused />
+      <TextField type="search" label="Search" focused />
+    </div>
+  </Story>
+</Preview>
