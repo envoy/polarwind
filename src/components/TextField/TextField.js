@@ -1,8 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import styles from "./TextField.module.css";
 import classNames from "classnames/bind";
 import { UIDConsumer } from "react-uid";
+import styles from "./TextField.module.css";
 import { Label } from "./components";
 
 const cx = classNames.bind(styles);
