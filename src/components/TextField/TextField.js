@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./TextField.module.css";
 import classNames from "classnames/bind";
 import { UIDConsumer } from "react-uid";
+import { Label } from "./components";
 
 const cx = classNames.bind(styles);
 
@@ -30,9 +31,9 @@ export const TextField = ({
   const labelHidden = type === "search";
 
   const labelMarkup = (id) => (
-    <label htmlFor={id} className={cx({ labelHidden })}>
+    <Label id={id} hidden={labelHidden} required={required}>
       {label}
-    </label>
+    </Label>
   );
 
   const helpTextMarkup = helpText && <p>{helpText}</p>;

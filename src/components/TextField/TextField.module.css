@@ -1,8 +1,4 @@
 .TextField {
-  label {
-    @apply text-slate-600 text-sm inline-flex items-center;
-  }
-
   input {
     @apply block w-full appearance-none;
     @apply border border-slate-300 rounded p-8 outline-none;
@@ -69,15 +65,4 @@
   p {
     @apply text-green-300;
   }
-}
-
-.required {
-  label::after {
-    @apply block bg-red-300 rounded h-4 w-4 ml-4;
-    content: " ";
-  }
-}
-
-.labelHidden {
-  @apply sr-only;
 }

@@ -1,0 +1,12 @@
+.Label {
+  @apply text-slate-600 text-sm inline-flex items-center;
+}
+
+.required::after {
+  @apply block bg-red-300 rounded h-4 w-4 ml-4;
+  content: " ";
+}
+
+.hidden {
+  @apply sr-only;
+}
