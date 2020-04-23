@@ -62,10 +62,7 @@ export const TextField = ({
       <TextStyle variation="warning">{error}</TextStyle>
     </Caption>
   );
-
-  const captionMarkup = disabled
-    ? helpTextMarkup
-    : errorMarkup || successMarkup || helpTextMarkup;
+  const captionMarkup = errorMarkup || successMarkup || helpTextMarkup;
 
   const isError = error && error.length > 1;
 
