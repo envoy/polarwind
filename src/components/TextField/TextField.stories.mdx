@@ -54,3 +54,15 @@ field. The success message will take precedence over the `helpText` if set.
     />
   </Story>
 </Preview>
+
+## Search field
+
+Search fields automatically get the rounded borders and hidden label. You will still need
+to set the `label` prop which will be used for the placeholder instead. Screen readers
+will still be able to read the visually hidden label.
+
+<Preview>
+  <Story name="Search field">
+    <TextField type="search" label="Search" />
+  </Story>
+</Preview>

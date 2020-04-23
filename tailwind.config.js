@@ -80,6 +80,7 @@ module.exports = {
     },
     borderRadius: {
       default: "6px",
+      full: "9999px",
     },
     spacing: {
       4: "4px",
@@ -93,6 +94,7 @@ module.exports = {
       23: "23px",
       24: "24px",
       31: "31px",
+      32: "32px",
     },
     // it's hard to extend boxShadow since it needs the complete string including color,
     // which is why the best place to define it is by overriding the entire boxShadow

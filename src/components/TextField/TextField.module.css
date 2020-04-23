@@ -1,6 +1,4 @@
 .TextField {
-  @apply rounded;
-
   label {
     @apply text-slate-600 text-sm inline-flex items-center;
   }
@@ -15,6 +13,10 @@
       /** the hack to get 2px border without changing the size of the input */
       @apply shadow-outline-blue;
     }
+
+    &::placeholder {
+      @apply text-slate-500;
+    }
   }
 
   p {
@@ -27,13 +29,31 @@
  * the input's box-shadow as a way to apply a 2px border without changing the size of the
  * input
  */
-.focus .input-shadow {
-  @apply shadow-blue;
+.inputShadow {
+  @apply rounded;
+}
+
+.focus {
+  .inputShadow {
+    @apply shadow-blue;
+  }
+}
+
+.search {
+  .inputShadow {
+    @apply rounded-full;
+  }
+
+  input {
+    @apply rounded-full pl-32;
+  }
 }
 
 .error {
-  &.focus .input-shadow {
-    @apply shadow-yellow;
+  &.focus {
+    .inputShadow {
+      @apply shadow-yellow;
+    }
   }
 
   input,
@@ -57,4 +77,8 @@
     @apply block bg-red-300 rounded h-4 w-4 ml-4;
     content: " ";
   }
+}
+
+.labelHidden {
+  @apply sr-only;
 }

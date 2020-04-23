@@ -26,7 +26,13 @@ export const TextField = ({
     setFocus(false);
   };
 
-  const labelMarkup = (id) => <label htmlFor={id}>{label}</label>;
+  const labelHidden = type === "search";
+
+  const labelMarkup = (id) => (
+    <label htmlFor={id} className={cx({ labelHidden })}>
+      {label}
+    </label>
+  );
 
   const helpTextMarkup = helpText && <p>{helpText}</p>;
   const successMarkup = success && <p>{success}</p>;
@@ -36,6 +42,7 @@ export const TextField = ({
 
   const className = cx({
     TextField: true,
+    search: type === "search",
     error: isError,
     focus,
     required,
@@ -47,8 +54,14 @@ export const TextField = ({
       {(id) => (
         <div className={className}>
           {labelMarkup(id)}
-          <div className="input-shadow">
-            <input type={type} id={id} onFocus={onFocus} onBlur={onBlur} />
+          <div className={styles.inputShadow}>
+            <input
+              type={type}
+              id={id}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              placeholder={labelHidden ? label : undefined}
+            />
           </div>
           {errorMarkup || successMarkup || helpTextMarkup}
         </div>
@@ -69,5 +82,5 @@ TextField.propTypes = {
   /** Success message to display beneath the label */
   success: PropTypes.string,
   /** Determines the type of input */
-  type: PropTypes.oneOf(["text"]),
+  type: PropTypes.oneOf(["text", "search"]),
 };
