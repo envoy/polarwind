@@ -48,21 +48,16 @@ export const TextField = ({
   }
 
   const helpTextMarkup = helpText && (
-    <Caption>
-      <TextStyle variation="subdued">{helpText}</TextStyle>
-    </Caption>
+    <TextStyle variation="subdued">{helpText}</TextStyle>
   );
   const successMarkup = success && (
-    <Caption>
-      <TextStyle variation="positive">{success}</TextStyle>
-    </Caption>
+    <TextStyle variation="positive">{success}</TextStyle>
   );
   const errorMarkup = error && (
-    <Caption>
-      <TextStyle variation="warning">{error}</TextStyle>
-    </Caption>
+    <TextStyle variation="warning">{error}</TextStyle>
   );
-  const captionMarkup = errorMarkup || successMarkup || helpTextMarkup;
+  const hasCaption = errorMarkup || successMarkup || helpTextMarkup;
+  const captionMarkup = hasCaption && <Caption>{hasCaption}</Caption>;
 
   const isError = error && error.length > 1;
 
@@ -75,7 +70,7 @@ export const TextField = ({
     wrapper: true,
     error,
     focus,
-    hasCaption: captionMarkup,
+    hasCaption,
     disabled,
   });
 
