@@ -1,0 +1,107 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { TextField } from "./TextField";
+
+<Meta title="Forms/Text field" component={TextField} />
+
+# Text field
+
+<Description of={TextField} />
+
+<Preview withToolbar>
+  <Story name="Text field">
+    <TextField label="Name" required helpText="Help me out" />
+  </Story>
+</Preview>
+
+<Props of={TextField} />
+
+# Usage
+
+## Text field with validation error
+
+When the `error` prop is set, the field will display an error state. The error message
+will take precedence over the `success` and `helpText` if set.
+
+<Preview>
+  <Story name="Text field with validation error">
+    <TextField
+      label="Name"
+      error="Name can't be empty"
+      success="Saved" // not shown
+      helpText="Help me out" // not shown
+      required
+    />
+  </Story>
+</Preview>
+
+## Text field with success
+
+When the `success` prop is set, the field will display the success message below the
+field. The success message will take precedence over the `helpText` if set.
+
+<Preview>
+  <Story name="Text field with success">
+    <TextField
+      label="Name"
+      success="Saved"
+      helpText="Help me out" // not shown
+    />
+  </Story>
+</Preview>
+
+## Search field
+
+Search fields automatically get the rounded borders and hidden label. You will still need
+to set the `label` prop which will be used for the placeholder instead. Screen readers
+will still be able to read the visually hidden label.
+
+<Preview>
+  <Story name="Search field">
+    <TextField type="search" label="Search" />
+  </Story>
+</Preview>
+
+## Focused state
+
+Forces the focused state of the text fields.
+
+<Preview>
+  <Story name="Focused">
+    <div className="flex flex-col justify-around h-1">
+      <TextField label="Name" focused />
+      <TextField label="Name" error="Bad news" focused />
+      <TextField type="search" label="Search" focused />
+    </div>
+  </Story>
+</Preview>
+
+## Disabled state
+
+The disabled state makes an input read-only. In the unlikely scenario where an validation
+error input is also disabled, the disabled state overrides the error state.
+
+<Preview>
+  <Story name="Disabled">
+    <div className="flex flex-col justify-around h-1">
+      <TextField
+        label="Input with a value"
+        value="Hello, world"
+        focused
+        disabled
+      />
+      <TextField
+        label="Username (with error)"
+        error="Username can't be empty"
+        helpText="Choose a unique username"
+        disabled
+      />
+      <TextField type="search" label="Search" disabled />
+    </div>
+  </Story>
+</Preview>

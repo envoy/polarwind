@@ -42,6 +42,9 @@ module.exports = {
         300: "#f2a53f",
         400: "#bc781f",
       },
+      blue: {
+        100: "#4141a2",
+      },
     },
     // typography configs are based on
     // https://github.com/envoy/garaje/blob/jon/style-guide-updates/app/styles/_type.scss
@@ -77,8 +80,10 @@ module.exports = {
     },
     borderRadius: {
       default: "6px",
+      full: "9999px",
     },
     spacing: {
+      4: "4px",
       6: "6px",
       7: "7px",
       8: "8px",
@@ -89,6 +94,7 @@ module.exports = {
       23: "23px",
       24: "24px",
       31: "31px",
+      32: "32px",
     },
     // it's hard to extend boxShadow since it needs the complete string including color,
     // which is why the best place to define it is by overriding the entire boxShadow
@@ -99,6 +105,10 @@ module.exports = {
       red: "0 2px 8px 0 rgba(255, 68, 56, 0.3)",
       "hover-red": "0 2px 12px 0 rgba(255, 68, 56, 0.3)",
       "outline-red": "0 0 0 3px rgba(255, 68, 56, 0.3)",
+      blue: "0 1px 3px 1px rgba(65, 65, 162, 0.2)",
+      "outline-blue": "0 0 0 1px #4141a2",
+      yellow: "0 1px 3px 1px rgba(242, 165, 63, 0.2)",
+      "outline-yellow": "0 0 0 1px #f2a53f",
     },
     extend: {},
   },

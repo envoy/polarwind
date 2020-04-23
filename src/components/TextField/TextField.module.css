@@ -1,0 +1,58 @@
+input {
+  @apply block w-full appearance-none;
+  @apply border border-slate-300 rounded p-8 outline-none;
+  @apply text-slate-700 leading-normal;
+
+  &::placeholder {
+    @apply text-slate-500;
+  }
+}
+
+/**
+ * We've already used up the input's box-shadow as a way to apply a 2px border without
+ * changing the size of the input, so this wrapper is used to render the glow around the
+ * text field on focus.
+ */
+.wrapper {
+  @apply rounded;
+
+  &.hasCaption {
+    @apply mb-4;
+  }
+
+  &.focus:not(.disabled) {
+    @apply shadow-blue;
+
+    input:enabled {
+      @apply border-blue-100;
+      /** the hack to get 2px border without changing the size of the input */
+      @apply shadow-outline-blue;
+    }
+  }
+
+  &.error:not(.disabled) {
+    &.focus {
+      @apply shadow-yellow;
+    }
+
+    input:enabled {
+      @apply border-yellow-300 shadow-outline-yellow;
+    }
+  }
+}
+
+.search {
+  .wrapper {
+    @apply rounded-full;
+  }
+
+  input {
+    @apply rounded-full pl-32;
+  }
+}
+
+.disabled {
+  input {
+    @apply border-slate-500 bg-slate-100 text-slate-600;
+  }
+}
