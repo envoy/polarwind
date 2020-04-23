@@ -23,30 +23,34 @@ import { TextField } from "./TextField";
 
 # Usage
 
-## With error
+## Text field with validation error
 
 When the `error` prop is set, the field will display an error state. The error message
 will take precedence over the `success` and `helpText` if set.
 
 <Preview>
-  <Story name="With error">
+  <Story name="Text field with validation error">
     <TextField
       label="Name"
       error="Name can't be empty"
-      success="Saved"
-      helpText="Help me out"
+      success="Saved" // not shown
+      helpText="Help me out" // not shown
       required
     />
   </Story>
 </Preview>
 
-## With success
+## Text field with success
 
 When the `success` prop is set, the field will display the success message below the
 field. The success message will take precedence over the `helpText` if set.
 
 <Preview>
-  <Story name="With success">
-    <TextField label="Name" success="Saved" helpText="Help me out" />
+  <Story name="Text field with success">
+    <TextField
+      label="Name"
+      success="Saved"
+      helpText="Help me out" // not shown
+    />
   </Story>
 </Preview>
