@@ -5,13 +5,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 export const TextStyle = ({ children, variation }) => {
-  const className = cx({
-    subdued: variation === "subdued",
-    positive: variation === "positive",
-    negative: variation === "negative",
-    warning: variation === "warning",
-  });
-
+  const className = cx(variation);
   return <span className={className}>{children}</span>;
 };
 
