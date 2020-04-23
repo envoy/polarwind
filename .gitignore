@@ -9,3 +9,5 @@ polarwind-v*.tgz
 /polarwind.min.css
 
 .now
+/storybook-static
+/.envrc
