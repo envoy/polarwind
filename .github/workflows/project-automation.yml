@@ -1,0 +1,14 @@
+name: Assign issue to project
+on:
+  issues:
+    types: [opened]
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: skeet70/default-project-board-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          issue: ${{ github.event.issue.number }}
+          project: 1
