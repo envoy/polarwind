@@ -9,11 +9,11 @@ input {
 }
 
 /**
- * The wrapper is required so that we can display the glow on focus. We've already used up
- * the input's box-shadow as a way to apply a 2px border without changing the size of the
- * input
+ * We've already used up the input's box-shadow as a way to apply a 2px border without
+ * changing the size of the input, so this wrapper is used to render the glow around the
+ * text field on focus.
  */
-.inputShadow {
+.wrapper {
   @apply rounded mb-4;
 
   &.focus {

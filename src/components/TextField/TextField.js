@@ -61,8 +61,8 @@ export const TextField = ({
     error: isError,
   });
 
-  const inputShadowClassName = cx({
-    inputShadow: true,
+  const wrapperClassName = cx({
+    wrapper: true,
     error,
     focus,
   });
@@ -72,7 +72,7 @@ export const TextField = ({
       {(id) => (
         <div className={className}>
           {labelMarkup(id)}
-          <div className={inputShadowClassName}>
+          <div className={wrapperClassName}>
             <input
               type={type}
               id={id}
