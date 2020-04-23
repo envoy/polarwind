@@ -14,7 +14,11 @@ input {
  * text field on focus.
  */
 .wrapper {
-  @apply rounded mb-4;
+  @apply rounded;
+
+  &.hasCaption {
+    @apply mb-4;
+  }
 
   &.focus {
     @apply shadow-blue;

@@ -53,6 +53,7 @@ export const TextField = ({
       <TextStyle variation="warning">{error}</TextStyle>
     </Caption>
   );
+  const captionMarkup = errorMarkup || successMarkup || helpTextMarkup;
 
   const isError = error && error.length > 1;
 
@@ -65,6 +66,7 @@ export const TextField = ({
     wrapper: true,
     error,
     focus,
+    hasCaption: captionMarkup,
   });
 
   return (
@@ -81,7 +83,7 @@ export const TextField = ({
               placeholder={labelHidden ? label : undefined}
             />
           </div>
-          {errorMarkup || successMarkup || helpTextMarkup}
+          {captionMarkup}
         </div>
       )}
     </UIDConsumer>
