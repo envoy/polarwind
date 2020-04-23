@@ -24,21 +24,21 @@ input {
       /** the hack to get 2px border without changing the size of the input */
       @apply shadow-outline-blue;
     }
+  }
 
-    &.error {
+  &.error {
+    &.focus {
       @apply shadow-yellow;
+    }
+
+    input:enabled {
+      @apply border-yellow-300 shadow-outline-yellow;
     }
   }
 }
 
-.error {
-  input:enabled {
-    @apply border-yellow-300 shadow-outline-yellow;
-  }
-}
-
 .search {
-  .inputShadow {
+  .wrapper {
     @apply rounded-full;
   }
 
