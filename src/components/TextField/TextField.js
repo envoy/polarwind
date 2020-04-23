@@ -42,8 +42,6 @@ export const TextField = ({
 
   // The disabled state overrides any inflight error or success state to present a
   // pristine input.
-  // TODO: check if toggling the disabled field will restore the error and success props
-  // as they were before
   if (disabled) {
     error = null;
     success = null;
