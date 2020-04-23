@@ -20,7 +20,7 @@ input {
     @apply mb-4;
   }
 
-  &.focus {
+  &.focus:not(.disabled) {
     @apply shadow-blue;
 
     input:enabled {
@@ -30,7 +30,7 @@ input {
     }
   }
 
-  &.error {
+  &.error:not(.disabled) {
     &.focus {
       @apply shadow-yellow;
     }
@@ -48,5 +48,11 @@ input {
 
   input {
     @apply rounded-full pl-32;
+  }
+}
+
+.disabled {
+  input {
+    @apply border-slate-500 bg-slate-100 text-slate-600;
   }
 }

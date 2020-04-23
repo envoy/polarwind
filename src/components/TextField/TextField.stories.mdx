@@ -69,7 +69,7 @@ will still be able to read the visually hidden label.
 
 ## Focused state
 
-Forces the focused state of the text fields
+Forces the focused state of the text fields.
 
 <Preview>
   <Story name="Focused">
@@ -77,6 +77,31 @@ Forces the focused state of the text fields
       <TextField label="Name" focused />
       <TextField label="Name" error="Bad news" focused />
       <TextField type="search" label="Search" focused />
+    </div>
+  </Story>
+</Preview>
+
+## Disabled state
+
+The disabled state makes an input read-only. In the unlikely scenario where an validation
+error input is also disabled, the disabled state overrides the error state.
+
+<Preview>
+  <Story name="Disabled">
+    <div className="flex flex-col justify-around h-1">
+      <TextField
+        label="Input with a value"
+        value="Hello, world"
+        focused
+        disabled
+      />
+      <TextField
+        label="Username (with error)"
+        error="Username can't be empty"
+        helpText="Choose a unique username"
+        disabled
+      />
+      <TextField type="search" label="Search" disabled />
     </div>
   </Story>
 </Preview>

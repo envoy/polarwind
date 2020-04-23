@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
  * supports several text formats including numbers.
  */
 export const TextField = ({
+  disabled,
   error,
   focused,
   helpText,
@@ -21,6 +22,7 @@ export const TextField = ({
   success,
   required,
   type = "text",
+  value,
 }) => {
   const [focus, setFocus] = useState(focused || false);
   const onFocus = () => {
@@ -38,6 +40,15 @@ export const TextField = ({
     </Label>
   );
 
+  // The disabled state overrides any inflight error or success state to present a
+  // pristine input.
+  // TODO: check if toggling the disabled field will restore the error and success props
+  // as they were before
+  if (disabled) {
+    error = null;
+    success = null;
+  }
+
   const helpTextMarkup = helpText && (
     <Caption>
       <TextStyle variation="subdued">{helpText}</TextStyle>
@@ -53,7 +64,10 @@ export const TextField = ({
       <TextStyle variation="warning">{error}</TextStyle>
     </Caption>
   );
-  const captionMarkup = errorMarkup || successMarkup || helpTextMarkup;
+
+  const captionMarkup = disabled
+    ? helpTextMarkup
+    : errorMarkup || successMarkup || helpTextMarkup;
 
   const isError = error && error.length > 1;
 
@@ -67,6 +81,7 @@ export const TextField = ({
     error,
     focus,
     hasCaption: captionMarkup,
+    disabled,
   });
 
   return (
@@ -81,6 +96,8 @@ export const TextField = ({
               onFocus={onFocus}
               onBlur={onBlur}
               placeholder={labelHidden ? label : undefined}
+              value={value}
+              disabled={disabled}
             />
           </div>
           {captionMarkup}
@@ -91,6 +108,8 @@ export const TextField = ({
 };
 
 TextField.propTypes = {
+  /** Disable the input */
+  disabled: PropTypes.bool,
   /** Error to display beneath the label */
   error: PropTypes.string,
   /** Forces the focused state of the input */
@@ -105,4 +124,6 @@ TextField.propTypes = {
   success: PropTypes.string,
   /** Determines the type of input */
   type: PropTypes.oneOf(["text", "search"]),
+  /** Initial value for the input */
+  value: PropTypes.string,
 };
