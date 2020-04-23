@@ -11,7 +11,8 @@
     "postbuild": "postbuild.sh",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-storybook:docs": "build-storybook --docs -o public"
+    "build-storybook:docs": "build-storybook --docs -o public",
+    "snapshot": "build-storybook && percy-storybook --widths=1280"
   },
   "repository": "https://github.com/envoy/polarwind",
   "author": "Envoy, Inc.",
