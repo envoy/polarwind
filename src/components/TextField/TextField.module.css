@@ -1,12 +1,10 @@
-.TextField {
-  input {
-    @apply block w-full appearance-none;
-    @apply border border-slate-300 rounded p-8 outline-none;
-    @apply text-slate-700 leading-normal;
+input {
+  @apply block w-full appearance-none;
+  @apply border border-slate-300 rounded p-8 outline-none;
+  @apply text-slate-700 leading-normal;
 
-    &::placeholder {
-      @apply text-slate-500;
-    }
+  &::placeholder {
+    @apply text-slate-500;
   }
 }
 
@@ -17,17 +15,25 @@
  */
 .inputShadow {
   @apply rounded mb-4;
+
+  &.focus {
+    @apply shadow-blue;
+
+    input:enabled {
+      @apply border-blue-100;
+      /** the hack to get 2px border without changing the size of the input */
+      @apply shadow-outline-blue;
+    }
+
+    &.error {
+      @apply shadow-yellow;
+    }
+  }
 }
 
-.focus {
-  .inputShadow {
-    @apply shadow-blue;
-  }
-
+.error {
   input:enabled {
-    @apply border-blue-100;
-    /** the hack to get 2px border without changing the size of the input */
-    @apply shadow-outline-blue;
+    @apply border-yellow-300 shadow-outline-yellow;
   }
 }
 
@@ -38,17 +44,5 @@
 
   input {
     @apply rounded-full pl-32;
-  }
-}
-
-.error {
-  &.focus {
-    .inputShadow {
-      @apply shadow-yellow;
-    }
-  }
-
-  input:enabled {
-    @apply border-yellow-300 shadow-outline-yellow;
   }
 }

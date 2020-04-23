@@ -57,11 +57,14 @@ export const TextField = ({
   const isError = error && error.length > 1;
 
   const className = cx({
-    TextField: true,
     search: type === "search",
     error: isError,
+  });
+
+  const inputShadowClassName = cx({
+    inputShadow: true,
+    error,
     focus,
-    required,
   });
 
   return (
@@ -69,7 +72,7 @@ export const TextField = ({
       {(id) => (
         <div className={className}>
           {labelMarkup(id)}
-          <div className={styles.inputShadow}>
+          <div className={inputShadowClassName}>
             <input
               type={type}
               id={id}
