@@ -62,17 +62,6 @@ module.exports = {
       medium: 500,
       bold: 600,
     },
-    fontSize: {
-      xxs: "10px",
-      xs: "12px",
-      sm: "14px",
-      base: "16px",
-      lg: "20px",
-      xl: "24px",
-      "2xl": "32px",
-      "3xl": "48px",
-      "4xl": "72px",
-    },
     lineHeight: {
       none: 1,
       tight: 1.25,
