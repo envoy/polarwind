@@ -19,6 +19,7 @@ export const TextField = ({
   focused,
   helpText,
   label,
+  onChange,
   success,
   required,
   type = "text",
@@ -30,6 +31,10 @@ export const TextField = ({
   };
   const onBlur = () => {
     setFocus(focused || false);
+  };
+
+  const handleChange = (event) => {
+    onChange && onChange(event.currentTarget.value);
   };
 
   const labelHidden = type === "search";
@@ -83,6 +88,7 @@ export const TextField = ({
             <input
               type={type}
               id={id}
+              onChange={handleChange}
               onFocus={onFocus}
               onBlur={onBlur}
               placeholder={labelHidden ? label : undefined}
@@ -108,6 +114,8 @@ TextField.propTypes = {
   helpText: PropTypes.string,
   /** Label for the input */
   label: PropTypes.string.isRequired,
+  /** Callback when value is changed */
+  onChange: PropTypes.func,
   /** Mark the field as required */
   required: PropTypes.bool,
   /** Success message to display beneath the label */

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Meta,
   Story,
@@ -15,7 +16,11 @@ import { TextField } from "./TextField";
 
 <Preview withToolbar>
   <Story name="Text field">
-    <TextField label="Name" required helpText="Help me out" />
+    {() => {
+      const [value, setValue] = useState("Esteban Arango");
+      // prettier-ignore
+      return <TextField label="Name" required helpText="Help me out" value={value} onChange={setValue} />
+    }}
   </Story>
 </Preview>
 
