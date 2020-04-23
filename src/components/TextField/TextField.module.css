@@ -8,10 +8,6 @@
       @apply text-slate-500;
     }
   }
-
-  p {
-    @apply text-xs leading-normal text-slate-500 mt-4;
-  }
 }
 
 /**
@@ -20,7 +16,7 @@
  * input
  */
 .inputShadow {
-  @apply rounded;
+  @apply rounded mb-4;
 }
 
 .focus {
@@ -54,15 +50,5 @@
 
   input:enabled {
     @apply border-yellow-300 shadow-outline-yellow;
-  }
-
-  p {
-    @apply text-yellow-400;
-  }
-}
-
-.success {
-  p {
-    @apply text-green-300;
   }
 }

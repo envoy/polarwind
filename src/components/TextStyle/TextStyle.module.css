@@ -1,0 +1,15 @@
+.subdued {
+  @apply text-slate-500;
+}
+
+.positive {
+  @apply text-green-300;
+}
+
+.negative {
+  @apply text-red-300;
+}
+
+.warning {
+  @apply text-yellow-400;
+}

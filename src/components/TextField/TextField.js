@@ -4,6 +4,8 @@ import classNames from "classnames/bind";
 import { UIDConsumer } from "react-uid";
 import styles from "./TextField.module.css";
 import { Label } from "./components";
+import { TextStyle } from "../TextStyle";
+import { Caption } from "../Caption";
 
 const cx = classNames.bind(styles);
 
@@ -36,9 +38,21 @@ export const TextField = ({
     </Label>
   );
 
-  const helpTextMarkup = helpText && <p>{helpText}</p>;
-  const successMarkup = success && <p>{success}</p>;
-  const errorMarkup = error && <p>{error}</p>;
+  const helpTextMarkup = helpText && (
+    <Caption>
+      <TextStyle variation="subdued">{helpText}</TextStyle>
+    </Caption>
+  );
+  const successMarkup = success && (
+    <Caption>
+      <TextStyle variation="positive">{success}</TextStyle>
+    </Caption>
+  );
+  const errorMarkup = error && (
+    <Caption>
+      <TextStyle variation="warning">{error}</TextStyle>
+    </Caption>
+  );
 
   const isError = error && error.length > 1;
 
@@ -48,7 +62,6 @@ export const TextField = ({
     error: isError,
     focus,
     required,
-    success: !isError && success && success.length > 1,
   });
 
   return (
