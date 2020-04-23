@@ -26,10 +26,10 @@ export const TextField = ({
   value,
 }) => {
   const [focus, setFocus] = useState(focused || false);
-  const onFocus = () => {
+  const handleFocus = () => {
     setFocus(focused || true);
   };
-  const onBlur = () => {
+  const handleBlur = () => {
     setFocus(focused || false);
   };
 
@@ -89,8 +89,8 @@ export const TextField = ({
               type={type}
               id={id}
               onChange={handleChange}
-              onFocus={onFocus}
-              onBlur={onBlur}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
               placeholder={labelHidden ? label : undefined}
               value={value}
               disabled={disabled}
