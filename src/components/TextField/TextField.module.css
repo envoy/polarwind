@@ -1,83 +1,52 @@
-.TextField {
-  label {
-    @apply text-slate-600 text-sm inline-flex items-center;
-  }
+input {
+  @apply block w-full appearance-none;
+  @apply border border-slate-300 rounded p-8 outline-none;
+  @apply text-slate-700 leading-normal;
 
-  input {
-    @apply block w-full appearance-none;
-    @apply border border-slate-300 rounded p-8 outline-none;
-    @apply text-slate-700 leading-normal;
-
-    &::placeholder {
-      @apply text-slate-500;
-    }
-  }
-
-  p {
-    @apply text-xs leading-normal text-slate-500 mt-4;
+  &::placeholder {
+    @apply text-slate-500;
   }
 }
 
 /**
- * The wrapper is required so that we can display the glow on focus. We've already used up
- * the input's box-shadow as a way to apply a 2px border without changing the size of the
- * input
+ * We've already used up the input's box-shadow as a way to apply a 2px border without
+ * changing the size of the input, so this wrapper is used to render the glow around the
+ * text field on focus.
  */
-.inputShadow {
+.wrapper {
   @apply rounded;
-}
 
-.focus {
-  .inputShadow {
-    @apply shadow-blue;
+  &.hasCaption {
+    @apply mb-4;
   }
 
-  input:enabled {
-    @apply border-blue-100;
-    /** the hack to get 2px border without changing the size of the input */
-    @apply shadow-outline-blue;
+  &.focus {
+    @apply shadow-blue;
+
+    input:enabled {
+      @apply border-blue-100;
+      /** the hack to get 2px border without changing the size of the input */
+      @apply shadow-outline-blue;
+    }
+  }
+
+  &.error {
+    &.focus {
+      @apply shadow-yellow;
+    }
+
+    input:enabled {
+      @apply border-yellow-300 shadow-outline-yellow;
+    }
   }
 }
 
 .search {
-  .inputShadow {
+  .wrapper {
     @apply rounded-full;
   }
 
   input {
     @apply rounded-full pl-32;
   }
-}
-
-.error {
-  &.focus {
-    .inputShadow {
-      @apply shadow-yellow;
-    }
-  }
-
-  input:enabled {
-    @apply border-yellow-300 shadow-outline-yellow;
-  }
-
-  p {
-    @apply text-yellow-400;
-  }
-}
-
-.success {
-  p {
-    @apply text-green-300;
-  }
-}
-
-.required {
-  label::after {
-    @apply block bg-red-300 rounded h-4 w-4 ml-4;
-    content: " ";
-  }
-}
-
-.labelHidden {
-  @apply sr-only;
 }

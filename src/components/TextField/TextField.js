@@ -1,8 +1,11 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import styles from "./TextField.module.css";
 import classNames from "classnames/bind";
 import { UIDConsumer } from "react-uid";
+import styles from "./TextField.module.css";
+import { Label } from "./components";
+import { TextStyle } from "../TextStyle";
+import { Caption } from "../Caption";
 
 const cx = classNames.bind(styles);
 
@@ -30,24 +33,40 @@ export const TextField = ({
   const labelHidden = type === "search";
 
   const labelMarkup = (id) => (
-    <label htmlFor={id} className={cx({ labelHidden })}>
+    <Label id={id} hidden={labelHidden} required={required}>
       {label}
-    </label>
+    </Label>
   );
 
-  const helpTextMarkup = helpText && <p>{helpText}</p>;
-  const successMarkup = success && <p>{success}</p>;
-  const errorMarkup = error && <p>{error}</p>;
+  const helpTextMarkup = helpText && (
+    <Caption>
+      <TextStyle variation="subdued">{helpText}</TextStyle>
+    </Caption>
+  );
+  const successMarkup = success && (
+    <Caption>
+      <TextStyle variation="positive">{success}</TextStyle>
+    </Caption>
+  );
+  const errorMarkup = error && (
+    <Caption>
+      <TextStyle variation="warning">{error}</TextStyle>
+    </Caption>
+  );
+  const captionMarkup = errorMarkup || successMarkup || helpTextMarkup;
 
   const isError = error && error.length > 1;
 
   const className = cx({
-    TextField: true,
     search: type === "search",
     error: isError,
+  });
+
+  const wrapperClassName = cx({
+    wrapper: true,
+    error,
     focus,
-    required,
-    success: !isError && success && success.length > 1,
+    hasCaption: captionMarkup,
   });
 
   return (
@@ -55,7 +74,7 @@ export const TextField = ({
       {(id) => (
         <div className={className}>
           {labelMarkup(id)}
-          <div className={styles.inputShadow}>
+          <div className={wrapperClassName}>
             <input
               type={type}
               id={id}
@@ -64,7 +83,7 @@ export const TextField = ({
               placeholder={labelHidden ? label : undefined}
             />
           </div>
-          {errorMarkup || successMarkup || helpTextMarkup}
+          {captionMarkup}
         </div>
       )}
     </UIDConsumer>
