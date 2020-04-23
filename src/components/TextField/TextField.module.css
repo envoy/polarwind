@@ -1,10 +1,38 @@
 input {
   @apply block w-full appearance-none;
-  @apply border border-slate-300 rounded p-8 outline-none;
-  @apply text-slate-700 leading-normal;
+  /* default shape */
+  @apply rounded p-8;
+  /* default border/focus ring */
+  @apply border border-slate-300 outline-none;
 
+  /* default text formatting */
+  @apply text-slate-700 leading-normal;
   &::placeholder {
     @apply text-slate-500;
+  }
+
+  /* override shape of text field for search */
+  .search & {
+    @apply rounded-full pl-32;
+  }
+
+  /* set border of text field on focus */
+  .focus:not(:disabled, .error) &:enabled {
+    @apply border-blue-100;
+    /* the hack to get 2px border without changing the size of the input */
+    @apply shadow-outline-blue;
+  }
+
+  /* set border of error field, always yellow */
+  .error &:enabled {
+    @apply border-yellow-300;
+    /* the hack to get 2px border without changing the size of the input */
+    @apply shadow-outline-yellow;
+  }
+
+  /* set border when disabled */
+  &:disabled {
+    @apply border-slate-500 bg-slate-100 text-slate-600;
   }
 }
 
@@ -16,43 +44,19 @@ input {
 .wrapper {
   @apply rounded;
 
+  .search & {
+    @apply rounded-full;
+  }
+
   &.hasCaption {
     @apply mb-4;
   }
 
-  &.focus:not(.disabled) {
+  &.focus:not(.disabled, .error) {
     @apply shadow-blue;
-
-    input:enabled {
-      @apply border-blue-100;
-      /** the hack to get 2px border without changing the size of the input */
-      @apply shadow-outline-blue;
-    }
   }
 
-  &.error:not(.disabled) {
-    &.focus {
-      @apply shadow-yellow;
-    }
-
-    input:enabled {
-      @apply border-yellow-300 shadow-outline-yellow;
-    }
-  }
-}
-
-.search {
-  .wrapper {
-    @apply rounded-full;
-  }
-
-  input {
-    @apply rounded-full pl-32;
-  }
-}
-
-.disabled {
-  input {
-    @apply border-slate-500 bg-slate-100 text-slate-600;
+  &.error.focus {
+    @apply shadow-yellow;
   }
 }
