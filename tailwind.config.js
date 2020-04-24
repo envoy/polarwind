@@ -73,8 +73,6 @@ module.exports = {
     boxShadow: {
       none: "none",
       outline: "0 0 0 3px rgba(211, 210, 210, 0.2)",
-      red: "0 2px 8px 0 rgba(255, 68, 56, 0.3)",
-      "hover-red": "0 2px 12px 0 rgba(255, 68, 56, 0.3)",
       "outline-red": "0 0 0 3px rgba(255, 68, 56, 0.3)",
       blue: "0 1px 3px 1px rgba(65, 65, 162, 0.2)",
       "outline-blue": "0 0 0 1px #4141a2",
