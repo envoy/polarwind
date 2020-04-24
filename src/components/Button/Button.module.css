@@ -3,7 +3,6 @@
 .Button {
   @apply rounded-md border border-red-300 bg-red-300 shadow-red transition ease-in-out duration-150;
   @apply font-medium text-white text-base;
-  /* the diff vertical padding below is a workaround for optically centering SofiaPro */
   @apply px-6 py-3;
 
   &:hover:enabled {
