@@ -1,10 +1,9 @@
 @import "../../styles/common";
 
 .Button {
-  @apply rounded border border-red-300 bg-red-300 shadow-red transition ease-in-out duration-150;
+  @apply rounded-md border border-red-300 bg-red-300 shadow-red transition ease-in-out duration-150;
   @apply font-medium text-white text-base;
-  /* the diff vertical padding below is a workaround for optically centering SofiaPro */
-  @apply px-24 pt-8 pb-6;
+  @apply px-6 py-3;
 
   &:hover:enabled {
     @apply bg-red-400 border-red-400 shadow-hover-red;
@@ -20,12 +19,12 @@
 }
 
 .slim {
-  @apply px-16 pt-7 pb-6;
+  @apply px-4 py-2;
   @apply text-sm;
 }
 
 .large {
-  @apply px-31 pt-12 pb-11;
+  @apply px-8 py-4;
 }
 
 .disabled {

@@ -1,7 +1,7 @@
 input {
   @apply block w-full appearance-none;
   /* default shape */
-  @apply rounded p-8;
+  @apply rounded-md p-2;
   /* default border/focus ring */
   @apply border border-slate-300 outline-none;
 
@@ -13,7 +13,7 @@ input {
 
   /* override shape of text field for search */
   .search & {
-    @apply rounded-full pl-32;
+    @apply rounded-full pl-8;
   }
 
   /* set border of text field on focus */
@@ -49,7 +49,7 @@ input {
   }
 
   &.hasCaption {
-    @apply mb-4;
+    @apply mb-1;
   }
 
   &.focus:not(.disabled, .error) {
