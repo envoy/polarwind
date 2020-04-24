@@ -1,3 +1,10 @@
+const hexRgb = require("hex-rgb");
+
+function rgba(hex, alpha) {
+  const { red, green, blue } = hexRgb(hex);
+  return `rgba(${[red, green, blue, alpha]})`;
+}
+
 module.exports = {
   theme: {
     colors: {
@@ -72,10 +79,10 @@ module.exports = {
     // theme
     boxShadow: {
       none: "none",
-      outline: "0 0 0 3px rgba(211, 210, 210, 0.2)",
-      "outline-red": "0 0 0 3px rgba(255, 68, 56, 0.3)",
-      "input-blue": "0 0 0 1px #4141a2, 0 1px 3px 0 rgba(65, 65, 162, 0.2)",
-      "input-yellow": "0 0 0 1px #f2a53f, 0 1px 3px 0 rgba(242, 165, 63, 0.2)",
+      outline: `0 0 0 3px ${rgba("#d3d2d2", 0.2)}`,
+      "outline-red": `0 0 0 3px ${rgba("#ff4438", 0.3)}`,
+      "input-blue": `0 0 0 1px #4141a2, 0 1px 3px 0 ${rgba("#4141a2", 0.2)}`,
+      "input-yellow": `0 0 0 1px #f2a53f, 0 1px 3px 0 ${rgba("#f2a53f", 0.2)}`,
       "input-blur-yellow": "0 0 0 1px #f2a53f",
     },
     extend: {},
