@@ -1,12 +1,12 @@
 @import "../../styles/common";
 
 .Button {
-  @apply rounded-md border border-red-300 bg-red-300 shadow-red transition ease-in-out duration-150;
+  @apply rounded-md border border-red-300 bg-red-300 transition ease-in-out duration-150;
   @apply font-medium text-white text-base;
   @apply px-6 py-3;
 
   &:hover:enabled {
-    @apply bg-red-400 border-red-400 shadow-hover-red;
+    @apply bg-red-400 border-red-400;
   }
 
   &:focus:enabled {
@@ -33,10 +33,10 @@
 }
 
 .plain {
-  @apply bg-transparent border-transparent text-slate-700 shadow-none;
+  @apply bg-transparent border-transparent text-slate-700;
 
   &:hover:enabled {
-    @apply bg-transparent text-slate-600 shadow-none border-transparent;
+    @apply bg-transparent text-slate-600 border-transparent;
   }
 
   &:focus:enabled {
