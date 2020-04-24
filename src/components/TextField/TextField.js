@@ -74,7 +74,7 @@ export const TextField = ({
   return (
     <UIDConsumer>
       {(id) => (
-        <>
+        <div>
           {labelMarkup(id)}
           <input
             className={className}
@@ -88,7 +88,7 @@ export const TextField = ({
             disabled={disabled}
           />
           {captionMarkup}
-        </>
+        </div>
       )}
     </UIDConsumer>
   );
