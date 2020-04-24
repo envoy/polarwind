@@ -67,20 +67,6 @@ module.exports = {
       tight: 1.25,
       normal: 1.5,
     },
-    spacing: {
-      4: "4px",
-      6: "6px",
-      7: "7px",
-      8: "8px",
-      11: "11px",
-      12: "12px",
-      15: "15px",
-      16: "16px",
-      23: "23px",
-      24: "24px",
-      31: "31px",
-      32: "32px",
-    },
     // it's hard to extend boxShadow since it needs the complete string including color,
     // which is why the best place to define it is by overriding the entire boxShadow
     // theme
