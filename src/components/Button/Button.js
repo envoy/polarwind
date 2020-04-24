@@ -18,12 +18,11 @@ export const Button = ({
   className = cx(
     {
       Button: true,
-      slim: size === "slim",
-      large: size === "large",
       disabled,
       outline,
       plain,
     },
+    size,
     className
   );
 
