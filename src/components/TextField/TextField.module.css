@@ -10,11 +10,16 @@
   &::placeholder {
     @apply text-slate-500;
   }
-}
 
-.focused:enabled:not(.error),
-:focus {
-  @apply border-blue-100 shadow-input-blue;
+  /* set border when disabled */
+  &:disabled {
+    @apply border-slate-500 bg-slate-100 text-slate-600;
+  }
+
+  &.focused:enabled:not(.error),
+  &:focus {
+    @apply border-blue-100 shadow-input-blue;
+  }
 }
 
 /* override shape of text field for search */
@@ -32,11 +37,6 @@
     /* with glow */
     @apply shadow-input-yellow;
   }
-}
-
-/* set border when disabled */
-:disabled {
-  @apply border-slate-500 bg-slate-100 text-slate-600;
 }
 
 .hasCaption {
