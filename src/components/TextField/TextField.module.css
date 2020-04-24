@@ -1,62 +1,44 @@
-input {
+.TextField {
   @apply block w-full appearance-none;
   /* default shape */
   @apply rounded-md p-2;
   /* default border/focus ring */
   @apply border border-slate-300 outline-none;
-
   /* default text formatting */
   @apply text-slate-700 leading-normal;
-  &::placeholder {
-    @apply text-slate-500;
-  }
+}
 
-  /* override shape of text field for search */
-  .search & {
-    @apply rounded-full pl-8;
-  }
+::placeholder {
+  @apply text-slate-500;
+}
 
-  /* set border of text field on focus */
-  .focus:not(:disabled, .error) &:enabled {
-    @apply border-blue-100;
-    /* the hack to get 2px border without changing the size of the input */
-    @apply shadow-outline-blue;
-  }
+.focused:enabled:not(.error),
+:focus {
+  @apply border-blue-100 shadow-input-blue;
+}
 
-  /* set border of error field, always yellow */
-  .error &:enabled {
-    @apply border-yellow-300;
-    /* the hack to get 2px border without changing the size of the input */
-    @apply shadow-outline-yellow;
-  }
+/* override shape of text field for search */
+.search {
+  @apply rounded-full pl-8;
+}
 
-  /* set border when disabled */
-  &:disabled {
-    @apply border-slate-500 bg-slate-100 text-slate-600;
+/* set border of error field, always yellow */
+.error {
+  @apply border-yellow-300;
+  /* no glow */
+  @apply shadow-input-blur-yellow;
+
+  &:focus {
+    /* with glow */
+    @apply shadow-input-yellow;
   }
 }
 
-/**
- * We've already used up the input's box-shadow as a way to apply a 2px border without
- * changing the size of the input, so this wrapper is used to render the glow around the
- * text field on focus.
- */
-.wrapper {
-  @apply rounded;
+/* set border when disabled */
+:disabled {
+  @apply border-slate-500 bg-slate-100 text-slate-600;
+}
 
-  .search & {
-    @apply rounded-full;
-  }
-
-  &.hasCaption {
-    @apply mb-1;
-  }
-
-  &.focus:not(.disabled, .error) {
-    @apply shadow-blue;
-  }
-
-  &.error.focus {
-    @apply shadow-yellow;
-  }
+.hasCaption {
+  @apply mb-1;
 }
