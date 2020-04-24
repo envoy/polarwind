@@ -1,7 +1,7 @@
 input {
   @apply block w-full appearance-none;
   /* default shape */
-  @apply rounded p-8;
+  @apply rounded-md p-8;
   /* default border/focus ring */
   @apply border border-slate-300 outline-none;
 

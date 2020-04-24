@@ -67,10 +67,6 @@ module.exports = {
       tight: 1.25,
       normal: 1.5,
     },
-    borderRadius: {
-      default: "6px",
-      full: "9999px",
-    },
     spacing: {
       4: "4px",
       6: "6px",
