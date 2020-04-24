@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 import { UIDConsumer } from "react-uid";
@@ -27,35 +26,21 @@ export const TextField = ({
   type = "text",
   value,
 }) => {
-  const [focus, setFocus] = useState(focused || false);
-  const handleFocus = () => {
-    setFocus(focused || true);
-    onFocus && onFocus();
-  };
-  const handleBlur = () => {
-    setFocus(focused || false);
-    onBlur && onBlur();
-  };
-
-  const handleChange = (event) => {
-    onChange && onChange(event.currentTarget.value);
-  };
-
+  // == LABEL ==
   const labelHidden = type === "search";
-
   const labelMarkup = (id) => (
     <Label id={id} hidden={labelHidden} required={required}>
       {label}
     </Label>
   );
 
+  // == CAPTION ==
   // The disabled state overrides any inflight error or success state to present a
   // pristine input.
   if (disabled) {
     error = null;
     success = null;
   }
-
   const helpTextMarkup = helpText && (
     <TextStyle variation="subdued">{helpText}</TextStyle>
   );
@@ -68,38 +53,40 @@ export const TextField = ({
   const hasCaption = errorMarkup || successMarkup || helpTextMarkup;
   const captionMarkup = hasCaption && <Caption>{hasCaption}</Caption>;
 
-  const isError = error && error.length > 1;
-
+  // == INPUT ==
+  const handleFocus = () => {
+    onFocus && onFocus();
+  };
+  const handleBlur = () => {
+    onBlur && onBlur();
+  };
+  const handleChange = (event) => {
+    onChange && onChange(event.currentTarget.value);
+  };
   const className = cx({
+    TextField: true,
     search: type === "search",
-    error: isError,
-  });
-
-  const wrapperClassName = cx({
-    wrapper: true,
     error,
-    focus,
     hasCaption,
-    disabled,
+    focused,
   });
 
   return (
     <UIDConsumer>
       {(id) => (
-        <div className={className}>
+        <div>
           {labelMarkup(id)}
-          <div className={wrapperClassName}>
-            <input
-              type={type}
-              id={id}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              placeholder={labelHidden ? label : undefined}
-              value={value}
-              disabled={disabled}
-            />
-          </div>
+          <input
+            className={className}
+            type={type}
+            id={id}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            placeholder={labelHidden ? label : undefined}
+            value={value}
+            disabled={disabled}
+          />
           {captionMarkup}
         </div>
       )}
