@@ -6,10 +6,10 @@
   @apply border border-slate-300 outline-none;
   /* default text formatting */
   @apply text-slate-700 leading-normal;
-}
 
-::placeholder {
-  @apply text-slate-500;
+  &::placeholder {
+    @apply text-slate-500;
+  }
 }
 
 .focused:enabled:not(.error),
