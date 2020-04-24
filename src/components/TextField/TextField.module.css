@@ -17,7 +17,7 @@
   }
 
   &.focused:enabled:not(.error),
-  &:focus {
+  &:focus:not(.error) {
     @apply border-blue-100 shadow-input-blue;
   }
 }
