@@ -77,14 +77,20 @@ module.exports = {
     // it's hard to extend boxShadow since it needs the complete string including color,
     // which is why the best place to define it is by overriding the entire boxShadow
     // theme
-    boxShadow: {
+    boxShadow: (theme) => ({
       none: "none",
-      outline: `0 0 0 3px ${rgba("#d3d2d2", 0.2)}`,
-      "outline-red": `0 0 0 3px ${rgba("#ff4438", 0.3)}`,
-      "input-blue": `0 0 0 1px #4141a2, 0 1px 3px 0 ${rgba("#4141a2", 0.2)}`,
-      "input-yellow": `0 0 0 1px #f2a53f, 0 1px 3px 0 ${rgba("#f2a53f", 0.2)}`,
-      "input-blur-yellow": "0 0 0 1px #f2a53f",
-    },
+      outline: `0 0 0 3px ${rgba(theme("colors.slate.300"), 0.2)}`,
+      "outline-red": `0 0 0 3px ${rgba(theme("colors.red.300"), 0.3)}`,
+      "input-blue": [
+        `0 0 0 1px ${theme("colors.blue.100")}`,
+        `0 1px 3px 0 ${rgba(theme("colors.blue.100"), 0.2)}`,
+      ].join(),
+      "input-yellow": [
+        `0 0 0 1px ${theme("colors.yellow.300")}`,
+        `0 1px 3px 0 ${rgba(theme("colors.yellow.300"), 0.2)}`,
+      ].join(),
+      "input-blur-yellow": `0 0 0 1px ${theme("colors.yellow.300")}`,
+    }),
     extend: {},
   },
   variants: {},
