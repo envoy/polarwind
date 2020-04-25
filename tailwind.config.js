@@ -94,5 +94,14 @@ module.exports = {
     extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require("./src/plugins/fontMetrics")({
+      infix: "sophiapro",
+      emSquare: 1000,
+      ascender: 756,
+      descender: -244,
+      capitalHeight: 689,
+      lineGap: 355,
+    }),
+  ],
 };
