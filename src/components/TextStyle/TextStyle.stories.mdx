@@ -1,0 +1,66 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { TextStyle } from "./TextStyle";
+
+<Meta title="Titles and text/Text style" component={TextStyle} />
+
+# Text style
+
+<Description of={TextStyle} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <TextStyle variation="subdued">No visitors found</TextStyle>
+  </Story>
+</Preview>
+
+<Props of={TextStyle} />
+
+## Usage
+
+### Subdued text style
+
+Use to de-emphasize a piece of text that is less important to users than other nearby
+text. May also be used to indicate when normal content is absent, for example, "No
+visitors found". Don't use only for aesthetic effect.
+
+<Preview>
+  <Story name="Subdued text style">
+    <TextStyle variation="subdued">No visitors found</TextStyle>
+  </Story>
+</Preview>
+
+### Positive text style
+
+Use to communicate a successful operation.
+
+<Preview>
+  <Story name="Positive text style">
+    <TextStyle variation="positive">Successfully saved</TextStyle>
+  </Story>
+</Preview>
+
+### Negative text style
+
+Use to communicate that something went wrong.
+
+<Preview>
+  <Story name="Negative text style">
+    <TextStyle variation="negative">Unable to contact server</TextStyle>
+  </Story>
+</Preview>
+
+### Warning text style
+
+Use to communicate that a fixable error has occured.
+
+<Preview>
+  <Story name="Warning text style">
+    <TextStyle variation="warning">Name can't be empty</TextStyle>
+  </Story>
+</Preview>
