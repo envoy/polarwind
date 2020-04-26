@@ -6,6 +6,7 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { Button } from "./Button";
+import { FiTrash2 } from "react-icons/fi";
 
 <Meta title="Actions/Button" component={Button} />
 
@@ -68,6 +69,25 @@ condition has not been fulfilled, for example, when a form has a validation erro
       </Button>
       <Button plain disabled>
         Add product
+      </Button>
+    </div>
+  </Story>
+</Preview>
+
+### Icon
+
+`Button` accepts an `icon` prop to display an icon on the left of the button. It is only
+supported on the slim and normal buttons.
+
+<Preview>
+  <Story name="Icon">
+    <div className="flex justify-around sm:flex-col">
+      <Button size="slim" icon={FiTrash2}>
+        Delete
+      </Button>
+      <Button icon={FiTrash2}>Delete</Button>
+      <Button size="large" icon={FiTrash2}>
+        Delete
       </Button>
     </div>
   </Story>

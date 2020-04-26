@@ -100,5 +100,29 @@ module.exports = function ({
       })
     );
     addUtilities(verticalAligns, variants("verticalAlign"));
+
+    const heights = _.fromPairs(
+      _.map(capHeights, ([modifier, capHeight]) => {
+        return [
+          `.h-${e(modifier)}`,
+          {
+            height: capHeight + "px",
+          },
+        ];
+      })
+    );
+    addUtilities(heights, variants("height"));
+
+    const widths = _.fromPairs(
+      _.map(capHeights, ([modifier, capHeight]) => {
+        return [
+          `.w-${e(modifier)}`,
+          {
+            width: capHeight + "px",
+          },
+        ];
+      })
+    );
+    addUtilities(widths, variants("width"));
   };
 };
