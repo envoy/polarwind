@@ -17,6 +17,10 @@
   &:active:enabled {
     @apply bg-red-500 border-red-500;
   }
+
+  span {
+    @apply align-base;
+  }
 }
 
 .slim {

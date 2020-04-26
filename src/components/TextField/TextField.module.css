@@ -5,7 +5,7 @@
   /* default border/focus ring */
   @apply border border-slate-300 outline-none;
   /* default text formatting */
-  @apply text-slate-700 leading-normal;
+  @apply text-slate-700 text-base leading-base-normal;
 
   &::placeholder {
     @apply text-slate-500;
