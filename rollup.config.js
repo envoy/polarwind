@@ -2,6 +2,7 @@ import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
 import postcss from "rollup-plugin-postcss";
 import resolve from "@rollup/plugin-node-resolve";
+import postcssPresetEnv from "postcss-preset-env";
 import postcssImport from "postcss-import";
 import postcssNested from "postcss-nested";
 import tailwindcss from "tailwindcss";
@@ -18,7 +19,12 @@ export default [
       postcss({
         extract: "build/polarwind.full.css",
         config: false, // don't use the config file. that'll be used by the postcss-cli
-        plugins: [postcssImport, postcssNested, tailwindcss],
+        plugins: [
+          postcssPresetEnv({ stage: 0, browsers: "last 2 versions" }),
+          postcssImport,
+          postcssNested,
+          tailwindcss,
+        ],
       }),
     ],
     output: [
