@@ -24,7 +24,7 @@ module.exports = function ({
   }
 
   function lineHeight(lineHeight, capHeight) {
-    return lineHeight * capHeight - valign(capHeight);
+    return (lineHeight * capHeight - valign(capHeight)).toPrecision(2);
   }
 
   function valign(capHeight) {
