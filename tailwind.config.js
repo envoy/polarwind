@@ -96,7 +96,6 @@ module.exports = {
   variants: {},
   plugins: [
     require("./src/plugins/fontMetrics")({
-      infix: "sophiapro",
       emSquare: 1000,
       ascender: 756,
       descender: -244,
@@ -104,4 +103,9 @@ module.exports = {
       lineGap: 355,
     }),
   ],
+  corePlugins: {
+    fontSize: false,
+    lineHeight: false,
+    verticalAlign: false,
+  },
 };

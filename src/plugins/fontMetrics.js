@@ -1,7 +1,6 @@
 const _ = require("lodash");
 
 module.exports = function ({
-  infix,
   emSquare,
   ascender,
   descender,
@@ -46,7 +45,7 @@ module.exports = function ({
     const fontSizes = _.fromPairs(
       _.map(capHeights, ([modifier, capHeight]) => {
         return [
-          `.${e(`text-${infix}-${modifier}`)}`,
+          `.${e(`text-${modifier}`)}`,
           {
             "font-size": fontSize(capHeight) + "px",
           },
@@ -60,7 +59,7 @@ module.exports = function ({
       _.flatMap(theme("lineHeight"), (value, modifier) => {
         return _.map(capHeights, ([fontSizeModifier, fontSize]) => {
           return [
-            `.${e(`leading-${infix}-${fontSizeModifier}-${modifier}`)}`,
+            `.${e(`leading-${fontSizeModifier}-${modifier}`)}`,
             {
               "line-height": lineHeight(value, fontSize) + "px",
             },
