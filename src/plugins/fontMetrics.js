@@ -35,14 +35,14 @@ module.exports = function ({
     );
   }
 
-  function capitalHeights(theme) {
-    return _.map(theme("fontSize"), (value, modifier) => {
+  function capitalHeights(fontSizes) {
+    return _.map(fontSizes, (value, modifier) => {
       return [modifier, capHeight(value)];
     });
   }
 
   return function ({ addUtilities, theme, e, variants, config }) {
-    const capHeights = capitalHeights(theme);
+    const capHeights = capitalHeights(theme("fontSize"));
 
     const fontSizes = _.fromPairs(
       _.map(capHeights, ([modifier, capHeight]) => {
