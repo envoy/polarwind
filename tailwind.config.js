@@ -91,7 +91,13 @@ module.exports = {
       ].join(),
       "input-blur-yellow": `0 0 0 1px ${theme("colors.yellow.300")}`,
     }),
-    extend: {},
+    extend: {
+      spacing: {
+        2.5: "0.604rem",
+        2.75: "0.6666rem",
+        3.5: "0.9165rem",
+      },
+    },
   },
   variants: {},
   plugins: [
