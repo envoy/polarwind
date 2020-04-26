@@ -69,5 +69,17 @@ module.exports = function ({
       })
     );
     addUtilities(lineHeights, variants("lineHeight"));
+
+    const verticalAligns = _.fromPairs(
+      _.map(capHeights, ([modifier, capHeight]) => {
+        return [
+          `.align-${e(modifier)}`,
+          {
+            "vertical-align": `-${valign(capHeight)}px`,
+          },
+        ];
+      })
+    );
+    addUtilities(verticalAligns, variants("verticalAlign"));
   };
 };
