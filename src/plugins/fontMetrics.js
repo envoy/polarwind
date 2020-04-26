@@ -16,7 +16,7 @@ module.exports = function ({
 
   // convert rem to capital height (px)
   function capHeight(rem) {
-    return parseFloat(rem) * 16;
+    return (parseFloat(rem) * 16 * remsq(capitalHeight)).toPrecision(2);
   }
 
   function fontSize(capHeight) {
