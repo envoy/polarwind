@@ -1,6 +1,8 @@
 const _ = require("lodash");
+const assert = require("assert");
 
 module.exports = function ({
+  infix,
   emSquare,
   ascender,
   descender,
@@ -21,8 +23,8 @@ module.exports = function ({
     return (capHeight / remsq(capitalHeight)).toPrecision(2);
   }
 
-  function lineHeight(lineHeight, fontSize) {
-    return lineHeight * fontSize - valign(fontSize);
+  function lineHeight(lineHeight, capHeight) {
+    return lineHeight * capHeight - valign(capHeight);
   }
 
   function valign(capHeight) {
@@ -39,13 +41,22 @@ module.exports = function ({
     });
   }
 
-  return function ({ addUtilities, theme, e, variants }) {
+  return function ({ addUtilities, theme, e, variants, config }) {
     const capHeights = capitalHeights(theme);
 
     const fontSizes = _.fromPairs(
       _.map(capHeights, ([modifier, capHeight]) => {
+        let selector;
+
+        if (config("corePlugins.fontSize") === false) {
+          selector = ["text", modifier];
+        } else {
+          assert(infix, "infix required if fontSize corePlugin is enabled");
+          selector = ["text", infix, modifier];
+        }
+
         return [
-          `.${e(`text-${modifier}`)}`,
+          "." + e(selector.join("-")),
           {
             "font-size": fontSize(capHeight) + "px",
           },
@@ -57,11 +68,20 @@ module.exports = function ({
     // line-heights are custom per font-size
     const lineHeights = _.fromPairs(
       _.flatMap(theme("lineHeight"), (value, modifier) => {
-        return _.map(capHeights, ([fontSizeModifier, fontSize]) => {
+        return _.map(capHeights, ([fontSizeModifier, capHeight]) => {
+          let selector;
+
+          if (config("corePlugins.lineHeight") === false) {
+            selector = ["leading", fontSizeModifier, modifier];
+          } else {
+            assert(infix, "infix required if lineHeight corePlugin is enabled");
+            selector = ["leading", infix, fontSizeModifier, modifier];
+          }
+
           return [
-            `.${e(`leading-${fontSizeModifier}-${modifier}`)}`,
+            "." + e(selector.join("-")),
             {
-              "line-height": lineHeight(value, fontSize) + "px",
+              "line-height": lineHeight(value, capHeight) + "px",
             },
           ];
         });
