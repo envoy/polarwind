@@ -1,3 +1,7 @@
 .Caption {
-  @apply text-xs leading-normal;
+  @apply text-xs leading-xs-normal;
+
+  span {
+    @apply align-xs;
+  }
 }

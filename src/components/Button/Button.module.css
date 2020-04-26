@@ -2,8 +2,8 @@
 
 .Button {
   @apply rounded-md border border-red-300 bg-red-300 transition ease-in-out duration-150;
-  @apply font-medium text-white text-base;
-  @apply px-6 py-3;
+  @apply font-medium text-white text-base leading-base-normal;
+  @apply px-6 py-2.75;
   @apply self-center;
 
   &:hover:enabled {
@@ -17,15 +17,19 @@
   &:active:enabled {
     @apply bg-red-500 border-red-500;
   }
+
+  span {
+    @apply align-base;
+  }
 }
 
 .slim {
-  @apply px-4 py-2;
-  @apply text-sm;
+  @apply px-4 py-2.5;
+  @apply text-sm leading-sm-normal;
 }
 
 .large {
-  @apply px-8 py-4;
+  @apply px-8 py-3.5;
 }
 
 .disabled {

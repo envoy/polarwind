@@ -28,7 +28,7 @@ export const Button = ({
 
   return (
     <button className={className} disabled={disabled}>
-      {children}
+      <span>{children}</span>
     </button>
   );
 };
