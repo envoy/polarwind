@@ -48,6 +48,8 @@ export const Button = ({
 Button.propTypes = {
   /** The content to display inside the button */
   children: PropTypes.string,
+  /** Any additional classes to add to the button */
+  className: PropTypes.oneOfType(PropTypes.string, PropTypes.object),
   /** Disables the button, disallowing interaction */
   disabled: PropTypes.bool,
   /** Icon to display to the left of the button content */

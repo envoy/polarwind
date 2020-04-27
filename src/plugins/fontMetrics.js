@@ -7,7 +7,6 @@ module.exports = function ({
   ascender,
   descender,
   capitalHeight,
-  lineGap,
 }) {
   // convert metric to relative emSquare
   function remsq(metric) {
