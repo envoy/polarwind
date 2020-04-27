@@ -10,7 +10,6 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
     "plugin:json/recommended",
-    "plugin:mdx/recommended",
   ],
   globals: {
     Atomics: "readonly",
@@ -38,4 +37,10 @@ module.exports = {
       version: "detect",
     },
   },
+  overrides: [
+    {
+      files: ["*.mdx"],
+      extends: ["plugin:mdx/recommended"],
+    },
+  ],
 };
