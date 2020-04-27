@@ -9,6 +9,8 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
+    "plugin:json/recommended",
+    "plugin:mdx/recommended",
   ],
   globals: {
     Atomics: "readonly",
