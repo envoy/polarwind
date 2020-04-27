@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Caption } from "./Caption";
+
+<Meta title="Titles and text/Caption" component={Caption} />
+
+# Caption
+
+<Description of={Caption} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <ul>
+      <ol>
+        <p>Larry Gadea</p>
+        <Caption>Visited Apr 21, 2020</Caption>
+      </ol>
+    </ul>
+  </Story>
+</Preview>
+
+<Props of={Caption} />
+
+## Usage
+
+### Default caption
+
+Use to provide details in situations where content is compact and space is tight.
