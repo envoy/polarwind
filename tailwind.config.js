@@ -106,7 +106,6 @@ module.exports = {
       ascender: 756,
       descender: -244,
       capitalHeight: 689,
-      lineGap: 355,
     }),
   ],
   corePlugins: {
