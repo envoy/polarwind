@@ -25,6 +25,12 @@ module.exports = {
   plugins: [],
   rules: {
     "react/react-in-jsx-scope": "off", // we use babel-plugin-react-require which injects the import React anyway
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        allowChildren: true,
+      },
+    ],
   },
   ignorePatterns: [
     "node_modules/",
