@@ -12,7 +12,9 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         uses: bahmutov/npm-install@v1
-      - name: Percy Test
+      - name: Yarn test
+        run: "yarn test"
+      - name: Percy test
         uses: percy/storybook-action@v0.1.1
         with:
           custom-command: "yarn snapshot"
