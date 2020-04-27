@@ -4,23 +4,26 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export const Label = ({ children, hidden, id, required }) => {
+export const Label = ({ children, hidden, label, required }) => {
   const className = cx({ Label: true, hidden, required });
 
   return (
-    <label htmlFor={id} className={className}>
+    <label>
+      <span className={className}>{label}</span>
       {children}
     </label>
   );
 };
 
 Label.propTypes = {
-  /** Label for the input */
+  /** The nested input */
   children: PropTypes.node,
   /** Visually hide the label */
   hidden: PropTypes.bool,
   /** ID of the field */
   id: PropTypes.string.isRequired,
+  /** Label for the input */
+  label: PropTypes.node,
   /** Displays a required indicator */
   required: PropTypes.bool,
 };

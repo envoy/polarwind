@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import classNames from "classnames/bind";
-import { UIDConsumer } from "react-uid";
 import styles from "./TextField.module.css";
 import { Label } from "./components";
 import { TextStyle } from "../TextStyle";
@@ -28,11 +27,6 @@ export const TextField = ({
 }) => {
   // == LABEL ==
   const labelHidden = type === "search";
-  const labelMarkup = (id) => (
-    <Label id={id} hidden={labelHidden} required={required}>
-      {label}
-    </Label>
-  );
 
   // == CAPTION ==
   // The disabled state overrides any inflight error or success state to present a
@@ -72,25 +66,19 @@ export const TextField = ({
   });
 
   return (
-    <UIDConsumer>
-      {(id) => (
-        <div>
-          {labelMarkup(id)}
-          <input
-            className={className}
-            type={type}
-            id={id}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            placeholder={labelHidden ? label : undefined}
-            value={value}
-            disabled={disabled}
-          />
-          {captionMarkup}
-        </div>
-      )}
-    </UIDConsumer>
+    <Label hidden={labelHidden} required={required} label={label}>
+      <input
+        className={className}
+        type={type}
+        onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        placeholder={labelHidden ? label : undefined}
+        value={value}
+        disabled={disabled}
+      />
+      {captionMarkup}
+    </Label>
   );
 };
 
