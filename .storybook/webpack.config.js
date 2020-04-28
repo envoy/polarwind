@@ -9,10 +9,7 @@ module.exports = {
             loader: "css-loader",
             options: { modules: true, importLoaders: 1 },
           },
-          {
-            loader: "postcss-loader",
-            options: { config: { path: "./.storybook/" } },
-          },
+          "postcss-loader",
         ],
       },
     ],
