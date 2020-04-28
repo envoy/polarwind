@@ -1,9 +1,9 @@
 #!/bin/sh
 
-set -e
+set -ex
 
-PHASE=purge postcss build/polarwind.full.css > build/polarwind.css
-PHASE=minify postcss build/polarwind.css > build/polarwind.min.css
+PURGE=1 postcss build/polarwind.full.css > build/polarwind.css
+MINIFY=1 postcss build/polarwind.css > build/polarwind.min.css
 
 cp build/index.umd.js index.umd.js
 cp build/index.esm.js index.esm.js
