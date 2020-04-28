@@ -10,6 +10,8 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
     "plugin:jsx-a11y/strict",
+    "plugin:import/errors",
+    "plugin:import/warnings",
   ],
   globals: {
     Atomics: "readonly",
@@ -29,6 +31,12 @@ module.exports = {
       2,
       {
         allowChildren: true,
+      },
+    ],
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        allowArray: true,
       },
     ],
   },
