@@ -1,3 +1,4 @@
+const config = require("tailwindcss/defaultConfig");
 const hexRgb = require("hex-rgb");
 
 function rgba(hex, alpha) {
@@ -99,7 +100,9 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    borderRadius: [...config.variants.borderRadius, "first", "last"],
+  },
   plugins: [
     require("./src/plugins/fontMetrics")({
       emSquare: 1000,

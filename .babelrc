@@ -1,4 +1,5 @@
 {
   "presets": ["@babel/env", "@babel/preset-react"],
-  "plugins": ["react-require"]
+  "plugins": ["react-require"],
+  "sourceType": "unambiguous"
 }
