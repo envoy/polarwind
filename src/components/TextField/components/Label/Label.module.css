@@ -3,8 +3,8 @@
 }
 
 .required::after {
-  @apply block bg-red-300 rounded-md h-1 w-1 ml-1;
   content: " ";
+  @apply block bg-red-300 rounded-md h-1 w-1 ml-1;
 }
 
 .hidden {
