@@ -1,9 +1,12 @@
 .TextField {
   @apply block w-full appearance-none;
+
   /* default shape */
   @apply rounded-md p-2;
+
   /* default border/focus ring */
   @apply border border-slate-300 outline-none;
+
   /* default text formatting */
   @apply text-slate-700 text-base leading-base-normal;
 
@@ -30,6 +33,7 @@
 /* set border of error field, always yellow */
 .error {
   @apply border-yellow-300;
+
   /* no glow */
   @apply shadow-input-blur-yellow;
 

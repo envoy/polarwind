@@ -1,4 +1,5 @@
 /* purgecss start ignore */
+
 @tailwind base;
 
 @font-face {
@@ -62,5 +63,7 @@
 }
 
 @tailwind components;
+
 /* purgecss end ignore */
+
 @tailwind utilities;
