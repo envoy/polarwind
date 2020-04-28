@@ -13,7 +13,9 @@
     "build-storybook": "build-storybook",
     "build-storybook:docs": "build-storybook --docs -o public",
     "snapshot": "build-storybook && percy-storybook --widths=1280",
-    "lint": "eslint .",
+    "lint": "yarn eslint && yarn stylelint",
+    "eslint": "eslint .",
+    "stylelint": "stylelint src",
     "test": "yarn lint"
   },
   "repository": "https://github.com/envoy/polarwind",
