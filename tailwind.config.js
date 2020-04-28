@@ -104,6 +104,7 @@ module.exports = {
     borderRadius: [...config.variants.borderRadius, "first", "last"],
   },
   plugins: [
+    require("@tailwindcss/custom-forms"),
     require("./src/plugins/fontMetrics")({
       emSquare: 1000,
       ascender: 756,
