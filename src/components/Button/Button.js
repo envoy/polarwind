@@ -53,7 +53,7 @@ Button.propTypes = {
   /** Disables the button, disallowing interaction */
   disabled: PropTypes.bool,
   /** Icon to display to the left of the button content */
-  icon: PropTypes.node,
+  icon: PropTypes.func,
   /** Similar to outline but without a border, appropriate for tertiary actions */
   plain: PropTypes.bool,
   /**
