@@ -105,7 +105,6 @@ module.exports = {
           color: theme("colors.slate.700"),
           borderRadius: theme("borderRadius.md"),
           borderColor: theme("colors.slate.300"),
-          lineHeight: theme("lineHeight.base-normal"),
           paddingTop: theme("spacing.2"),
           paddingRight: theme("spacing.2"),
           paddingBottom: theme("spacing.2"),

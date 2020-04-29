@@ -2,6 +2,9 @@
 
 .TextField {
   @apply block w-full;
+
+  /* theme values from the fontMetrics plugin is not availabe in theme() */
+  @apply leading-base-normal;
 }
 
 .hasCaption {
