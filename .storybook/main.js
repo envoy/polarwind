@@ -2,7 +2,7 @@ const path = require("path");
 const { generateScopedName } = require("../src/plugins/polarisNamingStrategy");
 
 const getLocalIdent = generateScopedName({
-  prefix: "Polaris",
+  prefix: "Polarwind",
   extension: ".module.css",
 });
 
