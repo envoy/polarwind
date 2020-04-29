@@ -2,7 +2,7 @@ const config = require("tailwindcss/defaultConfig");
 const hexRgb = require("hex-rgb");
 
 function rgba(hex, alpha) {
-  const { red, green, blue } = hexRgb(hex);
+  const { blue, green, red } = hexRgb(hex);
   return `rgba(${[red, green, blue, alpha]})`;
 }
 

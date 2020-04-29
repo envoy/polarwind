@@ -12,8 +12,8 @@ export const Button = ({
   className,
   disabled,
   icon,
-  plain,
   outline,
+  plain,
   size = "medium",
 }) => {
   let iconMarkup;

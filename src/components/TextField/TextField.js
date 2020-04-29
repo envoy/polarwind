@@ -20,8 +20,8 @@ export const TextField = ({
   onBlur,
   onChange,
   onFocus,
-  success,
   required,
+  success,
   type = "text",
   value,
 }) => {
