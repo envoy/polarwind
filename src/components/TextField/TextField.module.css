@@ -13,4 +13,8 @@
 
 .Label {
   @apply block;
+
+  .Polarwind-Label {
+    @apply text-sm;
+  }
 }

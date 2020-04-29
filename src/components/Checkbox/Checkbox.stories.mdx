@@ -1,0 +1,36 @@
+import { useState, useCallback } from "react";
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Checkbox } from "./Checkbox";
+
+<Meta title="Components | Forms / Checkbox" component={Checkbox} />
+
+# Checkbox
+
+<Description of={Checkbox} />
+
+<Preview withToolbar>
+  <Story name="Default checkbox">
+    {() => {
+      const [checked, setChecked] = useState(false);
+      // prettier-ignore
+      const handleChange = useCallback((newChecked) => setChecked(newChecked), []);
+      // prettier-ignore
+      return <Checkbox label="Basic checkbox" checked={checked} onChange={handleChange} />;
+    }}
+  </Story>
+</Preview>
+
+<Props of={Checkbox} />
+
+## Usage
+
+### Default checkboxes
+
+Use in forms to toggle the state of something on or off. Default checkboxes can appear in
+two states: selected and disabled, or unselected.
