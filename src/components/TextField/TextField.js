@@ -57,16 +57,23 @@ export const TextField = ({
   const handleChange = (event) => {
     onChange && onChange(event.currentTarget.value);
   };
-  const className = cx({
-    TextField: true,
-    search: type === "search",
-    error,
-    hasCaption,
-    focused,
-  });
+  const className = cx(
+    {
+      TextField: true,
+      error,
+      hasCaption,
+      focused,
+    },
+    "form-input"
+  );
 
   return (
-    <Label hidden={labelHidden} required={required} label={label}>
+    <Label
+      hidden={labelHidden}
+      required={required}
+      label={label}
+      className={styles.Label}
+    >
       <input
         className={className}
         type={type}
