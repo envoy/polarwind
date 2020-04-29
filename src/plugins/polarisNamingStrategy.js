@@ -14,6 +14,11 @@ const generateScopedName = ({ extension, prefix }) => {
     return COMPONENT_REGEX.test(className);
   }
 
+  // leaves classnames like .Polarwind-Label untouched
+  function isAbsoluteClassName(className) {
+    return className.startsWith(prefix);
+  }
+
   function subcomponentClassName(component, subcomponent) {
     return `${component}__${subcomponent}`;
   }
@@ -25,6 +30,10 @@ const generateScopedName = ({ extension, prefix }) => {
   return (localName, filePath) => {
     const componentName = path.basename(filePath, extension);
     const nestedComponentMatch = NESTED_COMPONENT_PATH_REGEX.exec(filePath);
+
+    if (isAbsoluteClassName(localName)) {
+      return localName;
+    }
 
     const polarwindComponentName =
       nestedComponentMatch && nestedComponentMatch.length > 1
