@@ -23,7 +23,7 @@
   }
 }
 
-.icon {
+.Icon {
   @apply inline-block -ml-1 mr-1;
 
   svg {

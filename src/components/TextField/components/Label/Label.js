@@ -22,8 +22,6 @@ Label.propTypes = {
   className: PropTypes.string,
   /** Visually hide the label */
   hidden: PropTypes.bool,
-  /** ID of the field */
-  id: PropTypes.string.isRequired,
   /** Label for the input */
   label: PropTypes.node,
   /** Displays a required indicator */

@@ -20,7 +20,7 @@ export const Button = ({
   if (icon && size !== "large") {
     const Icon = icon;
     iconMarkup = (
-      <span className={styles.icon}>
+      <span className={styles.Icon}>
         <Icon />
       </span>
     );
@@ -33,7 +33,7 @@ export const Button = ({
       outline,
       plain,
     },
-    size,
+    size != "medium" && size,
     className
   );
 
@@ -49,11 +49,11 @@ Button.propTypes = {
   /** The content to display inside the button */
   children: PropTypes.string,
   /** Any additional classes to add to the button */
-  className: PropTypes.oneOfType(PropTypes.string, PropTypes.object),
+  className: PropTypes.string,
   /** Disables the button, disallowing interaction */
   disabled: PropTypes.bool,
   /** Icon to display to the left of the button content */
-  icon: PropTypes.node,
+  icon: PropTypes.func,
   /** Similar to outline but without a border, appropriate for tertiary actions */
   plain: PropTypes.bool,
   /**
