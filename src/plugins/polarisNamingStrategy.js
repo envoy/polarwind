@@ -1,11 +1,11 @@
-import path from "path";
-import { camelCase } from "change-case";
+const path = require("path");
+const { camelCase } = require("change-case");
 
 const COMPONENT_REGEX = /^[A-Z]\w+$/;
 const SUBCOMPONENT_VARIATION_SELECTOR = /^\w+-\w+$/;
 const NESTED_COMPONENT_PATH_REGEX = /.*\/components\/(.*)\/components/;
 
-export const generateScopedName = ({ prefix, extension }) => {
+const generateScopedName = ({ prefix, extension }) => {
   function prefixedClassName(className) {
     return `${prefix}-${className}`;
   }
@@ -55,3 +55,5 @@ export const generateScopedName = ({ prefix, extension }) => {
     return className;
   };
 };
+
+module.exports = { generateScopedName };

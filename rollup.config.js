@@ -1,11 +1,11 @@
-import babel from "rollup-plugin-babel";
-import commonjs from "rollup-plugin-commonjs";
-import postcss from "rollup-plugin-postcss";
-import resolve from "@rollup/plugin-node-resolve";
-import packageJson from "./package.json";
-import { generateScopedName } from "./src/plugins/polarisNamingStrategy";
+const babel = require("rollup-plugin-babel");
+const commonjs = require("rollup-plugin-commonjs");
+const postcss = require("rollup-plugin-postcss");
+const resolve = require("@rollup/plugin-node-resolve");
+const packageJson = require("./package.json");
+const { generateScopedName } = require("./src/plugins/polarisNamingStrategy");
 
-export default [
+module.exports = [
   {
     external: ["react", "prop-types"],
     input: "src/index.js",
