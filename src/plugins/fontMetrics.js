@@ -1,5 +1,5 @@
-const _ = require("lodash");
 const assert = require("assert");
+const _ = require("lodash");
 
 module.exports = function ({
   ascender,

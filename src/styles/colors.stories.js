@@ -1,9 +1,9 @@
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../tailwind.config";
 import { storiesOf } from "@storybook/react";
-import styles from "./colors.module.css";
 import classnames from "classnames/bind";
 import ColorCheck from "color";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config";
+import styles from "./colors.module.css";
 
 const cx = classnames.bind(styles);
 

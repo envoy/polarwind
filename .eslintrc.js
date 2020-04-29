@@ -39,6 +39,15 @@ module.exports = {
         allowArray: true,
       },
     ],
+    "import/order": [
+      "error",
+      {
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+      },
+    ],
     "sort-destructure-keys/sort-destructure-keys": [2, { caseSensitive: true }],
   },
   ignorePatterns: [

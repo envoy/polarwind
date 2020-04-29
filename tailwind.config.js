@@ -1,5 +1,5 @@
-const config = require("tailwindcss/defaultConfig");
 const hexRgb = require("hex-rgb");
+const config = require("tailwindcss/defaultConfig");
 
 function rgba(hex, alpha) {
   const { blue, green, red } = hexRgb(hex);
