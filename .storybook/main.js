@@ -1,4 +1,10 @@
 const path = require("path");
+const { generateScopedName } = require("../src/plugins/polarisNamingStrategy");
+
+const getLocalIdent = generateScopedName({
+  prefix: "Polaris",
+  extension: ".module.css",
+});
 
 module.exports = {
   stories: ["../src/**/*.stories.(js|mdx)"],
@@ -16,7 +22,11 @@ module.exports = {
         {
           loader: "css-loader",
           options: {
-            modules: true,
+            modules: {
+              getLocalIdent: (context, _localIdentName, localName) => {
+                return getLocalIdent(localName, context.resourcePath);
+              },
+            },
             importLoaders: 1,
           },
         },
