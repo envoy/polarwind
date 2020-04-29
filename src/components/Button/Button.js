@@ -20,7 +20,7 @@ export const Button = ({
   if (icon && size !== "large") {
     const Icon = icon;
     iconMarkup = (
-      <span className={styles.icon}>
+      <span className={styles.Icon}>
         <Icon />
       </span>
     );
