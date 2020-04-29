@@ -1,48 +1,16 @@
+@import "../../styles/common";
+
 .TextField {
-  @apply block w-full appearance-none;
+  @apply block w-full;
 
-  /* default shape */
-  @apply rounded-md p-2;
-
-  /* default border/focus ring */
-  @apply border border-slate-300 outline-none;
-
-  /* default text formatting */
-  @apply text-slate-700 text-base leading-base-normal;
-
-  &::placeholder {
-    @apply text-slate-500;
-  }
-
-  /* set border when disabled */
-  &:disabled {
-    @apply border-slate-500 bg-slate-100 text-slate-600;
-  }
-
-  &.focused:enabled:not(.error),
-  &:focus:not(.error) {
-    @apply border-blue-100 shadow-input-blue;
-  }
-}
-
-/* override shape of text field for search */
-.search {
-  @apply rounded-full pl-8;
-}
-
-/* set border of error field, always yellow */
-.error {
-  @apply border-yellow-300;
-
-  /* no glow */
-  @apply shadow-input-blur-yellow;
-
-  &:focus {
-    /* with glow */
-    @apply shadow-input-yellow;
-  }
+  /* theme values from the fontMetrics plugin is not availabe in theme() */
+  @apply leading-base-normal;
 }
 
 .hasCaption {
   @apply mb-1;
+}
+
+.Label {
+  @apply block;
 }

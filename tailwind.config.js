@@ -99,11 +99,48 @@ module.exports = {
         3.5: "0.9165rem",
       },
     },
+    customForms: (theme) => ({
+      default: {
+        input: {
+          color: theme("colors.slate.700"),
+          borderRadius: theme("borderRadius.md"),
+          borderColor: theme("colors.slate.300"),
+          paddingTop: theme("spacing.2"),
+          paddingRight: theme("spacing.2"),
+          paddingBottom: theme("spacing.2"),
+          paddingLeft: theme("spacing.2"),
+          "&::placeholder": {
+            color: theme("colors.slate.500"),
+          },
+          "&:focus, &.focused:enabled:not(.error)": {
+            boxShadow: theme("boxShadow.input-blue"), // defined in TextField.module.css due to complex requirement with error state
+            borderColor: theme("colors.blue.100"),
+          },
+          "&:disabled": {
+            color: theme("colors.slate.600"),
+            borderColor: theme("colors.slate.500"),
+            backgroundColor: theme("colors.slate.100"),
+          },
+          "&.error": {
+            borderColor: theme("colors.yellow.300"),
+            boxShadow: theme("boxShadow.input-blur-yellow"),
+            "&:focus": {
+              boxShadow: theme("boxShadow.input-yellow"),
+            },
+          },
+          "&[type=search]": {
+            borderRadius: theme("borderRadius.full"),
+            paddingLeft: theme("spacing.8"),
+          },
+        },
+      },
+    }),
   },
   variants: {
     borderRadius: [...config.variants.borderRadius, "first", "last"],
   },
   plugins: [
+    require("@tailwindcss/custom-forms"),
     require("./src/plugins/fontMetrics")({
       emSquare: 1000,
       ascender: 756,

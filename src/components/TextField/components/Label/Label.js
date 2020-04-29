@@ -4,12 +4,12 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export const Label = ({ children, hidden, label, required }) => {
-  const className = cx({ Label: true, hidden, required });
+export const Label = ({ children, className, hidden, label, required }) => {
+  const spanClassName = cx({ Label: true, hidden, required });
 
   return (
-    <label>
-      <span className={className}>{label}</span>
+    <label className={className}>
+      <span className={spanClassName}>{label}</span>
       {children}
     </label>
   );
@@ -18,6 +18,8 @@ export const Label = ({ children, hidden, label, required }) => {
 Label.propTypes = {
   /** The nested input */
   children: PropTypes.node,
+  /** Additional className to add to the label */
+  className: PropTypes.string,
   /** Visually hide the label */
   hidden: PropTypes.bool,
   /** ID of the field */
