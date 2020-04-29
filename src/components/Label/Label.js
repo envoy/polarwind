@@ -23,7 +23,7 @@ Label.propTypes = {
   /** Visually hide the label */
   hidden: PropTypes.bool,
   /** Label for the input */
-  label: PropTypes.node,
+  label: PropTypes.node.isRequired,
   /** Displays a required indicator */
   required: PropTypes.bool,
 };
