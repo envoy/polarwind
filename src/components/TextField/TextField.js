@@ -61,8 +61,8 @@ export const TextField = ({
     {
       TextField: true,
       error,
-      hasCaption,
       focused,
+      hasCaption,
     },
     "form-input"
   );
