@@ -33,7 +33,7 @@ export const Button = ({
       outline,
       plain,
     },
-    size,
+    size != "medium" && size,
     className
   );
 
