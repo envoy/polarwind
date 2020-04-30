@@ -69,20 +69,20 @@ export const TextField = ({
 
   return (
     <Label
-      hidden={labelHidden}
-      required={required}
-      label={label}
       className={styles.Label}
+      hidden={labelHidden}
+      label={label}
+      required={required}
     >
       <input
         className={className}
+        disabled={disabled}
+        placeholder={labelHidden ? label : undefined}
         type={type}
+        value={value}
+        onBlur={handleBlur}
         onChange={handleChange}
         onFocus={handleFocus}
-        onBlur={handleBlur}
-        placeholder={labelHidden ? label : undefined}
-        value={value}
-        disabled={disabled}
       />
       {captionMarkup}
     </Label>
