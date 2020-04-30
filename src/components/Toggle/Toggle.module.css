@@ -1,0 +1,19 @@
+.Toggle {
+  @apply bg-slate-200 relative inline-block flex-shrink-0 h-8 w-15 border-4 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200;
+
+  &:focus {
+    @apply outline-none shadow-outline;
+  }
+
+  span {
+    @apply translate-x-0 shadow inline-block h-6 w-6 rounded-full bg-white transform transition ease-in-out duration-200;
+  }
+}
+
+.enabled {
+  @apply bg-green-300;
+
+  span {
+    @apply translate-x-7;
+  }
+}
