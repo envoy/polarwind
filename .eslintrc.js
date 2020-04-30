@@ -27,6 +27,12 @@ module.exports = {
   plugins: ["sort-destructure-keys", "sort-keys-fix"],
   rules: {
     "react/react-in-jsx-scope": "off", // we use babel-plugin-react-require which injects the import React anyway
+    "react/jsx-sort-props": [
+      "error",
+      {
+        callbacksLast: true,
+      },
+    ],
     "jsx-a11y/label-has-for": [
       2,
       {
