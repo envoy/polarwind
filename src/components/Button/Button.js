@@ -54,13 +54,15 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   /** Icon to display to the left of the button content */
   icon: PropTypes.func,
-  /** Similar to outline but without a border, appropriate for tertiary actions */
-  plain: PropTypes.bool,
+
   /**
    * Gives the button a subtle alternative to the default button styling, appropriate for
    * secondary actions
    */
   outline: PropTypes.bool,
+
+  /** Similar to outline but without a border, appropriate for tertiary actions */
+  plain: PropTypes.bool,
   /** Changes the size of the button, giving it more or less padding */
   size: PropTypes.oneOf(["slim", "medium", "large"]),
 };

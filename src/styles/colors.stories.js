@@ -22,8 +22,8 @@ function Color({ color, hex }) {
     "w-1/3",
     `bg-${color}`,
     {
-      "text-white": ColorCheck(hex).isDark(),
       "text-black": ColorCheck(hex).isLight(),
+      "text-white": ColorCheck(hex).isDark(),
     }
   );
   return (

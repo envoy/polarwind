@@ -67,5 +67,11 @@ module.exports = {
       files: ["*.mdx"],
       extends: ["plugin:mdx/recommended"],
     },
+    {
+      files: ["*.config.js"],
+      rules: {
+        "sort-keys-fix/sort-keys-fix": "off",
+      },
+    },
   ],
 };
