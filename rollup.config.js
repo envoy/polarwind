@@ -11,7 +11,7 @@ module.exports = [
     input: "src/index.js",
     plugins: [
       resolve(),
-      babel({ exclude: "node_modules/**" }),
+      babel(),
       commonjs(),
       postcss({
         modules: {

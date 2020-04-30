@@ -1,0 +1,48 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Toggle } from "./Toggle";
+
+<Meta title="Components | Actions / Toggle" component={Toggle} />
+
+# Toggle
+
+<Description of={Toggle} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    {() => {
+      const [enabled, setEnabled] = useState(true);
+      return <Toggle enabled={enabled} onClick={() => setEnabled(!enabled)} />;
+    }}
+  </Story>
+</Preview>
+
+<Props of={Toggle} />
+
+## Usage
+
+### Default toggle
+
+Use on settings pages to allow users to toggle a setting that has an enabled or a disabled
+state. Note that this component does not change its own state when you click it, unlike a
+normal checkbox. You must drive it externally with the `enabled` and `onClick` props.
+
+### Disabled
+
+This is the default state the toggle will be in. Unlike a disabled TextField, this
+component does not support the readonly/non-interactive disabled state.
+
+<Preview>
+  <Story name="Disabled">
+    {() => {
+      const [enabled, setEnabled] = useState(false);
+      return <Toggle enabled={enabled} onClick={() => setEnabled(!enabled)} />;
+    }}
+  </Story>
+</Preview>

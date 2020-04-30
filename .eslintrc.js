@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
+    "jest/globals": true,
   },
   extends: [
     "eslint:recommended",
@@ -12,6 +13,8 @@ module.exports = {
     "plugin:jsx-a11y/strict",
     "plugin:import/errors",
     "plugin:import/warnings",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
   ],
   globals: {
     Atomics: "readonly",
@@ -24,7 +27,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["sort-destructure-keys", "sort-keys-fix"],
+  plugins: ["sort-destructure-keys", "sort-keys-fix", "jest"],
   rules: {
     "react/react-in-jsx-scope": "off", // we use babel-plugin-react-require which injects the import React anyway
     "react/jsx-sort-props": [

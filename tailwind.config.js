@@ -80,8 +80,10 @@ module.exports = {
     // theme
     boxShadow: (theme) => ({
       none: "none",
+      default: "0px 2px 6px rgba(0, 0, 0, 0.48)",
       outline: `0 0 0 3px ${rgba(theme("colors.slate.300"), 0.2)}`,
       "outline-red": `0 0 0 3px ${rgba(theme("colors.red.300"), 0.3)}`,
+      "outline-blue": `0 0 0 3px ${rgba(theme("colors.blue.100"), 0.3)}`,
       "input-blue": [
         `0 0 0 1px ${theme("colors.blue.100")}`,
         `0 1px 3px 0 ${rgba(theme("colors.blue.100"), 0.2)}`,
@@ -97,6 +99,8 @@ module.exports = {
         2.5: "0.604rem",
         2.75: "0.6666rem",
         3.5: "0.9165rem",
+        7: "1.75rem",
+        15: "3.75rem",
       },
     },
     customForms: (theme) => ({
