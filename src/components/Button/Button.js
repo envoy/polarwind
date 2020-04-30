@@ -1,6 +1,6 @@
+import classNames from "classnames/bind";
 import PropTypes from "prop-types";
 import styles from "./Button.module.css";
-import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
@@ -12,8 +12,8 @@ export const Button = ({
   className,
   disabled,
   icon,
-  plain,
   outline,
+  plain,
   size = "medium",
 }) => {
   let iconMarkup;

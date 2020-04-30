@@ -24,7 +24,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: [],
+  plugins: ["sort-destructure-keys"],
   rules: {
     "react/react-in-jsx-scope": "off", // we use babel-plugin-react-require which injects the import React anyway
     "jsx-a11y/label-has-for": [
@@ -39,6 +39,16 @@ module.exports = {
         allowArray: true,
       },
     ],
+    "import/order": [
+      "error",
+      {
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+      },
+    ],
+    "sort-destructure-keys/sort-destructure-keys": [2, { caseSensitive: true }],
   },
   ignorePatterns: [
     "node_modules/",

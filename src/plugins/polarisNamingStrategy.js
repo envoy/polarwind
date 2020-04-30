@@ -5,7 +5,7 @@ const COMPONENT_REGEX = /^[A-Z]\w+$/;
 const SUBCOMPONENT_VARIATION_SELECTOR = /^\w+-\w+$/;
 const NESTED_COMPONENT_PATH_REGEX = /.*\/components\/(.*)\/components/;
 
-const generateScopedName = ({ prefix, extension }) => {
+const generateScopedName = ({ extension, prefix }) => {
   function prefixedClassName(className) {
     return `${prefix}-${className}`;
   }

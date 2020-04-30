@@ -1,12 +1,12 @@
-const _ = require("lodash");
 const assert = require("assert");
+const _ = require("lodash");
 
 module.exports = function ({
-  infix,
-  emSquare,
   ascender,
-  descender,
   capitalHeight,
+  descender,
+  emSquare,
+  infix,
 }) {
   // convert metric to relative emSquare
   function remsq(metric) {
@@ -40,7 +40,7 @@ module.exports = function ({
     });
   }
 
-  return function ({ addUtilities, theme, e, variants, config }) {
+  return function ({ addUtilities, config, e, theme, variants }) {
     const capHeights = capitalHeights(theme("fontSize"));
 
     const fontSizes = _.fromPairs(
