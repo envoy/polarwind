@@ -101,6 +101,13 @@ module.exports = {
     },
     customForms: (theme) => ({
       default: {
+        "input, checkbox": {
+          "&:disabled": {
+            color: theme("colors.slate.600"),
+            borderColor: theme("colors.slate.500"),
+            backgroundColor: theme("colors.slate.100"),
+          },
+        },
         input: {
           color: theme("colors.slate.700"),
           borderRadius: theme("borderRadius.md"),
@@ -116,11 +123,6 @@ module.exports = {
             boxShadow: theme("boxShadow.input-blue"), // defined in TextField.module.css due to complex requirement with error state
             borderColor: theme("colors.blue.100"),
           },
-          "&:disabled": {
-            color: theme("colors.slate.600"),
-            borderColor: theme("colors.slate.500"),
-            backgroundColor: theme("colors.slate.100"),
-          },
           "&.error": {
             borderColor: theme("colors.yellow.300"),
             boxShadow: theme("boxShadow.input-blur-yellow"),
@@ -131,6 +133,25 @@ module.exports = {
           "&[type=search]": {
             borderRadius: theme("borderRadius.full"),
             paddingLeft: theme("spacing.8"),
+          },
+        },
+        checkbox: {
+          // fix for :indeterminate overriding the :focus borderColor
+          "&:focus:indeterminate": {
+            borderColor: config.theme.colors.blue[400], // pull from defaultConfig until we have a focus ring
+          },
+          "&:indeterminate": {
+            background:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='8' height='2' x='4' y='7' rx='1'/%3E%3C/svg%3E\");",
+            borderColor: "transparent",
+            backgroundColor: "currentColor",
+            backgroundSize: "100% 100%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          },
+          // fix for :disabled overriding the :checked backgroundColor
+          "&:checked:disabled": {
+            backgroundColor: "currentColor",
           },
         },
       },

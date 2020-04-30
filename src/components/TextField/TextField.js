@@ -1,8 +1,8 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
 import { Caption } from "../Caption";
+import { Label } from "../Label";
 import { TextStyle } from "../TextStyle";
-import { Label } from "./components";
 import styles from "./TextField.module.css";
 
 const cx = classNames.bind(styles);

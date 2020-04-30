@@ -2,11 +2,10 @@ let plugins = {};
 
 if (!process.env.PURGE && !process.env.MINIFY) {
   plugins = {
-    ...plugins,
-    "postcss-preset-env": { stage: 0, browsers: "last 2 versions" },
     "postcss-import": {},
     "postcss-nested": {},
     tailwindcss: {},
+    "postcss-preset-env": { stage: 0, browsers: "last 2 versions" },
   };
 }
 

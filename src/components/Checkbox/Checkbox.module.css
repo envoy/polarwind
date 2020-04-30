@@ -1,0 +1,13 @@
+@import "../../styles/common.css";
+
+.Label {
+  @apply flex items-center flex-row;
+
+  .Polarwind-Label {
+    @apply order-2 ml-2;
+  }
+}
+
+.Checkbox {
+  @apply order-1;
+}

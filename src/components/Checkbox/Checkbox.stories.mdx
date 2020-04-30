@@ -1,0 +1,65 @@
+import { useState, useCallback } from "react";
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Checkbox } from "./Checkbox";
+
+<Meta title="Components | Forms / Checkbox" component={Checkbox} />
+
+# Checkbox
+
+<Description of={Checkbox} />
+
+<Preview withToolbar>
+  <Story name="Default checkbox">
+    {() => {
+      const [checked, setChecked] = useState(false);
+      // prettier-ignore
+      const handleChange = useCallback((newChecked) => setChecked(newChecked), []);
+      // prettier-ignore
+      return <Checkbox label="Basic checkbox" checked={checked} onChange={handleChange} />;
+    }}
+  </Story>
+</Preview>
+
+<Props of={Checkbox} />
+
+## Usage
+
+### Default checkboxes
+
+Use in forms to toggle the state of something on or off. Default checkboxes can appear in
+two states: selected and disabled, or unselected.
+
+<Preview withToolbar>
+  <Story name="checked set">
+    <Checkbox label="Pre-checked" checked={true} />
+  </Story>
+</Preview>
+
+### Indeterminate checkbox
+
+Used when the state of the checkbox is indeterminate. Usually, this is a parent checkbox
+where the children are a mix of checked and unchecked checkboxes.
+
+<Preview>
+  <Story name="Indeterminate">
+    <Checkbox label="Select all" checked="indeterminate" />
+  </Story>
+</Preview>
+
+### Disabled checkbox
+
+<Preview>
+  <Story name="Disabled">
+    <div className="flex flex-col">
+      <Checkbox label="Select all" disabled checked="indeterminate" />
+      <Checkbox label="Select all" disabled checked />
+      <Checkbox label="Select all" disabled checked={false} />
+    </div>
+  </Story>
+</Preview>
