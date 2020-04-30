@@ -1,8 +1,8 @@
-import { useRef, useEffect } from "react";
+import classnames from "classnames/bind";
 import PropTypes from "prop-types";
+import { useRef, useEffect } from "react";
 import { Label } from "../Label";
 import styles from "./Checkbox.module.css";
-import classnames from "classnames/bind";
 
 const cx = classnames.bind(styles);
 
@@ -10,7 +10,7 @@ const cx = classnames.bind(styles);
  * Use in forms to toggle the state of something on or off. Default checkboxes can appear
  * in two states: selected and disabled, or unselected.
  */
-export const Checkbox = ({ checked, label, onChange }) => {
+export const Checkbox = ({ checked, disabled, label, onChange }) => {
   const handleOnChange = (event) => {
     onChange && onChange(event.currentTarget.checked);
   };
@@ -33,6 +33,7 @@ export const Checkbox = ({ checked, label, onChange }) => {
         className={className}
         onChange={handleOnChange}
         ref={ref}
+        disabled={disabled}
       />
     </Label>
   );
@@ -41,6 +42,8 @@ export const Checkbox = ({ checked, label, onChange }) => {
 Checkbox.propTypes = {
   /** Checkbox is selected. `indeterminate` shows a horizontal line in the checkbox */
   checked: PropTypes.oneOf([true, false, "indeterminate"]),
+  /** Disable input */
+  disabled: PropTypes.bool,
   /** Label for the checkbox */
   label: PropTypes.node.isRequired,
   /** Callback when checkbox is toggled */
