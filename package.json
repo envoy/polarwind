@@ -16,7 +16,7 @@
     "lint": "yarn eslint && yarn stylelint",
     "eslint": "eslint .",
     "stylelint": "stylelint src",
-    "test": "yarn lint"
+    "test": "yarn jest"
   },
   "repository": "https://github.com/envoy/polarwind",
   "author": "Envoy, Inc.",
