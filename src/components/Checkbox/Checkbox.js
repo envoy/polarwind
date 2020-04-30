@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Label } from "../Label";
 import styles from "./Checkbox.module.css";
@@ -14,6 +15,15 @@ export const Checkbox = ({ checked, label, onChange }) => {
     onChange && onChange(event.currentTarget.checked);
   };
 
+  const isIndeterminate = checked === "indeterminate";
+  const isChecked = !isIndeterminate && Boolean(checked);
+
+  const ref = useRef();
+  useEffect(() => {
+    ref.current.checked = isChecked;
+    ref.current.indeterminate = isIndeterminate;
+  }, [isIndeterminate, isChecked]);
+
   const className = cx("form-checkbox", "Checkbox");
 
   return (
@@ -21,8 +31,8 @@ export const Checkbox = ({ checked, label, onChange }) => {
       <input
         type="checkbox"
         className={className}
-        checked={checked}
         onChange={handleOnChange}
+        ref={ref}
       />
     </Label>
   );
