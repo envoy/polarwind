@@ -13,11 +13,16 @@ export const Label = ({ children, className, hidden, label, required }) => {
   };
 
   const spanClassName = cx({ Label: true, hidden, required });
+  const labelMarkup = (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    <span className={spanClassName} onMouseDown={handleMouseDown}>
+      {label}
+    </span>
+  );
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <label className={className} onMouseDown={handleMouseDown}>
-      <span className={spanClassName}>{label}</span>
+    <label className={className}>
+      {labelMarkup}
       {children}
     </label>
   );
