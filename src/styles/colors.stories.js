@@ -22,8 +22,8 @@ function Color({ color, hex }) {
     "w-1/3",
     `bg-${color}`,
     {
-      "text-white": ColorCheck(hex).isDark(),
       "text-black": ColorCheck(hex).isLight(),
+      "text-white": ColorCheck(hex).isDark(),
     }
   );
   return (
@@ -45,7 +45,7 @@ Object.entries(colors)
       stories.add(key, () =>
         Object.entries(value).map(([subkey, subvalue]) => {
           const color = `${key}-${subkey}`;
-          return <Color key={color} color={color} hex={subvalue} />;
+          return <Color color={color} hex={subvalue} key={color} />;
         })
       );
     }

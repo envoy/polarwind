@@ -24,9 +24,15 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["sort-destructure-keys"],
+  plugins: ["sort-destructure-keys", "sort-keys-fix"],
   rules: {
     "react/react-in-jsx-scope": "off", // we use babel-plugin-react-require which injects the import React anyway
+    "react/jsx-sort-props": [
+      "error",
+      {
+        callbacksLast: true,
+      },
+    ],
     "jsx-a11y/label-has-for": [
       2,
       {
@@ -49,6 +55,7 @@ module.exports = {
       },
     ],
     "sort-destructure-keys/sort-destructure-keys": [2, { caseSensitive: true }],
+    "sort-keys-fix/sort-keys-fix": "error",
   },
   ignorePatterns: [
     "node_modules/",
@@ -65,6 +72,12 @@ module.exports = {
     {
       files: ["*.mdx"],
       extends: ["plugin:mdx/recommended"],
+    },
+    {
+      files: ["*.config.js"],
+      rules: {
+        "sort-keys-fix/sort-keys-fix": "off",
+      },
     },
   ],
 };
