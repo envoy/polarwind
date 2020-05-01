@@ -111,3 +111,27 @@ error input is also disabled, the disabled state overrides the error state.
     </div>
   </Story>
 </Preview>
+
+## Multiline text field
+
+Use when the expected input could be more than one line. The field will automatically grow
+to accommodate additional text.
+
+<Preview>
+  <Story name="Multiline">
+    <div className="flex flex-col justify-between h-128">
+      <TextField
+        label="Default multiline"
+        helpText="Be as detailed as possible"
+        multiline
+      />
+      <TextField label="Multiline set to a number" multiline={3} />
+      <TextField
+        label="Error multiline"
+        error="Enter a valid address"
+        multiline
+      />
+      <TextField label="Disabled multiline" disabled multiline />
+    </div>
+  </Story>
+</Preview>
