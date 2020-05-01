@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
+import TextareaAutosize from "react-autosize-textarea";
 import { Caption } from "../Caption";
 import { Label } from "../Label";
 import { TextStyle } from "../TextStyle";
@@ -79,9 +80,9 @@ export const TextField = ({
     value: value,
   };
   const inputMarkup = multiline ? (
-    <textarea
+    <TextareaAutosize
       {...inputProps}
-      rows={typeof multiline === "boolean" ? 2 : multiline}
+      rows={typeof multiline === "number" ? multiline : 2}
     />
   ) : (
     <input {...inputProps} />

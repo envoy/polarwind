@@ -131,7 +131,15 @@ to accommodate additional text.
         error="Enter a valid address"
         multiline
       />
-      <TextField label="Disabled multiline" disabled multiline />
+      <TextField
+        label="Disabled multiline"
+        disabled
+        multiline
+        value={`The default rows attribute is set to 2
+but this textarea has an initial value
+which will resize itself to fit
+all four rows`}
+      />
     </div>
   </Story>
 </Preview>
