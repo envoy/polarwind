@@ -1,0 +1,20 @@
+import classnames from "classnames/bind";
+import PropTypes from "prop-types";
+import styles from "./{{properCase name}}.module.css";
+
+const cx = classnames.bind(styles);
+
+/**
+ * FIXME: Description of {{properCase name}}
+ */
+export const {{properCase name}} = ({ children }) => {
+  const className = cx({
+    {{properCase name}}: true,
+  });
+  return <div className={className}>{children}</div>;
+};
+
+{{properCase name}}.propTypes = {
+  /** FIXME: The content to use as _____ */
+  children: PropTypes.node,
+};
