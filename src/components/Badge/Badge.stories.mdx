@@ -1,0 +1,75 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Badge } from "./Badge";
+
+<Meta title="Components | Images and icons / Badge" component={Badge} />
+
+# Badge
+
+<Description of={Badge} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <div className="flex justify-between">
+      <Badge>New</Badge>
+      <Badge status="info">Recommendeded</Badge>
+      <Badge status="success">Success</Badge>
+      <Badge status="error">Error</Badge>
+    </div>
+  </Story>
+</Preview>
+
+<Props of={Badge} />
+
+## Usage
+
+### Default badge
+
+Use to give a non-critical status update on a piece of information or action.
+
+<Preview>
+  <Story name="Default">
+    <Badge>New</Badge>
+  </Story>
+</Preview>
+
+### Informational badge
+
+Use to call out an object or action as having an important attribute. For example, marking
+an option as "Recommended".
+
+<Preview>
+  <Story name="Informational">
+    <Badge status="info">Recommended</Badge>
+  </Story>
+</Preview>
+
+### Success badge
+
+Use to indicate a successful, completed, or desirable state when it's important to provide
+positive reinforcement to users.
+
+<Preview>
+  <Story name="Success">
+    <Badge status="success">Success</Badge>
+  </Story>
+</Preview>
+
+### Error badge
+
+Use for critical and irreversible issues that require users' attention and potential
+action.
+
+Keep in mind that seeing this badge can feel stressful for users so it should only be used
+when absolutely necessary.
+
+<Preview>
+  <Story name="Error">
+    <Badge status="error">Error</Badge>
+  </Story>
+</Preview>

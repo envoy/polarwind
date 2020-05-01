@@ -53,6 +53,24 @@ module.exports = {
       blue: {
         100: "#4141a2",
       },
+      arctic: {
+        100: "#f6f6f9",
+      },
+      mustard: {
+        100: "#fcf4ea",
+        200: "#bc781f",
+      },
+      powder: {
+        100: "#effafd",
+        200: "#006684",
+      },
+      cilantro: {
+        100: "#e8f4ed",
+        200: "#0a652e",
+      },
+      carbon: {
+        600: "#7e8391",
+      },
     },
     // typography configs are based on
     // https://github.com/envoy/garaje/blob/jon/style-guide-updates/app/styles/_type.scss
@@ -72,6 +90,7 @@ module.exports = {
     },
     lineHeight: {
       none: 1,
+      skinny: 1.15,
       tight: 1.25,
       normal: 1.5,
     },
@@ -95,6 +114,9 @@ module.exports = {
       "input-blur-yellow": `0 0 0 1px ${theme("colors.yellow.300")}`,
     }),
     extend: {
+      borderWidth: {
+        12: "12px",
+      },
       spacing: {
         2.5: "0.604rem",
         2.75: "0.6666rem",
