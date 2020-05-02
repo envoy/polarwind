@@ -205,5 +205,5 @@ module.exports = {
     lineHeight: false,
     verticalAlign: false,
   },
-  purge: ["./src/components/**/*.js"],
+  purge: ["./src/**/*.js"],
 };
