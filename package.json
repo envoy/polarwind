@@ -8,11 +8,10 @@
     "dev": "yarn build -w",
     "prebuild": "rm -rf build",
     "build": "NODE_ENV=production rollup -c",
-    "postbuild": "postbuild.sh",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "build-storybook:docs": "build-storybook --docs -o public",
-    "snapshot": "build-storybook && percy-storybook --widths=1280",
+    "build-storybook": "STORYBOOK=1 build-storybook",
+    "build-storybook:docs": "yarn build-storybook --docs -o public",
+    "snapshot": "yarn build-storybook && percy-storybook --widths=1280",
     "lint": "yarn eslint && yarn stylelint",
     "eslint": "eslint .",
     "stylelint": "stylelint src",
@@ -32,8 +31,7 @@
   "files": [
     "index.umd.js",
     "index.esm.js",
-    "polarwind.css",
-    "polarwind.min.css"
+    "polarwind.css"
   ],
   "peerDependencies": {
     "react": "^16.13.1"
@@ -42,7 +40,6 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
-    "@fullhuman/postcss-purgecss": "^2.1.2",
     "@percy/storybook": "^3.3.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
     "@storybook/addon-actions": "^5.3.18",
@@ -56,7 +53,6 @@
     "babel-plugin-react-require": "^3.1.3",
     "change-case": "^4.1.1",
     "color": "^3.1.2",
-    "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.20.2",
@@ -90,7 +86,7 @@
     "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.4.4"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^5.3.18",

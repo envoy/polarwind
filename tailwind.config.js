@@ -205,4 +205,12 @@ module.exports = {
     lineHeight: false,
     verticalAlign: false,
   },
+  purge: {
+    content: ["./src/**/*.js"],
+    options: {
+      ...(process.env.STORYBOOK && {
+        whitelistPatterns: [/^bg-/], // preserve bg- utilities for colors.stories.js
+      }),
+    },
+  },
 };

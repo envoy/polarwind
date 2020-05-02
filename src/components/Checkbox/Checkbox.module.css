@@ -1,5 +1,3 @@
-@import "../../styles/common.css";
-
 .Label {
   @apply flex items-center flex-row;
 

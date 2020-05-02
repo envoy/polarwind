@@ -1,5 +1,3 @@
-@import "../../styles/common";
-
 .Button {
   @apply rounded-md border border-red-300 bg-red-300 transition ease-in-out duration-150;
   @apply font-medium text-white text-base leading-base-normal;
