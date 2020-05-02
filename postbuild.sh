@@ -2,7 +2,6 @@
 
 set -ex
 
-PURGE=1 postcss build/polarwind.full.css > build/polarwind.css
 MINIFY=1 postcss build/polarwind.css > build/polarwind.min.css
 
 cp build/index.umd.js index.umd.js

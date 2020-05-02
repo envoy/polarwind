@@ -20,7 +20,7 @@ module.exports = [
             extension: ".module.css",
           }),
         },
-        extract: "build/polarwind.full.css",
+        extract: "build/polarwind.css",
       }),
     ],
     output: [
