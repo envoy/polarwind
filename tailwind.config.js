@@ -208,7 +208,7 @@ module.exports = {
   purge: {
     content: ["./src/**/*.js"],
     options: {
-      ...(process.env.STORYBOOK_DOCS && {
+      ...(process.env.STORYBOOK && {
         whitelistPatterns: [/^bg-/], // preserve bg- utilities for colors.stories.js
       }),
     },
