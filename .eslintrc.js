@@ -57,6 +57,14 @@ module.exports = {
         },
       },
     ],
+    "sort-imports": [
+      "error",
+      {
+        ignoreCase: true,
+        ignoreDeclarationSort: true, // to avoid clashing with import/order
+        memberSyntaxSortOrder: ["all", "single", "multiple", "none"],
+      },
+    ],
     "sort-destructure-keys/sort-destructure-keys": [2, { caseSensitive: true }],
     "sort-keys-fix/sort-keys-fix": "error",
   },

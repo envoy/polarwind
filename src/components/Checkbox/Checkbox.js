@@ -1,6 +1,6 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Label } from "../Label";
 import styles from "./Checkbox.module.css";
 
