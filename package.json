@@ -90,7 +90,7 @@
     "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.4.4"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^5.3.18",
