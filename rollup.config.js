@@ -20,16 +20,17 @@ module.exports = [
             extension: ".module.css",
           }),
         },
-        extract: "build/polarwind.css",
+        extract: "polarwind.css",
+        minimize: true,
       }),
     ],
     output: [
       {
-        file: `build/${packageJson.module}`,
+        file: packageJson.module,
         format: "esm",
       },
       {
-        file: `build/${packageJson.main}`,
+        file: packageJson.main,
         format: "umd",
         name: "polarwind",
         globals: { react: "React", "prop-types": "PropTypes" },

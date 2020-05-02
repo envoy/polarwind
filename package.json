@@ -8,7 +8,6 @@
     "dev": "yarn build -w",
     "prebuild": "rm -rf build",
     "build": "NODE_ENV=production rollup -c",
-    "postbuild": "postbuild.sh",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build-storybook:docs": "build-storybook --docs -o public",
@@ -32,8 +31,7 @@
   "files": [
     "index.umd.js",
     "index.esm.js",
-    "polarwind.css",
-    "polarwind.min.css"
+    "polarwind.css"
   ],
   "peerDependencies": {
     "react": "^16.13.1"

@@ -1,12 +1,10 @@
 /node_modules
-/build
 .DS_Store
 /index.esm.js
 /index.umd.js
 /package
 polarwind-v*.tgz
 /polarwind.css
-/polarwind.min.css
 
 .now
 /storybook-static
