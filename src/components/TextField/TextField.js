@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
+import TextareaAutosize from "react-autosize-textarea";
 import { Caption } from "../Caption";
 import { Label } from "../Label";
 import { TextStyle } from "../TextStyle";
@@ -17,6 +18,7 @@ export const TextField = ({
   focused,
   helpText,
   label,
+  multiline,
   onBlur,
   onChange,
   onFocus,
@@ -57,14 +59,33 @@ export const TextField = ({
   const handleChange = (event) => {
     onChange && onChange(event.currentTarget.value);
   };
-  const className = cx(
-    {
-      TextField: true,
-      error,
-      focused,
-      hasCaption,
-    },
-    "form-input"
+  const className = cx({
+    TextField: true,
+    error,
+    focused,
+    "form-input": !multiline,
+    "form-textarea": multiline,
+    hasCaption,
+    multiline,
+  });
+
+  const inputProps = {
+    className: className,
+    disabled: disabled,
+    onBlur: handleBlur,
+    onChange: handleChange,
+    onFocus: handleFocus,
+    placeholder: labelHidden ? label : undefined,
+    type: type,
+    value: value,
+  };
+  const inputMarkup = multiline ? (
+    <TextareaAutosize
+      {...inputProps}
+      rows={typeof multiline === "number" ? multiline : 2}
+    />
+  ) : (
+    <input {...inputProps} />
   );
 
   return (
@@ -74,16 +95,7 @@ export const TextField = ({
       label={label}
       required={required}
     >
-      <input
-        className={className}
-        disabled={disabled}
-        placeholder={labelHidden ? label : undefined}
-        type={type}
-        value={value}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        onFocus={handleFocus}
-      />
+      {inputMarkup}
       {captionMarkup}
     </Label>
   );
@@ -100,6 +112,8 @@ TextField.propTypes = {
   helpText: PropTypes.string,
   /** Label for the input */
   label: PropTypes.string.isRequired,
+  /** Allow for multiple lines of input */
+  multiline: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   /** Callback when focus is removed */
   onBlur: PropTypes.func,
   /** Callback when value is changed */

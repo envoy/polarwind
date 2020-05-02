@@ -113,6 +113,10 @@ module.exports = {
       ].join(),
       "input-blur-yellow": `0 0 0 1px ${theme("colors.yellow.300")}`,
     }),
+    borderColor: (theme) => ({
+      ...theme("colors"),
+      default: theme("colors.slate.300"),
+    }),
     extend: {
       borderWidth: {
         12: "12px",
@@ -127,17 +131,16 @@ module.exports = {
     },
     customForms: (theme) => ({
       default: {
-        "input, checkbox": {
+        "input, textarea, checkbox": {
           "&:disabled": {
             color: theme("colors.slate.600"),
             borderColor: theme("colors.slate.500"),
             backgroundColor: theme("colors.slate.100"),
           },
         },
-        input: {
+        "input, textarea": {
           color: theme("colors.slate.700"),
           borderRadius: theme("borderRadius.md"),
-          borderColor: theme("colors.slate.300"),
           paddingTop: theme("spacing.2"),
           paddingRight: theme("spacing.2"),
           paddingBottom: theme("spacing.2"),
@@ -156,6 +159,8 @@ module.exports = {
               boxShadow: theme("boxShadow.input-yellow"),
             },
           },
+        },
+        input: {
           "&[type=search]": {
             borderRadius: theme("borderRadius.full"),
             paddingLeft: theme("spacing.8"),
