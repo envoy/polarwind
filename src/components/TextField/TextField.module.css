@@ -1,5 +1,3 @@
-@import "../../styles/common";
-
 .TextField {
   @apply block w-full;
 
