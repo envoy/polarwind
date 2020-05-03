@@ -19,15 +19,34 @@ export const Select = ({
   onChange,
   onFocus,
   options,
-  placeholder,
   required,
   success,
   value,
 }) => {
+  const handleFocus = () => {
+    onFocus && onFocus();
+  };
+  const handleBlur = () => {
+    onBlur && onBlur();
+  };
+  const handleChange = (event) => {
+    onChange && onChange(event.currentTarget.value);
+  };
+
   const className = cx({
     Select: true,
+    disabled,
     "form-select": true,
   });
+
+  const inputProps = {
+    className,
+    disabled,
+    onBlur: handleBlur,
+    onChange: handleChange,
+    onFocus: handleFocus,
+    value,
+  };
 
   return (
     <Labeled
@@ -39,7 +58,7 @@ export const Select = ({
       required={required}
       success={success}
     >
-      <select className={className}>
+      <select {...inputProps}>
         {options.map(({ label, value }) => (
           <option key={value}>{label}</option>
         ))}
@@ -50,6 +69,16 @@ export const Select = ({
 
 Select.propTypes = {
   ...Labeled.propTypes,
+  /** Disable the input */
+  disabled: PropTypes.bool,
+  /** Callback when focus is removed */
+  onBlur: PropTypes.func,
+  /** Callback when value is changed */
+  onChange: PropTypes.func,
+  /** Callback when input is focused */
+  onFocus: PropTypes.func,
   /** List of options or option groups to choose from */
   options: PropTypes.array,
+  /** Initial value for the input */
+  value: PropTypes.string,
 };

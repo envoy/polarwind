@@ -22,6 +22,7 @@ import { Select } from "./Select";
         { label: "Medium", value: "m" },
         { label: "Large", value: "l" },
       ]}
+      value="m"
     />
   </Story>
 </Preview>
@@ -33,3 +34,19 @@ import { Select } from "./Select";
 ### Default select
 
 Presents a classic dropdown menu or equivalent picker as determined by users browsers.
+
+### Disabled
+
+<Preview>
+  <Story name="Disabled">
+    <Select
+      label="Size"
+      options={[
+        { label: "Small", value: "s" },
+        { label: "Medium", value: "m" },
+        { label: "Large", value: "l" },
+      ]}
+      disabled
+    />
+  </Story>
+</Preview>

@@ -136,7 +136,7 @@ module.exports = {
           borderColor: theme("colors.arctic.200"),
           borderRadius: theme("borderRadius.md"),
         },
-        "input, textarea, checkbox": {
+        "input, textarea, checkbox, select": {
           "&:disabled": {
             color: theme("colors.slate.600"),
             borderColor: theme("colors.slate.500"),
