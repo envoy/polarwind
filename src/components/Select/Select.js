@@ -1,6 +1,6 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { Label } from "../Label";
+import { Labeled } from "../Labeled";
 import styles from "./Select.module.css";
 
 const cx = classnames.bind(styles);
@@ -20,6 +20,8 @@ export const Select = ({
   onFocus,
   options,
   placeholder,
+  required,
+  success,
   value,
 }) => {
   const className = cx({
@@ -28,19 +30,26 @@ export const Select = ({
   });
 
   return (
-    <Label className={styles.Label} label={label}>
+    <Labeled
+      className={styles.Label}
+      error={error}
+      helpText={helpText}
+      hidden={labelHidden}
+      label={label}
+      required={required}
+      success={success}
+    >
       <select className={className}>
         {options.map(({ label, value }) => (
           <option key={value}>{label}</option>
         ))}
       </select>
-    </Label>
+    </Labeled>
   );
 };
 
 Select.propTypes = {
-  /** Label for the select */
-  label: PropTypes.string.isRequired,
+  ...Labeled.propTypes,
   /** List of options or option groups to choose from */
   options: PropTypes.array,
 };
