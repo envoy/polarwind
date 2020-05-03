@@ -67,6 +67,7 @@ module.exports = {
     ],
     "sort-destructure-keys/sort-destructure-keys": [2, { caseSensitive: true }],
     "sort-keys-fix/sort-keys-fix": "error",
+    "object-shorthand": ["error", "always"],
   },
   ignorePatterns: [
     "node_modules/",

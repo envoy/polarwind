@@ -55,14 +55,14 @@ export const TextField = ({
   });
 
   const inputProps = {
-    className: className,
-    disabled: disabled,
+    className,
+    disabled,
     onBlur: handleBlur,
     onChange: handleChange,
     onFocus: handleFocus,
     placeholder: labelHidden ? label : undefined,
-    type: type,
-    value: value,
+    type,
+    value,
   };
   const inputMarkup = multiline ? (
     <TextareaAutosize
