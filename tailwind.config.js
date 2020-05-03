@@ -12,7 +12,6 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
 
-      black: "#000",
       white: "#fff",
 
       slate: {
@@ -69,7 +68,11 @@ module.exports = {
         200: "#0a652e",
       },
       carbon: {
-        600: "#7e8391",
+        100: "#d7d8de",
+        200: "#999fac",
+        300: "#7e8391",
+        400: "#646974",
+        500: "#3f4450",
       },
     },
     // typography configs are based on
