@@ -1,9 +1,7 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
 import TextareaAutosize from "react-autosize-textarea";
-import { Caption } from "../Caption";
-import { Label } from "../Label";
-import { TextStyle } from "../TextStyle";
+import { Labeled } from "../Labeled";
 import styles from "./TextField.module.css";
 
 const cx = classNames.bind(styles);
@@ -37,18 +35,6 @@ export const TextField = ({
     error = null;
     success = null;
   }
-  const helpTextMarkup = helpText && (
-    <TextStyle variation="subdued">{helpText}</TextStyle>
-  );
-  const successMarkup = success && (
-    <TextStyle variation="positive">{success}</TextStyle>
-  );
-  const errorMarkup = error && (
-    <TextStyle variation="warning">{error}</TextStyle>
-  );
-  const hasCaption = errorMarkup || successMarkup || helpTextMarkup;
-  const captionMarkup = hasCaption && <Caption>{hasCaption}</Caption>;
-
   // == INPUT ==
   const handleFocus = () => {
     onFocus && onFocus();
@@ -65,7 +51,6 @@ export const TextField = ({
     focused,
     "form-input": !multiline,
     "form-textarea": multiline,
-    hasCaption,
     multiline,
   });
 
@@ -89,29 +74,26 @@ export const TextField = ({
   );
 
   return (
-    <Label
+    <Labeled
       className={styles.Label}
+      error={error}
+      helpText={helpText}
       hidden={labelHidden}
       label={label}
       required={required}
+      success={success}
     >
       {inputMarkup}
-      {captionMarkup}
-    </Label>
+    </Labeled>
   );
 };
 
 TextField.propTypes = {
+  ...Labeled.propTypes,
   /** Disable the input */
   disabled: PropTypes.bool,
-  /** Error to display beneath the label */
-  error: PropTypes.string,
   /** Forces the focused state of the input */
   focused: PropTypes.bool,
-  /** Additional hint text to display */
-  helpText: PropTypes.string,
-  /** Label for the input */
-  label: PropTypes.string.isRequired,
   /** Allow for multiple lines of input */
   multiline: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   /** Callback when focus is removed */
@@ -120,10 +102,6 @@ TextField.propTypes = {
   onChange: PropTypes.func,
   /** Callback when input is focused */
   onFocus: PropTypes.func,
-  /** Mark the field as required */
-  required: PropTypes.bool,
-  /** Success message to display beneath the label */
-  success: PropTypes.string,
   /** Determines the type of input */
   type: PropTypes.oneOf(["text", "search"]),
   /** Initial value for the input */
