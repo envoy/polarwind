@@ -41,11 +41,11 @@ export const Select = ({
 
   const inputProps = {
     className,
+    defaultValue: value,
     disabled,
     onBlur: handleBlur,
     onChange: handleChange,
     onFocus: handleFocus,
-    value,
   };
 
   return (
@@ -60,7 +60,9 @@ export const Select = ({
     >
       <select {...inputProps}>
         {options.map(({ label, value }) => (
-          <option key={value}>{label}</option>
+          <option key={value} value={value}>
+            {label}
+          </option>
         ))}
       </select>
     </Labeled>
