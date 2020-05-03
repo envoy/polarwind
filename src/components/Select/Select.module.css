@@ -1,7 +1,11 @@
 .Select {
-  @apply mt-1 block w-full;
+  @apply block w-full;
 }
 
 .Label {
   @apply block;
+
+  .Polarwind-Label {
+    @apply text-sm;
+  }
 }
