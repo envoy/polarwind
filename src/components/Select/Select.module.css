@@ -1,0 +1,7 @@
+.Select {
+  @apply mt-1 block w-full;
+}
+
+.Label {
+  @apply block;
+}

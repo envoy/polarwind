@@ -1,0 +1,34 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Select } from "./Select";
+
+<Meta title="Components | Forms / Select" component={Select} />
+
+# Select
+
+<Description of={Select} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <Select
+      options={[
+        { label: "Small", value: "s" },
+        { label: "Medium", value: "m" },
+        { label: "Large", value: "l" },
+      ]}
+    />
+  </Story>
+</Preview>
+
+<Props of={Select} />
+
+## Usage
+
+### Default select
+
+Presents a classic dropdown menu or equivalent picker as determined by users browsers.
