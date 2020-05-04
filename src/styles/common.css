@@ -1,5 +1,9 @@
 @tailwind base;
 
+html {
+  @apply text-carbon-400;
+}
+
 @font-face {
   font-family: "SofiaPro";
   src: url("https://envoy-fonts.s3.amazonaws.com/sofia-pro/3AF984_A_0.eot");

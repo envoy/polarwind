@@ -1,0 +1,11 @@
+.Select {
+  @apply block w-full;
+}
+
+.Label {
+  @apply block;
+
+  .Polarwind-Label {
+    @apply text-sm;
+  }
+}

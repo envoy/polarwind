@@ -12,7 +12,6 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
 
-      black: "#000",
       white: "#fff",
 
       slate: {
@@ -55,6 +54,7 @@ module.exports = {
       },
       arctic: {
         100: "#f6f6f9",
+        200: "#e9eaf2",
       },
       mustard: {
         100: "#fcf4ea",
@@ -69,7 +69,11 @@ module.exports = {
         200: "#0a652e",
       },
       carbon: {
-        600: "#7e8391",
+        100: "#d7d8de",
+        200: "#999fac",
+        300: "#7e8391",
+        400: "#646974",
+        500: "#3f4450",
       },
     },
     // typography configs are based on
@@ -113,10 +117,6 @@ module.exports = {
       ].join(),
       "input-blur-yellow": `0 0 0 1px ${theme("colors.yellow.300")}`,
     }),
-    borderColor: (theme) => ({
-      ...theme("colors"),
-      default: theme("colors.slate.300"),
-    }),
     extend: {
       borderWidth: {
         12: "12px",
@@ -131,7 +131,12 @@ module.exports = {
     },
     customForms: (theme) => ({
       default: {
-        "input, textarea, checkbox": {
+        "input, textarea, select": {
+          color: theme("colors.carbon.500"),
+          borderColor: theme("colors.arctic.200"),
+          borderRadius: theme("borderRadius.md"),
+        },
+        "input, textarea, checkbox, select": {
           "&:disabled": {
             color: theme("colors.slate.600"),
             borderColor: theme("colors.slate.500"),
@@ -139,8 +144,6 @@ module.exports = {
           },
         },
         "input, textarea": {
-          color: theme("colors.slate.700"),
-          borderRadius: theme("borderRadius.md"),
           paddingTop: theme("spacing.2"),
           paddingRight: theme("spacing.2"),
           paddingBottom: theme("spacing.2"),
@@ -184,6 +187,9 @@ module.exports = {
           "&:checked:disabled": {
             backgroundColor: "currentColor",
           },
+        },
+        select: {
+          iconColor: theme("colors.carbon.200"),
         },
       },
     }),
