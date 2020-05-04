@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Meta,
   Story,
@@ -15,15 +16,25 @@ import { Select } from "./Select";
 
 <Preview withToolbar>
   <Story name="Example">
-    <Select
-      label="Size"
-      options={[
-        { label: "Small", value: "s" },
-        { label: "Medium", value: "m" },
-        { label: "Large", value: "l" },
-      ]}
-      value="m"
-    />
+    {() => {
+      const [value, setValue] = useState("m");
+      const helpText = <>Current value is {value}</>;
+      return (
+        <>
+          <Select
+            label="Size"
+            options={[
+              { label: "Small", value: "s" },
+              { label: "Medium", value: "m" },
+              { label: "Large", value: "l" },
+            ]}
+            value={value}
+            onChange={setValue}
+            helpText={helpText}
+          />
+        </>
+      );
+    }}
   </Story>
 </Preview>
 
