@@ -19,15 +19,16 @@ import { Select } from "./Select";
     {() => {
       const [value, setValue] = useState("m");
       const helpText = <>Current value is {value}</>;
+      const options = [
+        { label: "Small", value: "s" },
+        { label: "Medium", value: "m" },
+        { label: "Large", value: "l" },
+      ];
       return (
         <>
           <Select
             label="Size"
-            options={[
-              { label: "Small", value: "s" },
-              { label: "Medium", value: "m" },
-              { label: "Large", value: "l" },
-            ]}
+            options={options}
             value={value}
             onChange={setValue}
             helpText={helpText}
@@ -45,6 +46,99 @@ import { Select } from "./Select";
 ### Default select
 
 Presents a classic dropdown menu or equivalent picker as determined by users browsers.
+
+### Options
+
+Accepts options in various formats.
+
+#### String arrays
+
+The simplest way to define options. It will use the string as both the label and value.
+
+<Preview>
+  <Story name="String array">
+    {() => {
+      const [value, setValue] = useState("Two");
+      const helpText = <>Current value is {value}</>;
+      const options = ["One", "Two", "Three"];
+      return (
+        <>
+          <Select
+            label="Size"
+            options={options}
+            value={value}
+            onChange={setValue}
+            helpText={helpText}
+          />
+        </>
+      );
+    }}
+  </Story>
+</Preview>
+
+#### `label` and `value` object arrays
+
+The typical format where your value is different than your display label, usually an ID.
+Also supports a `disabled` attribute.
+
+<Preview>
+  <Story name="Label and value">
+    {() => {
+      const [value, setValue] = useState("xl");
+      const helpText = <>Current value is {value}</>;
+      const options = [
+        { label: "Small", value: "s" },
+        { label: "Medium", value: "m" },
+        { label: "Large", value: "l", disabled: true },
+        { label: "Extra large", value: "xl" },
+      ];
+      return (
+        <Select
+          label="Size"
+          options={options}
+          value={value}
+          onChange={setValue}
+          helpText={helpText}
+        />
+      );
+    }}
+  </Story>
+</Preview>
+
+#### Option groups
+
+<Preview>
+  <Story name="Option groups">
+    {() => {
+      const [value, setValue] = useState("Three");
+      const helpText = <>Current value is {value}</>;
+      const options = [
+        {
+          title: "String array",
+          options: ["One", "Two", "Three"],
+        },
+        {
+          title: "Label/value array",
+          options: [
+            { label: "Small", value: "s" },
+            { label: "Medium", value: "m" },
+            { label: "Large", value: "l", disabled: true },
+            { label: "Extra large", value: "xl" },
+          ],
+        },
+      ];
+      return (
+        <Select
+          label="Size"
+          options={options}
+          value={value}
+          onChange={setValue}
+          helpText={helpText}
+        />
+      );
+    }}
+  </Story>
+</Preview>
 
 ### Disabled
 

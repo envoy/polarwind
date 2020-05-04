@@ -56,7 +56,7 @@ Labeled.propTypes = {
   /** Error to display beneath the label */
   error: PropTypes.string,
   /** Additional hint text to display */
-  helpText: PropTypes.string,
+  helpText: PropTypes.node,
   /** Visually hide the label */
   hidden: PropTypes.bool,
   /** Label for the input */
