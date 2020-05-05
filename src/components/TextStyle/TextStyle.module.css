@@ -1,15 +1,15 @@
 .subdued {
-  @apply text-slate-500;
+  @apply text-carbon-50%;
 }
 
 .positive {
-  @apply text-green-300;
+  @apply text-cilantro;
 }
 
 .negative {
-  @apply text-red-300;
+  @apply text-brand;
 }
 
 .warning {
-  @apply text-yellow-400;
+  @apply text-honeycomb-dark;
 }

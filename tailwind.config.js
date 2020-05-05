@@ -14,66 +14,40 @@ module.exports = {
 
       white: "#fff",
 
-      slate: {
-        100: "#f4f4f4",
-        200: "#e9e8e8",
-        300: "#d3d2d2",
-        400: "#c8c7c7", // border hover
-        500: "#918f8f",
-        600: "#706d6e",
-        700: "#4f4c4d",
-        800: "#231f20",
+      brand: {
+        default: "#ff4438",
+        dark: "#a00c1f",
+        light: "#ff7c73",
+        lightest: "#ffeceb",
       },
-      red: {
-        100: "#ffeceb",
-        200: "#ff7c73",
-        300: "#ff4438",
-        400: "#c52015", // hover state in sketch
-        500: "#a00c1f",
-      },
-      purple: {
-        100: "#ececf5",
-        200: "#a09cde",
-        300: "#5d45d7",
-        400: "#3e32ac",
-      },
-      green: {
-        100: "#e8f4ed",
-        200: "#5dc486",
-        300: "#20944e",
-        400: "#0a652e",
-      },
-      yellow: {
-        100: "#fcf4ea",
-        200: "#f7c277",
-        300: "#f2a53f",
-        400: "#bc781f",
-      },
-      blue: {
-        100: "#4141a2",
+      pacific: {
+        default: "#028eb7",
+        dark: "#006684",
+        light: "#b5dfeb",
+        lightest: "#effafd",
       },
       arctic: {
-        100: "#f6f6f9",
-        200: "#e9eaf2",
+        default: "#e9eaf2",
+        "50%": "#f6f6f9",
       },
-      mustard: {
-        100: "#fcf4ea",
-        200: "#bc781f",
-      },
-      powder: {
-        100: "#effafd",
-        200: "#006684",
+      honeycomb: {
+        default: "#f2a53f",
+        dark: "#bc781f",
+        light: "#f7c277",
+        lightest: "#fcf4ea",
       },
       cilantro: {
-        100: "#e8f4ed",
-        200: "#0a652e",
+        default: "#20944e",
+        dark: "#0a652e",
+        light: "#52bc7c",
+        lightest: "#e8f4ed",
       },
       carbon: {
-        100: "#d7d8de",
-        200: "#999fac",
-        300: "#7e8391",
-        400: "#646974",
-        500: "#3f4450",
+        "100%": "#3f4450",
+        "80%": "#646974",
+        "65%": "#7e8391",
+        "50%": "#999fac",
+        "20%": "#d7d8de",
       },
     },
     // typography configs are based on
@@ -104,18 +78,17 @@ module.exports = {
     boxShadow: (theme) => ({
       none: "none",
       default: "0px 2px 6px rgba(0, 0, 0, 0.48)",
-      outline: `0 0 0 3px ${rgba(theme("colors.slate.300"), 0.2)}`,
-      "outline-red": `0 0 0 3px ${rgba(theme("colors.red.300"), 0.3)}`,
-      "outline-blue": `0 0 0 3px ${rgba(theme("colors.blue.100"), 0.3)}`,
-      "input-blue": [
-        `0 0 0 1px ${theme("colors.blue.100")}`,
-        `0 1px 3px 0 ${rgba(theme("colors.blue.100"), 0.2)}`,
+      outline: `0 0 0 3px ${rgba(theme("colors.carbon.20%"), 0.2)}`,
+      "outline-red": `0 0 0 3px ${rgba(theme("colors.brand.default"), 0.3)}`,
+      "input-pacific": [
+        `0 0 0 1px ${theme("colors.pacific.default")}`,
+        `0 1px 4px 0 ${rgba(theme("colors.pacific.default"), 0.16)}`,
       ].join(),
-      "input-yellow": [
-        `0 0 0 1px ${theme("colors.yellow.300")}`,
-        `0 1px 3px 0 ${rgba(theme("colors.yellow.300"), 0.2)}`,
+      "input-honeycomb": [
+        `0 0 0 1px ${theme("colors.honeycomb.default")}`,
+        `0 1px 4px 0 ${rgba(theme("colors.honeycomb.default"), 0.16)}`,
       ].join(),
-      "input-blur-yellow": `0 0 0 1px ${theme("colors.yellow.300")}`,
+      "input-blur-honeycomb": `0 0 0 1px ${theme("colors.honeycomb.default")}`,
     }),
     extend: {
       borderWidth: {
@@ -132,15 +105,15 @@ module.exports = {
     customForms: (theme) => ({
       default: {
         "input, textarea, select": {
-          color: theme("colors.carbon.500"),
-          borderColor: theme("colors.arctic.200"),
+          color: theme("colors.carbon.100%"),
+          borderColor: theme("colors.arctic.default"),
           borderRadius: theme("borderRadius.md"),
         },
         "input, textarea, checkbox, select": {
           "&:disabled": {
-            color: theme("colors.slate.600"),
-            borderColor: theme("colors.slate.500"),
-            backgroundColor: theme("colors.slate.100"),
+            color: theme("colors.carbon.65%"),
+            borderColor: theme("colors.carbon.20%"),
+            backgroundColor: theme("colors.arctic.50%"),
           },
         },
         "input, textarea": {
@@ -149,17 +122,17 @@ module.exports = {
           paddingBottom: theme("spacing.2"),
           paddingLeft: theme("spacing.2"),
           "&::placeholder": {
-            color: theme("colors.slate.500"),
+            color: theme("colors.carbon.20%"),
           },
           "&:focus, &.focused:enabled:not(.error)": {
-            boxShadow: theme("boxShadow.input-blue"), // defined in TextField.module.css due to complex requirement with error state
-            borderColor: theme("colors.blue.100"),
+            boxShadow: theme("boxShadow.input-pacific"), // defined in TextField.module.css due to complex requirement with error state
+            borderColor: theme("colors.pacific.default"),
           },
           "&.error": {
-            borderColor: theme("colors.yellow.300"),
-            boxShadow: theme("boxShadow.input-blur-yellow"),
+            borderColor: theme("colors.honeycomb.default"),
+            boxShadow: theme("boxShadow.input-blur-honeycomb"),
             "&:focus": {
-              boxShadow: theme("boxShadow.input-yellow"),
+              boxShadow: theme("boxShadow.input-honeycomb"),
             },
           },
         },
@@ -189,7 +162,7 @@ module.exports = {
           },
         },
         select: {
-          iconColor: theme("colors.carbon.200"),
+          iconColor: theme("colors.carbon.50%"),
         },
       },
     }),
