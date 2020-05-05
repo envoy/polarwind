@@ -12,10 +12,6 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         uses: bahmutov/npm-install@v1
-      - name: Get branch name
-        uses: igordcsouza/github-action-get-branch-name@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build docs
         run: "yarn build-storybook:docs"
       - name: Deploy docs
