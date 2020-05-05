@@ -4,7 +4,7 @@
 
 .required::after {
   content: " ";
-  @apply block bg-red-300 rounded-md h-1 w-1 ml-1;
+  @apply block bg-brand rounded-md h-1 w-1 ml-1;
 }
 
 .hidden {

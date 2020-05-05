@@ -1,11 +1,11 @@
 .Button {
-  @apply rounded-md border border-red-300 bg-red-300 transition ease-in-out duration-150;
+  @apply rounded-md border border-brand bg-brand transition ease-in-out duration-150;
   @apply font-medium text-white text-base leading-base-normal;
   @apply px-6 py-2.75;
   @apply self-center;
 
   &:hover:enabled {
-    @apply bg-red-400 border-red-400;
+    @apply bg-brand-dark border-brand-dark;
   }
 
   &:focus:enabled {
@@ -13,7 +13,7 @@
   }
 
   &:active:enabled {
-    @apply bg-red-500 border-red-500;
+    @apply bg-brand-dark border-brand-dark;
   }
 
   span {

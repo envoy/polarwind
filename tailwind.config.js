@@ -24,12 +24,11 @@ module.exports = {
         700: "#4f4c4d",
         800: "#231f20",
       },
-      red: {
-        100: "#ffeceb",
-        200: "#ff7c73",
-        300: "#ff4438",
-        400: "#c52015", // hover state in sketch
-        500: "#a00c1f",
+      brand: {
+        default: "#ff4438",
+        dark: "#a00c1f",
+        light: "#ff7c73",
+        lightest: "#ffeceb",
       },
       blue: {
         100: "#4141a2",
@@ -93,7 +92,7 @@ module.exports = {
       none: "none",
       default: "0px 2px 6px rgba(0, 0, 0, 0.48)",
       outline: `0 0 0 3px ${rgba(theme("colors.slate.300"), 0.2)}`,
-      "outline-red": `0 0 0 3px ${rgba(theme("colors.red.300"), 0.3)}`,
+      "outline-red": `0 0 0 3px ${rgba(theme("colors.brand.default"), 0.3)}`,
       "outline-blue": `0 0 0 3px ${rgba(theme("colors.blue.100"), 0.3)}`,
       "input-pacific": [
         `0 0 0 1px ${theme("colors.pacific.default")}`,
