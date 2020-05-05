@@ -59,12 +59,16 @@ module.exports = {
         lightest: "#effafd",
       },
       arctic: {
+        default: "#e9eaf2",
+        "50%": "#f6f6f9",
         100: "#f6f6f9",
         200: "#e9eaf2",
       },
-      mustard: {
-        100: "#fcf4ea",
-        200: "#bc781f",
+      honeycomb: {
+        default: "#f2a53f",
+        dark: "#bc781f",
+        light: "#f7c277",
+        lightest: "#fcf4ea",
       },
       cilantro: {
         default: "#20944e",
@@ -73,6 +77,11 @@ module.exports = {
         lightest: "#e8f4ed",
       },
       carbon: {
+        "100%": "#3f4450",
+        "80%": "#646974",
+        "65%": "#7e8391",
+        "50%": "#999fac",
+        "20%": "#d7d8de",
         100: "#d7d8de",
         200: "#999fac",
         300: "#7e8391",
