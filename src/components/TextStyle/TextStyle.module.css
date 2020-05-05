@@ -11,5 +11,5 @@
 }
 
 .warning {
-  @apply text-yellow-400;
+  @apply text-honeycomb-dark;
 }

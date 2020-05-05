@@ -37,12 +37,6 @@ module.exports = {
         300: "#5d45d7",
         400: "#3e32ac",
       },
-      yellow: {
-        100: "#fcf4ea",
-        200: "#f7c277",
-        300: "#f2a53f",
-        400: "#bc781f",
-      },
       blue: {
         100: "#4141a2",
       },
@@ -113,11 +107,11 @@ module.exports = {
         `0 0 0 1px ${theme("colors.pacific.default")}`,
         `0 1px 4px 0 ${rgba(theme("colors.pacific.default"), 0.16)}`,
       ].join(),
-      "input-yellow": [
-        `0 0 0 1px ${theme("colors.yellow.300")}`,
-        `0 1px 3px 0 ${rgba(theme("colors.yellow.300"), 0.2)}`,
+      "input-honeycomb": [
+        `0 0 0 1px ${theme("colors.honeycomb.default")}`,
+        `0 1px 4px 0 ${rgba(theme("colors.honeycomb.default"), 0.16)}`,
       ].join(),
-      "input-blur-yellow": `0 0 0 1px ${theme("colors.yellow.300")}`,
+      "input-blur-honeycomb": `0 0 0 1px ${theme("colors.honeycomb.default")}`,
     }),
     extend: {
       borderWidth: {
@@ -158,10 +152,10 @@ module.exports = {
             borderColor: theme("colors.pacific.default"),
           },
           "&.error": {
-            borderColor: theme("colors.yellow.300"),
-            boxShadow: theme("boxShadow.input-blur-yellow"),
+            borderColor: theme("colors.honeycomb.default"),
+            boxShadow: theme("boxShadow.input-blur-honeycomb"),
             "&:focus": {
-              boxShadow: theme("boxShadow.input-yellow"),
+              boxShadow: theme("boxShadow.input-honeycomb"),
             },
           },
         },
