@@ -82,11 +82,6 @@ module.exports = {
         "65%": "#7e8391",
         "50%": "#999fac",
         "20%": "#d7d8de",
-        100: "#d7d8de",
-        200: "#999fac",
-        300: "#7e8391",
-        400: "#646974",
-        500: "#3f4450",
       },
     },
     // typography configs are based on
@@ -145,7 +140,7 @@ module.exports = {
     customForms: (theme) => ({
       default: {
         "input, textarea, select": {
-          color: theme("colors.carbon.500"),
+          color: theme("colors.carbon.100%"),
           borderColor: theme("colors.arctic.200"),
           borderRadius: theme("borderRadius.md"),
         },
@@ -202,7 +197,7 @@ module.exports = {
           },
         },
         select: {
-          iconColor: theme("colors.carbon.200"),
+          iconColor: theme("colors.carbon.50%"),
         },
       },
     }),
