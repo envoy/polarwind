@@ -11,7 +11,7 @@
 }
 
 .enabled {
-  @apply bg-green-300;
+  @apply bg-cilantro;
 
   span {
     @apply translate-x-7;
