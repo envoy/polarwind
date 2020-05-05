@@ -31,12 +31,6 @@ module.exports = {
         400: "#c52015", // hover state in sketch
         500: "#a00c1f",
       },
-      purple: {
-        100: "#ececf5",
-        200: "#a09cde",
-        300: "#5d45d7",
-        400: "#3e32ac",
-      },
       blue: {
         100: "#4141a2",
       },
