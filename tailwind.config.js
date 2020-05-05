@@ -49,8 +49,6 @@ module.exports = {
       arctic: {
         default: "#e9eaf2",
         "50%": "#f6f6f9",
-        100: "#f6f6f9",
-        200: "#e9eaf2",
       },
       honeycomb: {
         default: "#f2a53f",
@@ -129,7 +127,7 @@ module.exports = {
       default: {
         "input, textarea, select": {
           color: theme("colors.carbon.100%"),
-          borderColor: theme("colors.arctic.200"),
+          borderColor: theme("colors.arctic.default"),
           borderRadius: theme("borderRadius.md"),
         },
         "input, textarea, checkbox, select": {
