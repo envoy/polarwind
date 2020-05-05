@@ -50,10 +50,10 @@
 }
 
 .plain {
-  @apply bg-transparent border-transparent text-slate-700;
+  @apply bg-transparent border-transparent text-carbon-80%;
 
   &:hover:enabled {
-    @apply bg-transparent text-slate-600 border-transparent;
+    @apply bg-arctic text-carbon-80% border-transparent;
   }
 
   &:focus:enabled {
@@ -61,18 +61,18 @@
   }
 
   &:active:enabled {
-    @apply text-slate-800;
-    @apply bg-slate-100; /* sketch has #fbfbfb but that doesn't exist */
+    @apply text-carbon-80%;
+    @apply bg-arctic;
     @apply border-transparent;
   }
 }
 
 .outline {
   composes: plain;
-  @apply border-slate-300;
+  @apply border-arctic;
 
   &:hover:enabled,
   &:focus:enabled {
-    @apply border-slate-400;
+    @apply border-arctic;
   }
 }

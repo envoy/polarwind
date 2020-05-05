@@ -14,24 +14,11 @@ module.exports = {
 
       white: "#fff",
 
-      slate: {
-        100: "#f4f4f4",
-        200: "#e9e8e8",
-        300: "#d3d2d2",
-        400: "#c8c7c7", // border hover
-        500: "#918f8f",
-        600: "#706d6e",
-        700: "#4f4c4d",
-        800: "#231f20",
-      },
       brand: {
         default: "#ff4438",
         dark: "#a00c1f",
         light: "#ff7c73",
         lightest: "#ffeceb",
-      },
-      blue: {
-        100: "#4141a2",
       },
       pacific: {
         default: "#028eb7",
@@ -91,9 +78,8 @@ module.exports = {
     boxShadow: (theme) => ({
       none: "none",
       default: "0px 2px 6px rgba(0, 0, 0, 0.48)",
-      outline: `0 0 0 3px ${rgba(theme("colors.slate.300"), 0.2)}`,
+      outline: `0 0 0 3px ${rgba(theme("colors.carbon.20%"), 0.2)}`,
       "outline-red": `0 0 0 3px ${rgba(theme("colors.brand.default"), 0.3)}`,
-      "outline-blue": `0 0 0 3px ${rgba(theme("colors.blue.100"), 0.3)}`,
       "input-pacific": [
         `0 0 0 1px ${theme("colors.pacific.default")}`,
         `0 1px 4px 0 ${rgba(theme("colors.pacific.default"), 0.16)}`,
@@ -125,9 +111,9 @@ module.exports = {
         },
         "input, textarea, checkbox, select": {
           "&:disabled": {
-            color: theme("colors.slate.600"),
-            borderColor: theme("colors.slate.500"),
-            backgroundColor: theme("colors.slate.100"),
+            color: theme("colors.carbon.65%"),
+            borderColor: theme("colors.carbon.20%"),
+            backgroundColor: theme("colors.arctic.50%"),
           },
         },
         "input, textarea": {
@@ -136,7 +122,7 @@ module.exports = {
           paddingBottom: theme("spacing.2"),
           paddingLeft: theme("spacing.2"),
           "&::placeholder": {
-            color: theme("colors.slate.500"),
+            color: theme("colors.carbon.20%"),
           },
           "&:focus, &.focused:enabled:not(.error)": {
             boxShadow: theme("boxShadow.input-pacific"), // defined in TextField.module.css due to complex requirement with error state
