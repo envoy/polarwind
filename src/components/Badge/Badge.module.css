@@ -16,5 +16,5 @@
 }
 
 .success {
-  @apply bg-cilantro-100 text-cilantro-200;
+  @apply bg-cilantro-lightest text-cilantro-dark;
 }

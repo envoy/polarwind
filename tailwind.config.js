@@ -67,8 +67,10 @@ module.exports = {
         200: "#bc781f",
       },
       cilantro: {
-        100: "#e8f4ed",
-        200: "#0a652e",
+        default: "#20944e",
+        dark: "#0a652e",
+        light: "#52bc7c",
+        lightest: "#e8f4ed",
       },
       carbon: {
         100: "#d7d8de",
