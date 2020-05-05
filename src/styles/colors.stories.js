@@ -44,7 +44,7 @@ Object.entries(colors)
     } else {
       stories.add(key, () =>
         Object.entries(value).map(([subkey, subvalue]) => {
-          const color = `${key}-${subkey}`;
+          const color = subkey === "default" ? key : `${key}-${subkey}`;
           return <Color color={color} hex={subvalue} key={color} />;
         })
       );
