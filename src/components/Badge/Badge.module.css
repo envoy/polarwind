@@ -8,7 +8,7 @@
 }
 
 .info {
-  @apply bg-powder-100 text-powder-200;
+  @apply bg-pacific-lightest text-pacific-dark;
 }
 
 .error {

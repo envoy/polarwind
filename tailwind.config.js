@@ -52,6 +52,12 @@ module.exports = {
       blue: {
         100: "#4141a2",
       },
+      pacific: {
+        default: "#028eb7",
+        dark: "#006684",
+        light: "#b5dfeb",
+        lightest: "#effafd",
+      },
       arctic: {
         100: "#f6f6f9",
         200: "#e9eaf2",
@@ -59,10 +65,6 @@ module.exports = {
       mustard: {
         100: "#fcf4ea",
         200: "#bc781f",
-      },
-      powder: {
-        100: "#effafd",
-        200: "#006684",
       },
       cilantro: {
         100: "#e8f4ed",
@@ -107,9 +109,9 @@ module.exports = {
       outline: `0 0 0 3px ${rgba(theme("colors.slate.300"), 0.2)}`,
       "outline-red": `0 0 0 3px ${rgba(theme("colors.red.300"), 0.3)}`,
       "outline-blue": `0 0 0 3px ${rgba(theme("colors.blue.100"), 0.3)}`,
-      "input-blue": [
-        `0 0 0 1px ${theme("colors.blue.100")}`,
-        `0 1px 3px 0 ${rgba(theme("colors.blue.100"), 0.2)}`,
+      "input-pacific": [
+        `0 0 0 1px ${theme("colors.pacific.default")}`,
+        `0 1px 4px 0 ${rgba(theme("colors.pacific.default"), 0.16)}`,
       ].join(),
       "input-yellow": [
         `0 0 0 1px ${theme("colors.yellow.300")}`,
@@ -152,8 +154,8 @@ module.exports = {
             color: theme("colors.slate.500"),
           },
           "&:focus, &.focused:enabled:not(.error)": {
-            boxShadow: theme("boxShadow.input-blue"), // defined in TextField.module.css due to complex requirement with error state
-            borderColor: theme("colors.blue.100"),
+            boxShadow: theme("boxShadow.input-pacific"), // defined in TextField.module.css due to complex requirement with error state
+            borderColor: theme("colors.pacific.default"),
           },
           "&.error": {
             borderColor: theme("colors.yellow.300"),
