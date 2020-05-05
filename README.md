@@ -16,7 +16,7 @@ authoring a component library are things like:
 - What is the combinatorial explosion of having too many props? How to we control for
   mutually exclusive props where some combination of props don't make sense?
 - What high value turnkey components should we provide? An example of a turnkey component
-  is a Resource List which exposes facilities for bulk selection and action
+  is a Resource List which exposes facilities for bulk selection and action.
 
 A lot of these decisions have been made by Polaris, a battle tested component library used
 by third-party developers on the Shopify marketplace. Polarwind borrows heavily from the

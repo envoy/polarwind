@@ -17,8 +17,8 @@ function Color({ color, hex }) {
     "first:rounded-t",
     "last:rounded-b",
     "p-4",
-    "flex",
     "justify-between",
+    "flex",
     "w-1/3",
     `bg-${color}`,
     {

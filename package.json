@@ -10,7 +10,7 @@
     "build": "NODE_ENV=production rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "STORYBOOK=1 build-storybook",
-    "build-storybook:docs": "yarn build-storybook --docs -o public",
+    "build-storybook:docs": "yarn build-storybook --docs -o docs",
     "snapshot": "yarn build-storybook && percy-storybook --widths=1280",
     "lint": "yarn eslint && yarn stylelint",
     "eslint": "eslint .",
