@@ -1,0 +1,33 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Stack } from "./Stack";
+import { Badge } from "../Badge";
+
+<Meta title="Components | Structure / Stack" component={Stack} />
+
+# Stack
+
+<Description of={Stack} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <Stack>
+      <Badge>Basic</Badge>
+      <Badge>Premium</Badge>
+    </Stack>
+  </Story>
+</Preview>
+
+<Props of={Stack} />
+
+## Usage
+
+### Default Stack
+
+Use to quickly lay out a horizontal row of components and maintain their relative sizes.
+On small screens, children rows wrap down to additional rows as needed.

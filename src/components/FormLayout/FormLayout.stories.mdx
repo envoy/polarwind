@@ -8,6 +8,8 @@ import {
 import { FormLayout } from "./FormLayout";
 import { TextField } from "../TextField";
 import { Select } from "../Select";
+import { ButtonGroup } from "../ButtonGroup";
+import { Button } from "../Button";
 
 <Meta title="Components | Forms / Form layout" component={FormLayout} />
 
@@ -30,6 +32,13 @@ import { Select } from "../Select";
       <TextField label="Full name" />
       <TextField label="Email" />
       <TextField label="Private notes" multiline={3} />
+      <Stack>
+        <ButtonGroup>
+          <Button>Invite</Button>
+          <Button outline>Invite and add another</Button>
+        </ButtonGroup>
+        <Button plain>Cancel</Button>
+      </Stack>
     </FormLayout>
   </Story>
 </Preview>
