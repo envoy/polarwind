@@ -23,6 +23,10 @@ import { Select } from "../Select";
         options={["Visitor", "Interview", "Meeting"]}
         required
       />
+      <FormLayout.Group>
+        <TextField label="Arrival date" required />
+        <TextField label="Arrival time" required />
+      </FormLayout.Group>
       <TextField label="Full name" />
       <TextField label="Email" />
       <TextField label="Private notes" multiline={3} />
