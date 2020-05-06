@@ -67,6 +67,7 @@
     "eslint-plugin-sort-keys-fix": "^1.1.1",
     "hex-rgb": "^4.1.0",
     "identity-obj-proxy": "^3.0.0",
+    "inquirer-search-list": "^1.2.6",
     "jest": "^25.5.2",
     "lodash": "^4.17.15",
     "plop": "^2.6.0",
