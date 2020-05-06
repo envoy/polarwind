@@ -1,6 +1,6 @@
 {
   "ignore": ["node_modules/**"],
   "presets": ["@babel/env", "@babel/preset-react"],
-  "plugins": ["react-require"],
+  "plugins": ["react-require", "add-react-displayname"],
   "sourceType": "unambiguous"
 }
