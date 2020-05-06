@@ -1,6 +1,7 @@
 export { Badge } from "./Badge";
 export { Button } from "./Button";
 export { Checkbox } from "./Checkbox";
+export { FormLayout } from "./FormLayout";
 export { Label } from "./Label";
 export { Labeled } from "./Labeled";
 export { Select } from "./Select";

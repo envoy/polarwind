@@ -140,6 +140,23 @@ Also supports a `disabled` attribute.
   </Story>
 </Preview>
 
+### Validation error
+
+<Preview>
+  <Story name="Error">
+    <Select
+      label="Size"
+      options={[
+        { label: "Select a size", value: "" },
+        { label: "Small", value: "s" },
+        { label: "Medium", value: "m" },
+        { label: "Large", value: "l" },
+      ]}
+      error="You must choose a size"
+    />
+  </Story>
+</Preview>
+
 ### Disabled
 
 <Preview>

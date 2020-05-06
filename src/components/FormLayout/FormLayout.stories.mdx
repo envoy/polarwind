@@ -1,0 +1,58 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { FormLayout } from "./FormLayout";
+import { TextField } from "../TextField";
+import { Select } from "../Select";
+
+<Meta title="Components | Forms / Form layout" component={FormLayout} />
+
+# Form layout
+
+<Description of={FormLayout} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <FormLayout>
+      <Select
+        label="Visitor type"
+        options={["Visitor", "Interview", "Meeting"]}
+        required
+      />
+      <FormLayout.Group>
+        <TextField label="Arrival date" required />
+        <TextField label="Arrival time" required />
+      </FormLayout.Group>
+      <TextField label="Full name" />
+      <TextField label="Email" />
+      <TextField label="Private notes" multiline={3} />
+    </FormLayout>
+  </Story>
+</Preview>
+
+<Props of={FormLayout} />
+
+## Usage
+
+### Default form layout
+
+Use to stack form fields vertically, which makes them easier to scan and complete.
+
+### Field group
+
+<Description of={FormLayout.Group} />
+
+<Preview>
+  <Story name="Field group">
+    <FormLayout>
+      <FormLayout.Group>
+        <TextField label="Arrival date" required />
+        <TextField label="Arrival time" required />
+      </FormLayout.Group>
+    </FormLayout>
+  </Story>
+</Preview>

@@ -8,7 +8,7 @@ const cx = classnames.bind(styles);
 function renderOption(option) {
   const { disabled, label, options, title, value } = option;
 
-  if (label && value) {
+  if (label && typeof value === "string") {
     return (
       <option disabled={disabled} key={value} value={value}>
         {label}
@@ -62,6 +62,7 @@ export const Select = ({
   const className = cx({
     Select: true,
     disabled,
+    error,
     "form-select": true,
   });
 
