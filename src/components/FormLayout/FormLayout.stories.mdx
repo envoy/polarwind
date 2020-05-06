@@ -10,6 +10,7 @@ import { TextField } from "../TextField";
 import { Select } from "../Select";
 import { ButtonGroup } from "../ButtonGroup";
 import { Button } from "../Button";
+import { Stack } from "../Stack";
 
 <Meta title="Components | Forms / Form layout" component={FormLayout} />
 
@@ -32,7 +33,7 @@ import { Button } from "../Button";
       <TextField label="Full name" />
       <TextField label="Email" />
       <TextField label="Private notes" multiline={3} />
-      <Stack>
+      <Stack distribution="equalSpacing">
         <ButtonGroup>
           <Button>Invite</Button>
           <Button outline>Invite and add another</Button>

@@ -1,3 +1,11 @@
 .Stack {
-  @apply flex;
+  @apply flex -ml-2 -mt-2;
+}
+
+.equalSpacing {
+  @apply justify-between;
+}
+
+.Item {
+  @apply ml-2 mt-2;
 }
