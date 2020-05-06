@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { FormLayout } from "./FormLayout";
 import { TextField } from "../TextField";
+import { Select } from "../Select";
 
 <Meta title="Components | Forms / Form layout" component={FormLayout} />
 
@@ -17,8 +18,14 @@ import { TextField } from "../TextField";
 <Preview withToolbar>
   <Story name="Example">
     <FormLayout>
-      <TextField label="Name" />
+      <Select
+        label="Visitor type"
+        options={["Visitor", "Interview", "Meeting"]}
+        required
+      />
+      <TextField label="Full name" />
       <TextField label="Email" />
+      <TextField label="Private notes" multiline={3} />
     </FormLayout>
   </Story>
 </Preview>
@@ -27,6 +34,6 @@ import { TextField } from "../TextField";
 
 ## Usage
 
-### Default form-layout
+### Default form layout
 
 Use to stack form fields vertically, which makes them easier to scan and complete.
