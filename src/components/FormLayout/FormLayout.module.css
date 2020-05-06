@@ -1,5 +1,5 @@
 .FormLayout {
-  @apply flex flex-col -ml-6;
+  @apply flex flex-col -ml-6 -mt-5;
 }
 
 .Item {
@@ -7,9 +7,9 @@
 }
 
 .Group {
-  @apply flex -ml-6;
+  @apply flex;
 
   .Item {
-    @apply flex-1 ml-6 mt-0;
+    @apply flex-1 ml-6;
   }
 }

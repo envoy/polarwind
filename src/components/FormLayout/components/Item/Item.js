@@ -8,7 +8,7 @@ const cx = classnames.bind(styles);
  * Wrapper for each child under a FormLayout, mostly to give it spacing.
  */
 export const Item = ({ children }) => {
-  const className = cx("Item", "first:mt-0");
+  const className = cx("Item");
   return <div className={className}>{children}</div>;
 };
 

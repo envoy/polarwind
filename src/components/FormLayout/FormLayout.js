@@ -1,5 +1,7 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
+import { Children } from "react";
+import { wrapWithComponent } from "../../utils/components";
 import { Group, Item } from "./components";
 import styles from "./FormLayout.module.css";
 
@@ -15,9 +17,7 @@ export const FormLayout = ({ children }) => {
   });
   return (
     <div className={className}>
-      {children.map((child, i) => (
-        <Item key={i}>{child}</Item>
-      ))}
+      {Children.map(children, wrapWithComponent(Item, { except: Group }))}
     </div>
   );
 };
