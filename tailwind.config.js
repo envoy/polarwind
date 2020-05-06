@@ -48,6 +48,7 @@ module.exports = {
         "65%": "#7e8391",
         "50%": "#999fac",
         "20%": "#d7d8de",
+        checkbox: "#b4b4b4",
       },
     },
     // typography configs are based on
@@ -89,9 +90,17 @@ module.exports = {
         `0 1px 4px 0 ${rgba(theme("colors.honeycomb.default"), 0.16)}`,
       ].join(),
       "input-blur-honeycomb": `0 0 0 1px ${theme("colors.honeycomb.default")}`,
+      "checkbox-inset": [
+        "inset 0px 1px 1.5px rgba(0, 0, 0, 0.26)",
+        "inset 0px -1px 1.5px rgba(0, 0, 0, 0.1)",
+      ].join(),
     }),
     extend: {
+      borderRadius: {
+        checkbox: "0.1875rem",
+      },
       borderWidth: {
+        checkbox: "0.5px",
         12: "12px",
       },
       spacing: {
@@ -143,9 +152,21 @@ module.exports = {
           },
         },
         checkbox: {
-          // fix for :indeterminate overriding the :focus borderColor
-          "&:focus:indeterminate": {
-            borderColor: config.theme.colors.blue[400], // pull from defaultConfig until we have a focus ring
+          color: theme("colors.pacific.default"),
+          borderRadius: theme("borderRadius.checkbox"),
+          borderColor: theme("colors.carbon.checkbox"),
+          boxShadow: theme("boxShadow.checkbox-inset"),
+          borderWidth: theme("borderWidth.checkbox"),
+          "&:checked": {
+            boxShadow: "none",
+          },
+          "&:focus": {
+            boxShadow: theme("boxShadow.checkbox-inset"),
+            borderColor: theme("colors.carbon.checkbox"),
+          },
+          "&:focus:checked": {
+            boxShadow: theme("boxShadow.outline"),
+            borderColor: theme("colors.pacific.default"),
           },
           "&:indeterminate": {
             background:
@@ -155,10 +176,15 @@ module.exports = {
             backgroundSize: "100% 100%",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
+            boxShadow: "none",
+          },
+          "&:focus:indeterminate": {
+            boxShadow: theme("boxShadow.outline"),
           },
           // fix for :disabled overriding the :checked backgroundColor
           "&:checked:disabled": {
             backgroundColor: "currentColor",
+            borderColor: "currentColor",
           },
         },
         select: {
