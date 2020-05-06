@@ -41,3 +41,18 @@ import { Select } from "../Select";
 ### Default form layout
 
 Use to stack form fields vertically, which makes them easier to scan and complete.
+
+### Field group
+
+<Description of={FormLayout.Group} />
+
+<Preview>
+  <Story name="Field group">
+    <FormLayout>
+      <FormLayout.Group>
+        <TextField label="Arrival date" required />
+        <TextField label="Arrival time" required />
+      </FormLayout.Group>
+    </FormLayout>
+  </Story>
+</Preview>
