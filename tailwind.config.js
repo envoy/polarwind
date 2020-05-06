@@ -117,6 +117,17 @@ module.exports = {
           color: theme("colors.carbon.100%"),
           borderColor: theme("colors.arctic.default"),
           borderRadius: theme("borderRadius.md"),
+          "&:focus, &.focused:enabled:not(.error)": {
+            boxShadow: theme("boxShadow.input-pacific"), // defined in TextField.module.css due to complex requirement with error state
+            borderColor: theme("colors.pacific.default"),
+          },
+          "&.error": {
+            borderColor: theme("colors.honeycomb.default"),
+            boxShadow: theme("boxShadow.input-blur-honeycomb"),
+            "&:focus": {
+              boxShadow: theme("boxShadow.input-honeycomb"),
+            },
+          },
         },
         "input, textarea, checkbox, select": {
           "&:disabled": {
@@ -132,17 +143,6 @@ module.exports = {
           paddingLeft: theme("spacing.2"),
           "&::placeholder": {
             color: theme("colors.carbon.20%"),
-          },
-          "&:focus, &.focused:enabled:not(.error)": {
-            boxShadow: theme("boxShadow.input-pacific"), // defined in TextField.module.css due to complex requirement with error state
-            borderColor: theme("colors.pacific.default"),
-          },
-          "&.error": {
-            borderColor: theme("colors.honeycomb.default"),
-            boxShadow: theme("boxShadow.input-blur-honeycomb"),
-            "&:focus": {
-              boxShadow: theme("boxShadow.input-honeycomb"),
-            },
           },
         },
         input: {
@@ -195,6 +195,7 @@ module.exports = {
   },
   variants: {
     borderRadius: [...config.variants.borderRadius, "first", "last"],
+    margin: [...config.variants.margin, "first"],
   },
   plugins: [
     require("@tailwindcss/custom-forms"),
