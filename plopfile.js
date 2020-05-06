@@ -73,6 +73,12 @@ module.exports = function (plop) {
         templateFile: "plop-templates/component/index.js.hbs",
       },
       {
+        type: "add",
+        path: "src/components/{{parent}}/components/index.js",
+        templateFile: "plop-templates/component/index.js.hbs",
+        skipIfExists: true,
+      },
+      {
         type: "append",
         path: "src/components/{{parent}}/components/index.js",
         template:

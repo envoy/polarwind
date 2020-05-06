@@ -1,0 +1,32 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { ButtonGroup } from "./ButtonGroup";
+import { Button } from "../Button";
+
+<Meta title="Components | Actions / Button group" component={ButtonGroup} />
+
+# Button group
+
+<Description of={ButtonGroup} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <ButtonGroup>
+      <Button>Save</Button>
+      <Button outline>Invite and add another</Button>
+    </ButtonGroup>
+  </Story>
+</Preview>
+
+<Props of={ButtonGroup} />
+
+## Usage
+
+### Default button group
+
+Use when you have multiple buttons to space them out evenly.
