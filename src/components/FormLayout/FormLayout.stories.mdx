@@ -1,0 +1,32 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { FormLayout } from "./FormLayout";
+import { TextField } from "../TextField";
+
+<Meta title="Components | Forms / Form layout" component={FormLayout} />
+
+# Form layout
+
+<Description of={FormLayout} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <FormLayout>
+      <TextField label="Name" />
+      <TextField label="Email" />
+    </FormLayout>
+  </Story>
+</Preview>
+
+<Props of={FormLayout} />
+
+## Usage
+
+### Default form-layout
+
+Use to stack form fields vertically, which makes them easier to scan and complete.
