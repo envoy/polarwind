@@ -6,11 +6,27 @@ module.exports = function (plop) {
   plop.setPrompt("search-list", require("inquirer-search-list"));
 
   plop.setGenerator("component", {
-    description: "A typical component",
     prompts: [
       {
         type: "input",
         name: "name",
+      },
+      {
+        type: "search-list",
+        name: "category",
+        message: "Choose a category",
+        choices: [
+          "Actions",
+          "Structure",
+          "Forms",
+          "Images and icons",
+          "Feedback indicators",
+          "Titles and text",
+          "Behavior",
+          "Lists and tables",
+          "Navigation",
+          "Overlays",
+        ],
       },
     ],
     actions: [
