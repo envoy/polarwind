@@ -5,3 +5,7 @@
 .Page {
   @apply bg-white rounded-page shadow-page px-8 py-9;
 }
+
+.Header {
+  @apply flex justify-between;
+}

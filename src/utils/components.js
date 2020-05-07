@@ -17,10 +17,10 @@ function _wrapWithComponent(element, Component, props) {
  * Wrap an element with a component. If you pass in an except option, elements that are
  * already of a certain component will not be wrapped.
  */
-export const wrapWithComponent = (Component, { except } = {}) => (
+export const wrapWithComponent = (Component, { except, props } = {}) => (
   child,
   index
 ) =>
   isElementOfType(child, except)
     ? child
-    : _wrapWithComponent(child, Component, { key: index });
+    : _wrapWithComponent(child, Component, { key: index, ...props });

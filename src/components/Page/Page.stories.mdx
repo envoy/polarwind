@@ -63,3 +63,19 @@ several actions.
 ### Page with breadcrumb
 
 ### Page with title action
+
+Use when exposing additional components on the right of the page title.
+
+<Preview>
+  <Story name="Page with title action">
+    <Page
+      title="10 visitors"
+      titleAction={
+        <Stack spacing="loose">
+          <TextField type="search" label="Search" />
+          <Button>New visitor</Button>
+        </Stack>
+      }
+    />
+  </Story>
+</Preview>

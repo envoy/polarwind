@@ -12,11 +12,11 @@ const cx = classnames.bind(styles);
  * A stack is made of flexible items that wrap each of the stack’s children. Options
  * provide control of the wrapping, spacing, and relative size of the items in the stack.
  */
-export const Stack = ({ children, distribution }) => {
+export const Stack = ({ children, distribution, spacing }) => {
   const className = cx("Stack", distribution);
   return (
     <div className={className}>
-      {Children.map(children, wrapWithComponent(Item))}
+      {Children.map(children, wrapWithComponent(Item, { props: { spacing } }))}
     </div>
   );
 };
@@ -26,6 +26,8 @@ Stack.propTypes = {
   children: PropTypes.node,
   /** Adjust horizontal alignment of elements */
   distribution: PropTypes.oneOf(["equalSpacing"]),
+  /** Adjust spacing between elements */
+  spacing: PropTypes.oneOf(["loose"]),
 };
 
 Stack.Item = Item;
