@@ -2,7 +2,11 @@
   @apply ml-6 text-sm text-carbon-65%;
 
   button {
-    @apply outline-none py-1.5;
+    @apply py-1.5;
+
+    &:focus {
+      @apply outline-none;
+    }
 
     span {
       @apply align-sm;

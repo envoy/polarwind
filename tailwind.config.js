@@ -13,6 +13,7 @@ module.exports = {
       current: "currentColor",
 
       white: "#fff",
+      background: "#e5e5e5",
 
       brand: {
         default: "#ff4438",
@@ -94,10 +95,12 @@ module.exports = {
         "inset 0px 1px 1.5px rgba(0, 0, 0, 0.26)",
         "inset 0px -1px 1.5px rgba(0, 0, 0, 0.1)",
       ].join(),
+      page: "0px 2px 4px rgba(0, 0, 0, 0.08)",
     }),
     extend: {
       borderRadius: {
         checkbox: "0.1875rem",
+        page: "0.625rem",
       },
       borderWidth: {
         checkbox: "0.5px",
@@ -109,6 +112,7 @@ module.exports = {
         2.75: "0.6666rem",
         3.5: "0.9165rem",
         7: "1.75rem",
+        9: "2.25rem",
         15: "3.75rem",
       },
     },

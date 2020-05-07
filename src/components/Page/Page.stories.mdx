@@ -5,7 +5,14 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { Button } from "../Button";
+import { ButtonGroup } from "../ButtonGroup";
+import { FormLayout } from "../FormLayout";
 import { Page } from "./Page";
+import { Select } from "../Select";
+import { Stack } from "../Stack";
+import { Tabs } from "../Tabs";
+import { TextField } from "../TextField";
 
 <Meta title="Components | Structure / Page" component={Page} />
 
@@ -16,7 +23,30 @@ import { Page } from "./Page";
 <Preview withToolbar>
   <Story name="Example">
     <Page title="New invite">
-      <p>Page content</p>
+      <Tabs
+        tabs={[
+          { content: "Single invite", id: "1" },
+          { content: "Group invite", id: "2" },
+        ]}
+        selected={0}
+      >
+        <FormLayout>
+          <Select
+            label="Visitor type"
+            options={["Visitor", "Interview", "Meeting"]}
+            required
+          />
+          <TextField label="Full name" />
+          <TextField label="Private notes" multiline={3} />
+          <Stack distribution="equalSpacing">
+            <ButtonGroup>
+              <Button>Invite</Button>
+              <Button outline>Invite and add another</Button>
+            </ButtonGroup>
+            <Button plain>Cancel</Button>
+          </Stack>
+        </FormLayout>
+      </Tabs>
     </Page>
   </Story>
 </Preview>
@@ -25,6 +55,7 @@ import { Page } from "./Page";
 
 ## Usage
 
-### Default Page
+### Default page
 
-FIXME: Use to
+Use for detail pages, which should have pagination and breadcrumbs, and also often have
+several actions.

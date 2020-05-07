@@ -13,9 +13,11 @@ export const Page = ({ children, title }) => {
     Page: true,
   });
   return (
-    <div className={className}>
-      <h1>{title}</h1>
-      {children}
+    <div className={styles.wrapper}>
+      <div className={className}>
+        <h1>{title}</h1>
+        {children}
+      </div>
     </div>
   );
 };

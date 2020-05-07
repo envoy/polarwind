@@ -9,6 +9,10 @@ const cx = classnames.bind(styles);
  * Use to alternate among related views within the same context.
  */
 export const Tabs = ({ children, onSelect, selected, tabs }) => {
+  const handleSelect = (index) => () => {
+    onSelect && onSelect(index);
+  };
+
   const className = cx({
     Tabs: true,
   });
@@ -19,7 +23,7 @@ export const Tabs = ({ children, onSelect, selected, tabs }) => {
           <Tab
             key={id}
             selected={selected === index}
-            onClick={() => onSelect(index)}
+            onClick={handleSelect(index)}
           >
             {content}
           </Tab>

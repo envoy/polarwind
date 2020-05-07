@@ -4,6 +4,10 @@ html {
   @apply text-carbon-80%;
 }
 
+body {
+  @apply bg-background;
+}
+
 h1 {
   @apply text-carbon-100% text-2xl;
 }
