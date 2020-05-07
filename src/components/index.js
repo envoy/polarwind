@@ -7,6 +7,7 @@ export { Label } from "./Label";
 export { Labeled } from "./Labeled";
 export { Select } from "./Select";
 export { Stack } from "./Stack";
+export { Tabs } from "./Tabs";
 export { TextField } from "./TextField";
 export { TextStyle } from "./TextStyle";
 export { Toggle } from "./Toggle";

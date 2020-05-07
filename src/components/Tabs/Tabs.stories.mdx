@@ -1,0 +1,40 @@
+import { useState } from "react";
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Tabs } from "./Tabs";
+
+<Meta title="Components | Navigation / Tabs" component={Tabs} />
+
+# Tabs
+
+<Description of={Tabs} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    {() => {
+      const [selected, setSelected] = useState(0);
+      const tabs = [
+        { id: "single-invite", content: "Single invite" },
+        { id: "group-invite", content: "Group invite" },
+      ];
+      return (
+        <Tabs tabs={tabs} selected={selected} onSelect={setSelected}>
+          <p>Tab {selected} selected</p>
+        </Tabs>
+      );
+    }}
+  </Story>
+</Preview>
+
+<Props of={Tabs} />
+
+## Usage
+
+### Default tabs
+
+Use for most cases, especially when the number of tabs may be more than three.
