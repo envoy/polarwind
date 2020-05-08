@@ -1,5 +1,5 @@
 .DisplayText {
-  @apply m-0;
+  @apply text-carbon-100% font-bold;
 }
 
 .extraLarge {

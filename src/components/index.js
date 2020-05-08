@@ -1,9 +1,11 @@
 export { Badge } from "./Badge";
 export { Button } from "./Button";
 export { ButtonGroup } from "./ButtonGroup";
+export { Card } from "./Card";
 export { Checkbox } from "./Checkbox";
 export { DisplayText } from "./DisplayText";
 export { FormLayout } from "./FormLayout";
+export { Heading } from "./Heading";
 export { Label } from "./Label";
 export { Labeled } from "./Labeled";
 export { Page } from "./Page";

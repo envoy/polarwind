@@ -1,0 +1,28 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Heading } from "./Heading";
+
+<Meta title="Components | Titles and text / Heading" component={Heading} />
+
+# Heading
+
+<Description of={Heading} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <Heading>Notifications</Heading>
+  </Story>
+</Preview>
+
+<Props of={Heading} />
+
+## Usage
+
+### Default heading
+
+Use for the title of each top-level page section.

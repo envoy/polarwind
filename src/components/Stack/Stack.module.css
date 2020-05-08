@@ -1,15 +1,63 @@
 .Stack {
-  @apply flex -ml-2 -mt-2;
-}
-
-.equalSpacing {
-  @apply justify-between;
+  @apply flex -ml-2 -mt-2 items-stretch flex-wrap;
 }
 
 .Item {
-  @apply ml-2 mt-2;
+  @apply ml-2 mt-2 max-w-full min-w-0 flex-0;
 }
 
 .Item.loose {
   @apply ml-6;
+}
+
+.distributionEqualSpacing {
+  @apply justify-between;
+}
+
+.distributionLeading {
+  @apply justify-start;
+}
+
+.distributionTrailing {
+  @apply justify-end;
+}
+
+.distributionCenter {
+  @apply justify-center;
+}
+
+.distributionFill {
+  .Item {
+    @apply flex-auto;
+  }
+}
+
+.distributionFillEvenly {
+  .Item {
+    @apply flex-grow flex-shrink-0;
+  }
+}
+
+.vertical {
+  @apply flex-col;
+}
+
+.alignmentLeading {
+  @apply items-start;
+}
+
+.alignmentTrailing {
+  @apply items-end;
+}
+
+.alignmentCenter {
+  @apply items-center;
+}
+
+.alignmentFill {
+  @apply items-stretch;
+}
+
+.alignmentBaseline {
+  @apply items-baseline;
 }

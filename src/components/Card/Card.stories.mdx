@@ -1,0 +1,46 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Card } from "./Card";
+import { Stack } from "../Stack";
+import { Button } from "../Button";
+import { Heading } from "../Heading";
+import { User } from "../../icons";
+
+<Meta title="Components | Structure / Card" component={Card} />
+
+# Card
+
+<Description of={Card} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <Card>
+      <Stack distribution="equalSpacing" alignment="center">
+        <Stack>
+          <User height={44} width={44} />
+          <Stack vertical>
+            <Heading>Welcome image</Heading>
+            <p>
+              Choose a graphic to appear on your welcome screen in place of a
+              logo
+            </p>
+          </Stack>
+        </Stack>
+        <Button>Enable</Button>
+      </Stack>
+    </Card>
+  </Story>
+</Preview>
+
+<Props of={Card} />
+
+## Usage
+
+### Default card
+
+Use when you have a simple message to communicate to merchants that doesn't require any secondary steps.
