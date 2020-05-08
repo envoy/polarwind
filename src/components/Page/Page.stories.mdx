@@ -22,7 +22,10 @@ import { TextField } from "../TextField";
 
 <Preview withToolbar>
   <Story name="Example">
-    <Page title="New invite">
+    <Page
+      title="New invite"
+      breadcrumbs={[{ content: "Invites", url: "/invites" }]}
+    >
       <Tabs
         tabs={[
           { content: "Single invite", id: "1" },
