@@ -9,12 +9,8 @@
 .Header {
   @apply flex;
 
-  h1 {
+  .Polarwind-DisplayText {
     @apply flex-1;
-
-    span {
-      @apply align-2xl;
-    }
   }
 
   .breadcrumb {

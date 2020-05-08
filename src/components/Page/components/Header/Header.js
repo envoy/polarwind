@@ -1,6 +1,7 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { Back } from "../../../../icons";
+import { DisplayText } from "../../../DisplayText";
 import styles from "../../Page.module.css";
 
 const cx = classnames.bind(styles);
@@ -28,9 +29,9 @@ export const Header = ({ action, breadcrumbs = [], children }) => {
   return (
     <div className={className}>
       {breadcrumbMarkup}
-      <h1>
-        <span>{children}</span>
-      </h1>
+      <DisplayText element="h1" size="large">
+        {children}
+      </DisplayText>
       {action}
     </div>
   );
