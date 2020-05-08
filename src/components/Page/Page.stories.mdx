@@ -1,0 +1,95 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Button } from "../Button";
+import { ButtonGroup } from "../ButtonGroup";
+import { FormLayout } from "../FormLayout";
+import { Page } from "./Page";
+import { Select } from "../Select";
+import { Stack } from "../Stack";
+import { Tabs } from "../Tabs";
+import { TextField } from "../TextField";
+
+<Meta title="Components | Structure / Page" component={Page} />
+
+# Page
+
+<Description of={Page} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <Page
+      title="New invite"
+      breadcrumbs={[{ content: "Invites", url: "/invites" }]}
+    >
+      <Tabs
+        tabs={[
+          { content: "Single invite", id: "1" },
+          { content: "Group invite", id: "2" },
+        ]}
+        selected={0}
+      >
+        <FormLayout>
+          <Select
+            label="Visitor type"
+            options={["Visitor", "Interview", "Meeting"]}
+            required
+          />
+          <TextField label="Full name" />
+          <TextField label="Private notes" multiline={3} />
+          <Stack distribution="equalSpacing">
+            <ButtonGroup>
+              <Button>Invite</Button>
+              <Button outline>Invite and add another</Button>
+            </ButtonGroup>
+            <Button plain>Cancel</Button>
+          </Stack>
+        </FormLayout>
+      </Tabs>
+    </Page>
+  </Story>
+</Preview>
+
+<Props of={Page} />
+
+## Usage
+
+### Default page
+
+Use for detail pages, which should have pagination and breadcrumbs, and also often have
+several actions.
+
+### Page with breadcrumb
+
+Use when you want to present the user with a quick way to navigate where they came from.
+
+<Preview>
+  <Story name="Page with breadcrumb">
+    <Page
+      title="New invite"
+      breadcrumbs={[{ content: "Invites", url: "/invites" }]}
+    />
+  </Story>
+</Preview>
+
+### Page with title action
+
+Use when exposing additional components on the right of the page title.
+
+<Preview>
+  <Story name="Page with title action">
+    <Page
+      title="10 visitors"
+      titleAction={
+        <Stack spacing="loose">
+          <TextField type="search" label="Search" />
+          <Button>New visitor</Button>
+        </Stack>
+      }
+    />
+  </Story>
+</Preview>

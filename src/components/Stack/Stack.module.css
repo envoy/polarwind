@@ -9,3 +9,7 @@
 .Item {
   @apply ml-2 mt-2;
 }
+
+.Item.loose {
+  @apply ml-6;
+}

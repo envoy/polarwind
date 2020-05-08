@@ -1,0 +1,69 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { DisplayText } from "./DisplayText";
+
+<Meta
+  title="Components | Titles and text / Display text"
+  component={DisplayText}
+/>
+
+# Display text
+
+<Description of={DisplayText} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <DisplayText size="extraLarge">
+      I'm sorry Dave, I'm afraid I can't do that
+    </DisplayText>
+  </Story>
+</Preview>
+
+<Props of={DisplayText} />
+
+## Usage
+
+### Extra large
+
+Use this size sparingly and never multiple times on the same page.
+
+### Large
+
+Use for display text that’s more important than the medium size, but less important than extra large.
+
+<Preview>
+  <Story name="Large">
+    <DisplayText size="large">
+      I'm sorry Dave, I'm afraid I can't do that
+    </DisplayText>
+  </Story>
+</Preview>
+
+### Medium
+
+Use for display text that’s more important than the small size, but less important than large.
+
+<Preview>
+  <Story name="Medium">
+    <DisplayText size="medium">
+      I'm sorry Dave, I'm afraid I can't do that
+    </DisplayText>
+  </Story>
+</Preview>
+
+### Small
+
+Use for text that would otherwise use body text, but that needs to scale with other display text.
+
+<Preview>
+  <Story name="Small">
+    <DisplayText size="small">
+      I'm sorry Dave, I'm afraid I can't do that
+    </DisplayText>
+  </Story>
+</Preview>

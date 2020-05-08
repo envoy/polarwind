@@ -1,5 +1,5 @@
 .FormLayout {
-  @apply flex flex-col -ml-6 -mt-5;
+  @apply flex flex-col -ml-6;
 }
 
 .Item {

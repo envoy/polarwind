@@ -1,0 +1,19 @@
+.wrapper {
+  @apply bg-background p-8;
+}
+
+.Page {
+  @apply bg-white rounded-page shadow-page p-8;
+}
+
+.Header {
+  @apply flex;
+
+  .Polarwind-DisplayText {
+    @apply flex-1;
+  }
+
+  .breadcrumb {
+    @apply mr-2 flex items-center;
+  }
+}

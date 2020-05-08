@@ -1,0 +1,35 @@
+.DisplayText {
+  @apply m-0;
+}
+
+.extraLarge {
+  @apply text-3xl;
+
+  span {
+    @apply align-3xl;
+  }
+}
+
+.large {
+  @apply text-2xl;
+
+  span {
+    @apply align-2xl;
+  }
+}
+
+.medium {
+  @apply text-xl;
+
+  span {
+    @apply align-xl;
+  }
+}
+
+.small {
+  @apply text-lg;
+
+  span {
+    @apply align-lg;
+  }
+}
