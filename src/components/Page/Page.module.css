@@ -3,9 +3,21 @@
 }
 
 .Page {
-  @apply bg-white rounded-page shadow-page px-8 py-9;
+  @apply bg-white rounded-page shadow-page p-8;
 }
 
 .Header {
-  @apply flex justify-between;
+  @apply flex;
+
+  h1 {
+    @apply flex-1;
+
+    span {
+      @apply align-2xl;
+    }
+  }
+
+  .breadcrumb {
+    @apply mr-2 flex items-center;
+  }
 }
