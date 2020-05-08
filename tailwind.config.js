@@ -106,6 +106,9 @@ module.exports = {
         checkbox: "0.5px",
         12: "12px",
       },
+      flex: {
+        "0": "0 0 auto",
+      },
       spacing: {
         1.5: "0.375rem",
         2.5: "0.604rem",
