@@ -9,7 +9,7 @@ const cx = classnames.bind(styles);
 
 /**
  * Use to lay out a horizontal row of components or to achieve no-fuss vertical centering.
- * A stack is made of flexible items that wrap each of the stack’s children. Options
+ * A stack is made of flexible items that wrap each of the stack's children. Options
  * provide control of the wrapping, spacing, and relative size of the items in the stack.
  */
 export const Stack = ({ children, distribution, spacing }) => {
