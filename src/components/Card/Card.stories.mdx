@@ -6,6 +6,10 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { Card } from "./Card";
+import { Stack } from "../Stack";
+import { Button } from "../Button";
+import { Heading } from "../Heading";
+import { User } from "../../icons";
 
 <Meta title="Components | Structure / Card" component={Card} />
 
@@ -15,7 +19,21 @@ import { Card } from "./Card";
 
 <Preview withToolbar>
   <Story name="Example">
-    <Card title="Welcome image" />
+    <Card>
+      <Stack distribution="equalSpacing">
+        <Stack>
+          <User />
+          <Stack>
+            <Heading>Welcome image</Heading>
+            <p>
+              Choose a graphic to appear on your welcome screen in place of a
+              logo
+            </p>
+          </Stack>
+        </Stack>
+        <Button>Enable</Button>
+      </Stack>
+    </Card>
   </Story>
 </Preview>
 
