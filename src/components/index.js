@@ -1,3 +1,4 @@
+export { AppProvider } from "./AppProvider";
 export { Badge } from "./Badge";
 export { Button } from "./Button";
 export { ButtonGroup } from "./ButtonGroup";
