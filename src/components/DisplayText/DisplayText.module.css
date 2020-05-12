@@ -3,7 +3,7 @@
 }
 
 .extraLarge {
-  @apply text-3xl;
+  @apply text-3xl leading-3xl-normal;
 
   span {
     @apply align-3xl;
@@ -11,7 +11,7 @@
 }
 
 .large {
-  @apply text-2xl;
+  @apply text-2xl leading-2xl-normal;
 
   span {
     @apply align-2xl;
@@ -19,7 +19,7 @@
 }
 
 .medium {
-  @apply text-xl;
+  @apply text-xl leading-xl-normal;
 
   span {
     @apply align-xl;
@@ -27,7 +27,7 @@
 }
 
 .small {
-  @apply text-lg;
+  @apply text-lg leading-lg-normal;
 
   span {
     @apply align-lg;
