@@ -1,0 +1,31 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { AppProvider } from "./AppProvider";
+import { Page } from "../Page";
+
+<Meta title="Components | Structure / App provider" component={AppProvider} />
+
+# App provider
+
+<Description of={AppProvider} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <AppProvider>
+      <Page title="Hello" />
+    </AppProvider>
+  </Story>
+</Preview>
+
+<Props of={AppProvider} />
+
+## Usage
+
+### Default
+
+AppProvider works by default without any additional options passed to it.

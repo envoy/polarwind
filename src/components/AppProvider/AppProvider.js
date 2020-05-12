@@ -12,7 +12,9 @@ export const AppProvider = ({
   useEffect(() => {
     iframeResizerContentWindow({ targetOrigin: origin });
   });
-  return children;
+  // storybook-addon-docs won't generate props if we returned bare children. we need to
+  // wrap it in a fragment.
+  return <>{children}</>;
 };
 
 AppProvider.propTypes = {
