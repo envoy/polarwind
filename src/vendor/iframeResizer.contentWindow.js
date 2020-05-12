@@ -1185,7 +1185,6 @@ export const iframeResizerContentWindow = (iframeResizerOptions) => {
         var msgBody = getData();
 
         log("onMessage called from parent: " + msgBody);
-        // eslint-disable-next-line sonarjs/no-extra-arguments
         onMessage(JSON.parse(msgBody));
         log(" --");
       },
