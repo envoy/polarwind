@@ -3,11 +3,11 @@
 }
 
 .Page {
-  @apply bg-white p-8;
+  @apply bg-white p-8 rounded-page;
 }
 
 .standalone {
-  @apply rounded-page shadow-page flex-auto;
+  @apply shadow-page flex-auto;
 }
 
 .Header {
