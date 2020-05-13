@@ -1,5 +1,13 @@
+.wrapper {
+  @apply bg-arctic-50% p-8 min-h-full flex flex-col;
+}
+
 .Page {
-  @apply bg-white rounded-page shadow-page p-8;
+  @apply bg-white p-8 rounded-page;
+}
+
+.standalone {
+  @apply shadow-page flex-auto;
 }
 
 .Header {
