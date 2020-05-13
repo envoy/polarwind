@@ -74,6 +74,7 @@ module.exports = {
     "storybook-static/",
     "index.umd.js",
     "index.esm.js",
+    "examples/",
   ],
   settings: {
     react: {
