@@ -14,13 +14,11 @@ export const Page = ({ breadcrumbs, children, title, titleAction }) => {
     Page: true,
   });
   return (
-    <div className={styles.wrapper}>
-      <div className={className}>
-        <Header action={titleAction} breadcrumbs={breadcrumbs}>
-          {title}
-        </Header>
-        {children}
-      </div>
+    <div className={className}>
+      <Header action={titleAction} breadcrumbs={breadcrumbs}>
+        {title}
+      </Header>
+      {children}
     </div>
   );
 };
