@@ -1,4 +1,6 @@
-# Development guide principles
+# Development guide
+
+## General principles
 
 1. Be conscious about where we place dependencies. Ask yourself these questions:
 
@@ -16,9 +18,16 @@
 
 ## Recommended setup
 
-1. Use vscode
+1. Use vscode.
 
 2. Install the recommended vscode extensions
 
-   - Tailwind CSS IntelliSense: autocompletes this project's tailwind utility classes
+   - Tailwind CSS IntelliSense: Tailwind CSS class name completion
+   - ESLint: Integrates ESLint JavaScript into VS Code
    - stylelint: eslint but for CSS. vscode's default css linter warns on modern CSS
+   - Auto Import - ES6, TS, JSX, TSX: Automatically finds, parses and provides code
+     actions and code completion for all available imports. Works with JavaScript and
+     TypeScript.
+   - CSS Modules: Visual Studio Code extension for CSS Modules
+   - Prettier - Code formatter: Code formatter using prettier
+   - Rewrap: Re-wraps comments and other text to a given line length

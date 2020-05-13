@@ -2,7 +2,11 @@
   "recommendations": [
     "bradlc.vscode-tailwindcss",
     "stylelint.vscode-stylelint",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "NuclleaR.vscode-extension-auto-import",
+    "clinyong.vscode-css-modules",
+    "esbenp.prettier-vscode",
+    "stkb.rewrap"
   ],
   "unwantedRecommendations": []
 }
