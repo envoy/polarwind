@@ -1,6 +1,6 @@
 {
-  "name": "polarwind",
-  "version": "0.0.1",
+  "name": "@envoy/polarwind",
+  "version": "1.0.0-alpha.1",
   "description": "Envoy's product component library",
   "main": "index.umd.js",
   "module": "index.esm.js",
@@ -18,10 +18,11 @@
     "test": "jest",
     "generate": "plop"
   },
+  "homepage": "https://envoy.github.io/polarwind",
   "repository": "https://github.com/envoy/polarwind",
   "author": "Envoy, Inc.",
   "license": "SEE LICENSE IN LICENSE.md",
-  "private": true,
+  "private": false,
   "keywords": [
     "react",
     "components",
