@@ -1,6 +1,6 @@
 {
   "name": "@envoy/polarwind",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Envoy's product component library",
   "main": "index.umd.js",
   "module": "index.esm.js",
