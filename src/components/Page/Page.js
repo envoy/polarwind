@@ -19,19 +19,23 @@ export const Page = ({ breadcrumbs, children, title, titleAction }) => {
     standalone,
   });
 
-  const pageMarkup = (
-    <div className={className}>
-      <Header action={titleAction} breadcrumbs={breadcrumbs}>
-        {title}
-      </Header>
-      {children}
-    </div>
-  );
+  const PageMarkup = (props) => {
+    return (
+      <div className={className} {...props}>
+        <Header action={titleAction} breadcrumbs={breadcrumbs}>
+          {title}
+        </Header>
+        {children}
+      </div>
+    );
+  };
 
   return standalone ? (
-    <div className={styles.wrapper}>{pageMarkup}</div>
+    <div className={styles.wrapper} data-iframe-height>
+      <PageMarkup />
+    </div>
   ) : (
-    pageMarkup
+    <PageMarkup data-iframe-height />
   );
 };
 
