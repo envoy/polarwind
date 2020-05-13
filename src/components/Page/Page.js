@@ -1,5 +1,7 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { StandaloneContext } from "../../utils/standalone";
 import { Header } from "./components";
 import styles from "./Page.module.css";
 
@@ -10,16 +12,26 @@ const cx = classnames.bind(styles);
  * actions.
  */
 export const Page = ({ breadcrumbs, children, title, titleAction }) => {
+  const standalone = useContext(StandaloneContext);
+
   const className = cx({
     Page: true,
+    standalone,
   });
-  return (
+
+  const pageMarkup = (
     <div className={className}>
       <Header action={titleAction} breadcrumbs={breadcrumbs}>
         {title}
       </Header>
       {children}
     </div>
+  );
+
+  return standalone ? (
+    <div className={styles.wrapper}>{pageMarkup}</div>
+  ) : (
+    pageMarkup
   );
 };
 

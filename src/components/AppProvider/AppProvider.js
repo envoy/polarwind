@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { StandaloneContext } from "../../utils/standalone";
 import { iframeResizerContentWindow } from "../../vendor/iframeResizer.contentWindow";
 
 /**
@@ -9,12 +10,20 @@ export const AppProvider = ({
   children,
   origin = "https://dashboard.envoy.com",
 }) => {
+  const [isEmbedded, setIsEmbedded] = useState(false);
+
   useEffect(() => {
-    iframeResizerContentWindow({ targetOrigin: origin });
+    iframeResizerContentWindow({
+      readyCallback: () => setIsEmbedded(true),
+      targetOrigin: origin,
+    });
   });
-  // storybook-addon-docs won't generate props if we returned bare children. we need to
-  // wrap it in a fragment.
-  return <>{children}</>;
+
+  return (
+    <StandaloneContext.Provider value={!isEmbedded}>
+      {children}
+    </StandaloneContext.Provider>
+  );
 };
 
 AppProvider.propTypes = {
