@@ -2,60 +2,138 @@
 
 Polarwind is a React component library for the Envoy design system.
 
-## Technical design
+## App development
 
-### Component API
+## Using the React components
 
-API design is hard. Component libraries are no different. Among the decisions when
-authoring a component library are things like:
+While we do offer a CSS-only version, **we strongly recommend using the React versions of
+our components**. It allows for rich, complex components like Tabs and autogrowing
+multline TextFields, and will not have as many breaking changes as the CSS-only version.
 
-- What low-level components to expose?
-- How much customization do we allow? What is the mechanism: props, children, or render
-  props?
-- Which props expect booleans, enums or entire component fragment?
-- What is the combinatorial explosion of having too many props? How to we control for
-  mutually exclusive props where some combination of props don't make sense?
-- What high value turnkey components should we provide? An example of a turnkey component
-  is a Resource List which exposes facilities for bulk selection and action.
+### Installation
 
-A lot of these decisions have been made by Polaris, a battle tested component library used
-by third-party developers on the Shopify marketplace. Polarwind borrows heavily from the
-Polaris component API.
+Run the following command using [npm](https://www.npmjs.com/):
 
-### CSS
+```bash
+npm install @envoy/polarwind --save
+```
 
-Polarwind relies heavily on Tailwind CSS, a utility-first CSS framework. It configures
-the default Tailwind theme with Envoy-specific color palette (to the extent of removing colors
-and levels that don't exist in the design system) and font scales.
+If you prefer [Yarn](https://yarnpkg.com/en/), use the following command instead:
 
-Polarwind uses Tailwind philosophy of styling the entire state of a component and using
-pseudo selectors to override values. This paves the way for mobile-first designs that
-adapt to larger screens.
+```bash
+yarn add @envoy/polarwind
+```
 
-The transpiled CSS is then trimmed to remove unused styles via PurgeCSS to produce the
-smallest CSS file needed.
+### Usage
 
-### CSS-in-JS
+1. Import the CSS directly into your project if your asset packager supports it:
 
-Polarwind uses CSS Modules. CSS Modules locally scope CSS by automatically creating a
-unique class name. This allows you to use the same CSS class name in different files
-without worrying about collisions. For defining the CSS properties themselves, Polarwind
-heavily uses `@apply` of Tailwind utility classes.
+```js
+import "@envoy/polarwind/polarwind.css";
+```
 
-## Guiding principles
+Otherwise include the CSS in your HTML. We suggest copying the styles file into your own
+project, but you may also use it directly:
 
-1. First class accessibility support for screen readers and keyboard interaction (escaping
-   out of menus, arrow keys, focus states for tab navigation)
-2. First class support for mobile with appropriate design for small screens, respecting
-   dark mode and reduced motion.
-3. Excellent documentation and interactive examples.
-4. Every component must be deliveried with comprehensive visual and accessibility testing
-   for components.
-5. A realistic host application that uses the component to validate that the pieces fit
-   together as a whole.
-6. Components are built to cover just enough of what we currently need instead of being
-   fully featured. As more use cases emerge, we will add more capabilities and
-   customization to the respective components.
+```html
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@envoy/polarwind@1.0.0-alpha.1/polarwind.css"
+/>
+```
+
+2. Include any of the provided components in your project:
+
+```js
+import { AppProvider, Page, Button } from "@envoy/polarwind";
+```
+
+3. Tell React to render the element in the DOM:
+
+```js
+ReactDOM.render(
+  <AppProvider>
+    <Page title="Example app">
+      <Button onClick={() => alert("Button clicked!")}>Example button</Button>
+    </Page>
+  </AppProvider>,
+  document.querySelector("#app")
+);
+```
+
+## Using the CSS components
+
+If React doesn't make sense for your application, you can use a CSS-only version of our
+components. This includes all the styles you need for every component in the library, but
+you'll be responsible for writing the correct markup and updating classes and DOM
+attributes in response to user events.
+
+### Usage
+
+1. Include the CSS in your HTML. We suggest copying the styles file into your own project,
+   but you may also use it directly:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@envoy/polarwind@1.0.0-alpha.1/polarwind.css"
+/>
+```
+
+2. Include the markup and associated classes in your HTML document:
+
+```html
+<button class="Polarwind-Button">Example button</button>
+```
+
+## Examples
+
+We have created example applications to document some of the ways you could include
+Polarwind in one of your own applications. Each of these examples includes further
+documentation on how to install dependencies and run the app:
+
+- [create-react-app
+  example](https://github.com/envoy/polarwind/tree/master/examples/create-react-app)
+
+## Development
+
+We use Storybook to create a simple, hot-reloading playground for development on these
+components. Run `yarn storybook` in order to start the Storybook server.
+
+We use generators to build scaffolding for a typical component. Run `yarn generate` to see
+the list of generators provided.
+
+### Visual regression testing
+
+[Percy](https://percy.io/) runs for every pull request. Percy is a tool that compares
+screenshots for every single component we have in the library.
+
+Percy is not always 100% accurate. Since it uses screenshot comparison, even browser
+sub-pixel rendering differences can cause Percy to ask for user confirmation of whether a
+change was intended or not. In cases like that, use your best judgement to determine
+whether you need to address it or not. This is why the choice to approve something or not
+is always manual. While everyone can view changes, only members of the Envoy team an
+approve changes.
+
+#### Manual visual regression testing
+
+To start a server for manually viewing the visual regression testing examples, run `yarn storybook`.
+
+## Learning resources
+
+If you're new to React, we recommend you start with the [official React Getting Started
+documentation](https://facebook.github.io/react/docs/hello-world.html). As you read
+through the topics we suggest you follow along using their [React Hello World CodePen
+example](http://codepen.io/gaearon/pen/ZpvBNJ?editors=0010).
+
+Additional resources:
+
+- Online training courses at [reacttraining.com](http://reacttraining.com),
+  [buildwithreact.com](http://buildwithreact.com), and
+  [reactforbeginners.com](http://reactforbeginners.com).
+- The community resources in [Awesome React](https://github.com/enaqx/awesome-react).
+- As questions and find answers in the various [React support
+  communities](https://facebook.github.io/react/community/support.html).
 
 ## License
 
@@ -65,4 +143,5 @@ services, with additional restrictions for external, stand-alone applications.
 
 ## Trivia
 
-Polarwind is a portmanteau of Polaris and Tailwind CSS.
+Polarwind is a portmanteau of [Polaris](https://polaris.shopify.com) and [Tailwind
+CSS](https://tailwindcss.com/).
