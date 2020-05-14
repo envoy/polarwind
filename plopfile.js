@@ -112,7 +112,7 @@ module.exports = function (plop) {
         type: "append",
         path: "src/components/{{parent}}/{{parent}}.js",
         template: dedent`
-          import { {{~properCase name~}} } from "./components";
+          import { {{properCase name}} } from "./components";
           {{parent}}.{{properCase name}} = {{properCase name}};
         `,
       },
