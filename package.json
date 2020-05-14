@@ -2,7 +2,7 @@
   "name": "@envoy/polarwind",
   "version": "1.0.0-alpha.3",
   "description": "Envoy's product component library",
-  "main": "index.umd.js",
+  "main": "index.cjs.js",
   "module": "index.esm.js",
   "scripts": {
     "dev": "yarn build -w",
@@ -34,7 +34,7 @@
     "design-system"
   ],
   "files": [
-    "index.umd.js",
+    "index.cjs.js",
     "index.esm.js",
     "polarwind.css"
   ],

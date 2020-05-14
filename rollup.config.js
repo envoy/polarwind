@@ -31,9 +31,7 @@ module.exports = [
       },
       {
         file: packageJson.main,
-        format: "umd",
-        name: "polarwind",
-        globals: { react: "React", "prop-types": "PropTypes" },
+        format: "cjs",
       },
     ],
   },

@@ -72,7 +72,7 @@ module.exports = {
   ignorePatterns: [
     "node_modules/",
     "storybook-static/",
-    "index.umd.js",
+    "index.cjs.js",
     "index.esm.js",
     "examples/",
   ],

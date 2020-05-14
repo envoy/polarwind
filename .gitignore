@@ -1,7 +1,7 @@
 /node_modules
 .DS_Store
 /index.esm.js
-/index.umd.js
+/index.cjs.js
 /package
 polarwind-v*.tgz
 /polarwind.css
