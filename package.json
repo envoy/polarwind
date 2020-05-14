@@ -87,7 +87,6 @@
     "react": "^16.13.1",
     "react-icons": "^3.9.0",
     "rollup": "^2.6.1",
-    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-postcss": "^2.6.4",
     "snapshot-diff": "^0.7.0",
