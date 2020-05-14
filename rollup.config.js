@@ -7,7 +7,7 @@ const { generateScopedName } = require("./src/plugins/polarisNamingStrategy");
 
 module.exports = [
   {
-    external: ["react", "prop-types"],
+    external: ["react", "classnames", "react-autosize-textarea"],
     input: "src/index.js",
     plugins: [
       resolve(),
