@@ -1,6 +1,6 @@
 .Badge {
-  @apply bg-arctic-50% text-carbon-65% text-xs font-bold uppercase;
-  @apply rounded-full border-transparent border-t-8 border-b-8 border-l-12 border-r-12 inline-block;
+  @apply bg-carbon-65% text-white text-xs font-bold uppercase;
+  @apply rounded-full border-transparent border-t-6 border-b-4 border-l-8 border-r-8 inline-block;
 
   > span {
     @apply leading-xs-skinny;
@@ -8,13 +8,13 @@
 }
 
 .info {
-  @apply bg-pacific-lightest text-pacific-dark;
+  @apply bg-pacific;
 }
 
 .error {
-  @apply bg-honeycomb-lightest text-honeycomb-dark;
+  @apply bg-honeycomb;
 }
 
 .success {
-  @apply bg-cilantro-lightest text-cilantro-dark;
+  @apply bg-cilantro;
 }
