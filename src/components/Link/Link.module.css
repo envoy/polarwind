@@ -1,0 +1,15 @@
+.Link {
+  @apply text-pacific;
+
+  &:hover {
+    @apply underline;
+  }
+}
+
+.underlined {
+  @apply underline;
+}
+
+.monochrome {
+  @apply text-current;
+}

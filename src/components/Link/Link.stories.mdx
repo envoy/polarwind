@@ -1,0 +1,71 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { Link } from "./Link";
+
+<Meta title="Components | Navigation / Link" component={Link} />
+
+# Link
+
+<Description of={Link} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <p>
+      Learn more about{" "}
+      <Link url="https://help.envoy.com/how-can-i-use-envoy-for-deliveries/">
+        accepting deliveries
+      </Link>
+      .
+    </p>
+  </Story>
+</Preview>
+
+<Props of={Link} />
+
+## Usage
+
+### Default link
+
+Use for text links in larger spans of text.
+
+### Underlined link
+
+Use when set against a background that is similar in color to give it visual contrast.
+
+<Preview>
+  <Story name="Underlined">
+    <Link url="https://dashboard.envoy.com/deliveries" underlined>
+      Give it a try →
+    </Link>
+  </Story>
+</Preview>
+
+### Monochrome link
+
+Use for text links that are the same color as the surrounding text.
+
+<Preview>
+  <Story name="Monochrome">
+    <div>
+      <p>
+        Monochrome links get underlines so that we you can differentiate{" "}
+        <Link url="https://dashboard.envoy.com/deliveries" monochrome>
+          what's a link
+        </Link>{" "}
+        and what's just text.
+      </p>
+      <Link
+        url="https://dashboard.envoy.com/deliveries"
+        monochrome
+        underlined={false}
+      >
+        You can also turn off underlines if you really wanted
+      </Link>
+    </div>
+  </Story>
+</Preview>
