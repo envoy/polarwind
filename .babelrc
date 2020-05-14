@@ -2,5 +2,11 @@
   "ignore": ["node_modules/**"],
   "presets": ["@babel/env", "@babel/preset-react"],
   "plugins": ["react-require", "add-react-displayname"],
-  "sourceType": "unambiguous"
+  "sourceType": "unambiguous",
+  "env": {
+    "production": {
+      "plugins": ["transform-react-remove-prop-types"],
+      "comments": false
+    }
+  }
 }
