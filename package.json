@@ -2,7 +2,7 @@
   "name": "@envoy/polarwind",
   "version": "1.0.0-alpha.3",
   "description": "Envoy's product component library",
-  "main": "index.umd.js",
+  "main": "index.cjs.js",
   "module": "index.esm.js",
   "scripts": {
     "dev": "yarn build -w",
@@ -34,7 +34,7 @@
     "design-system"
   ],
   "files": [
-    "index.umd.js",
+    "index.cjs.js",
     "index.esm.js",
     "polarwind.css"
   ],
@@ -46,6 +46,7 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@percy/storybook": "^3.3.0",
+    "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
     "@storybook/addon-a11y": "^5.3.18",
     "@storybook/addon-actions": "^5.3.18",
@@ -58,6 +59,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "babel-plugin-react-require": "^3.1.3",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "change-case": "^4.1.1",
     "color": "^3.1.2",
     "dedent": "^0.7.0",
@@ -87,7 +89,6 @@
     "react": "^16.13.1",
     "react-icons": "^3.9.0",
     "rollup": "^2.6.1",
-    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-postcss": "^2.6.4",
     "snapshot-diff": "^0.7.0",
