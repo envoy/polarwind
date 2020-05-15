@@ -69,3 +69,20 @@ Use for text links that are the same color as the surrounding text.
     </div>
   </Story>
 </Preview>
+
+### External link
+
+Use for text links that should open in a new browser tab (or window, depending on the
+user's browser settings).
+
+When linking to an external URL while embedded, this prop is required or the browser will
+refuse to follow the link if the site has `X-Frame-Options` set to disallow being rendered
+in an iframe.
+
+<Preview>
+  <Story name="External">
+    <Link url="https://www.google.com" external>
+      Google
+    </Link>
+  </Story>
+</Preview>

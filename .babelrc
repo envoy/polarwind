@@ -1,7 +1,11 @@
 {
   "ignore": ["node_modules/**"],
   "presets": ["@babel/env", "@babel/preset-react"],
-  "plugins": ["react-require", "add-react-displayname"],
+  "plugins": [
+    "react-require",
+    "add-react-displayname",
+    "@babel/plugin-proposal-optional-chaining"
+  ],
   "sourceType": "unambiguous",
   "env": {
     "production": {

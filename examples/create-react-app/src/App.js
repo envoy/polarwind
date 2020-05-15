@@ -1,6 +1,7 @@
 import React from "react";
 import "@envoy/polarwind/polarwind.css";
 import {
+  Heading,
   Page,
   FormLayout,
   Select,
@@ -9,6 +10,8 @@ import {
   ButtonGroup,
   Button,
   AppProvider,
+  Link,
+  Card,
 } from "@envoy/polarwind";
 
 function App() {
@@ -35,6 +38,21 @@ function App() {
             </ButtonGroup>
             <Button plain>Cancel</Button>
           </Stack>
+          <Card>
+            <Stack vertical spacing="loose">
+              <Heading>Link test</Heading>
+              <Stack distribution="equalSpacing">
+                <Link url="http://localhost:4200/entries">Dashboard route</Link>
+                <Link url="http://localhost:4200/entries?visitor_type=Interview">
+                  Dashboard route with query params
+                </Link>
+                <Link url="/about">Internal link</Link>
+                <Link url="https://www.google.com" external>
+                  External link
+                </Link>
+              </Stack>
+            </Stack>
+          </Card>
         </FormLayout>
       </Page>
     </AppProvider>
