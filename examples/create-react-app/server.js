@@ -3,6 +3,10 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const app = express();
 
+app.get("/about", function (req, res) {
+  res.send("the about page");
+});
+
 app.use(
   "/",
   createProxyMiddleware({
