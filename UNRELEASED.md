@@ -9,6 +9,12 @@
 ### Enhancements
 
 - Match the latest badge designs ([#98](https://github.com/envoy/polarwind/pull/98))
+- Add an `external` prop to `Link` to open external links in another tab/window
+  ([#99](https://github.com/envoy/polarwind/pull/99))
+- Send a `navigation` event to the parent if clicking a link that is prefixed with the
+  origin. The parent will need to set up a handler to handle the message to do the
+  appropriate thing like transitioning to another route
+  ([#99](https://github.com/envoy/polarwind/pull/99))
 
 ### Bug fixes
 
