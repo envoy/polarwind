@@ -11,7 +11,7 @@
 }
 
 .Header {
-  @apply flex;
+  @apply flex text-carbon-100%;
 
   .Polarwind-DisplayText {
     @apply flex-1;

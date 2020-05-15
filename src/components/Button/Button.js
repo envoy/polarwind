@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
+import { UnstyledLink } from "../UnstyledLink/UnstyledLink";
 import styles from "./Button.module.css";
 
 const cx = classNames.bind(styles);
@@ -16,6 +17,7 @@ export const Button = ({
   outline,
   plain,
   size = "medium",
+  url,
 }) => {
   let iconMarkup;
   if (icon && size !== "large") {
@@ -26,6 +28,13 @@ export const Button = ({
       </span>
     );
   }
+
+  const content = (
+    <>
+      {iconMarkup}
+      <span>{children}</span>
+    </>
+  );
 
   className = cx(
     {
@@ -38,10 +47,20 @@ export const Button = ({
     className
   );
 
-  return (
+  return url ? (
+    disabled ? (
+      // Render an `<a>` so toggling disabled/enabled state changes only the `href`
+      // attribute instead of replacing the whole element.
+      // eslint-disable-next-line jsx-a11y/anchor-is-valid
+      <a className={className}>{content}</a>
+    ) : (
+      <UnstyledLink className={className} href={url} onClick={onClick}>
+        {content}
+      </UnstyledLink>
+    )
+  ) : (
     <button className={className} disabled={disabled} onClick={onClick}>
-      {iconMarkup}
-      <span>{children}</span>
+      {content}
     </button>
   );
 };
@@ -66,4 +85,6 @@ Button.propTypes = {
   plain: PropTypes.bool,
   /** Changes the size of the button, giving it more or less padding */
   size: PropTypes.oneOf(["slim", "medium", "large"]),
+  /** A destination to link to, rendered in the href attribute of a link */
+  url: PropTypes.string,
 };
