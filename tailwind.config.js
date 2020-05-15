@@ -103,7 +103,7 @@ module.exports = {
       },
       borderWidth: {
         checkbox: "0.5px",
-        12: "12px",
+        6: "6px",
       },
       flex: {
         "0": "0 0 auto",
