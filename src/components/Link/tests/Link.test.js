@@ -1,4 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { OriginContext } from "../../../utils/origin";
+import { ParentContext } from "../../../utils/parent";
+import { StandaloneContext } from "../../../utils/standalone";
 import { Link } from "../Link";
 import styles from "../Link.module.css";
 
@@ -41,4 +44,25 @@ test("when monochrome is true, underline can be disabled explicitly", () => {
     </Link>
   );
   expect(screen.getByRole("link")).not.toHaveClass(styles.underlined);
+});
+
+test("when embedded and clicking a link belonging to the host", () => {
+  const sendMessage = jest.fn();
+  const url = "https://dashboard.envoy.com/entries";
+
+  render(
+    <StandaloneContext.Provider value={false}>
+      <OriginContext.Provider value="https://dashboard.envoy.com">
+        <ParentContext.Provider value={{ sendMessage }}>
+          <Link url={url}>View entries</Link>
+        </ParentContext.Provider>
+      </OriginContext.Provider>
+    </StandaloneContext.Provider>
+  );
+
+  fireEvent.click(screen.getByRole("link"));
+  expect(sendMessage).toHaveBeenCalledWith({
+    event: "navigate",
+    url,
+  });
 });

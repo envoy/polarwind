@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import { OriginContext } from "../../utils/origin";
+import { ParentContext } from "../../utils/parent";
 import { StandaloneContext } from "../../utils/standalone";
 import { iframeResizerContentWindow } from "../../vendor/iframeResizer.contentWindow";
 
@@ -14,14 +16,18 @@ export const AppProvider = ({
 
   useEffect(() => {
     iframeResizerContentWindow({
-      readyCallback: () => setIsEmbedded(true),
+      onReady: () => setIsEmbedded(true),
       targetOrigin: origin,
     });
   });
 
   return (
     <StandaloneContext.Provider value={!isEmbedded}>
-      {children}
+      <OriginContext.Provider value={origin}>
+        <ParentContext.Provider value={window.parentIFrame}>
+          {children}
+        </ParentContext.Provider>
+      </OriginContext.Provider>
     </StandaloneContext.Provider>
   );
 };
