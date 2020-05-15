@@ -2,6 +2,7 @@ import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { Back } from "../../../../icons";
 import { DisplayText } from "../../../DisplayText";
+import { UnstyledLink } from "../../../UnstyledLink/UnstyledLink";
 import styles from "../../Page.module.css";
 
 const cx = classnames.bind(styles);
@@ -17,13 +18,13 @@ export const Header = ({ action, breadcrumbs = [], children }) => {
 
   const breadcrumb = breadcrumbs[breadcrumbs.length - 1];
   const breadcrumbMarkup = breadcrumb && (
-    <a
+    <UnstyledLink
       className={styles.breadcrumb}
-      href={breadcrumb.url}
       title={breadcrumb.content}
+      url={breadcrumb.url}
     >
       <Back />
-    </a>
+    </UnstyledLink>
   );
 
   return (
