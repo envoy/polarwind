@@ -92,3 +92,31 @@ supported on the slim and normal buttons.
     </div>
   </Story>
 </Preview>
+
+### URL
+
+`Button` accepts a `url` prop when presenting an actionable link (as oppossed to a
+navigational link)
+
+<Preview>
+  <Story name="URL">
+    <div className="flex justify-around">
+      <Button url="https://www.google.com">Visit</Button>
+      <Button disabled url="https://www.google.com">
+        Visit
+      </Button>
+      <Button url="https://www.google.com" outline>
+        Visit
+      </Button>
+      <Button disabled url="https://www.google.com" outline>
+        Visit
+      </Button>
+      <Button url="https://www.google.com" plain>
+        Visit
+      </Button>
+      <Button disabled url="https://www.google.com" plain>
+        Visit
+      </Button>
+    </div>
+  </Story>
+</Preview>

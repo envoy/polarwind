@@ -15,6 +15,7 @@
   origin. The parent will need to set up a handler to handle the message to do the
   appropriate thing like transitioning to another route
   ([#99](https://github.com/envoy/polarwind/pull/99))
+- Buttons now support a `url` prop ([#105](https://github.com/envoy/polarwind/pull/105))
 
 ### Bug fixes
 

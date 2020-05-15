@@ -4,15 +4,15 @@
   @apply px-6 py-2.75;
   @apply self-center;
 
-  &:hover:enabled {
+  &:hover {
     @apply bg-brand-dark border-brand-dark;
   }
 
-  &:focus:enabled {
+  &:focus {
     @apply outline-none shadow-outline-red;
   }
 
-  &:active:enabled {
+  &:active {
     @apply bg-brand-dark border-brand-dark;
   }
 
@@ -52,15 +52,15 @@
 .plain {
   @apply bg-transparent border-transparent text-carbon-80%;
 
-  &:hover:enabled {
+  &:hover {
     @apply bg-arctic text-carbon-80% border-transparent;
   }
 
-  &:focus:enabled {
+  &:focus {
     @apply shadow-outline;
   }
 
-  &:active:enabled {
+  &:active {
     @apply text-carbon-80%;
     @apply bg-arctic;
     @apply border-transparent;
@@ -71,8 +71,8 @@
   composes: plain;
   @apply border-arctic;
 
-  &:hover:enabled,
-  &:focus:enabled {
+  &:hover,
+  &:focus {
     @apply border-arctic;
   }
 }

@@ -40,5 +40,5 @@ UnstyledLink.propTypes = {
   /** Makes the link open in a new tab */
   external: PropTypes.bool,
   /** The url to link to */
-  url: PropTypes.string,
+  url: PropTypes.string.isRequired,
 };
