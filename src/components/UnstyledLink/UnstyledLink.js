@@ -51,7 +51,7 @@ export const UnstyledLink = ({ children, external, onClick, url, ...rest }) => {
   const rel = popup ? "noopener noreferrer" : undefined;
 
   return (
-    <a href={url} rel={rel} target={target} onClick={handleClick} {...rest}>
+    <a {...rest} href={url} rel={rel} target={target} onClick={handleClick}>
       {children}
     </a>
   );
