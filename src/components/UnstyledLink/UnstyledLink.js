@@ -4,6 +4,26 @@ import { OriginContext } from "../../utils/origin";
 import { ParentContext } from "../../utils/parent";
 import { StandaloneContext } from "../../utils/standalone";
 
+function isAbsoluteUrlFor(url, host) {
+  return url.startsWith(host);
+}
+
+function isAnchor(url) {
+  return url.startsWith("#");
+}
+
+function isAbsolutePath(url) {
+  return url.startsWith("/");
+}
+
+function isOwnUrl(url) {
+  return (
+    isAnchor(url) ||
+    isAbsolutePath(url) ||
+    isAbsoluteUrlFor(url, window.location)
+  );
+}
+
 /**
  * An internal component used by components that are link-like, like `Link` and `Button`.
  * It provides behaviors when dealing with internal and external links, and sending
@@ -15,7 +35,7 @@ export const UnstyledLink = ({ children, external, url, ...rest }) => {
   const parent = useContext(ParentContext);
 
   const handleClick = (e) => {
-    if (!standalone && url?.startsWith(origin)) {
+    if (!standalone && !external && isHostUrl) {
       e.preventDefault();
       parent.sendMessage({
         event: "navigate",
@@ -23,6 +43,10 @@ export const UnstyledLink = ({ children, external, url, ...rest }) => {
       });
     }
   };
+
+  const isHostUrl = isAbsoluteUrlFor(url, origin);
+  const isExternalUrl = !isOwnUrl(url) && !isHostUrl && !standalone;
+  external = external ?? isExternalUrl;
 
   const target = external ? "_blank" : undefined;
   const rel = external ? "noopener noreferrer" : undefined;
