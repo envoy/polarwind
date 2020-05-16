@@ -124,3 +124,27 @@ describe.each`
     });
   }
 );
+
+test("onClick does not interfere with sendMessage", () => {
+  const url = "https://dashboard.envoy.com/about";
+  const onClick = jest.fn();
+
+  render(
+    <EmbeddedContext.Provider value={true}>
+      <OriginContext.Provider value="https://dashboard.envoy.com">
+        <ParentContext.Provider value={{ sendMessage }}>
+          <UnstyledLink url={url} onClick={onClick}>
+            Click here
+          </UnstyledLink>
+        </ParentContext.Provider>
+      </OriginContext.Provider>
+    </EmbeddedContext.Provider>
+  );
+
+  fireEvent.click(screen.getByRole("link"));
+  expect(sendMessage).toHaveBeenCalledWith({
+    event: "navigate",
+    url,
+  });
+  expect(onClick).toHaveBeenCalled();
+});
