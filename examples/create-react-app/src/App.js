@@ -47,9 +47,7 @@ function App() {
                   Dashboard route with query params
                 </Link>
                 <Link url="/about">Internal link</Link>
-                <Link url="https://www.google.com" external>
-                  External link
-                </Link>
+                <Link url="https://www.google.com">External link</Link>
               </Stack>
             </Stack>
           </Card>

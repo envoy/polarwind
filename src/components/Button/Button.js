@@ -54,7 +54,7 @@ export const Button = ({
       // eslint-disable-next-line jsx-a11y/anchor-is-valid
       <a className={className}>{content}</a>
     ) : (
-      <UnstyledLink className={className} href={url} onClick={onClick}>
+      <UnstyledLink className={className} url={url} onClick={onClick}>
         {content}
       </UnstyledLink>
     )

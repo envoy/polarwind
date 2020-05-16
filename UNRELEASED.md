@@ -16,6 +16,11 @@
   appropriate thing like transitioning to another route
   ([#99](https://github.com/envoy/polarwind/pull/99))
 - Buttons now support a `url` prop ([#105](https://github.com/envoy/polarwind/pull/105))
+- Link now supports an `onClick` callback
+  ([#106](https://github.com/envoy/polarwind/pull/106))
+- When embedded, link will now automatically pop out an external site. This frees up the
+  `external` prop to allow you to force a link to open in a new window even if the URL is
+  for the iframe host or internal. ([#106](https://github.com/envoy/polarwind/pull/106))
 
 ### Bug fixes
 

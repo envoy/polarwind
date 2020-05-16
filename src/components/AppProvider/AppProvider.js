@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
 import { ParentContext } from "../../utils/parent";
-import { StandaloneContext } from "../../utils/standalone";
 import { iframeResizerContentWindow } from "../../vendor/iframeResizer.contentWindow";
 
 /**
@@ -22,13 +22,13 @@ export const AppProvider = ({
   });
 
   return (
-    <StandaloneContext.Provider value={!isEmbedded}>
+    <EmbeddedContext.Provider value={isEmbedded}>
       <OriginContext.Provider value={origin}>
         <ParentContext.Provider value={window.parentIFrame}>
           {children}
         </ParentContext.Provider>
       </OriginContext.Provider>
-    </StandaloneContext.Provider>
+    </EmbeddedContext.Provider>
   );
 };
 

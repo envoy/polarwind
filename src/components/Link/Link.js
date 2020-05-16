@@ -11,17 +11,37 @@ const cx = classnames.bind(styles);
  *
  * For actions that aren't related to navigation, use the button component.
  */
-export const Link = ({ children, external, monochrome, underlined, url }) => {
+export const Link = ({
+  children,
+  external,
+  monochrome,
+  onClick,
+  underlined,
+  url,
+}) => {
+  const handleClick = () => {
+    onClick && onClick();
+  };
+
   const className = cx({
     Link: true,
     monochrome,
     underlined: underlined ?? monochrome,
   });
 
-  return (
-    <UnstyledLink className={className} external={external} href={url}>
+  return url ? (
+    <UnstyledLink
+      className={className}
+      external={external}
+      url={url}
+      onClick={handleClick}
+    >
       {children}
     </UnstyledLink>
+  ) : (
+    <button className={className} type="button" onClick={handleClick}>
+      {children}
+    </button>
   );
 };
 
@@ -32,6 +52,8 @@ Link.propTypes = {
   external: PropTypes.bool,
   /** Makes the link color the same as the current text color and adds an underline */
   monochrome: PropTypes.bool,
+  /** Callback when a link is clicked */
+  onClick: PropTypes.func,
   /** Display an underline all the time */
   underlined: PropTypes.bool,
   /** The url to link to */
