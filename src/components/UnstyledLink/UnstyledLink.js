@@ -1,15 +1,11 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
+import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
 import { ParentContext } from "../../utils/parent";
-import { StandaloneContext } from "../../utils/standalone";
 
 function isAbsoluteUrlFor(url, host) {
   return url.startsWith(host);
-}
-
-function isAnchor(url) {
-  return url.startsWith("#");
 }
 
 function isAbsolutePath(url) {
@@ -17,11 +13,7 @@ function isAbsolutePath(url) {
 }
 
 function isOwnUrl(url) {
-  return (
-    isAnchor(url) ||
-    isAbsolutePath(url) ||
-    isAbsoluteUrlFor(url, window.location)
-  );
+  return isAbsolutePath(url) || isAbsoluteUrlFor(url, window.location);
 }
 
 /**
@@ -31,11 +23,18 @@ function isOwnUrl(url) {
  */
 export const UnstyledLink = ({ children, external, url, ...rest }) => {
   const origin = useContext(OriginContext);
-  const standalone = useContext(StandaloneContext);
+  const embedded = useContext(EmbeddedContext);
   const parent = useContext(ParentContext);
 
+  const isHostUrl = isAbsoluteUrlFor(url, origin);
+  const isThirdPartyUrl = !isOwnUrl(url) && !isHostUrl;
+  // popup when explicitly set. if it's not set, popup when it's a third party url in
+  // embedded mode
+  const popup = external ?? (embedded && isThirdPartyUrl);
+  const sendMessage = embedded && isHostUrl;
+
   const handleClick = (e) => {
-    if (!standalone && !external && isHostUrl) {
+    if (sendMessage) {
       e.preventDefault();
       parent.sendMessage({
         event: "navigate",
@@ -44,12 +43,8 @@ export const UnstyledLink = ({ children, external, url, ...rest }) => {
     }
   };
 
-  const isHostUrl = isAbsoluteUrlFor(url, origin);
-  const isExternalUrl = !isOwnUrl(url) && !isHostUrl && !standalone;
-  external = external ?? isExternalUrl;
-
-  const target = external ? "_blank" : undefined;
-  const rel = external ? "noopener noreferrer" : undefined;
+  const target = popup ? "_blank" : undefined;
+  const rel = popup ? "noopener noreferrer" : undefined;
 
   return (
     <a href={url} rel={rel} target={target} onClick={handleClick} {...rest}>

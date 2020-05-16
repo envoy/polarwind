@@ -13,7 +13,7 @@ import { Select } from "../Select";
 import { Stack } from "../Stack";
 import { Tabs } from "../Tabs";
 import { TextField } from "../TextField";
-import { StandaloneContext } from "../../utils/standalone";
+import { EmbeddedContext } from "../../utils/embedded";
 
 <Meta title="Components | Structure / Page" component={Page} />
 
@@ -101,8 +101,8 @@ When building a standalone app, page gets rounded borders and a background wrapp
 
 <Preview>
   <Story name="Standalone">
-    <StandaloneContext.Provider value={true}>
+    <EmbeddedContext.Provider value={false}>
       <Page title="Standalone page" />
-    </StandaloneContext.Provider>
+    </EmbeddedContext.Provider>
   </Story>
 </Preview>

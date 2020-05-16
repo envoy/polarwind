@@ -1,7 +1,7 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { useContext } from "react";
-import { StandaloneContext } from "../../utils/standalone";
+import { EmbeddedContext } from "../../utils/embedded";
 import { Header } from "./components";
 import styles from "./Page.module.css";
 
@@ -12,11 +12,11 @@ const cx = classnames.bind(styles);
  * actions.
  */
 export const Page = ({ breadcrumbs, children, title, titleAction }) => {
-  const standalone = useContext(StandaloneContext);
+  const embedded = useContext(EmbeddedContext);
 
   const className = cx({
     Page: true,
-    standalone,
+    standalone: !embedded,
   });
 
   const PageMarkup = (props) => {
@@ -30,12 +30,12 @@ export const Page = ({ breadcrumbs, children, title, titleAction }) => {
     );
   };
 
-  return standalone ? (
+  return embedded ? (
+    <PageMarkup data-iframe-height />
+  ) : (
     <div className={styles.wrapper} data-iframe-height>
       <PageMarkup />
     </div>
-  ) : (
-    <PageMarkup data-iframe-height />
   );
 };
 
