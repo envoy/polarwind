@@ -14,6 +14,8 @@ jobs:
         uses: bahmutov/npm-install@v1
       - name: Lint
         run: "yarn lint"
+      - name: Flow check
+        run: "yarn flow check"
       - name: Test
         run: "yarn test"
       - name: Visual test
