@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import classNames from "classnames/bind";
 import * as React from "react";
 import styles from "./TextStyle.module.css";
