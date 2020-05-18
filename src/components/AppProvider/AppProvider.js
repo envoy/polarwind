@@ -10,21 +10,22 @@ import { iframeResizerContentWindow } from "../../vendor/iframeResizer.contentWi
  */
 export const AppProvider = ({
   children,
+  embedded = true,
   origin = "https://dashboard.envoy.com",
 }) => {
-  const [isEmbedded, setIsEmbedded] = useState(false);
+  const [parent, setParent] = useState();
 
   useEffect(() => {
     iframeResizerContentWindow({
-      onReady: () => setIsEmbedded(true),
+      onReady: () => setParent(window.parentIFrame),
       targetOrigin: origin,
     });
   });
 
   return (
-    <EmbeddedContext.Provider value={isEmbedded}>
+    <EmbeddedContext.Provider value={embedded}>
       <OriginContext.Provider value={origin}>
-        <ParentContext.Provider value={window.parentIFrame}>
+        <ParentContext.Provider value={parent}>
           {children}
         </ParentContext.Provider>
       </OriginContext.Provider>
@@ -35,6 +36,8 @@ export const AppProvider = ({
 AppProvider.propTypes = {
   /** Inner content of the application */
   children: PropTypes.node,
+  /** Set whether running in embedded or standalone mode */
+  embedded: PropTypes.bool,
   /** Envoy Dashboard origin */
   origin: PropTypes.string,
 };
