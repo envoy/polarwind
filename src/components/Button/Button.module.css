@@ -73,7 +73,10 @@
   composes: plain;
   @apply border-arctic;
 
-  &:hover,
+  &:hover {
+    @apply border-carbon-20%;
+  }
+
   &:focus {
     @apply border-arctic;
   }
