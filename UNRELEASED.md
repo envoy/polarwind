@@ -9,6 +9,7 @@
 ### Enhancements
 
 - Updated input fields to match current design
+- Added read-only support to Toggle
 
 ### Bug fixes
 

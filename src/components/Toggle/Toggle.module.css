@@ -17,3 +17,12 @@
     @apply translate-x-7;
   }
 }
+
+.readOnly {
+  @apply opacity-40;
+  @apply cursor-default pointer-events-none;
+
+  &:focus {
+    @apply outline-none shadow-none;
+  }
+}

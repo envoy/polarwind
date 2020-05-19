@@ -8,7 +8,7 @@ const SPACEBAR = 32;
 /**
  * Use to give users control over a feature or option that can be turned on or off.
  */
-export const Toggle = ({ enabled, onClick }) => {
+export const Toggle = ({ enabled, onClick, readOnly }) => {
   const handleOnClick = () => onClick && onClick();
   const handleKeyDown = (event) => {
     if (event.keyCode === SPACEBAR) {
@@ -17,7 +17,12 @@ export const Toggle = ({ enabled, onClick }) => {
     }
   };
 
-  const className = cx({ Toggle: true, disabled: !enabled, enabled });
+  const className = cx({
+    Toggle: true,
+    disabled: !enabled,
+    enabled,
+    readOnly,
+  });
 
   return (
     <span
@@ -38,4 +43,6 @@ Toggle.propTypes = {
   enabled: PropTypes.bool,
   /** Callback when toggle is clicked */
   onClick: PropTypes.func,
+  /** Sets toggle to read-only */
+  readOnly: PropTypes.bool,
 };
