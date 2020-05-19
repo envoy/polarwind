@@ -9,7 +9,7 @@
   }
 
   &:focus {
-    @apply outline-none shadow-outline-red;
+    @apply outline-none shadow-outline-brand;
   }
 
   &:active {
