@@ -8,7 +8,6 @@ export { DisplayText } from "./DisplayText";
 export { FormLayout } from "./FormLayout";
 export { Heading } from "./Heading";
 export { Label } from "./Label";
-export { Labeled } from "./Labeled";
 export { Link } from "./Link";
 export { Page } from "./Page";
 export { Select } from "./Select";
