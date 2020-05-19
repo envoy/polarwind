@@ -39,6 +39,7 @@ export const Button = ({
   className = cx(
     {
       Button: true,
+      brand: !plain,
       disabled,
       outline,
       plain,
