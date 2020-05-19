@@ -151,6 +151,7 @@ module.exports = {
           paddingLeft: theme("spacing.2"),
           "&::placeholder": {
             color: theme("colors.carbon.20%"),
+            lineHeight: "normal",
           },
         },
         input: {

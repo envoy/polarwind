@@ -8,6 +8,8 @@
 
 ### Bug fixes
 
+- Fixed vertical alignment for input field placeholders in Safari
+
 ### Documentation
 
 ### Development workflow
