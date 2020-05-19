@@ -1,6 +1,6 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { UnstyledLink } from "../UnstyledLink";
+import { Linkable } from "../Linkable/Linkable";
 import styles from "./Link.module.css";
 
 const cx = classnames.bind(styles);
@@ -29,19 +29,15 @@ export const Link = ({
     underlined: underlined ?? monochrome,
   });
 
-  return url ? (
-    <UnstyledLink
+  return (
+    <Linkable
       className={className}
       external={external}
       url={url}
       onClick={handleClick}
     >
       {children}
-    </UnstyledLink>
-  ) : (
-    <button className={className} type="button" onClick={handleClick}>
-      {children}
-    </button>
+    </Linkable>
   );
 };
 

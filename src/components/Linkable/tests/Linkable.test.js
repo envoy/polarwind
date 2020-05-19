@@ -8,5 +8,7 @@ test("when url prop is present", () => {
 
 test("when url prop is missing", () => {
   render(<Linkable>About</Linkable>);
-  expect(screen.getByText("About")).toContainHTML("<button>About</button>");
+  expect(screen.getByText("About")).toContainHTML(
+    '<button type="button">About</button>'
+  );
 });

@@ -1,6 +1,6 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { UnstyledLink } from "../../../UnstyledLink";
+import { Linkable } from "../../../Linkable";
 import styles from "./Tab.module.css";
 
 const cx = classnames.bind(styles);
@@ -14,17 +14,13 @@ export const Tab = ({ children, onClick, selected, url }) => {
     selected,
   });
 
-  const tabMarkup = url ? (
-    <UnstyledLink url={url} onClick={onClick}>
-      <span>{children}</span>
-    </UnstyledLink>
-  ) : (
-    <button onClick={onClick}>
-      <span>{children}</span>
-    </button>
+  return (
+    <li className={className}>
+      <Linkable url={url} onClick={onClick}>
+        <span>{children}</span>
+      </Linkable>
+    </li>
   );
-
-  return <li className={className}>{tabMarkup}</li>;
 };
 
 Tab.propTypes = {

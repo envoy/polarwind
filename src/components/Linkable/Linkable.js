@@ -10,7 +10,9 @@ export const Linkable = ({ children, url, ...rest }) => {
       {children}
     </UnstyledLink>
   ) : (
-    <button {...rest}>{children}</button>
+    <button {...rest} type="button">
+      {children}
+    </button>
   );
 };
 
