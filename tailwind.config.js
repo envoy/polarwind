@@ -138,8 +138,8 @@ module.exports = {
         },
         "input, textarea, checkbox, select": {
           "&:disabled": {
-            color: theme("colors.carbon.65%"),
-            borderColor: theme("colors.carbon.20%"),
+            color: theme("colors.carbon.80%"),
+            borderColor: theme("colors.arctic.default"),
             backgroundColor: theme("colors.arctic.50%"),
           },
         },
