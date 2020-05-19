@@ -109,6 +109,9 @@ module.exports = {
       flex: {
         "0": "0 0 auto",
       },
+      opacity: {
+        40: ".4",
+      },
       spacing: {
         1.5: "0.375rem",
         2.5: "0.604rem",

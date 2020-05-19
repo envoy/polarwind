@@ -49,7 +49,7 @@
 }
 
 .disabled {
-  @apply opacity-50;
+  @apply opacity-40;
   @apply cursor-default pointer-events-none;
 }
 
