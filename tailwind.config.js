@@ -19,6 +19,7 @@ module.exports = {
         dark: "#a00c1f",
         light: "#ff7c73",
         lightest: "#ffeceb",
+        hover: "#e23c32",
       },
       pacific: {
         default: "#028eb7",

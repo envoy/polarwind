@@ -1,11 +1,11 @@
 .Button {
-  @apply rounded-md border border-brand bg-brand transition ease-in-out duration-150;
+  @apply rounded-md border border-transparent bg-brand transition ease-in-out duration-150;
   @apply font-medium text-white text-base leading-base-normal;
   @apply px-6 py-2.75;
   @apply self-center;
 
   &:hover {
-    @apply bg-brand-dark border-brand-dark;
+    @apply bg-brand-hover;
   }
 
   &:focus {
