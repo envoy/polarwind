@@ -3,9 +3,15 @@
   @apply font-medium text-white text-base leading-base-normal;
   @apply px-4 py-2.75;
   @apply self-center;
+  @apply bg-brand border-brand;
+
+  &:hover {
+    @apply bg-brand-hover;
+  }
 
   &:focus {
     @apply outline-none;
+    @apply shadow-outline-brand;
   }
 
   span {
@@ -45,20 +51,8 @@
   @apply cursor-default pointer-events-none;
 }
 
-.brand {
-  @apply bg-brand;
-
-  &:hover {
-    @apply bg-brand-hover;
-  }
-
-  &:focus {
-    @apply shadow-outline-brand;
-  }
-}
-
 .plain {
-  @apply bg-transparent text-carbon-80%;
+  @apply bg-transparent border-transparent text-carbon-80%;
 
   &:hover {
     @apply bg-arctic;
@@ -79,5 +73,17 @@
 
   &:focus {
     @apply border-arctic;
+  }
+}
+
+.outlineBrand {
+  @apply text-brand bg-transparent;
+
+  &:hover {
+    @apply bg-brand-lightest;
+  }
+
+  &:focus:not(:hover) {
+    @apply bg-transparent;
   }
 }

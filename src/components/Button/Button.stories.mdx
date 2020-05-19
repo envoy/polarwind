@@ -6,6 +6,7 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { Button } from "./Button";
+import { ButtonGroup } from "../ButtonGroup";
 import { FiTrash2 } from "react-icons/fi";
 
 <Meta title="Components | Actions / Button" component={Button} />
@@ -47,8 +48,11 @@ style can be used for tertiary actions.
   <Story name="Styles">
     <div className="flex justify-around">
       <div>
-        <Button className="mr-4">Invite</Button>
-        <Button outline>Invite and add another</Button>
+        <ButtonGroup>
+          <Button>Invite</Button>
+          <Button outlineBrand>Invite</Button>
+          <Button outline>Invite and add another</Button>
+        </ButtonGroup>
       </div>
       <Button plain>Cancel</Button>
     </div>
@@ -64,6 +68,9 @@ condition has not been fulfilled, for example, when a form has a validation erro
   <Story name="Disabled">
     <div className="flex justify-around">
       <Button disabled>Add product</Button>
+      <Button outlineBrand disabled>
+        Add product
+      </Button>
       <Button outline disabled>
         Add product
       </Button>
@@ -103,6 +110,12 @@ navigational link)
     <div className="flex justify-around">
       <Button url="https://www.google.com">Visit</Button>
       <Button disabled url="https://www.google.com">
+        Visit
+      </Button>
+      <Button outlineBrand url="https://www.google.com">
+        Visit
+      </Button>
+      <Button outlineBrand disabled url="https://www.google.com">
         Visit
       </Button>
       <Button url="https://www.google.com" outline>
