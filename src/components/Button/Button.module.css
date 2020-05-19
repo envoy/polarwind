@@ -76,7 +76,7 @@
   }
 }
 
-.outlineBrand {
+.brandOutline {
   @apply text-brand bg-transparent;
 
   &:hover {

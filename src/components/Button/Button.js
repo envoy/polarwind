@@ -15,7 +15,7 @@ export const Button = ({
   icon,
   onClick,
   outline,
-  outlineBrand,
+  brandOutline,
   plain,
   size = "medium",
   url,
@@ -42,7 +42,7 @@ export const Button = ({
       Button: true,
       disabled,
       outline,
-      outlineBrand,
+      brandOutline,
       plain,
     },
     size != "medium" && size,
@@ -87,7 +87,7 @@ Button.propTypes = {
    * Gives the button an outline alternative to the default button styling, appropriate for
    * secondary actions
    */
-  outlineBrand: PropTypes.bool,
+  brandOutline: PropTypes.bool,
   /** Similar to outline but without a border, appropriate for tertiary actions */
   plain: PropTypes.bool,
   /** Changes the size of the button, giving it more or less padding */
