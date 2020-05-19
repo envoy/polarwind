@@ -81,6 +81,7 @@ module.exports = {
       default: "0px 2px 6px rgba(0, 0, 0, 0.48)",
       outline: `0 0 0 3px ${rgba(theme("colors.carbon.20%"), 0.2)}`,
       "outline-red": `0 0 0 3px ${rgba(theme("colors.brand.default"), 0.3)}`,
+      "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20%")}`,
       "input-pacific": [
         `0 0 0 1px ${theme("colors.pacific.default")}`,
         `0 1px 4px 0 ${rgba(theme("colors.pacific.default"), 0.16)}`,

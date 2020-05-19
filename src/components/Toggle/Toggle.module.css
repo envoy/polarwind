@@ -2,7 +2,7 @@
   @apply bg-arctic relative inline-block flex-shrink-0 h-8 w-15 border-4 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200;
 
   &:focus {
-    @apply outline-none shadow-outline;
+    @apply outline-none shadow-outline-toggle;
   }
 
   span {
