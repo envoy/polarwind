@@ -1,8 +1,9 @@
 .Tab {
   @apply ml-6 text-sm text-carbon-65%;
 
-  button {
-    @apply py-1.5;
+  button,
+  a {
+    @apply py-1.5 block;
 
     &:focus {
       @apply outline-none;
