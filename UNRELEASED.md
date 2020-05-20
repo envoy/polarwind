@@ -11,6 +11,7 @@
 ### Enhancements
 
 - Tab options now support a `url` key for tabs that link out to another page [#122](https://github.com/envoy/polarwind/pull/122)
+- Tabs now have a hover state [#129](https://github.com/envoy/polarwind/pull/129)
 
 ### Bug fixes
 
