@@ -5,8 +5,9 @@
     @apply text-carbon-80% border-b-2 border-carbon-20%;
   }
 
-  button {
-    @apply py-1.5;
+  button,
+  a {
+    @apply py-1.5 block;
 
     &:focus {
       @apply outline-none;
