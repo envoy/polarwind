@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
 import { ParentContext } from "../../utils/parent";
@@ -15,12 +15,12 @@ export const AppProvider = ({
 }) => {
   const [parent, setParent] = useState();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     iframeResizerContentWindow({
       onReady: () => setParent(window.parentIFrame),
       targetOrigin: origin,
     });
-  });
+  }, [origin]);
 
   return (
     <EmbeddedContext.Provider value={embedded}>
