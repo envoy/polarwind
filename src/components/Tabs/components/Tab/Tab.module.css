@@ -1,8 +1,13 @@
 .Tab {
   @apply ml-6 text-sm text-carbon-65%;
 
-  button {
-    @apply py-1.5;
+  &:hover:not(.selected) {
+    @apply text-carbon-80% border-b-2 border-carbon-20%;
+  }
+
+  button,
+  a {
+    @apply py-1.5 block;
 
     &:focus {
       @apply outline-none;
