@@ -19,10 +19,11 @@ export const Tabs = ({ children, onSelect, selected, tabs }) => {
   return (
     <>
       <ul className={className}>
-        {tabs.map(({ content, id }, index) => (
+        {tabs.map(({ content, id, url }, index) => (
           <Tab
             key={id}
             selected={selected === index}
+            url={url}
             onClick={handleSelect(index)}
           >
             {content}
@@ -44,8 +45,12 @@ Tabs.propTypes = {
   /** List of tabs */
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
+      /** Content for the tab */
       content: PropTypes.string.isRequired,
+      /** A unique identifier for the tab */
       id: PropTypes.string.isRequired,
+      /** A destination to link to */
+      url: PropTypes.string,
     })
   ).isRequired,
 };
