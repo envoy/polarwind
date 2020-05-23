@@ -15,6 +15,7 @@
 - Tabs now have a hover state [#129](https://github.com/envoy/polarwind/pull/129)
 - Updated input fields to match current design [#128](https://github.com/envoy/polarwind/pull/128)
 - Added read-only support to Toggle [#128](https://github.com/envoy/polarwind/pull/128)
+- Added an outline brand Button variation [#127](https://github.com/envoy/polarwind/pull/127)
 
 ### Bug fixes
 
@@ -25,6 +26,7 @@
   app to be unresponsive [#132](https://github.com/envoy/polarwind/pull/132)
 - Fixed vertical alignment for input field placeholders in Safari [#128](https://github.com/envoy/polarwind/pull/128)
 - Normalized Safari disabled input field font color (it was too faded by default) [#128](https://github.com/envoy/polarwind/pull/128)
+- Applied latest design to buttons [#127](https://github.com/envoy/polarwind/pull/127)
 
 ### Documentation
 

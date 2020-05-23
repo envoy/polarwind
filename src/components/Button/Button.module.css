@@ -1,19 +1,17 @@
 .Button {
-  @apply rounded-md border border-brand bg-brand transition ease-in-out duration-150;
+  @apply rounded-md border border-transparent transition ease-in-out duration-150;
   @apply font-medium text-white text-base leading-base-normal;
-  @apply px-6 py-2.75;
+  @apply px-4 py-2.75;
   @apply self-center;
+  @apply bg-brand border-brand;
 
   &:hover {
-    @apply bg-brand-dark border-brand-dark;
+    @apply bg-brand-hover;
   }
 
   &:focus {
-    @apply outline-none shadow-outline-red;
-  }
-
-  &:active {
-    @apply bg-brand-dark border-brand-dark;
+    @apply outline-none;
+    @apply shadow-outline-brand;
   }
 
   span {
@@ -41,11 +39,15 @@
 }
 
 .large {
-  @apply px-8 py-3.5;
+  @apply px-6 py-3 text-lg;
+
+  span {
+    @apply align-lg;
+  }
 }
 
 .disabled {
-  @apply opacity-50;
+  @apply opacity-40;
   @apply cursor-default pointer-events-none;
 }
 
@@ -53,17 +55,11 @@
   @apply bg-transparent border-transparent text-carbon-80%;
 
   &:hover {
-    @apply bg-arctic text-carbon-80% border-transparent;
+    @apply bg-arctic;
   }
 
   &:focus {
     @apply shadow-outline;
-  }
-
-  &:active {
-    @apply text-carbon-80%;
-    @apply bg-arctic;
-    @apply border-transparent;
   }
 }
 
@@ -71,8 +67,23 @@
   composes: plain;
   @apply border-arctic;
 
-  &:hover,
+  &:hover {
+    @apply border-carbon-20%;
+  }
+
   &:focus {
     @apply border-arctic;
+  }
+}
+
+.brandOutline {
+  @apply text-brand bg-transparent;
+
+  &:hover {
+    @apply bg-brand-lightest;
+  }
+
+  &:focus:not(:hover) {
+    @apply bg-transparent;
   }
 }
