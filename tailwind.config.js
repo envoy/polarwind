@@ -82,6 +82,7 @@ module.exports = {
       default: "0px 2px 6px rgba(0, 0, 0, 0.48)",
       outline: `0 0 0 2px ${theme("colors.arctic.default")}`,
       "outline-brand": `0 0 0 2px ${rgba(theme("colors.brand.default"), 0.3)}`,
+      "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20%")}`,
       "input-pacific": [
         `0 0 0 1px ${theme("colors.pacific.default")}`,
         `0 1px 4px 0 ${rgba(theme("colors.pacific.default"), 0.16)}`,
@@ -142,8 +143,9 @@ module.exports = {
         },
         "input, textarea, checkbox, select": {
           "&:disabled": {
-            color: theme("colors.carbon.65%"),
-            borderColor: theme("colors.carbon.20%"),
+            color: theme("colors.carbon.80%"),
+            "-webkit-text-fill-color": theme("colors.carbon.80%"),
+            borderColor: theme("colors.arctic.default"),
             backgroundColor: theme("colors.arctic.50%"),
           },
         },
@@ -154,6 +156,7 @@ module.exports = {
           paddingLeft: theme("spacing.2"),
           "&::placeholder": {
             color: theme("colors.carbon.20%"),
+            lineHeight: "normal",
           },
         },
         input: {

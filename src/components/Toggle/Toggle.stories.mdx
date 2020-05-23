@@ -33,16 +33,21 @@ Use on settings pages to allow users to toggle a setting that has an enabled or 
 state. Note that this component does not change its own state when you click it, unlike a
 normal checkbox. You must drive it externally with the `enabled` and `onClick` props.
 
-### Disabled
+### Read-only
 
-This is the default state the toggle will be in. Unlike a disabled TextField, this
-component does not support the readonly/non-interactive disabled state.
+Use when Toggle is in readonly/non-interactive disabled state.
 
 <Preview>
   <Story name="Disabled">
     {() => {
-      const [enabled, setEnabled] = useState(false);
-      return <Toggle enabled={enabled} onClick={() => setEnabled(!enabled)} />;
+      const [enabled, setEnabled] = useState(true);
+      return (
+        <Toggle
+          enabled={enabled}
+          onClick={() => setEnabled(!enabled)}
+          readOnly
+        />
+      );
     }}
   </Story>
 </Preview>
