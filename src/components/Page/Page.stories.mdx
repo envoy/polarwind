@@ -106,3 +106,22 @@ When building a standalone app, page gets rounded borders and a background wrapp
     </EmbeddedContext.Provider>
   </Story>
 </Preview>
+
+### Without title
+
+When building an embedded plugin, omit the entire title prop to remove the header. Any
+breadcrumb and title actions that you define will not be rendered too.
+
+<Preview>
+  <Story name="Without title">
+    <Page>
+      <FormLayout>
+        <Select
+          label="Visitor type"
+          options={["Visitor", "Interview", "Meeting"]}
+          required
+        />
+      </FormLayout>
+    </Page>
+  </Story>
+</Preview>

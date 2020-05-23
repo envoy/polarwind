@@ -23,7 +23,10 @@ The format is based on [these versioning and changelog guidelines](https://git.i
 - Tabs now have a hover state [#129](https://github.com/envoy/polarwind/pull/129)
 - Updated input fields to match current design [#128](https://github.com/envoy/polarwind/pull/128)
 - Added read-only support to Toggle [#128](https://github.com/envoy/polarwind/pull/128)
-- Added an outline brand Button variation [#127](https://github.com/envoy/polarwind/pull/127)
+- Added an outline brand Button variation
+  [#127](https://github.com/envoy/polarwind/pull/127)
+- If you don't provide a title to a page, it will skip rendering the header. This is ideal
+  for embedded plugins [#133](https://github.com/envoy/polarwind/pull/133)
 
 ### Bug fixes
 
