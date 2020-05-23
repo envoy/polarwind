@@ -38,7 +38,7 @@ project, but you may also use it directly:
 ```html
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@envoy/polarwind@1.0.0/polarwind.css"
+  href="https://unpkg.com/@envoy/polarwind@1.1.0/polarwind.css"
 />
 ```
 
@@ -76,7 +76,7 @@ attributes in response to user events.
 ```html
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@envoy/polarwind@1.0.0/polarwind.css"
+  href="https://unpkg.com/@envoy/polarwind@1.1.0/polarwind.css"
 />
 ```
 
