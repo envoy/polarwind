@@ -17,14 +17,19 @@ export const Page = ({ breadcrumbs, children, title, titleAction }) => {
   const className = cx({
     Page: true,
     standalone: !embedded,
+    withHeader: title,
   });
+
+  const headerMarkup = title && (
+    <Header action={titleAction} breadcrumbs={breadcrumbs}>
+      {title}
+    </Header>
+  );
 
   const PageMarkup = (props) => {
     return (
       <div className={className} {...props}>
-        <Header action={titleAction} breadcrumbs={breadcrumbs}>
-          {title}
-        </Header>
+        {headerMarkup}
         {children}
       </div>
     );

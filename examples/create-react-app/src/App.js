@@ -18,7 +18,7 @@ import {
 function App() {
   return (
     <AppProvider origin="http://localhost:4200">
-      <Page title="Density">
+      <Page>
         <FormLayout>
           <Select
             label="Visitor type"
