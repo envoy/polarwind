@@ -3,7 +3,11 @@
 }
 
 .Page {
-  @apply bg-white p-8 rounded-page;
+  @apply bg-white px-8 pb-8 rounded-page;
+}
+
+.withHeader {
+  @apply pt-8;
 }
 
 .standalone {
