@@ -21,6 +21,8 @@
 - Fixes flash of standalone mode when going from non-react page to a react page
   [#109](https://github.com/envoy/polarwind/pull/109)
 - Export Caption [#121](https://github.com/envoy/polarwind/pull/121)
+- Fixed an issue where the iframe setup would be called multiple times, causing the host
+  app to be unresponsive [#132](https://github.com/envoy/polarwind/pull/132)
 - Fixed vertical alignment for input field placeholders in Safari [#128](https://github.com/envoy/polarwind/pull/128)
 - Normalized Safari disabled input field font color (it was too faded by default) [#128](https://github.com/envoy/polarwind/pull/128)
 
