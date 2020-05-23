@@ -9,13 +9,13 @@ const cx = classNames.bind(styles);
  * Buttons are used primarily for actions, such as "Add", "Close", "Cancel", or "Save".
  */
 export const Button = ({
+  brandOutline,
   children,
   className,
   disabled,
   icon,
   onClick,
   outline,
-  brandOutline,
   plain,
   size = "medium",
   url,
@@ -40,9 +40,9 @@ export const Button = ({
   className = cx(
     {
       Button: true,
+      brandOutline,
       disabled,
       outline,
-      brandOutline,
       plain,
     },
     size != "medium" && size,
@@ -68,6 +68,11 @@ export const Button = ({
 };
 
 Button.propTypes = {
+  /**
+   * Gives the button an outline alternative to the default button styling, appropriate for
+   * secondary actions
+   */
+  brandOutline: PropTypes.bool,
   /** The content to display inside the button */
   children: PropTypes.string,
   /** Any additional classes to add to the button */
@@ -83,11 +88,6 @@ Button.propTypes = {
    * secondary actions
    */
   outline: PropTypes.bool,
-  /**
-   * Gives the button an outline alternative to the default button styling, appropriate for
-   * secondary actions
-   */
-  brandOutline: PropTypes.bool,
   /** Similar to outline but without a border, appropriate for tertiary actions */
   plain: PropTypes.bool,
   /** Changes the size of the button, giving it more or less padding */
