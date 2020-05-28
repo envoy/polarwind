@@ -15,9 +15,33 @@ import {
   TextStyle,
 } from "@envoy/polarwind";
 
+const links = [
+  { url: "https://dashboard.envoy.com/entries", title: "Dashboard route" },
+  {
+    url: "https://dashboard.envoy.com/invites?date=2020-04-20",
+    title: "Dashboard route with query params",
+  },
+  {
+    url: "https://dashboard.envoy.com/cybertruck",
+    title: "Dashboard route that doesn't exist",
+  },
+  {
+    url: "https://plugin-home.ngrok.io/about",
+    title: "Internal link absolute URL",
+  },
+  {
+    url: "/about",
+    title: "Internal link relative URL",
+  },
+  {
+    url: "https://www.google.com",
+    title: "External link",
+  },
+];
+
 function App() {
   return (
-    <AppProvider origin="http://localhost:4200">
+    <AppProvider>
       <Page>
         <FormLayout>
           <Select
@@ -45,64 +69,20 @@ function App() {
               <Stack distribution="fillEvenly">
                 <Stack>
                   <ul>
-                    <li>
-                      <Link url="http://localhost:4200/entries">
-                        Dashboard route
-                      </Link>
-                    </li>
-                    <li>
-                      <Link url="http://localhost:4200/invites?date=2020-04-20">
-                        Dashboard route with query params
-                      </Link>
-                    </li>
-                    <li>
-                      <Link url="http://localhost:4200/cybertruck">
-                        Dashboard route that doesn't exist
-                      </Link>
-                    </li>
-                    <li>
-                      <Link url="http://localhost:4300/about">
-                        Internal link absolute URL
-                      </Link>
-                    </li>
-                    <li>
-                      <Link url="/about">Internal link relative URL</Link>
-                    </li>
-                    <li>
-                      <Link url="https://www.google.com">External link</Link>
-                    </li>
+                    {links.map(({ url, title }) => (
+                      <li key={url}>
+                        <Link url={url}>{title}</Link>
+                      </li>
+                    ))}
                   </ul>
                 </Stack>
                 <Stack>
                   <ul>
-                    <li>
-                      <TextStyle variation="subdued">
-                        http://localhost:4200/entries
-                      </TextStyle>
-                    </li>
-                    <li>
-                      <TextStyle variation="subdued">
-                        http://localhost:4200/invites?date=2020-04-20
-                      </TextStyle>
-                    </li>
-                    <li>
-                      <TextStyle variation="subdued">
-                        http://localhost:4200/cybertruck
-                      </TextStyle>
-                    </li>
-                    <li>
-                      <TextStyle variation="subdued">
-                        http://localhost:4300/about
-                      </TextStyle>
-                    </li>
-                    <li>
-                      <TextStyle variation="subdued">/about</TextStyle>
-                    </li>
-                    <li>
-                      <TextStyle variation="subdued">
-                        https://www.google.com
-                      </TextStyle>
-                    </li>
+                    {links.map(({ url, title }) => (
+                      <li key={url}>
+                        <TextStyle variation="subdued">{url}</TextStyle>
+                      </li>
+                    ))}
                   </ul>
                 </Stack>
               </Stack>

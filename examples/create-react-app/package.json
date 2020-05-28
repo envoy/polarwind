@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@envoy/express-envoy-auth": "^1.0.2",
+    "@envoy/polarwind": "^1.1.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "http-proxy-middleware": "^1.0.3",
     "npm-run-all": "^4.1.5",
-    "@envoy/polarwind": "^1.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
@@ -37,5 +39,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "engines": {
+    "node": ">= 12.0.0"
+  }
 }
