@@ -5,11 +5,19 @@ const envoyAuth = require("@envoy/express-envoy-auth")(app);
 
 const { ENVOY_SECRET, ENVOY_CLIENT_ID } = process.env;
 
+// when running behind ngrok, "trust proxy" tells express to trust the X-Forwarded-For and
+// X-Forwarded-Proto headers so that it can generate the right callback URL
+app.enable("trust proxy");
+
 app.use(
   session({
     secret: ENVOY_SECRET,
     saveUninitialized: true,
     resave: true,
+    cookie: {
+      secure: true,
+      sameSite: "none",
+    },
   })
 );
 
