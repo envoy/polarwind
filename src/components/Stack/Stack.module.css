@@ -14,6 +14,10 @@
   @apply justify-between;
 }
 
+.distributionEqualSpacingAround {
+  @apply justify-around;
+}
+
 .distributionLeading {
   @apply justify-start;
 }
