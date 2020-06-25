@@ -7,6 +7,7 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { TextField } from "./TextField";
+import { Stack } from "../Stack";
 
 <Meta title="Components | Forms / Text field" component={TextField} />
 
@@ -78,11 +79,11 @@ Forces the focused state of the text fields.
 
 <Preview>
   <Story name="Focused">
-    <div className="flex flex-col justify-around h-56">
+    <Stack vertical>
       <TextField label="Name" focused />
       <TextField label="Name" error="Bad news" focused />
       <TextField type="search" label="Search" focused />
-    </div>
+    </Stack>
   </Story>
 </Preview>
 
@@ -93,7 +94,7 @@ error input is also disabled, the disabled state overrides the error state.
 
 <Preview>
   <Story name="Disabled">
-    <div className="flex flex-col justify-around h-56">
+    <Stack vertical distribution="equalSpacingAround">
       <TextField
         label="Input with a value"
         value="Hello, world"
@@ -108,7 +109,7 @@ error input is also disabled, the disabled state overrides the error state.
         disabled
       />
       <TextField type="search" label="Search" focused disabled />
-    </div>
+    </Stack>
   </Story>
 </Preview>
 
@@ -119,7 +120,7 @@ to accommodate additional text.
 
 <Preview>
   <Story name="Multiline">
-    <div className="flex flex-col justify-between h-128">
+    <Stack vertical>
       <TextField
         label="Default multiline"
         helpText="Be as detailed as possible"
@@ -140,6 +141,6 @@ but this textarea has an initial value
 which will resize itself to fit
 all four rows`}
       />
-    </div>
+    </Stack>
   </Story>
 </Preview>

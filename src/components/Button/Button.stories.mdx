@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { Button } from "./Button";
 import { ButtonGroup } from "../ButtonGroup";
+import { Stack } from "../Stack";
 import { FiTrash2 } from "react-icons/fi";
 
 <Meta title="Components | Actions / Button" component={Button} />
@@ -31,10 +32,10 @@ Apart from the standard button, we support slim and large variant buttons.
 
 <Preview>
   <Story name="Sizes">
-    <div className="flex justify-around">
+    <Stack alignment="center" distribution="equalSpacingAround">
       <Button size="slim">Add product</Button>
       <Button size="large">Add product</Button>
-    </div>
+    </Stack>
   </Story>
 </Preview>
 
@@ -46,16 +47,14 @@ style can be used for tertiary actions.
 
 <Preview>
   <Story name="Styles">
-    <div className="flex justify-around">
-      <div>
-        <ButtonGroup>
-          <Button>Invite</Button>
-          <Button brandOutline>Invite</Button>
-          <Button outline>Invite and add another</Button>
-        </ButtonGroup>
-      </div>
+    <Stack distribution="equalSpacingAround">
+      <ButtonGroup>
+        <Button>Invite</Button>
+        <Button brandOutline>Invite</Button>
+        <Button outline>Invite and add another</Button>
+      </ButtonGroup>
       <Button plain>Cancel</Button>
-    </div>
+    </Stack>
   </Story>
 </Preview>
 
@@ -66,7 +65,7 @@ condition has not been fulfilled, for example, when a form has a validation erro
 
 <Preview>
   <Story name="Disabled">
-    <div className="flex justify-around">
+    <Stack distribution="equalSpacingAround">
       <Button disabled>Add product</Button>
       <Button brandOutline disabled>
         Add product
@@ -77,7 +76,7 @@ condition has not been fulfilled, for example, when a form has a validation erro
       <Button plain disabled>
         Add product
       </Button>
-    </div>
+    </Stack>
   </Story>
 </Preview>
 
@@ -88,7 +87,7 @@ supported on the slim and normal buttons.
 
 <Preview>
   <Story name="Icon">
-    <div className="flex justify-around">
+    <Stack alignment="center" distribution="equalSpacingAround">
       <Button size="slim" icon={FiTrash2}>
         Delete
       </Button>
@@ -96,7 +95,7 @@ supported on the slim and normal buttons.
       <Button size="large" icon={FiTrash2}>
         Delete
       </Button>
-    </div>
+    </Stack>
   </Story>
 </Preview>
 
@@ -107,7 +106,7 @@ navigational link)
 
 <Preview>
   <Story name="URL">
-    <div className="flex justify-around">
+    <Stack distribution="equalSpacingAround">
       <Button url="https://www.google.com">Visit</Button>
       <Button disabled url="https://www.google.com">
         Visit
@@ -130,6 +129,6 @@ navigational link)
       <Button disabled url="https://www.google.com" plain>
         Visit
       </Button>
-    </div>
+    </Stack>
   </Story>
 </Preview>
