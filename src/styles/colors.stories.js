@@ -34,7 +34,9 @@ function Color({ color, hex }) {
   );
 }
 
-const stories = storiesOf("Design | Colors", module);
+const stories = storiesOf("Design | Colors", module).addParameters({
+  playroom: { disabled: true },
+});
 
 Object.entries(colors)
   .filter(([key]) => !["transparent", "current"].includes(key))
@@ -42,11 +44,13 @@ Object.entries(colors)
     if (typeof value === "string") {
       stories.add(key, () => <Color color={key} hex={value} />);
     } else {
-      stories.add(key, () =>
-        Object.entries(value).map(([subkey, subvalue]) => {
-          const color = subkey === "default" ? key : `${key}-${subkey}`;
-          return <Color color={color} hex={subvalue} key={color} />;
-        })
-      );
+      stories.add(key, () => (
+        <>
+          {Object.entries(value).map(([subkey, subvalue]) => {
+            const color = subkey === "default" ? key : `${key}-${subkey}`;
+            return <Color color={color} hex={subvalue} key={color} />;
+          })}
+        </>
+      ));
     }
   });
