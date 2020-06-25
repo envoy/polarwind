@@ -31,6 +31,7 @@ export const Stack = ({
     alignmentTrailing: ax("trailing"),
     distributionCenter: dx("center"),
     distributionEqualSpacing: dx("equalSpacing"),
+    distributionEqualSpacingAround: dx("equalSpacingAround"),
     distributionFill: dx("fill"),
     distributionFillEvenly: dx("fillEvenly"),
     distributionLeading: dx("leading"),
@@ -58,6 +59,7 @@ Stack.propTypes = {
   /** Adjust horizontal alignment of elements */
   distribution: PropTypes.oneOf([
     "equalSpacing",
+    "equalSpacingAround",
     "leading",
     "trailing",
     "center",

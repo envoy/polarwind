@@ -6,6 +6,8 @@
 
 ### Enhancements
 
+- `Stack` now supports `equalSpacingAround` as a distribution option
+
 ### Bug fixes
 
 ### Documentation
