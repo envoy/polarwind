@@ -12,5 +12,20 @@ addParameters({
     // must define the absolute path to it when NODE_ENV is production, otherwise set
     // undefined to use the default Playroom URL (localhost)
     url: process.env.NODE_ENV === "production" ? "/playroom/" : undefined,
+    reactElementToJSXStringOptions: {
+      displayName: (element) => {
+        const {
+          type: { displayName, name },
+          props: { originalType },
+        } = element;
+        // handle MDX hijacking html elements and converting them to `MDXCreateElement`.
+        // Playroom chokes on this as it can't find MDXCreateElement, so we're returning
+        // the original html tag it once was
+        return displayName === "MDXCreateElement"
+          ? originalType
+          : displayName || name;
+      },
+      filterProps: ["mdxType", "originalType"],
+    },
   },
 });
