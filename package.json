@@ -16,7 +16,8 @@
     "eslint": "eslint .",
     "stylelint": "stylelint src",
     "test": "jest",
-    "generate": "plop"
+    "generate": "plop",
+    "playroom:start": "playroom start"
   },
   "homepage": "https://envoy.github.io/polarwind",
   "bugs": "https://github.com/envoy/polarwind/issues",
