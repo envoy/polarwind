@@ -16,3 +16,5 @@ Item.propTypes = {
   /** The child to wrap */
   children: PropTypes.node,
 };
+
+Item.displayName = "FormLayout.Item";

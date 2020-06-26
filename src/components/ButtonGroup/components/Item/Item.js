@@ -18,3 +18,5 @@ Item.propTypes = {
   /** The child to wrap */
   children: PropTypes.node,
 };
+
+Item.displayName = "ButtonGroup.Item";

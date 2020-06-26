@@ -31,3 +31,5 @@ Group.propTypes = {
   /** The content to display inside the group. */
   children: PropTypes.node,
 };
+
+Group.displayName = "FormLayout.Group";
