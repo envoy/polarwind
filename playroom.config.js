@@ -6,14 +6,18 @@ const getLocalIdent = generateScopedName({
 });
 
 module.exports = {
-  components: "./src/components",
-  outputPath: "./dist/playroom",
-  frameComponent: "./playroom/FrameComponent.js",
+  components: "./src",
+  outputPath: "./storybook-static/playroom",
+  widths: [
+    600, // min-width of contentContainer in garaje
+    1300, // max-width of contentContainer in garaje
+  ],
   exampleCode: `
     <Page title="Settings">
       <Button>Hello</Button>
     </Page>
   `,
+  openBrowser: false,
   webpackConfig: () => ({
     module: {
       rules: [
