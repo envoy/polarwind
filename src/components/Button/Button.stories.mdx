@@ -86,7 +86,12 @@ condition has not been fulfilled, for example, when a form has a validation erro
 supported on the slim and normal buttons.
 
 <Preview>
-  <Story name="Icon">
+  <Story
+    name="Icon"
+    parameters={{
+      playroom: { disabled: true },
+    }}
+  >
     <Stack alignment="center" distribution="equalSpacingAround">
       <Button size="slim" icon={FiTrash2}>
         Delete
