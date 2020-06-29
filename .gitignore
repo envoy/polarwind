@@ -11,3 +11,4 @@ polarwind-v*.tgz
 /.envrc
 /public
 envoy-polarwind-v*.tgz
+/docs

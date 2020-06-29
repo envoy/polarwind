@@ -7,7 +7,7 @@ const getLocalIdent = generateScopedName({
 
 module.exports = {
   components: "./src",
-  outputPath: "./storybook-static/playroom",
+  outputPath: "./docs/playroom",
   widths: [
     600, // min-width of contentContainer in garaje
     1300, // max-width of contentContainer in garaje
