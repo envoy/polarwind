@@ -17,7 +17,8 @@
     "stylelint": "stylelint src",
     "test": "jest",
     "generate": "plop",
-    "playroom:start": "playroom start"
+    "playroom:start": "playroom start",
+    "start": "run-p storybook playroom:start"
   },
   "homepage": "https://envoy.github.io/polarwind",
   "bugs": "https://github.com/envoy/polarwind/issues",

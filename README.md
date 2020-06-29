@@ -98,7 +98,7 @@ documentation on how to install dependencies and run the app:
 ## Development
 
 We use Storybook to create a simple, hot-reloading playground for development on these
-components. Run `yarn storybook` in order to start the Storybook server.
+components. Run `yarn start` in order to start the Storybook server.
 
 We use generators to build scaffolding for a typical component. Run `yarn generate` to see
 the list of generators provided.
