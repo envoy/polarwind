@@ -13,3 +13,5 @@ polarwind-v*.tgz
 envoy-polarwind-v*.tgz
 /docs
 /examples/django/env
+*.pyc
+*.sqlite3
