@@ -1,0 +1,46 @@
+{
+  "name": "polarwind-example-create-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@envoy/express-envoy-auth": "^1.0.2",
+    "@envoy/polarwind": "^1.1.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "http-proxy-middleware": "^1.0.3",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "node server.js",
+    "dev": "run-p server start"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:3001",
+  "engines": {
+    "node": ">= 12.0.0"
+  }
+}
