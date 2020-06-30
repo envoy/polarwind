@@ -19,9 +19,11 @@ export const Stack = ({
   distribution,
   spacing,
   vertical,
+  wrap,
 }) => {
   const ax = bind(alignment);
   const dx = bind(distribution);
+  const sx = bind(spacing);
   const className = cx({
     Stack: true,
     alignmentBaseline: ax("baseline"),
@@ -31,17 +33,24 @@ export const Stack = ({
     alignmentTrailing: ax("trailing"),
     distributionCenter: dx("center"),
     distributionEqualSpacing: dx("equalSpacing"),
+    distributionEqualSpacingAround: dx("equalSpacingAround"),
     distributionFill: dx("fill"),
     distributionFillEvenly: dx("fillEvenly"),
     distributionLeading: dx("leading"),
     distributionTrailing: dx("trailing"),
+    noWrap: !wrap,
+    spacingLoose: sx("loose"),
     vertical,
   });
   return (
     <div className={className}>
-      {Children.map(children, wrapWithComponent(Item, { props: { spacing } }))}
+      {Children.map(children, wrapWithComponent(Item))}
     </div>
   );
+};
+
+Stack.defaultProps = {
+  wrap: true,
 };
 
 Stack.propTypes = {
@@ -58,6 +67,7 @@ Stack.propTypes = {
   /** Adjust horizontal alignment of elements */
   distribution: PropTypes.oneOf([
     "equalSpacing",
+    "equalSpacingAround",
     "leading",
     "trailing",
     "center",
@@ -68,6 +78,8 @@ Stack.propTypes = {
   spacing: PropTypes.oneOf(["loose"]),
   /** Stack the elements vertically */
   vertical: PropTypes.bool,
+  /** Wrap stack elements to additional rows as needed on small screens */
+  wrap: PropTypes.bool,
 };
 
 Stack.Item = Item;

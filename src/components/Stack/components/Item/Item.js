@@ -18,3 +18,5 @@ Item.propTypes = {
   /** Adjust spacing between elements */
   spacing: PropTypes.oneOf(["loose"]),
 };
+
+Item.displayName = "Stack.Item";

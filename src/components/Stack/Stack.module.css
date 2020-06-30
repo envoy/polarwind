@@ -3,15 +3,23 @@
 }
 
 .Item {
-  @apply ml-2 mt-2 max-w-full min-w-0 flex-0;
+  @apply ml-2 mt-2 max-w-full min-w-0 flex-initial;
 }
 
-.Item.loose {
-  @apply ml-6;
+.spacingLoose {
+  @apply -ml-6 -mt-6;
+
+  & > .Item {
+    @apply ml-6 mt-6;
+  }
 }
 
 .distributionEqualSpacing {
   @apply justify-between;
+}
+
+.distributionEqualSpacingAround {
+  @apply justify-around;
 }
 
 .distributionLeading {
@@ -39,7 +47,11 @@
 }
 
 .vertical {
-  @apply flex-col;
+  @apply flex-col ml-0;
+
+  .Item {
+    @apply ml-0;
+  }
 }
 
 .alignmentLeading {
@@ -60,4 +72,8 @@
 
 .alignmentBaseline {
   @apply items-baseline;
+}
+
+.noWrap {
+  @apply flex-no-wrap;
 }

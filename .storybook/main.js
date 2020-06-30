@@ -8,7 +8,11 @@ const getLocalIdent = generateScopedName({
 
 module.exports = {
   stories: ["../src/**/*.stories.(js|mdx)"],
-  addons: ["@storybook/addon-docs", "@storybook/addon-a11y"],
+  addons: [
+    "@storybook/addon-docs",
+    "@storybook/addon-a11y",
+    "storybook-addon-playroom",
+  ],
   webpackFinal: (config) => {
     // Remove the existing css rule
     config.module.rules = config.module.rules.filter(

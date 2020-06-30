@@ -33,3 +33,5 @@ Tab.propTypes = {
   /** A destination to link to */
   url: PropTypes.string,
 };
+
+Tab.displayName = "Tabs.Tab";

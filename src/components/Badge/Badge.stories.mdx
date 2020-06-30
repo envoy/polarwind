@@ -6,6 +6,7 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { Badge } from "./Badge";
+import { Stack } from "../Stack";
 
 <Meta title="Components | Images and icons / Badge" component={Badge} />
 
@@ -15,12 +16,12 @@ import { Badge } from "./Badge";
 
 <Preview withToolbar>
   <Story name="Example">
-    <div className="flex justify-between">
+    <Stack distribution="equalSpacing">
       <Badge>New</Badge>
       <Badge status="info">Recommended</Badge>
       <Badge status="success">Success</Badge>
       <Badge status="error">Error</Badge>
-    </div>
+    </Stack>
   </Story>
 </Preview>
 

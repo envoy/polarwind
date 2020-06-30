@@ -22,3 +22,7 @@ export const {{properCase name}} = ({ children }) => {
   /** FIXME: The content to use as _____ */
   children: PropTypes.node,
 };
+
+{{#if parent}}
+{{properCase name}}.displayName = "{{properCase parent}}.{{properCase name}}";
+{{/if}}

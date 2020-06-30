@@ -51,3 +51,5 @@ Header.propTypes = {
   /** The title */
   children: PropTypes.node,
 };
+
+Header.displayName = "Page.Header";
