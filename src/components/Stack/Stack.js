@@ -22,6 +22,7 @@ export const Stack = ({
 }) => {
   const ax = bind(alignment);
   const dx = bind(distribution);
+  const sx = bind(spacing);
   const className = cx({
     Stack: true,
     alignmentBaseline: ax("baseline"),
@@ -36,11 +37,12 @@ export const Stack = ({
     distributionFillEvenly: dx("fillEvenly"),
     distributionLeading: dx("leading"),
     distributionTrailing: dx("trailing"),
+    spacingLoose: sx("loose"),
     vertical,
   });
   return (
     <div className={className}>
-      {Children.map(children, wrapWithComponent(Item, { props: { spacing } }))}
+      {Children.map(children, wrapWithComponent(Item))}
     </div>
   );
 };

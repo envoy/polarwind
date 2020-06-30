@@ -13,6 +13,8 @@
 
 ### Bug fixes
 
+- `Stack` applies spacing correctly when in vertical mode
+
 ### Documentation
 
 ### Development workflow
