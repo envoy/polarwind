@@ -12,3 +12,4 @@ polarwind-v*.tgz
 /public
 envoy-polarwind-v*.tgz
 /docs
+/examples/django/env
