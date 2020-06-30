@@ -28,6 +28,9 @@ const generateScopedName = ({ extension, prefix }) => {
   }
 
   return (localName, filePath) => {
+    if (!filePath.endsWith(extension)) {
+      return localName;
+    }
     const componentName = path.basename(filePath, extension);
     const nestedComponentMatch = NESTED_COMPONENT_PATH_REGEX.exec(filePath);
 
