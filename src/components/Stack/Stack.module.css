@@ -3,7 +3,7 @@
 }
 
 .Item {
-  @apply ml-2 mt-2 max-w-full min-w-0 flex-0;
+  @apply ml-2 mt-2 max-w-full min-w-0 flex-initial;
 }
 
 .spacingLoose {
