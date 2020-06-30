@@ -11,7 +11,10 @@ addParameters({
     // Because Playroom is built inside Storybook when deployed as a static doc site, we
     // must define the absolute path to it when NODE_ENV is production, otherwise set
     // undefined to use the default Playroom URL (localhost)
-    url: process.env.NODE_ENV === "production" ? "/playroom/" : undefined,
+    url:
+      process.env.NODE_ENV === "production"
+        ? "/polarwind/playroom/"
+        : undefined,
     reactElementToJSXStringOptions: {
       displayName: (element) => {
         const {
