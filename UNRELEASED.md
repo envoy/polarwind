@@ -10,6 +10,7 @@
 ### Enhancements
 
 - `Stack` now supports `equalSpacingAround` as a distribution option
+- `Stack` now supports the `wrap` option (defaults to true)
 
 ### Bug fixes
 

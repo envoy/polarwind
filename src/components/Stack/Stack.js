@@ -19,6 +19,7 @@ export const Stack = ({
   distribution,
   spacing,
   vertical,
+  wrap,
 }) => {
   const ax = bind(alignment);
   const dx = bind(distribution);
@@ -37,6 +38,7 @@ export const Stack = ({
     distributionFillEvenly: dx("fillEvenly"),
     distributionLeading: dx("leading"),
     distributionTrailing: dx("trailing"),
+    noWrap: !wrap,
     spacingLoose: sx("loose"),
     vertical,
   });
@@ -45,6 +47,10 @@ export const Stack = ({
       {Children.map(children, wrapWithComponent(Item))}
     </div>
   );
+};
+
+Stack.defaultProps = {
+  wrap: true,
 };
 
 Stack.propTypes = {
@@ -72,6 +78,8 @@ Stack.propTypes = {
   spacing: PropTypes.oneOf(["loose"]),
   /** Stack the elements vertically */
   vertical: PropTypes.bool,
+  /** Wrap stack elements to additional rows as needed on small screens */
+  wrap: PropTypes.bool,
 };
 
 Stack.Item = Item;
