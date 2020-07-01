@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cra_helper', # must come before django.contrib.staticfiles
     'django.contrib.staticfiles',
 ]
 
@@ -62,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cra_helper.context_processors.static',
             ],
         },
     },
@@ -126,3 +128,14 @@ REACT_APP_DIR = os.path.join(BASE_DIR, '../frontend')
 STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static'),
 ]
+
+STATICFILES_FINDERS = [
+    # Django defaults
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # A finder to pull in asset-manifest.json
+    'cra_helper.finders.CRAManifestFinder',
+]
+
+CRA_APP_NAME = 'frontend'
+CRA_PORT = 4301

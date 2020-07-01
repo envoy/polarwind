@@ -43,9 +43,26 @@ pipenv run python manage.py runserver
 Run React frontend (defaults to port 4301).
 
 ```
-yarn start
+npm start
 ```
 
-In development, you don't need to use this
-port directly. The frontend development server will be proxied by the Django app at port
-4300 so that you get live reloading.
+In development, you don't need to use the React port directly. The frontend development
+server will be proxied by the Django app at port 4300 so that you get live reloading.
+
+### Adding new non-JS or non-CSS assets
+
+Any time you add a new non-JS or non-CSS asset to the `frontend` directory, run `npm run build` once to generate a `build/asset-manifest.json` file.
+
+## Production
+
+Prepare React files for production with the typical CRA npm build command:
+
+```
+npm run build
+```
+
+Run the following Django command to gather static files, including the compiled React assets:
+
+```
+pipenv run python manage.py collectstatic --no-input
+```

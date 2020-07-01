@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from . import views
+from cra_helper.views import proxy_cra_requests
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # must be catch-all for pushState to work
-    re_path(r'^', views.FrontendAppView.as_view()),
 ]
+
+# add a reverse-proxy view to help React in the Django view talk to Create-React-App
+if settings.DEBUG:
+    proxy_urls = [
+        re_path(r'^__webpack_dev_server__/(?P<path>.*)$', proxy_cra_requests),
+    ]
+    urlpatterns.extend(proxy_urls)
