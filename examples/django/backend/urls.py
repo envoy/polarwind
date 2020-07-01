@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
+from django.conf import settings
 from cra_helper.views import proxy_cra_requests
 
+from .views import HomeView
+
 urlpatterns = [
+    path('', HomeView.as_view(), name='home'),
     path('admin/', admin.site.urls),
 ]
 
@@ -25,5 +29,6 @@ urlpatterns = [
 if settings.DEBUG:
     proxy_urls = [
         re_path(r'^__webpack_dev_server__/(?P<path>.*)$', proxy_cra_requests),
+        re_path(r'^(?P<path>.+\.hot-update\.(json|js|js\.map))$', proxy_cra_requests),
     ]
     urlpatterns.extend(proxy_urls)
