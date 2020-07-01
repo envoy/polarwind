@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+/build/*
+!/build/asset-manifest.json
 
 # misc
 .DS_Store
