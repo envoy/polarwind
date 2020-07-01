@@ -34,20 +34,17 @@ yarn
 
 ### Running the project
 
-Run the Django backend (defaults to port 4300)
-
-```
-pipenv run python manage.py runserver
-```
-
-Run React frontend (defaults to port 4301).
+Run React frontend first
 
 ```
 npm start
 ```
 
-In development, you don't need to use the React port directly. The frontend development
-server will be proxied by the Django app at port 4300 so that you get live reloading.
+Then run the Django backend (defaults to port 4300)
+
+```
+pipenv run python manage.py runserver
+```
 
 ### Adding new non-JS or non-CSS assets
 
