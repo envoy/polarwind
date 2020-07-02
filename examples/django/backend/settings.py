@@ -130,5 +130,16 @@ STATICFILES_FINDERS = [
     'cra_helper.finders.CRAManifestFinder',
 ]
 
+# Create React App
+
 CRA_APP_NAME = 'frontend'
 CRA_PORT = 4301
+
+# Authlib
+
+AUTHLIB_OAUTH_CLIENTS = {
+    'envoy': {
+        'client_id': os.getenv('ENVOY_CLIENT_ID'),
+        'client_secret': os.getenv('ENVOY_CLIENT_SECRET'),
+    }
+}
