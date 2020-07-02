@@ -20,6 +20,12 @@ Envoy's OAuth endpoints.
 
 ### Setup
 
+Install direnv
+
+```
+brew install direnv
+```
+
 Set up Python dependencies
 
 ```
