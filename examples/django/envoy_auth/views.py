@@ -1,14 +1,16 @@
 from django.shortcuts import redirect
+from django.urls import reverse
 from authlib.integrations.django_client import OAuth
 
 oauth = OAuth()
 oauth.register(
     name='envoy',
+    access_token_url='https://app.envoy.dev/a/auth/v0/token',
+    authorize_url='https://dashboard.envoy.dev/a/auth/v0/authorize',
     client_kwargs={
         'scope': 'public'
     }
 )
-
 
 def login(request):
     redirect_uri = request.build_absolute_uri(reverse('authorize'))

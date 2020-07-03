@@ -22,7 +22,7 @@ from .views import HomeView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('auth/', include('envoy_auth.urls')),
+    path('auth', include('envoy_auth.urls')),
     path('admin/', admin.site.urls),
 ]
 

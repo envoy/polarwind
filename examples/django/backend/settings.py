@@ -25,7 +25,7 @@ SECRET_KEY = '$ny89z98%0q9b3)xi8kh!b=asgb)p2f!n-^equh=d_!3!#)s!2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['plugin-home.ngrok.io']
 
 
 # Application definition
@@ -143,3 +143,9 @@ AUTHLIB_OAUTH_CLIENTS = {
         'client_secret': os.getenv('ENVOY_CLIENT_SECRET'),
     }
 }
+
+# For consistency with the configured OAuth client redirect URIs
+APPEND_SLASH = False
+
+# reverse was not generating the urls with https even if the site was accessed via SSL
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
