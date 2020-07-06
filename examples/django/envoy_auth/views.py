@@ -1,5 +1,6 @@
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.contrib.auth import login as django_login
 from authlib.integrations.django_client import OAuth
 
 oauth = OAuth()
@@ -18,5 +19,6 @@ def login(request):
 
 def authorize(request):
     token = oauth.envoy.authorize_access_token(request)
-    request.session['user'] = { "token": token }
+    user = { "token": token }
+    django_login(request, user)
     return redirect('/')

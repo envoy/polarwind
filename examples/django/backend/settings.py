@@ -149,3 +149,5 @@ APPEND_SLASH = False
 
 # reverse was not generating the urls with https even if the site was accessed via SSL
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+LOGIN_URL = '/auth'
