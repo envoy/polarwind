@@ -2,12 +2,14 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login as django_login
 from authlib.integrations.django_client import OAuth
+from django.conf import settings
 
+host = getattr(settings, 'ENVOY_HOST', 'envoy.com')
 oauth = OAuth()
 oauth.register(
     name='envoy',
-    access_token_url='https://app.envoy.dev/a/auth/v0/token',
-    authorize_url='https://dashboard.envoy.dev/a/auth/v0/authorize',
+    access_token_url=f'https://app.{host}/a/auth/v0/token',
+    authorize_url=f'https://dashboard.{host}/a/auth/v0/authorize',
     client_kwargs={
         'scope': 'public'
     }
