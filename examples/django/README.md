@@ -3,18 +3,15 @@
 ## Overview
 
 This project is an example of a Django project with Polarwind pre-installed. We are using
-Create React App to serve up a typical React application, with Polarwind installed as a
-dependency.
+Create React App's development server to serve up the bundled JS and CSS, while keeping
+the template itself in Django. This allows a more natural way of building pages in Django
+using paths, views and templates.
 
-To build the React project for production, you would change into the `frontend` directory
-and run `npm run build`. This will compile the files into the `frontend/build` directory,
-including an `index.html` that will point to the latest bundle.
+To build the React project for production, your deployment process should run `npm run build` in the `frontend` directory.
 
-Over in the Django side, we serve up the contents of `frontend/build/index.html` for any
-URL (with the exception of `admin/`).
-
-This project also includes a Django middleware to authenticate the user session against
-Envoy's OAuth endpoints.
+This project also includes a Django app called `envoy_auth` that implements OAuth2
+authentication with Envoy's OAuth endpoints. The root path (which serves the Django React
+template) is protected with `login_required` from `django.contrib.auth`.
 
 ## Development
 
@@ -35,7 +32,7 @@ pipenv install
 Set up JavaScript dependencies
 
 ```
-yarn
+npm install
 ```
 
 ### Running the project
@@ -43,6 +40,7 @@ yarn
 Run React frontend first
 
 ```
+cd frontend
 npm start
 ```
 
@@ -54,7 +52,7 @@ pipenv run python manage.py runserver
 
 ### Adding new non-JS or non-CSS assets
 
-Any time you add a new non-JS or non-CSS asset to the `frontend` directory, run `npm run build` once to generate a `build/asset-manifest.json` file.
+Any time you add a new non-JS or non-CSS asset to the `frontend` directory, run `npm run build` once to generate a `build/asset-manifest.json` file. This file is added to git.
 
 ## Production
 
