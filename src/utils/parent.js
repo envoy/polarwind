@@ -5,8 +5,12 @@ function setParent(value) {
   parent.current = value;
 }
 
+function sendMessage(message) {
+  parent.current.sendMessage(message);
+}
+
 function useParent() {
-  return [parent, setParent];
+  return [sendMessage, setParent];
 }
 
 export { useParent };
