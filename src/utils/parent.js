@@ -1,3 +1,12 @@
-import { createContext } from "react";
+import { createRef } from "react";
+const parent = createRef();
 
-export const ParentContext = createContext(undefined);
+function setParent(value) {
+  parent.current = value;
+}
+
+function useParent() {
+  return [parent, setParent];
+}
+
+export { useParent };

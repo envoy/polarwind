@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import { useLayoutEffect, useState } from "react";
+import { useEffect } from "react";
 import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
-import { ParentContext } from "../../utils/parent";
+import { useParent } from "../../utils/parent";
 import { iframeResizerContentWindow } from "../../vendor/iframeResizer.contentWindow";
 
 /**
@@ -13,22 +13,18 @@ export const AppProvider = ({
   embedded = true,
   origin = "https://dashboard.envoy.com",
 }) => {
-  const [parent, setParent] = useState();
+  const [, setParent] = useParent();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     iframeResizerContentWindow({
       onReady: () => setParent(window.parentIFrame),
       targetOrigin: origin,
     });
-  }, [origin]);
+  }, [origin, setParent]);
 
   return (
     <EmbeddedContext.Provider value={embedded}>
-      <OriginContext.Provider value={origin}>
-        <ParentContext.Provider value={parent}>
-          {children}
-        </ParentContext.Provider>
-      </OriginContext.Provider>
+      <OriginContext.Provider value={origin}>{children}</OriginContext.Provider>
     </EmbeddedContext.Provider>
   );
 };
