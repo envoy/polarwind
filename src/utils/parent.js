@@ -22,31 +22,6 @@ function sendMessage(message) {
   parent.current.sendMessage(message);
 }
 
-function receiveMessage(message) {
-  switch (message.event) {
-    case "context": {
-      console.log("[polarwind] received context", {
-        context: message.context,
-      });
-      const action = { payload: message.context, type: "context" };
-      console.log("[polarwind] dispatching", { action });
-      break;
-    }
-  }
-}
-
-// try additive context
-// function reducer(state, action) {
-//   console.log("[polarwind] reducer called", { action, state });
-//   switch (action.type) {
-//     case "context": {
-//       return {
-//         ...state,
-//         ...action.payload,
-//       };
-//     }
-//   }
-// }
 function ParentProvider({ children }) {
   const [, setParent] = useParent();
   const origin = useContext(OriginContext);
@@ -89,7 +64,7 @@ ParentProvider.propTypes = {
 };
 
 function useParent() {
-  return [sendMessage, receiveMessage, setParent];
+  return [sendMessage, setParent];
 }
 
 function useParentContext() {
