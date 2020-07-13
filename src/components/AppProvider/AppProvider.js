@@ -13,18 +13,20 @@ export const AppProvider = ({
   embedded = true,
   origin = "https://dashboard.envoy.com",
 }) => {
-  const [sendMessage, receiveMessage, setParent] = useParent();
+  const [, receiveMessage, setParent] = useParent();
 
   useEffect(() => {
     iframeResizerContentWindow({
       onMessage: receiveMessage,
       onReady: () => {
         setParent(window.parentIFrame);
+        // can't use sendMessage here because it looks like it needs a tick before
+        // parent.current has the iframe
         window.parentIFrame.sendMessage({ event: "ready" });
       },
       targetOrigin: origin,
     });
-  }, [origin, sendMessage, receiveMessage, setParent]);
+  }, [origin, receiveMessage, setParent]);
 
   return (
     <EmbeddedContext.Provider value={embedded}>
