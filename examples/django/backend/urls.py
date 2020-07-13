@@ -20,10 +20,12 @@ from cra_helper.views import proxy_cra_requests
 from django.contrib.auth.decorators import login_required
 
 
-from .views import HomeView
+from .views import home_view
+# from .views import HomeView
 
 urlpatterns = [
-    path('', login_required(HomeView.as_view()), name='home'),
+    # path('', login_required(HomeView.as_view()), name='home'),
+    path('', home_view, name='home'),
     path('auth', include('envoy_auth.urls')),
     path('admin/', admin.site.urls),
 ]

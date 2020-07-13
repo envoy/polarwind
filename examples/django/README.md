@@ -32,6 +32,7 @@ pipenv install
 Set up JavaScript dependencies
 
 ```
+cd frontend
 npm install
 ```
 

@@ -12,6 +12,7 @@ autopep8 = "*"
 django              = "==3.0.7"
 django-cra-helper = "*"
 authlib = "*"
+pyjwt = "*"
 
 [requires]
 python_version = "3.7.5"
