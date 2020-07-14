@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useCallback, useContext } from "react";
 import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
-import { ParentContext } from "../../utils/parent";
+import { useParent } from "../../utils/parent";
 
 function isAbsoluteUrlFor(url, host) {
   return url.startsWith(host);
@@ -24,27 +24,27 @@ function isOwnUrl(url) {
 export const UnstyledLink = ({ children, external, onClick, url, ...rest }) => {
   const origin = useContext(OriginContext);
   const embedded = useContext(EmbeddedContext);
-  const parent = useContext(ParentContext);
+  const { sendMessage } = useParent();
 
   const isHostUrl = isAbsoluteUrlFor(url, origin);
   const isThirdPartyUrl = !isOwnUrl(url) && !isHostUrl;
   // popup when explicitly set. if it's not set, popup when it's a third party url in
   // embedded mode
   const popup = external ?? (embedded && isThirdPartyUrl);
-  const sendMessage = embedded && isHostUrl;
+  const shouldSendMessage = embedded && isHostUrl;
 
   const handleClick = useCallback(
     (e) => {
       onClick && onClick();
-      if (sendMessage) {
+      if (shouldSendMessage) {
         e.preventDefault();
-        parent.sendMessage({
+        sendMessage({
           event: "navigate",
           url: e.currentTarget.href,
         });
       }
     },
-    [sendMessage, parent, onClick]
+    [shouldSendMessage, sendMessage, onClick]
   );
 
   const target = popup ? "_blank" : undefined;

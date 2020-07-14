@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
+
 import { fireEvent, render, screen } from "@testing-library/react";
 import { EmbeddedContext } from "../../../utils/embedded";
 import { OriginContext } from "../../../utils/origin";
-import { ParentContext } from "../../../utils/parent";
+import { useParent } from "../../../utils/parent";
 import { UnstyledLink } from "../UnstyledLink";
 
 const sendMessage = jest.fn();
@@ -12,6 +14,20 @@ const internal = "/about";
 const sendMessageLink = "sendMessageLink";
 const popupLink = "popupLink";
 const defaultLink = "defaultLink";
+
+// TestComponent is here mostly so that we can use the useParent hook to access setParent
+function TestComponent({ children, embedded }) {
+  const { setParent } = useParent();
+  setParent({ sendMessage });
+
+  return (
+    <EmbeddedContext.Provider value={embedded}>
+      <OriginContext.Provider value="https://dashboard.envoy.com">
+        {children}
+      </OriginContext.Provider>
+    </EmbeddedContext.Provider>
+  );
+}
 
 describe.each`
   url         | externalProp | expected
@@ -37,13 +53,9 @@ describe.each`
       }
 
       render(
-        <EmbeddedContext.Provider value={true}>
-          <OriginContext.Provider value="https://dashboard.envoy.com">
-            <ParentContext.Provider value={{ sendMessage }}>
-              <UnstyledLink {...props}>Click here</UnstyledLink>
-            </ParentContext.Provider>
-          </OriginContext.Provider>
-        </EmbeddedContext.Provider>
+        <TestComponent embedded>
+          <UnstyledLink {...props}>Click here</UnstyledLink>
+        </TestComponent>
       );
 
       switch (expected) {
@@ -93,13 +105,9 @@ describe.each`
       }
 
       render(
-        <EmbeddedContext.Provider value={false}>
-          <OriginContext.Provider value="https://dashboard.envoy.com">
-            <ParentContext.Provider value={{ sendMessage }}>
-              <UnstyledLink {...props}>Click here</UnstyledLink>
-            </ParentContext.Provider>
-          </OriginContext.Provider>
-        </EmbeddedContext.Provider>
+        <TestComponent embedded={false}>
+          <UnstyledLink {...props}>Click here</UnstyledLink>
+        </TestComponent>
       );
 
       switch (expected) {
@@ -130,15 +138,11 @@ test("onClick does not interfere with sendMessage", () => {
   const onClick = jest.fn();
 
   render(
-    <EmbeddedContext.Provider value={true}>
-      <OriginContext.Provider value="https://dashboard.envoy.com">
-        <ParentContext.Provider value={{ sendMessage }}>
-          <UnstyledLink url={url} onClick={onClick}>
-            Click here
-          </UnstyledLink>
-        </ParentContext.Provider>
-      </OriginContext.Provider>
-    </EmbeddedContext.Provider>
+    <TestComponent embedded>
+      <UnstyledLink url={url} onClick={onClick}>
+        Click here
+      </UnstyledLink>
+    </TestComponent>
   );
 
   fireEvent.click(screen.getByRole("link"));

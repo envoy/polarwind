@@ -1,33 +1,21 @@
 import PropTypes from "prop-types";
-import { useLayoutEffect, useState } from "react";
 import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
-import { ParentContext } from "../../utils/parent";
-import { iframeResizerContentWindow } from "../../vendor/iframeResizer.contentWindow";
+import { ParentProvider } from "../ParentProvider";
 
 /**
- * App provider is a required component that enables sharing global settings throughout the hierarchy of your application.
+ * App provider is a required component that enables sharing global settings throughout
+ * the hierarchy of your application.
  */
 export const AppProvider = ({
   children,
   embedded = true,
   origin = "https://dashboard.envoy.com",
 }) => {
-  const [parent, setParent] = useState();
-
-  useLayoutEffect(() => {
-    iframeResizerContentWindow({
-      onReady: () => setParent(window.parentIFrame),
-      targetOrigin: origin,
-    });
-  }, [origin]);
-
   return (
     <EmbeddedContext.Provider value={embedded}>
       <OriginContext.Provider value={origin}>
-        <ParentContext.Provider value={parent}>
-          {children}
-        </ParentContext.Provider>
+        <ParentProvider>{children}</ParentProvider>
       </OriginContext.Provider>
     </EmbeddedContext.Provider>
   );
