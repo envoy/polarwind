@@ -4,7 +4,8 @@ import { OriginContext } from "../../utils/origin";
 import { ParentProvider } from "../ParentProvider";
 
 /**
- * App provider is a required component that enables sharing global settings throughout the hierarchy of your application.
+ * App provider is a required component that enables sharing global settings throughout
+ * the hierarchy of your application.
  */
 export const AppProvider = ({
   children,
