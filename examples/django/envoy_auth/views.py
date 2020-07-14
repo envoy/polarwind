@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login as django_login
 from authlib.integrations.django_client import OAuth
 from django.conf import settings
 
+
 host = getattr(settings, 'ENVOY_HOST', 'envoy.com')
 oauth = OAuth()
 oauth.register(
@@ -22,8 +23,13 @@ def login(request):
 
 
 def authorize(request):
-    token = oauth.envoy.authorize_access_token(request)
-    user = authenticate(remote_user=token)
+    oauth_token = oauth.envoy.authorize_access_token(request)
+
+    # Authenticates user using EnvoyAuthBackend
+    user = authenticate(oauth_token=oauth_token)
+
+    # TODO: handle failure
     if user is not None:
+        # saves user_id in Session
         django_login(request, user)
         return redirect('/')
