@@ -1,69 +1,38 @@
-import PropTypes from "prop-types";
-import {
-  createContext,
-  createRef,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import { iframeResizerContentWindow } from "../vendor/iframeResizer.contentWindow";
-import { OriginContext } from "./origin";
+import { createRef, useContext } from "react";
+import { ParentContext } from "../components/ParentProvider";
 
+/** Holds the instance of window.parentIFrame */
 const parent = createRef();
-const ParentContext = createContext({ default: "what" });
 
+/** Sets the current parent in a closure to always return the fresh value */
 function setParent(value) {
   parent.current = () => value;
 }
 
+/** Delegates sendMessage to the current parent */
 function sendMessage(message) {
   parent.current().sendMessage(message);
 }
 
-function ParentProvider({ children }) {
-  const origin = useContext(OriginContext);
-  const [sendMessage, setParent] = useParent();
-  const [context, setContext] = useState({});
-
-  useEffect(() => {
-    console.log("[polaris] iframeResizerContentWindow useEffect called", {
-      origin,
-      setContext,
-      setParent,
-    });
-    iframeResizerContentWindow({
-      onMessage: (message) => {
-        switch (message.event) {
-          case "context": {
-            setContext(message.context);
-            break;
-          }
-        }
-      },
-      onReady: () => {
-        setParent(window.parentIFrame);
-        sendMessage({ event: "ready" });
-      },
-      targetOrigin: origin,
-    });
-  }, [origin, sendMessage, setParent]);
-
-  return (
-    <ParentContext.Provider value={context}>{children}</ParentContext.Provider>
-  );
-}
-
-ParentProvider.propTypes = {
-  /** Inner content of the application */
-  children: PropTypes.node,
-};
-
-function useParent() {
-  return [sendMessage, setParent];
-}
-
+/** Returns the context object set by the host iframe */
 function useParentContext() {
-  return useContext(ParentContext);
+  const context = useContext(ParentContext);
+  if (context === undefined) {
+    throw new Error("useCountState must be used within a ParentProvider");
+  }
+  return context;
 }
 
-export { useParent, useParentContext, ParentProvider };
+/**
+ * Utility functions to interact with the parent.
+ *
+ * context - the context object set by the parent iframe
+ * sendMessage - used to send arbitrary messages back to the parent iframe
+ * setParent - used to set an instance of window.parentIFrame
+ */
+function useParent() {
+  const context = useParentContext();
+  return { context, sendMessage, setParent };
+}
+
+export { useParent };

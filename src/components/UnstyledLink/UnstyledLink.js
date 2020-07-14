@@ -24,7 +24,7 @@ function isOwnUrl(url) {
 export const UnstyledLink = ({ children, external, onClick, url, ...rest }) => {
   const origin = useContext(OriginContext);
   const embedded = useContext(EmbeddedContext);
-  const [sendMessage] = useParent();
+  const { sendMessage } = useParent();
 
   const isHostUrl = isAbsoluteUrlFor(url, origin);
   const isThirdPartyUrl = !isOwnUrl(url) && !isHostUrl;

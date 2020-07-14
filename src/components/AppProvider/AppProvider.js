@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
-import { ParentProvider } from "../../utils/parent";
+import { ParentProvider } from "../ParentProvider";
 
 /**
  * App provider is a required component that enables sharing global settings throughout the hierarchy of your application.

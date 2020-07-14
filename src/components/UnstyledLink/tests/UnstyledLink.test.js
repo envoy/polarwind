@@ -17,7 +17,7 @@ const defaultLink = "defaultLink";
 
 // TestComponent is here mostly so that we can use the useParent hook to access setParent
 function TestComponent({ children, embedded }) {
-  const [, setParent] = useParent();
+  const { setParent } = useParent();
   setParent({ sendMessage });
 
   return (
