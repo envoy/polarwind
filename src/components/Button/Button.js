@@ -13,6 +13,7 @@ export const Button = ({
   children,
   className,
   disabled,
+  download,
   icon,
   onClick,
   outline,
@@ -56,7 +57,12 @@ export const Button = ({
       // eslint-disable-next-line jsx-a11y/anchor-is-valid
       <a className={className}>{content}</a>
     ) : (
-      <UnstyledLink className={className} url={url} onClick={onClick}>
+      <UnstyledLink
+        className={className}
+        download={download}
+        url={url}
+        onClick={onClick}
+      >
         {content}
       </UnstyledLink>
     )
@@ -79,6 +85,8 @@ Button.propTypes = {
   className: PropTypes.string,
   /** Disables the button, disallowing interaction */
   disabled: PropTypes.bool,
+  /** Instructs the browser to download the file */
+  download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   /** Icon to display to the left of the button content */
   icon: PropTypes.func,
   /** Callback when clicked */

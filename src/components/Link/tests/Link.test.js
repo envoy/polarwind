@@ -19,3 +19,12 @@ test("when monochrome is true, underline can be disabled explicitly", () => {
   );
   expect(screen.getByRole("link")).not.toHaveClass(styles.underlined);
 });
+
+test("supports the download prop", () => {
+  render(
+    <Link download url="/">
+      Home
+    </Link>
+  );
+  expect(screen.getByRole("link")).toHaveAttribute("download");
+});

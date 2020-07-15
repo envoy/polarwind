@@ -4,4 +4,5 @@ module.exports = {
     "\\.css$": "identity-obj-proxy",
   },
   testPathIgnorePatterns: ["/node_modules/", "/examples/"],
+  clearMocks: true,
 };
