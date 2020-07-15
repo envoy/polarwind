@@ -8,6 +8,30 @@ The format is based on [these versioning and changelog guidelines](https://git.i
 
 ---
 
+## 1.2.0 - 2020-07-15
+
+### New components
+
+- Icons are now exported. The only icons currently available are `User` and `Back`. These
+  will likely move to a separate icons package.
+  ([#142](https://github.com/envoy/polarwind/pull/142))
+
+### Enhancements
+
+- `Stack` now supports `equalSpacingAround` as a distribution option
+  ([#142](https://github.com/envoy/polarwind/pull/142))
+- `Stack` now supports the `wrap` option (defaults to true)
+  ([#142](https://github.com/envoy/polarwind/pull/142))
+- It is now possible for Polarwind apps to receive context set by the parent iframe.
+  ([#145](https://github.com/envoy/polarwind/pull/145))
+
+### Bug fixes
+
+- `Stack` applies spacing correctly when in vertical mode
+  ([#142](https://github.com/envoy/polarwind/pull/142))
+- Remove negative margin when nesting a horizontal Stack inside a vertical Stack
+  ([#147](https://github.com/envoy/polarwind/pull/147))
+
 ## 1.1.0 - 2020-05-23
 
 ### Breaking changes
