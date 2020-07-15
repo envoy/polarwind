@@ -21,7 +21,14 @@ function isOwnUrl(url) {
  * It provides behaviors when dealing with internal and external links, and sending
  * navigation events to the parent if run in an embedded way.
  */
-export const UnstyledLink = ({ children, external, onClick, url, ...rest }) => {
+export const UnstyledLink = ({
+  children,
+  download,
+  external,
+  onClick,
+  url,
+  ...rest
+}) => {
   const origin = useContext(OriginContext);
   const embedded = useContext(EmbeddedContext);
   const { sendMessage } = useParent();
@@ -29,8 +36,10 @@ export const UnstyledLink = ({ children, external, onClick, url, ...rest }) => {
   const isHostUrl = isAbsoluteUrlFor(url, origin);
   const isThirdPartyUrl = !isOwnUrl(url) && !isHostUrl;
   // popup when explicitly set. if it's not set, popup when it's a third party url in
-  // embedded mode
-  const popup = external ?? (embedded && isThirdPartyUrl);
+  // embedded mode. but if download it set, ignore all of that.
+  const shouldPopup = download
+    ? false
+    : external ?? (embedded && isThirdPartyUrl);
   const shouldSendMessage = embedded && isHostUrl;
 
   const handleClick = useCallback(
@@ -47,11 +56,18 @@ export const UnstyledLink = ({ children, external, onClick, url, ...rest }) => {
     [shouldSendMessage, sendMessage, onClick]
   );
 
-  const target = popup ? "_blank" : undefined;
-  const rel = popup ? "noopener noreferrer" : undefined;
+  const target = shouldPopup ? "_blank" : undefined;
+  const rel = shouldPopup ? "noopener noreferrer" : undefined;
 
   return (
-    <a {...rest} href={url} rel={rel} target={target} onClick={handleClick}>
+    <a
+      {...rest}
+      download={download}
+      href={url}
+      rel={rel}
+      target={target}
+      onClick={handleClick}
+    >
       {children}
     </a>
   );
@@ -60,6 +76,8 @@ export const UnstyledLink = ({ children, external, onClick, url, ...rest }) => {
 UnstyledLink.propTypes = {
   /** The content to display inside the link */
   children: PropTypes.node,
+  /** Instructs the browser to download the file */
+  download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   /** Makes the link open in a new tab */
   external: PropTypes.bool,
   /** Callback when a link is clicked */

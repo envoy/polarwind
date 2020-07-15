@@ -47,14 +47,16 @@ style can be used for tertiary actions.
 
 <Preview>
   <Story name="Styles">
-    <Stack distribution="equalSpacingAround">
-      <ButtonGroup>
-        <Button>Invite</Button>
-        <Button brandOutline>Invite</Button>
-        <Button outline>Invite and add another</Button>
-      </ButtonGroup>
-      <Button plain>Cancel</Button>
-    </Stack>
+    <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
+      <Stack distribution="equalSpacingAround">
+        <ButtonGroup>
+          <Button>Invite</Button>
+          <Button brandOutline>Invite</Button>
+          <Button outline>Invite and add another</Button>
+        </ButtonGroup>
+        <Button plain>Cancel</Button>
+      </Stack>
+    </div>
   </Story>
 </Preview>
 
@@ -134,6 +136,28 @@ navigational link)
       <Button disabled url="https://www.google.com" plain>
         Visit
       </Button>
+    </Stack>
+  </Story>
+</Preview>
+
+### Download
+
+`Button` accepts a `download` prop for buttons that use the `url` prop to hint to browsers
+that it should download the file instead of navigating to it.
+
+<Preview>
+  <Story name="Download">
+    <Stack distribution="equalSpacingAround">
+      <Button url="https://www.google.com" download>
+        Download Google homepage
+      </Button>
+      <Button url="https://www.google.com" download="google.html">
+        Customize the filename
+      </Button>
+      <Button url="https://www.google.com" download={false}>
+        Download set to false
+      </Button>
+      <Button download>No effect on non-URL button</Button>
     </Stack>
   </Story>
 </Preview>

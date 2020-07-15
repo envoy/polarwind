@@ -13,6 +13,7 @@ const cx = classnames.bind(styles);
  */
 export const Link = ({
   children,
+  download,
   external,
   monochrome,
   onClick,
@@ -32,6 +33,7 @@ export const Link = ({
   return (
     <Linkable
       className={className}
+      download={download}
       external={external}
       url={url}
       onClick={handleClick}
@@ -44,6 +46,8 @@ export const Link = ({
 Link.propTypes = {
   /** The content to display inside the link */
   children: PropTypes.node,
+  /** Instructs the browser to download the file */
+  download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   /** Makes the link open in a new tab */
   external: PropTypes.bool,
   /** Makes the link color the same as the current text color and adds an underline */
