@@ -49,7 +49,7 @@
 .vertical {
   @apply flex-col ml-0;
 
-  .Item {
+  & > .Item {
     @apply ml-0;
   }
 }

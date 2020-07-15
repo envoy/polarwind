@@ -31,3 +31,20 @@ import { Badge } from "../Badge";
 
 Use to quickly lay out a horizontal row of components and maintain their relative sizes.
 On small screens, children rows wrap down to additional rows as needed.
+
+### Vertical Stack
+
+Use to lay out a vertical row of components.
+
+<Preview>
+  <Story name="Vertical">
+    <Stack vertical>
+      <Badge>Basic</Badge>
+      <Badge>Premium</Badge>
+      <Stack>
+        <Badge>Enterprise</Badge>
+        <Badge>Enterprise Plus</Badge>
+      </Stack>
+    </Stack>
+  </Story>
+</Preview>

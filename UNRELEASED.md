@@ -21,6 +21,8 @@
 
 - `Stack` applies spacing correctly when in vertical mode
   ([#142](https://github.com/envoy/polarwind/pull/142))
+- Remove negative margin when nesting a horizontal Stack inside a vertical Stack
+  ([#147](https://github.com/envoy/polarwind/pull/147))
 
 ### Documentation
 
