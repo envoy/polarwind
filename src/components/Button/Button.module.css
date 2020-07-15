@@ -53,7 +53,7 @@
 }
 
 .plain {
-  @apply bg-transparent border-transparent text-carbon-80%;
+  @apply bg-white border-transparent text-carbon-80%;
 
   &:hover {
     @apply bg-arctic;
@@ -78,7 +78,7 @@
 }
 
 .brandOutline {
-  @apply text-brand bg-transparent;
+  @apply text-brand bg-white;
 
   &:hover {
     @apply bg-brand-lightest;
