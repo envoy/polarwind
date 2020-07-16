@@ -108,7 +108,10 @@ module.exports = {
         6: "6px",
       },
       flex: {
-        "0": "0 0 auto",
+        fill: "1 0",
+      },
+      minWidth: {
+        min: "min-content",
       },
       opacity: {
         40: ".4",
