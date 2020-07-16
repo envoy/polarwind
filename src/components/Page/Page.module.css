@@ -11,7 +11,7 @@
 }
 
 .standalone {
-  @apply shadow-page flex-auto;
+  @apply shadow-medium flex-auto;
 }
 
 .Header {
