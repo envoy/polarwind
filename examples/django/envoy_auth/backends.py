@@ -19,6 +19,11 @@ MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAExz0RpzznxVfhDJGEDVWVBZ5sT4uJDHLT
 Fns98matgg8uQ5ZEnmEocNAppU09P37m
 -----END PUBLIC KEY-----
 """
+    ENVOY_DEV_JWT_PUBLIC_KEY = """-----BEGIN PUBLIC KEY-----
+MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEn5jOaAoxj9d4y9qVRE5ei3Ba+k+1/JKZ
+JWW+AvzWz4/Pd58vBcTfua8rejnzIqdtxaMh+urJ01imaRPm/TgTDVzHsSARetf0
+dUEcPOflG9id3Dauaj08xEOFeeB9sE3p
+-----END PUBLIC KEY-----"""
 
     def authenticate(self, request, oauth_token):
         """
@@ -94,8 +99,10 @@ Fns98matgg8uQ5ZEnmEocNAppU09P37m
         if jwt_token in self.jwt_payloads:
             return self.jwt_payloads[jwt_token]
 
-        # payload = jwt.decode(jwt_token, self.ENVOY_JWT_PUBLIC_KEY, verify=True)
-        payload = jwt.decode(jwt_token, verify=False)
+        payload = jwt.decode(jwt_token,
+                             self.ENVOY_DEV_JWT_PUBLIC_KEY,
+                             options={'verify_aud': False},
+                             verify=True)
 
         self.jwt_payloads[jwt_token] = payload
         
