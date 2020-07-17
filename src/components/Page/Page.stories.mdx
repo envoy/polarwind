@@ -7,13 +7,16 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { Button } from "../Button";
 import { ButtonGroup } from "../ButtonGroup";
+import { Card } from "../Card";
+import { DisplayText } from "../DisplayText";
+import { EmbeddedContext } from "../../utils/embedded";
 import { FormLayout } from "../FormLayout";
+import { Heading } from "../Heading";
 import { Page } from "./Page";
 import { Select } from "../Select";
 import { Stack } from "../Stack";
 import { Tabs } from "../Tabs";
 import { TextField } from "../TextField";
-import { EmbeddedContext } from "../../utils/embedded";
 
 <Meta title="Components | Structure / Page" component={Page} />
 
@@ -123,5 +126,62 @@ breadcrumb and title actions that you define will not be rendered too.
         />
       </FormLayout>
     </Page>
+  </Story>
+</Preview>
+
+### Transparent page
+
+An alternate variant of pages are the transparent pages, typically found on pages where
+the primary intent is data display. These pages will not be wrapped in a shadowed white
+background.
+
+<Preview>
+  <Story name="Transparent">
+    <div style={{ backgroundColor: "#f6f6f9", paddingTop: "2rem" }}>
+      <Page transparent>
+        <Stack distribution="fillEvenly" spacing="loose">
+          <Card shadow>
+            <Stack vertical>
+              <Heading element="h3" secondary>
+                Deliveries scanned
+              </Heading>
+              <DisplayText size="extraLarge" secondary>
+                57
+              </DisplayText>
+            </Stack>
+          </Card>
+          <Card shadow>
+            <Stack vertical>
+              <Heading element="h3" secondary>
+                Avg deliveries/week
+              </Heading>
+              <DisplayText size="extraLarge" secondary>
+                57
+              </DisplayText>
+            </Stack>
+          </Card>
+          <Card shadow>
+            <Stack vertical>
+              <Heading element="h3" secondary>
+                Total hours saved
+              </Heading>
+              <DisplayText size="extraLarge" secondary>
+                50
+              </DisplayText>
+            </Stack>
+          </Card>
+          <Card shadow>
+            <Stack vertical>
+              <Heading element="h3" secondary>
+                Avg time to pick-up
+              </Heading>
+              <DisplayText size="extraLarge" secondary>
+                35h:45m
+              </DisplayText>
+            </Stack>
+          </Card>
+        </Stack>
+      </Page>
+    </div>
   </Story>
 </Preview>

@@ -1,9 +1,17 @@
-.wrapper {
-  @apply bg-arctic-50% p-8 min-h-full flex flex-col;
-}
-
 .Page {
   @apply bg-white px-8 pb-8 rounded-page;
+}
+
+.transparent {
+  @apply bg-transparent;
+}
+
+.wrapper {
+  @apply bg-arctic-50% p-8 min-h-full flex flex-col;
+
+  .transparent {
+    @apply p-0;
+  }
 }
 
 .withHeader {
@@ -11,7 +19,11 @@
 }
 
 .standalone {
-  @apply shadow-medium flex-auto;
+  @apply flex-auto;
+
+  &:not(.transparent) {
+    @apply shadow-medium;
+  }
 }
 
 .Header {
