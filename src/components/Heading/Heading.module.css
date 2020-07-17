@@ -1,5 +1,5 @@
 .Heading {
-  @apply text-carbon-100% font-bold text-base leading-base-none mt-1;
+  @apply text-carbon-100% font-bold text-base leading-base-normal mt-1;
 
   span {
     @apply align-base;
