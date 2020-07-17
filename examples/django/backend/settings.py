@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cra_helper',  # must come before django.contrib.staticfiles
     'django.contrib.staticfiles',
+    'envoy_auth'
 ]
 
 MIDDLEWARE = [
@@ -46,8 +47,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    # stores the remote user in the session
-    'django.contrib.auth.middleware.PersistentRemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -83,25 +82,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
 
 
 # Internationalization
@@ -146,6 +126,13 @@ AUTHLIB_OAUTH_CLIENTS = {
     }
 }
 
+# Envoy JWT
+ENVOY_JWT_PUBLIC_KEY = os.getenv('ENVOY_JWT_PUBLIC_KEY', """-----BEGIN PUBLIC KEY-----
+MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAExz0RpzznxVfhDJGEDVWVBZ5sT4uJDHLT
+6Al27gpfLgpvZ6fFjuTKXRDGbdcJYwUXfr+aZMUU92chRtgPAYRM4sTLzWQ3uL5o
+Fns98matgg8uQ5ZEnmEocNAppU09P37m
+-----END PUBLIC KEY-----""")
+
 # For consistency with the configured OAuth client redirect URIs
 APPEND_SLASH = False
 
@@ -155,12 +142,11 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # where login_required decorator redirects
 LOGIN_URL = '/auth'
 
-# doesn't require user to be in the db
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.RemoteUserBackend',
+    'envoy_auth.backends.EnvoyAuthBackend'
 ]
 
 CSRF_COOKIE_SAMESITE = None
 
-# To run against hotel, uncomment the following line
+# To run against hotel, uncomment the following line, and uncomment .envrc ENVOY_JWT_PUBLIC_KEY
 # ENVOY_HOST = 'envoy.dev'

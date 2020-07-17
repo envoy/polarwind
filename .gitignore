@@ -16,3 +16,4 @@ envoy-polarwind-v*.tgz
 *.pyc
 *.sqlite3
 /examples/django/static
+.vscode
