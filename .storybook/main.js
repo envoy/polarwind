@@ -12,6 +12,7 @@ module.exports = {
     "@storybook/addon-docs",
     "@storybook/addon-a11y",
     "storybook-addon-playroom",
+    "@storybook/addon-knobs",
   ],
   webpackFinal: (config) => {
     // Remove the existing css rule
@@ -38,6 +39,10 @@ module.exports = {
       ],
       include: path.resolve(__dirname, "../"),
     });
+
+    config.module.rules[0].use[0].options.plugins = [
+      require.resolve("babel-plugin-react-docgen"),
+    ];
 
     return config;
   },
