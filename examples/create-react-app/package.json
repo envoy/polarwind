@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@envoy/express-envoy-auth": "^1.0.2",
-    "@envoy/polarwind": "^1.3.0",
+    "@envoy/polarwind": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
