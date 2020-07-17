@@ -6,7 +6,7 @@ import "!style-loader!css-loader!postcss-loader!../src/styles/common.css";
 
 addDecorator(withPlayroom);
 addDecorator(withA11y);
-addDecorator(withKnobs);
+addDecorator(withKnobs({ escapeHTML: false }));
 
 addParameters({
   playroom: {
