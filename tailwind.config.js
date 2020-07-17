@@ -115,6 +115,7 @@ module.exports = {
       },
       minWidth: {
         min: "min-content",
+        fit: "fit-content",
       },
       opacity: {
         40: ".4",

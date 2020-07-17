@@ -18,11 +18,14 @@
 
 ### Documentation
 
+- Enabled knobs for most stories
+
 ### Development workflow
 
 ### Dependency upgrades
 
 - Upgraded Tailwind to 1.5.1
+- Upgraded Storybook packages to 5.3.19
 
 ### Code quality
 

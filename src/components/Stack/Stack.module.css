@@ -42,7 +42,7 @@
 
 .distributionFillEvenly {
   & > .Item {
-    @apply flex-fill min-w-min;
+    @apply flex-fill min-w-fit;
   }
 }
 

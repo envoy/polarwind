@@ -5,6 +5,7 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Button } from "../Button";
 import { ButtonGroup } from "../ButtonGroup";
 import { Card } from "../Card";
@@ -18,7 +19,11 @@ import { Stack } from "../Stack";
 import { Tabs } from "../Tabs";
 import { TextField } from "../TextField";
 
-<Meta title="Components | Structure / Page" component={Page} />
+<Meta
+  title="Components | Structure / Page"
+  component={Page}
+  decorators={[withSmartKnobs({ ignoreProps: ["children", "titleAction"] })]}
+/>
 
 # Page
 

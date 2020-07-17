@@ -1,10 +1,12 @@
 import { addDecorator, addParameters } from "@storybook/react";
 import { withA11y } from "@storybook/addon-a11y";
+import { withKnobs } from "@storybook/addon-knobs";
 import { withPlayroom } from "storybook-addon-playroom";
 import "!style-loader!css-loader!postcss-loader!../src/styles/common.css";
 
 addDecorator(withPlayroom);
 addDecorator(withA11y);
+addDecorator(withKnobs({ escapeHTML: false }));
 
 addParameters({
   playroom: {

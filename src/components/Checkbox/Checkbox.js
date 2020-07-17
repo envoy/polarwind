@@ -31,7 +31,7 @@ export const Checkbox = ({
   };
 
   const isIndeterminate = checked === "indeterminate";
-  const isChecked = !isIndeterminate && Boolean(checked);
+  const isChecked = !isIndeterminate && Boolean(checked) && checked !== "false";
 
   const ref = useRef();
   useEffect(() => {

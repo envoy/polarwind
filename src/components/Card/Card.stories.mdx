@@ -5,13 +5,18 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Card } from "./Card";
 import { Stack } from "../Stack";
 import { Button } from "../Button";
 import { Heading } from "../Heading";
 import { User } from "../../icons";
 
-<Meta title="Components | Structure / Card" component={Card} />
+<Meta
+  title="Components | Structure / Card"
+  component={Card}
+  decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+/>
 
 # Card
 

@@ -5,6 +5,8 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { text } from "@storybook/addon-knobs";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Button } from "./Button";
 import { ButtonGroup } from "../ButtonGroup";
 import { Stack } from "../Stack";
@@ -17,8 +19,13 @@ import { FiTrash2 } from "react-icons/fi";
 <Description of={Button} />
 
 <Preview withToolbar>
-  <Story name="Standard button">
-    <Button>Add product</Button>
+  <Story
+    name="Standard button"
+    decorators={[
+      withSmartKnobs({ ignoreProps: ["children", "icon", "className"] }),
+    ]}
+  >
+    <Button>{text("label", "Add product")}</Button>
   </Story>
 </Preview>
 

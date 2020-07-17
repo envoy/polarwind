@@ -6,9 +6,16 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Select } from "./Select";
 
-<Meta title="Components | Forms / Select" component={Select} />
+<Meta
+  title="Components | Forms / Select"
+  component={Select}
+  decorators={[
+    withSmartKnobs({ ignoreProps: ["children", "value", "helpText"] }),
+  ]}
+/>
 
 # Select
 

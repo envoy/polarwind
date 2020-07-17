@@ -5,6 +5,8 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { text } from "@storybook/addon-knobs";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Badge } from "./Badge";
 import { Stack } from "../Stack";
 
@@ -34,8 +36,11 @@ import { Stack } from "../Stack";
 Use to give a non-critical status update on a piece of information or action.
 
 <Preview>
-  <Story name="Default">
-    <Badge>New</Badge>
+  <Story
+    name="Default"
+    decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+  >
+    <Badge>{text("label", "New")}</Badge>
   </Story>
 </Preview>
 

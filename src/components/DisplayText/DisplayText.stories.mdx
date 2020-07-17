@@ -5,6 +5,7 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { DisplayText } from "./DisplayText";
 import { Heading } from "../Heading";
 import { Stack } from "../Stack";
@@ -12,6 +13,7 @@ import { Stack } from "../Stack";
 <Meta
   title="Components | Titles and text / Display text"
   component={DisplayText}
+  decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
 />
 
 # Display text
