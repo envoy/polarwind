@@ -126,6 +126,13 @@ AUTHLIB_OAUTH_CLIENTS = {
     }
 }
 
+# Envoy JWT
+ENVOY_JWT_PUBLIC_KEY = os.getenv('ENVOY_JWT_PUBLIC_KEY', """-----BEGIN PUBLIC KEY-----
+MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAExz0RpzznxVfhDJGEDVWVBZ5sT4uJDHLT
+6Al27gpfLgpvZ6fFjuTKXRDGbdcJYwUXfr+aZMUU92chRtgPAYRM4sTLzWQ3uL5o
+Fns98matgg8uQ5ZEnmEocNAppU09P37m
+-----END PUBLIC KEY-----""")
+
 # For consistency with the configured OAuth client redirect URIs
 APPEND_SLASH = False
 

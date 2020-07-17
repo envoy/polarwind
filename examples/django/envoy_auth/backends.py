@@ -1,11 +1,11 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.backends import ModelBackend
-
-UserModel = get_user_model()
-
+from django.conf import settings
 import jwt
 from datetime import datetime
 from envoy_auth.models import EnvoyToken
+
+UserModel = get_user_model()
 
 
 # from django.contrib.auth.models import User
@@ -13,24 +13,14 @@ from envoy_auth.models import EnvoyToken
 
 class EnvoyAuthBackend(ModelBackend):
 
-    ENVOY_JWT_PUBLIC_KEY = """-----BEGIN PUBLIC KEY-----
-MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAExz0RpzznxVfhDJGEDVWVBZ5sT4uJDHLT
-6Al27gpfLgpvZ6fFjuTKXRDGbdcJYwUXfr+aZMUU92chRtgPAYRM4sTLzWQ3uL5o
-Fns98matgg8uQ5ZEnmEocNAppU09P37m
------END PUBLIC KEY-----
-"""
-    ENVOY_DEV_JWT_PUBLIC_KEY = """-----BEGIN PUBLIC KEY-----
-MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEn5jOaAoxj9d4y9qVRE5ei3Ba+k+1/JKZ
-JWW+AvzWz4/Pd58vBcTfua8rejnzIqdtxaMh+urJ01imaRPm/TgTDVzHsSARetf0
-dUEcPOflG9id3Dauaj08xEOFeeB9sE3p
------END PUBLIC KEY-----"""
-
     def authenticate(self, request, oauth_token):
         """
         This Auth Backend can be used alongside other backends. When an Envoy user
         authenticates, it will create new User model, and save the associated
         OAuth token in the custom model EnvoyToken.
         """
+        self.jwt_payload = None
+
         if not oauth_token:
             return
 
@@ -87,27 +77,22 @@ dUEcPOflG9id3Dauaj08xEOFeeB9sE3p
 
         return user
 
-
-    jwt_payloads = {}
     
     def _get_jwt_payload(self, oauth_token):
         """
         Decodes and Memoizes the JWT token
         """
+        if self.jwt_payload:
+            return self.jwt_payload
+
         jwt_token = oauth_token['access_token']
 
-        if jwt_token in self.jwt_payloads:
-            return self.jwt_payloads[jwt_token]
+        self.jwt_payload = jwt.decode(jwt_token,
+                                      settings.ENVOY_JWT_PUBLIC_KEY,
+                                      options={'verify_aud': False},
+                                      verify=True)
 
-        payload = jwt.decode(jwt_token,
-                             self.ENVOY_DEV_JWT_PUBLIC_KEY,
-                             options={'verify_aud': False},
-                             verify=True)
-
-        self.jwt_payloads[jwt_token] = payload
-        
-        return payload
-
+        return self.jwt_payload
 
 
     # Custom Permissions can be added here

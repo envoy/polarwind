@@ -1,4 +1,3 @@
-from django.views.generic.base import TemplateView
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
@@ -6,6 +5,7 @@ from django.http import HttpResponseForbidden
 
 @login_required
 def home_view(request):
+    # Example object for object-level permissioning
     obj = {
         'id': 'dashboard_id',
         'company_id': 1
