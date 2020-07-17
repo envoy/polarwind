@@ -148,5 +148,5 @@ AUTHENTICATION_BACKENDS = [
 
 CSRF_COOKIE_SAMESITE = None
 
-# To run against hotel, uncomment the following line
+# To run against hotel, uncomment the following line, and uncomment .envrc ENVOY_JWT_PUBLIC_KEY
 # ENVOY_HOST = 'envoy.dev'
