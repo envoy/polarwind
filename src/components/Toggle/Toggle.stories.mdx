@@ -7,8 +7,13 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { Toggle } from "./Toggle";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 
-<Meta title="Components | Actions / Toggle" component={Toggle} />
+<Meta
+  title="Components | Actions / Toggle"
+  component={Toggle}
+  decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+/>
 
 # Toggle
 

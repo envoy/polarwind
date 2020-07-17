@@ -5,6 +5,7 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { text } from "@storybook/addon-knobs";
 import { Caption } from "./Caption";
 
 <Meta title="Components | Titles and text / Caption" component={Caption} />
@@ -18,7 +19,7 @@ import { Caption } from "./Caption";
     <ul>
       <li>
         <p>Larry Gadea</p>
-        <Caption>Visited Apr 21, 2020</Caption>
+        <Caption>{text("caption", "Visited Apr 21, 2020")}</Caption>
       </li>
     </ul>
   </Story>

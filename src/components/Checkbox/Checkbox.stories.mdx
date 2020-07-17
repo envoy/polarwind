@@ -6,10 +6,15 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Checkbox } from "./Checkbox";
 import { Stack } from "../Stack";
 
-<Meta title="Components | Forms / Checkbox" component={Checkbox} />
+<Meta
+  title="Components | Forms / Checkbox"
+  component={Checkbox}
+  decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+/>
 
 # Checkbox
 

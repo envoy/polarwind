@@ -5,12 +5,17 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Card } from "../Card";
 import { Stack } from "../Stack";
 import { DisplayText } from "../DisplayText";
 import { Heading } from "./Heading";
 
-<Meta title="Components | Titles and text / Heading" component={Heading} />
+<Meta
+  title="Components | Titles and text / Heading"
+  component={Heading}
+  decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+/>
 
 # Heading
 
