@@ -33,3 +33,7 @@
     @apply align-lg;
   }
 }
+
+.secondary {
+  @apply font-normal;
+}
