@@ -11,13 +11,25 @@ const cx = classnames.bind(styles);
  * Use to build the outer wrapper of a page, including the page title and associated
  * actions.
  */
-export const Page = ({ breadcrumbs, children, title, titleAction }) => {
+export const Page = ({
+  breadcrumbs,
+  children,
+  title,
+  titleAction,
+  transparent,
+}) => {
   const embedded = useContext(EmbeddedContext);
 
   const className = cx({
     Page: true,
     standalone: !embedded,
+    transparent,
     withHeader: title,
+  });
+
+  const wrapperClassName = cx({
+    transparent,
+    wrapper: true,
   });
 
   const headerMarkup = title && (
@@ -38,7 +50,7 @@ export const Page = ({ breadcrumbs, children, title, titleAction }) => {
   return embedded ? (
     <PageMarkup data-iframe-height />
   ) : (
-    <div className={styles.wrapper} data-iframe-height>
+    <div className={wrapperClassName} data-iframe-height>
       <PageMarkup />
     </div>
   );
@@ -58,6 +70,8 @@ Page.propTypes = {
   title: PropTypes.string,
   /** Actions to present on the right of the title */
   titleAction: PropTypes.node,
+  /** Alternate page design */
+  transparent: PropTypes.bool,
 };
 
 Page.Header = Header;

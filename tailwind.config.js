@@ -78,8 +78,11 @@ module.exports = {
     // which is why the best place to define it is by overriding the entire boxShadow
     // theme
     boxShadow: (theme) => ({
+      default: "0px 1px 2px rgba(0, 0, 0, 0.08)",
       none: "none",
-      default: "0px 2px 6px rgba(0, 0, 0, 0.48)",
+      medium: "0px 2px 4px rgba(0, 0, 0, 0.08)",
+      large: "0px 4px 8px rgba(0, 0, 0, 0.12)",
+      xl: "0px 4px 16px rgba(0, 0, 0, 0.16)",
       outline: `0 0 0 2px ${theme("colors.arctic.default")}`,
       "outline-brand": `0 0 0 2px ${rgba(theme("colors.brand.default"), 0.3)}`,
       "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20%")}`,
@@ -96,7 +99,7 @@ module.exports = {
         "inset 0px 1px 1.5px rgba(0, 0, 0, 0.26)",
         "inset 0px -1px 1.5px rgba(0, 0, 0, 0.1)",
       ].join(),
-      page: "0px 2px 4px rgba(0, 0, 0, 0.08)",
+      toggle: "0px 2px 6px rgba(0, 0, 0, 0.48)",
     }),
     extend: {
       borderRadius: {
@@ -108,7 +111,10 @@ module.exports = {
         6: "6px",
       },
       flex: {
-        "0": "0 0 auto",
+        fill: "1 0",
+      },
+      minWidth: {
+        min: "min-content",
       },
       opacity: {
         40: ".4",

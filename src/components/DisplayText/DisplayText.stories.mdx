@@ -6,6 +6,8 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { DisplayText } from "./DisplayText";
+import { Heading } from "../Heading";
+import { Stack } from "../Stack";
 
 <Meta
   title="Components | Titles and text / Display text"
@@ -65,5 +67,25 @@ Use for text that would otherwise use body text, but that needs to scale with ot
     <DisplayText size="small">
       I'm sorry Dave, I'm afraid I can't do that
     </DisplayText>
+  </Story>
+</Preview>
+
+### Secondary display text
+
+Use when display text needs a lighter treatment, for example, when it is in proximity with
+a header.
+
+<Preview>
+  <Story name="Secondary">
+    <Card>
+      <Stack vertical>
+        <Heading element="h3" secondary>
+          Total hours saved
+        </Heading>
+        <DisplayText size="extraLarge" secondary>
+          50
+        </DisplayText>
+      </Stack>
+    </Card>
   </Story>
 </Preview>

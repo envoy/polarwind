@@ -6,7 +6,7 @@
   }
 
   span {
-    @apply translate-x-0 shadow inline-block h-6 w-6 rounded-full bg-white transform transition ease-in-out duration-200;
+    @apply translate-x-0 shadow-toggle inline-block h-6 w-6 rounded-full bg-white transform transition ease-in-out duration-200;
   }
 }
 

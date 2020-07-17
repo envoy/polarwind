@@ -35,14 +35,14 @@
 }
 
 .distributionFill {
-  .Item {
+  & > .Item {
     @apply flex-auto;
   }
 }
 
 .distributionFillEvenly {
-  .Item {
-    @apply flex-grow flex-shrink-0;
+  & > .Item {
+    @apply flex-fill min-w-min;
   }
 }
 

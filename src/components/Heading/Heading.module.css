@@ -5,3 +5,7 @@
     @apply align-base;
   }
 }
+
+.secondary {
+  @apply text-carbon-65% font-medium;
+}

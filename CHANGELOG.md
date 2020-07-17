@@ -10,6 +10,8 @@ The format is based on [these versioning and changelog guidelines](https://git.i
 
 ## 1.3.0 - 2020-07-15
 
+### Enhancements
+
 - Plain and outline buttons now have a white background
   ([#150](https://github.com/envoy/polarwind/pull/150))
 - Button and Link accept a download prop
