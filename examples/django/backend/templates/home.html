@@ -1,0 +1,35 @@
+{% load static %}
+{% load cra_helper_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% if entrypoints %}
+      {% for file in entrypoints.css %}
+    <link href="{% static file %}" rel="stylesheet" />
+      {% endfor %}
+    {% endif %}
+    <title>Django + React Project</title>
+  </head>
+
+  <body>
+    <div id="react">Loading...</div>
+
+    <script>
+      window.component = '{{ component }}';
+      window.props = {{ props | json }};
+      window.reactRoot = document.getElementById('react');
+    </script>
+    {% if bundle_js %} {# when CRA's liveserver is running, use bundle_js #}
+      {% for file in bundle_js %}
+    <script type="text/javascript" src="{{ file }}"></script>
+      {% endfor %}
+    {% elif entrypoints %} {# when using production build, use entrypoints #}
+      {% for file in entrypoints.js %}
+    <script type="text/javascript" src="{% static file %}"></script>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>
