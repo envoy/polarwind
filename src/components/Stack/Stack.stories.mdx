@@ -5,10 +5,16 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Stack } from "./Stack";
 import { Badge } from "../Badge";
+import { Card } from "../Card";
 
-<Meta title="Components | Structure / Stack" component={Stack} />
+<Meta
+  title="Components | Structure / Stack"
+  component={Stack}
+  decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+/>
 
 # Stack
 
@@ -17,8 +23,16 @@ import { Badge } from "../Badge";
 <Preview withToolbar>
   <Story name="Example">
     <Stack>
-      <Badge>Basic</Badge>
-      <Badge>Premium</Badge>
+      <Card>One</Card>
+      <Card>Two</Card>
+      <Card>Three</Card>
+      <Card>Four</Card>
+      <Card>Five</Card>
+      <Card>Six</Card>
+      <Card>Seven</Card>
+      <Card>Eight</Card>
+      <Card>Nine</Card>
+      <Card>Ten</Card>
     </Stack>
   </Story>
 </Preview>
