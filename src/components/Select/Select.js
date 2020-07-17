@@ -40,7 +40,6 @@ export const Select = ({
   error,
   helpText,
   label,
-  labelHidden,
   onBlur,
   onChange,
   onFocus,
@@ -80,7 +79,6 @@ export const Select = ({
       className={styles.Label}
       error={error}
       helpText={helpText}
-      hidden={labelHidden}
       label={label}
       required={required}
       success={success}
@@ -91,9 +89,14 @@ export const Select = ({
 };
 
 Select.propTypes = {
-  ...Labeled.propTypes,
   /** Disable the input */
   disabled: PropTypes.bool,
+  /** Error to display beneath the label */
+  error: PropTypes.string,
+  /** Additional hint text to display */
+  helpText: PropTypes.node,
+  /** Label for the input */
+  label: PropTypes.string.isRequired,
   /** Callback when focus is removed */
   onBlur: PropTypes.func,
   /** Callback when value is changed */
@@ -126,6 +129,10 @@ Select.propTypes = {
       })
     ),
   ]),
+  /** Mark the field as required */
+  required: PropTypes.bool,
+  /** Success message to display beneath the label */
+  success: PropTypes.string,
   /** Initial value for the input */
   value: PropTypes.string,
 };

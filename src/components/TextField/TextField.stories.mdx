@@ -6,10 +6,17 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { TextField } from "./TextField";
 import { Stack } from "../Stack";
 
-<Meta title="Components | Forms / Text field" component={TextField} />
+<Meta
+  title="Components | Forms / Text field"
+  component={TextField}
+  decorators={[
+    withSmartKnobs({ ignoreProps: ["children", "value", "helpText"] }),
+  ]}
+/>
 
 # Text field
 

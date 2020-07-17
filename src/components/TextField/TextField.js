@@ -89,11 +89,16 @@ export const TextField = ({
 };
 
 TextField.propTypes = {
-  ...Labeled.propTypes,
   /** Disable the input */
   disabled: PropTypes.bool,
+  /** Error to display beneath the label */
+  error: PropTypes.string,
   /** Forces the focused state of the input */
   focused: PropTypes.bool,
+  /** Additional hint text to display */
+  helpText: PropTypes.node,
+  /** Label for the input */
+  label: PropTypes.string.isRequired,
   /** Allow for multiple lines of input */
   multiline: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   /** Callback when focus is removed */
@@ -102,6 +107,10 @@ TextField.propTypes = {
   onChange: PropTypes.func,
   /** Callback when input is focused */
   onFocus: PropTypes.func,
+  /** Mark the field as required */
+  required: PropTypes.bool,
+  /** Success message to display beneath the label */
+  success: PropTypes.string,
   /** Determines the type of input */
   type: PropTypes.oneOf(["text", "search"]),
   /** Initial value for the input */
