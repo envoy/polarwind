@@ -40,6 +40,7 @@ export const Stack = ({
     distributionTrailing: dx("trailing"),
     noWrap: !wrap,
     spacingLoose: sx("loose"),
+    spacingNone: sx("none"),
     vertical,
   });
   return (
@@ -75,7 +76,7 @@ Stack.propTypes = {
     "fillEvenly",
   ]),
   /** Adjust spacing between elements */
-  spacing: PropTypes.oneOf(["loose"]),
+  spacing: PropTypes.oneOf(["loose", "none"]),
   /** Stack the elements vertically */
   vertical: PropTypes.bool,
   /** Wrap stack elements to additional rows as needed on small screens */
