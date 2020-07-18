@@ -11,6 +11,9 @@
 
 ### Bug fixes
 
+- Apply various fixes to the Page header, especially when the title action and title don't
+  fit in the narrowest supported width (600px)
+
 ### Documentation
 
 ### Development workflow
