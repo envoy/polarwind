@@ -27,10 +27,27 @@
 }
 
 .Header {
-  @apply flex text-carbon-100%;
+  @apply text-carbon-100%;
+  @apply flex;
+
+  /** margin between header elements and the start of content */
+  @apply mb-4;
+
+  /** push title and title action to opposite ends */
+  @apply justify-between;
+
+  /**
+   * when there's not enough space to have both the title and title action on the same
+   * line, wrap to the next line
+   */
+  @apply flex-wrap;
+
+  /** ensure page title is aligned to the middle of the title actions */
+  @apply items-center;
 
   .Polarwind-DisplayText {
-    @apply flex-1;
+    /** when title action wraps under the title, give it some margin */
+    @apply mb-2;
   }
 
   .breadcrumb {

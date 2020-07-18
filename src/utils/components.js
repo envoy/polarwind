@@ -1,5 +1,5 @@
 export function isElementOfType(element, Component) {
-  if (typeof Component === "undefined") {
+  if (!element || typeof Component === "undefined") {
     return false;
   }
   return element.type.displayName === Component.displayName;

@@ -2,6 +2,7 @@ import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { Back } from "../../../../icons";
 import { DisplayText } from "../../../DisplayText";
+import { Stack } from "../../../Stack/Stack";
 import { UnstyledLink } from "../../../UnstyledLink/UnstyledLink";
 import styles from "../../Page.module.css";
 
@@ -29,10 +30,12 @@ export const Header = ({ action, breadcrumbs = [], children }) => {
 
   return (
     <div className={className}>
-      {breadcrumbMarkup}
-      <DisplayText element="h1" size="large">
-        {children}
-      </DisplayText>
+      <Stack spacing="none">
+        {breadcrumbMarkup}
+        <DisplayText element="h1" size="large">
+          {children}
+        </DisplayText>
+      </Stack>
       {action}
     </div>
   );

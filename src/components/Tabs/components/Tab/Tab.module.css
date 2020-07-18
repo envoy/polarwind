@@ -7,7 +7,7 @@
 
   button,
   a {
-    @apply py-1.5 block;
+    @apply pb-1.5 block;
 
     &:focus {
       @apply outline-none;
