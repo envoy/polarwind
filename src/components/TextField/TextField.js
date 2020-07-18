@@ -16,6 +16,7 @@ export const TextField = ({
   focused,
   helpText,
   label,
+  labelHidden,
   multiline,
   onBlur,
   onChange,
@@ -26,7 +27,7 @@ export const TextField = ({
   value,
 }) => {
   // == LABEL ==
-  const labelHidden = type === "search";
+  labelHidden = labelHidden ?? type === "search";
 
   // == CAPTION ==
   // The disabled state overrides any inflight error or success state to present a
@@ -99,6 +100,8 @@ TextField.propTypes = {
   helpText: PropTypes.node,
   /** Label for the input */
   label: PropTypes.string.isRequired,
+  /** Visually hide the label */
+  labelHidden: PropTypes.bool,
   /** Allow for multiple lines of input */
   multiline: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
   /** Callback when focus is removed */

@@ -40,6 +40,7 @@ export const Select = ({
   error,
   helpText,
   label,
+  labelHidden,
   onBlur,
   onChange,
   onFocus,
@@ -79,6 +80,7 @@ export const Select = ({
       className={styles.Label}
       error={error}
       helpText={helpText}
+      hidden={labelHidden}
       label={label}
       required={required}
       success={success}
@@ -97,6 +99,8 @@ Select.propTypes = {
   helpText: PropTypes.node,
   /** Label for the input */
   label: PropTypes.string.isRequired,
+  /** Visually hide the label */
+  labelHidden: PropTypes.bool,
   /** Callback when focus is removed */
   onBlur: PropTypes.func,
   /** Callback when value is changed */
