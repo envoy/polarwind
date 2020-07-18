@@ -14,8 +14,12 @@
   }
 }
 
-.spacingNone > .Item {
+.spacingNone {
   @apply ml-0 mt-0;
+
+  > .Item {
+    @apply ml-0 mt-0;
+  }
 }
 
 .distributionEqualSpacing {
