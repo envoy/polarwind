@@ -30,20 +30,23 @@
   @apply text-carbon-100%;
   @apply flex;
 
+  /** margin between header elements and the start of content */
+  @apply mb-10;
+
   /** push title and title action to opposite ends */
   @apply justify-between;
 
   /**
    * when there's not enough space to have both the title and title action on the same
-   * line, wrap to the next line and distance the elements by mb-10
+   * line, wrap to the next line
    */
   @apply flex-wrap;
-  @apply mb-10;
 
-  /** ensure page title is in the middle of the title actions */
+  /** ensure page title is aligned to the middle of the title actions */
   @apply items-center;
 
   .Polarwind-DisplayText {
+    /** when title action wraps under the title, give it some margin */
     @apply mb-2;
   }
 
