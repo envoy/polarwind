@@ -31,7 +31,7 @@
   @apply flex;
 
   /** margin between header elements and the start of content */
-  @apply mb-10;
+  @apply mb-4;
 
   /** push title and title action to opposite ends */
   @apply justify-between;
