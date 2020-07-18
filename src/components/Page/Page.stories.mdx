@@ -142,8 +142,22 @@ background.
 
 <Preview>
   <Story name="Transparent">
-    <div style={{ backgroundColor: "#f6f6f9", paddingTop: "2rem" }}>
-      <Page transparent>
+    <div style={{ backgroundColor: "#f6f6f9" }}>
+      <Page
+        title="Deliveries analytics"
+        titleAction={
+          <Stack alignment="trailing">
+            <Select
+              options={["All delivery areas"]}
+              label="Delivery area"
+              labelHidden
+            />
+            <Select options={["Last 7 days"]} label="Date range" labelHidden />
+            <Button outline>Export</Button>
+          </Stack>
+        }
+        transparent
+      >
         <Stack distribution="fillEvenly" spacing="loose">
           <Stack distribution="fillEvenly" spacing="loose" wrap={false}>
             <Card shadow>
