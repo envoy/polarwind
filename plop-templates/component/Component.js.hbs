@@ -1,7 +1,7 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 {{#if parent}}
-import styles from "../../{{parent}}.module.css";
+import styles from "../../{{properCase parent}}.module.css";
 {{else}}
 import styles from "./{{properCase name}}.module.css";
 {{/if}}
