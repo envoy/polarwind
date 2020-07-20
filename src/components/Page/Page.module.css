@@ -54,5 +54,5 @@
 
 .Header {
   /** margin between header elements and the start of content */
-  @apply mb-4;
+  @apply mb-8;
 }
