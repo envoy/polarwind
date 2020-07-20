@@ -12,9 +12,9 @@ const cx = classnames.bind(styles);
  * The header of a page. This is a container of several things potentially, like a back
  * button, input fields.
  */
-export const Header = ({ action, breadcrumbs = [], children }) => {
+export const Title = ({ action, breadcrumbs = [], children }) => {
   const className = cx({
-    Header: true,
+    Title: true,
   });
 
   const breadcrumb = breadcrumbs[breadcrumbs.length - 1];
@@ -41,7 +41,7 @@ export const Header = ({ action, breadcrumbs = [], children }) => {
   );
 };
 
-Header.propTypes = {
+Title.propTypes = {
   /** Header action */
   action: PropTypes.node,
   /** Collection of breadcrumbs */
@@ -55,4 +55,4 @@ Header.propTypes = {
   children: PropTypes.node,
 };
 
-Header.displayName = "Page.Header";
+Title.displayName = "Page.Title";
