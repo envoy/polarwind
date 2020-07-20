@@ -2,7 +2,7 @@ import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { EmbeddedContext } from "../../utils/embedded";
-import { Title } from "./components";
+import { Header, Title } from "./components";
 import styles from "./Page.module.css";
 
 const cx = classnames.bind(styles);
@@ -33,9 +33,11 @@ export const Page = ({
   });
 
   const headerMarkup = title && (
-    <Title action={titleAction} breadcrumbs={breadcrumbs}>
-      {title}
-    </Title>
+    <Header>
+      <Title action={titleAction} breadcrumbs={breadcrumbs}>
+        {title}
+      </Title>
+    </Header>
   );
 
   const PageMarkup = (props) => {
@@ -74,4 +76,5 @@ Page.propTypes = {
   transparent: PropTypes.bool,
 };
 
+Page.Header = Header;
 Page.Title = Title;

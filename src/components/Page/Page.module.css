@@ -30,9 +30,6 @@
   @apply text-carbon-100%;
   @apply flex;
 
-  /** margin between header elements and the start of content */
-  @apply mb-4;
-
   /** push title and title action to opposite ends */
   @apply justify-between;
 
@@ -53,4 +50,9 @@
   .breadcrumb {
     @apply mr-2 flex items-center;
   }
+}
+
+.Header {
+  /** margin between header elements and the start of content */
+  @apply mb-4;
 }

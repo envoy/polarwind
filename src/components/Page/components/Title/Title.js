@@ -9,7 +9,7 @@ import styles from "../../Page.module.css";
 const cx = classnames.bind(styles);
 
 /**
- * The header of a page. This is a container of several things potentially, like a back
+ * The title of a page. This is a container of several things potentially, like a back
  * button, input fields.
  */
 export const Title = ({ action, breadcrumbs = [], children }) => {
