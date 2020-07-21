@@ -1,5 +1,6 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
+import { Stack } from "../../../Stack";
 import styles from "../../Page.module.css";
 
 const cx = classnames.bind(styles);
@@ -12,7 +13,13 @@ export const Header = ({ children }) => {
   const className = cx({
     Header: true,
   });
-  return <div className={className}>{children}</div>;
+  return (
+    <div className={className}>
+      <Stack spacing="loose" vertical>
+        {children}
+      </Stack>
+    </div>
+  );
 };
 
 Header.propTypes = {

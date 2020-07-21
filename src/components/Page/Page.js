@@ -14,6 +14,7 @@ const cx = classnames.bind(styles);
 export const Page = ({
   breadcrumbs,
   children,
+  tabs,
   title,
   titleAction,
   transparent,
@@ -37,6 +38,7 @@ export const Page = ({
       <Title action={titleAction} breadcrumbs={breadcrumbs}>
         {title}
       </Title>
+      {tabs}
     </Header>
   );
 
@@ -68,6 +70,8 @@ Page.propTypes = {
   ),
   /** The contents of the page */
   children: PropTypes.node,
+  /** Top-level tabs */
+  tabs: PropTypes.node,
   /** Page title, in large type */
   title: PropTypes.string,
   /** Actions to present on the right of the title */

@@ -34,31 +34,32 @@ import { TextField } from "../TextField";
     <Page
       title="New invite"
       breadcrumbs={[{ content: "Invites", url: "/invites" }]}
+      tabs={
+        <Tabs
+          tabs={[
+            { content: "Single invite", id: "1" },
+            { content: "Group invite", id: "2" },
+          ]}
+          selected={0}
+        />
+      }
     >
-      <Tabs
-        tabs={[
-          { content: "Single invite", id: "1" },
-          { content: "Group invite", id: "2" },
-        ]}
-        selected={0}
-      >
-        <FormLayout>
-          <Select
-            label="Visitor type"
-            options={["Visitor", "Interview", "Meeting"]}
-            required
-          />
-          <TextField label="Full name" />
-          <TextField label="Private notes" multiline={3} />
-          <Stack distribution="equalSpacing">
-            <ButtonGroup>
-              <Button>Invite</Button>
-              <Button outline>Invite and add another</Button>
-            </ButtonGroup>
-            <Button plain>Cancel</Button>
-          </Stack>
-        </FormLayout>
-      </Tabs>
+      <FormLayout>
+        <Select
+          label="Visitor type"
+          options={["Visitor", "Interview", "Meeting"]}
+          required
+        />
+        <TextField label="Full name" />
+        <TextField label="Private notes" multiline={3} />
+        <Stack distribution="equalSpacing">
+          <ButtonGroup>
+            <Button>Invite</Button>
+            <Button outline>Invite and add another</Button>
+          </ButtonGroup>
+          <Button plain>Cancel</Button>
+        </Stack>
+      </FormLayout>
     </Page>
   </Story>
 </Preview>
