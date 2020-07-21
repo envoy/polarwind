@@ -16,7 +16,7 @@ Item.propTypes = {
   /** The child to wrap */
   children: PropTypes.node,
   /** Adjust spacing between elements */
-  spacing: PropTypes.oneOf(["loose"]),
+  spacing: PropTypes.oneOf(["loose", "extraLoose", "none"]),
 };
 
 Item.displayName = "Stack.Item";

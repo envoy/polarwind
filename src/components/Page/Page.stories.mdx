@@ -34,31 +34,32 @@ import { TextField } from "../TextField";
     <Page
       title="New invite"
       breadcrumbs={[{ content: "Invites", url: "/invites" }]}
+      tabs={
+        <Tabs
+          tabs={[
+            { content: "Single invite", id: "1" },
+            { content: "Group invite", id: "2" },
+          ]}
+          selected={0}
+        />
+      }
     >
-      <Tabs
-        tabs={[
-          { content: "Single invite", id: "1" },
-          { content: "Group invite", id: "2" },
-        ]}
-        selected={0}
-      >
-        <FormLayout>
-          <Select
-            label="Visitor type"
-            options={["Visitor", "Interview", "Meeting"]}
-            required
-          />
-          <TextField label="Full name" />
-          <TextField label="Private notes" multiline={3} />
-          <Stack distribution="equalSpacing">
-            <ButtonGroup>
-              <Button>Invite</Button>
-              <Button outline>Invite and add another</Button>
-            </ButtonGroup>
-            <Button plain>Cancel</Button>
-          </Stack>
-        </FormLayout>
-      </Tabs>
+      <FormLayout>
+        <Select
+          label="Visitor type"
+          options={["Visitor", "Interview", "Meeting"]}
+          required
+        />
+        <TextField label="Full name" />
+        <TextField label="Private notes" multiline={3} />
+        <Stack distribution="equalSpacing">
+          <ButtonGroup>
+            <Button>Invite</Button>
+            <Button outline>Invite and add another</Button>
+          </ButtonGroup>
+          <Button plain>Cancel</Button>
+        </Stack>
+      </FormLayout>
     </Page>
   </Story>
 </Preview>
@@ -94,7 +95,7 @@ Use when exposing additional components on the right of the page title.
     <Page
       title="10 visitors"
       titleAction={
-        <Stack spacing="loose">
+        <Stack spacing="extraLoose">
           <TextField type="search" label="Search" />
           <Button>New visitor</Button>
         </Stack>
@@ -158,8 +159,8 @@ background.
         }
         transparent
       >
-        <Stack distribution="fillEvenly" spacing="loose">
-          <Stack distribution="fillEvenly" spacing="loose" wrap={false}>
+        <Stack distribution="fillEvenly" spacing="extraLoose">
+          <Stack distribution="fillEvenly" spacing="extraLoose" wrap={false}>
             <Card shadow>
               <Stack vertical>
                 <Heading element="h3" secondary>
@@ -181,7 +182,7 @@ background.
               </Stack>
             </Card>
           </Stack>
-          <Stack distribution="fillEvenly" spacing="loose" wrap={false}>
+          <Stack distribution="fillEvenly" spacing="extraLoose" wrap={false}>
             <Card shadow>
               <Stack vertical>
                 <Heading element="h3" secondary>

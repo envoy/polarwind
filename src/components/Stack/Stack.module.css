@@ -7,6 +7,14 @@
 }
 
 .spacingLoose {
+  @apply -ml-3 -mt-3;
+
+  > .Item {
+    @apply ml-3 mt-3;
+  }
+}
+
+.spacingExtraLoose {
   @apply -ml-6 -mt-6;
 
   & > .Item {

@@ -2,7 +2,7 @@ import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { EmbeddedContext } from "../../utils/embedded";
-import { Header } from "./components";
+import { Header, Title } from "./components";
 import styles from "./Page.module.css";
 
 const cx = classnames.bind(styles);
@@ -14,6 +14,7 @@ const cx = classnames.bind(styles);
 export const Page = ({
   breadcrumbs,
   children,
+  tabs,
   title,
   titleAction,
   transparent,
@@ -33,8 +34,11 @@ export const Page = ({
   });
 
   const headerMarkup = title && (
-    <Header action={titleAction} breadcrumbs={breadcrumbs}>
-      {title}
+    <Header>
+      <Title action={titleAction} breadcrumbs={breadcrumbs}>
+        {title}
+      </Title>
+      {tabs}
     </Header>
   );
 
@@ -66,6 +70,8 @@ Page.propTypes = {
   ),
   /** The contents of the page */
   children: PropTypes.node,
+  /** Top-level tabs */
+  tabs: PropTypes.node,
   /** Page title, in large type */
   title: PropTypes.string,
   /** Actions to present on the right of the title */
@@ -75,3 +81,4 @@ Page.propTypes = {
 };
 
 Page.Header = Header;
+Page.Title = Title;
