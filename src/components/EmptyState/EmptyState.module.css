@@ -1,12 +1,14 @@
 .EmptyState {
   /* layout */
   @apply flex flex-col-reverse justify-between;
+
   @screen lg {
     @apply flex-row;
   }
 
   /* content */
   @apply p-12 text-center;
+
   @screen lg {
     @apply text-left;
   }
