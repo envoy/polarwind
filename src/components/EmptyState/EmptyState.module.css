@@ -1,6 +1,6 @@
 .EmptyState {
   /* layout */
-  @apply flex flex-col-reverse justify-between;
+  @apply flex flex-col-reverse;
 
   @screen lg {
     @apply flex-row;
@@ -30,7 +30,9 @@
   }
 
   .Polarwind-Stack {
-    @apply mt-8 flex-1;
+    max-width: 600px;
+
+    @apply mt-8;
 
     @screen lg {
       @apply mt-0 mr-10;
