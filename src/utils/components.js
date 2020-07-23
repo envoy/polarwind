@@ -20,7 +20,9 @@ function _wrapWithComponent(element, Component, props) {
 export const wrapWithComponent = (Component, { except } = {}) => (
   child,
   index
-) =>
-  isElementOfType(child, except)
+) => {
+  if (child === null) return;
+  return isElementOfType(child, except)
     ? child
     : _wrapWithComponent(child, Component, { key: index });
+};
