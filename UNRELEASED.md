@@ -8,7 +8,7 @@
 
 - Add a `labelHidden` prop to Select and Text field to visually hide the label. For Text
   fields, the label will be displayed as the placeholder instead.
-- Add a spacing option `none` to Stack
+- Add a spacing option `none` and `looser` to Stack
 
 ### Bug fixes
 
