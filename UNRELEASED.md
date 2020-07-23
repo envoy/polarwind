@@ -4,6 +4,8 @@
 
 ### New components
 
+- Add an Empty state component
+
 ### Enhancements
 
 - Add a `labelHidden` prop to Select and Text field to visually hide the label. For Text

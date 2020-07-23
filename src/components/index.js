@@ -6,6 +6,7 @@ export { Caption } from "./Caption";
 export { Card } from "./Card";
 export { Checkbox } from "./Checkbox";
 export { DisplayText } from "./DisplayText";
+export { EmptyState } from "./EmptyState";
 export { FormLayout } from "./FormLayout";
 export { Heading } from "./Heading";
 export { Label } from "./Label";

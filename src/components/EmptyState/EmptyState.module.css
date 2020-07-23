@@ -1,0 +1,37 @@
+.EmptyState {
+  /* layout */
+  @apply flex flex-col-reverse justify-between;
+  @screen lg {
+    @apply flex-row;
+  }
+
+  /* content */
+  @apply p-12 text-center;
+  @screen lg {
+    @apply text-left;
+  }
+
+  /* keep content horizontally centered */
+  @apply justify-center;
+
+  /* keep content vertically centered */
+  @apply items-center;
+
+  img {
+    min-height: 200px;
+    max-height: 200px;
+
+    @screen lg {
+      min-height: 300px;
+      max-height: 300px;
+    }
+  }
+
+  .Polarwind-Stack {
+    @apply mt-8 flex-1;
+
+    @screen lg {
+      @apply mt-0 mr-10;
+    }
+  }
+}

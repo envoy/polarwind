@@ -1,0 +1,105 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { EmptyState } from "./EmptyState";
+
+<Meta title="Components | Structure / Empty state" component={EmptyState} />
+
+# Empty state
+
+<Description of={EmptyState} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
+      <EmptyState
+        heading="No data yet..."
+        image="https://dashboard.envoy.com/assets/images/empty-state/no-deliveries-1b1c20b6be6c920db95696bd044921ff.svg"
+      >
+        <p>
+          When you start scanning deliveries, analytics will help you identify
+          trends to improve operations and scale mail operations. Track total
+          deliveries, time to pick-up, top recipients, and more.
+        </p>
+      </EmptyState>
+    </div>
+  </Story>
+</Preview>
+
+<Props of={EmptyState} />
+
+## Usage
+
+### Default empty state
+
+Use to explain a single feature before users have used it.
+
+### No header
+
+(Don't actually use this. This story is here to test the component with edge cases to
+ensure the layout still holds.)
+
+<Preview withToolbar>
+  <Story name="No header">
+    <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
+      <EmptyState image="https://dashboard.envoy.com/assets/images/empty-state/no-deliveries-1b1c20b6be6c920db95696bd044921ff.svg">
+        <p>
+          When you start scanning deliveries, analytics will help you identify
+          trends to improve operations and scale mail operations. Track total
+          deliveries, time to pick-up, top recipients, and more.
+        </p>
+      </EmptyState>
+    </div>
+  </Story>
+</Preview>
+
+### No copy
+
+(Don't actually use this. This story is here to test the component with edge cases to
+ensure the layout still holds.)
+
+<Preview withToolbar>
+  <Story name="No copy">
+    <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
+      <EmptyState
+        heading="No data yet..."
+        image="https://dashboard.envoy.com/assets/images/empty-state/no-deliveries-1b1c20b6be6c920db95696bd044921ff.svg"
+      ></EmptyState>
+    </div>
+  </Story>
+</Preview>
+
+### Short copy
+
+(Don't actually use this. This story is here to test the component with edge cases to
+ensure the layout still holds.)
+
+<Preview withToolbar>
+  <Story name="Short copy">
+    <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
+      <EmptyState
+        heading="No data yet..."
+        image="https://dashboard.envoy.com/assets/images/empty-state/no-deliveries-1b1c20b6be6c920db95696bd044921ff.svg"
+      >
+        <p>Just start scanning.</p>
+      </EmptyState>
+    </div>
+  </Story>
+</Preview>
+
+### Just the image
+
+(Don't actually use this. This story is here to test the component with edge cases to
+ensure the layout still holds.)
+
+<Preview withToolbar>
+  <Story name="Just the image">
+    <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
+      <EmptyState image="https://dashboard.envoy.com/assets/images/empty-state/no-deliveries-1b1c20b6be6c920db95696bd044921ff.svg" />
+    </div>
+  </Story>
+</Preview>
