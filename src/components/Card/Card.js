@@ -11,8 +11,6 @@ const cx = classnames.bind(styles);
 export const Card = ({ children, shadow }) => {
   const className = cx({
     Card: true,
-    // workaround a tailwind or postcss bug where class names cannot be the same as the
-    // @apply rule https://github.com/tailwindcss/tailwindcss/issues/2036
     shadowed: shadow,
   });
   return <div className={className}>{children}</div>;

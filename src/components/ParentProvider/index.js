@@ -1,1 +1,1 @@
-export { ParentProvider, ParentContext } from "./ParentProvider";
+export { ParentProvider } from "./ParentProvider";

@@ -1,13 +1,8 @@
 import PropTypes from "prop-types";
-import { createContext, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { OriginContext } from "../../utils/origin";
-import { useParent } from "../../utils/parent";
+import { ParentContext, useParent } from "../../utils/parent";
 import { iframeResizerContentWindow } from "../../vendor/iframeResizer.contentWindow";
-
-/**
- * Holds the current context sent by the parent iframe
- */
-export const ParentContext = createContext({});
 
 /**
  * Parent provider is a required component that enables the set up of the iframeResizer,

@@ -1,5 +1,9 @@
-import { createRef, useContext } from "react";
-import { ParentContext } from "../components/ParentProvider";
+import { createContext, createRef, useContext } from "react";
+
+/**
+ * Holds the current context sent by the parent iframe
+ */
+const ParentContext = createContext({});
 
 /** Holds the instance of window.parentIFrame */
 const parent = createRef();
@@ -35,4 +39,4 @@ function useParent() {
   return { context, sendMessage, setParent };
 }
 
-export { useParent };
+export { useParent, ParentContext };
