@@ -6,7 +6,7 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { EmptyState } from "./EmptyState";
-import image from "../../assets/deliveries-empty-state.svg";
+import { DeliveriesEmptyState } from "../../assets";
 
 <Meta title="Components | Structure / Empty state" component={EmptyState} />
 
@@ -17,7 +17,7 @@ import image from "../../assets/deliveries-empty-state.svg";
 <Preview withToolbar>
   <Story name="Example">
     <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
-      <EmptyState heading="No data yet..." image={image}>
+      <EmptyState heading="No data yet..." image={DeliveriesEmptyState}>
         <p>
           When you start scanning deliveries, analytics will help you identify
           trends to improve operations and scale mail operations. Track total
@@ -44,7 +44,7 @@ ensure the layout still holds.)
 <Preview withToolbar>
   <Story name="No header">
     <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
-      <EmptyState image={image}>
+      <EmptyState image={DeliveriesEmptyState}>
         <p>
           When you start scanning deliveries, analytics will help you identify
           trends to improve operations and scale mail operations. Track total
@@ -63,7 +63,10 @@ ensure the layout still holds.)
 <Preview withToolbar>
   <Story name="No copy">
     <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
-      <EmptyState heading="No data yet..." image={image}></EmptyState>
+      <EmptyState
+        heading="No data yet..."
+        image={DeliveriesEmptyState}
+      ></EmptyState>
     </div>
   </Story>
 </Preview>
@@ -76,7 +79,7 @@ ensure the layout still holds.)
 <Preview withToolbar>
   <Story name="Short copy">
     <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
-      <EmptyState heading="No data yet..." image={image}>
+      <EmptyState heading="No data yet..." image={DeliveriesEmptyState}>
         <p>Just start scanning.</p>
       </EmptyState>
     </div>
@@ -91,7 +94,7 @@ ensure the layout still holds.)
 <Preview withToolbar>
   <Story name="Just the image">
     <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
-      <EmptyState image={image} />
+      <EmptyState image={DeliveriesEmptyState} />
     </div>
   </Story>
 </Preview>
