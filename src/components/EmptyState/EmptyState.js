@@ -35,7 +35,7 @@ export const EmptyState = ({ children, heading, image }) => {
     <Card>
       <div className={className}>
         {copyMarkup}
-        <img alt="Empty state" src={image} />
+        <img alt="Empty state illustration" src={image} />
       </div>
     </Card>
   );
