@@ -68,11 +68,11 @@ export const Select = ({
 
   const inputProps = {
     className,
-    defaultValue: value,
     disabled,
     onBlur: handleBlur,
     onChange: handleChange,
     onFocus: handleFocus,
+    value,
   };
 
   return (
