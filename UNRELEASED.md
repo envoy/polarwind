@@ -22,7 +22,7 @@
 - Apply various fixes to the Page header, especially when the title action and title don't
   fit in the narrowest supported width (600px)
 - Fixed a bug where Select won't select the right options if options were set
-  asyncronously
+  asynchronously
 
 ### Documentation
 
