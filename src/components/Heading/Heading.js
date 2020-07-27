@@ -9,8 +9,13 @@ const cx = classnames.bind(styles);
  * Headings are used as the titles of each major section of a page in the interface. For
  * example, card components generally use headings as their title.
  */
-export const Heading = ({ children, element = "h2", secondary }) => {
-  const className = cx({ Heading: true, secondary });
+export const Heading = ({
+  children,
+  element = "h2",
+  secondary,
+  size = "medium",
+}) => {
+  const className = cx({ Heading: true, secondary }, size);
   return createElement(element, { className }, <span>{children}</span>);
 };
 
@@ -21,4 +26,6 @@ Heading.propTypes = {
   element: PropTypes.oneOf(["h1", "h2", "h3", "h4", "h5", "h6", "p"]),
   /** Subdued header */
   secondary: PropTypes.bool,
+  /** Size of the text */
+  size: PropTypes.oneOf(["small", "medium", "large", "extraLarge"]),
 };
