@@ -1,8 +1,41 @@
+/* 16px */
 .Heading {
-  @apply text-carbon-100% font-bold text-base leading-base-normal mt-1;
+  @apply text-carbon-100% font-bold mt-1;
+}
+
+/* 30px */
+.extraLarge {
+  @apply text-3xl leading-3xl-normal;
+
+  span {
+    @apply align-3xl;
+  }
+}
+
+/* 20px */
+.large {
+  @apply text-xl leading-xl-normal;
+
+  span {
+    @apply align-xl;
+  }
+}
+
+/* 16px */
+.medium {
+  @apply text-base leading-base-normal;
 
   span {
     @apply align-base;
+  }
+}
+
+/* 14px */
+.small {
+  @apply text-sm leading-sm-normal;
+
+  span {
+    @apply align-sm;
   }
 }
 
