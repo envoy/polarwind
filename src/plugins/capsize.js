@@ -47,11 +47,15 @@ module.exports = function (fontMetrics) {
 
             return [
               ".capsize-" + e(selector.join("-")),
-              capsize({
-                fontMetrics: fontMetric.fontMetrics,
-                fontSize: remtopx(size.value),
-                leading: remtopx(lineHeight.value),
-              }),
+              {
+                ...capsize({
+                  fontMetrics: fontMetric.fontMetrics,
+                  fontSize: remtopx(size.value),
+                  leading: remtopx(lineHeight.value),
+                }),
+                fontStyle: style,
+                fontWeight: weight.value,
+              },
             ];
           }
         })
