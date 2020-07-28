@@ -1,6 +1,7 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { createElement } from "react";
+import { capsizeClass } from "../../utils/capsizeClass";
 import styles from "./DisplayText.module.css";
 
 const cx = classnames.bind(styles);
@@ -16,8 +17,22 @@ export const DisplayText = ({
   secondary,
   size = "medium",
 }) => {
-  const className = cx({ secondary }, "DisplayText", size);
-  return createElement(element, { className }, <span>{children}</span>);
+  const className = cx(
+    "DisplayText",
+    capsizeClass(
+      {
+        "font-normal": secondary,
+        "text-2xl": size === "large",
+        "text-3xl": size === "extraLarge",
+        "text-lg": size === "small",
+        "text-xl": size === "medium",
+      },
+      "font-bold",
+      "leading-normal"
+    )
+  );
+
+  return createElement(element, { className }, children);
 };
 
 DisplayText.propTypes = {
