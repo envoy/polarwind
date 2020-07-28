@@ -226,6 +226,41 @@ module.exports = {
       descender: -244,
       capitalHeight: 689,
     }),
+    require("./src/plugins/capsize")([
+      {
+        fontWeight: "normal",
+        fontStyle: "normal",
+        fontMetrics: {
+          capHeight: 689,
+          ascent: 751,
+          descent: -249,
+          lineGap: 350,
+          unitsPerEm: 1000,
+        },
+      },
+      {
+        fontWeight: "medium",
+        fontStyle: "normal",
+        fontMetrics: {
+          capHeight: 689,
+          ascent: 751,
+          descent: -249,
+          lineGap: 358,
+          unitsPerEm: 1000,
+        },
+      },
+      {
+        fontWeight: "bold",
+        fontStyle: "normal",
+        fontMetrics: {
+          capHeight: 689,
+          ascent: 750,
+          descent: -250,
+          lineGap: 369,
+          unitsPerEm: 1000,
+        },
+      },
+    ]),
   ],
   corePlugins: {
     fontSize: false,
