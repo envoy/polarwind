@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
+import { capsizeClass } from "../../utils/capsizeClass";
 import { UnstyledLink } from "../UnstyledLink/UnstyledLink";
 import styles from "./Button.module.css";
 
@@ -20,7 +21,7 @@ export const Button = ({
   size = "medium",
   url,
 }) => {
-  const content = <span>{children}</span>;
+  const content = children;
 
   className = cx(
     {
@@ -31,6 +32,15 @@ export const Button = ({
       plain,
     },
     size != "medium" && size,
+    capsizeClass(
+      {
+        "text-lg": size === "large",
+        "text-sm": size === "slim",
+      },
+      "font-medium",
+      "text-base",
+      "leading-normal"
+    ),
     className
   );
 

@@ -1,7 +1,7 @@
 .Button {
   @apply rounded-md border border-transparent transition ease-in-out duration-150;
   @apply text-white;
-  @apply px-4 py-2;
+  @apply px-4 py-3.5;
   @apply self-center;
   @apply bg-brand border-brand;
   @apply inline-block;
@@ -14,26 +14,14 @@
     @apply outline-none;
     @apply shadow-outline-brand;
   }
-
-  span {
-    @apply capsize-medium-normal-base-none;
-  }
 }
 
 .slim {
-  @apply px-4 py-1.5;
-
-  span {
-    @apply capsize-medium-normal-sm-none;
-  }
+  @apply px-4 py-3;
 }
 
 .large {
-  @apply px-6 py-2;
-
-  span {
-    @apply capsize-medium-normal-lg-none;
-  }
+  @apply px-6 py-3.5;
 }
 
 .disabled {
