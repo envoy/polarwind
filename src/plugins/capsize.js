@@ -45,14 +45,36 @@ module.exports = function (fontMetrics) {
               lineHeight.modifier,
             ];
 
+            /**
+             * pulling out after and before here because we need to rename the before and
+             * after rules to include & in the rule name.
+             *
+             * before,
+             * {
+             *   font-size: ...,
+             *   "::before": { ... }
+             * }
+             *
+             * after,
+             * {
+             *   font-size: ...,
+             *   "&::before": { ... }
+             * }
+             */
+            const { "::after": after, "::before": before, ...styles } = capsize(
+              {
+                fontMetrics: fontMetric.fontMetrics,
+                fontSize: remtopx(size.value),
+                leading: remtopx(lineHeight.value),
+              }
+            );
+
             return [
               ".capsize-" + e(selector.join("-")),
               {
-                ...capsize({
-                  fontMetrics: fontMetric.fontMetrics,
-                  fontSize: remtopx(size.value),
-                  leading: remtopx(lineHeight.value),
-                }),
+                ...styles,
+                "&::after": after,
+                "&::before": before,
                 fontStyle: style,
                 fontWeight: weight.value,
               },
