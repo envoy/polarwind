@@ -1,6 +1,6 @@
 .Button {
   @apply rounded-md border border-transparent transition ease-in-out duration-150;
-  @apply font-medium text-white text-base leading-base-normal;
+  @apply text-white;
   @apply px-4 py-2.75;
   @apply self-center;
   @apply bg-brand border-brand;
@@ -16,34 +16,23 @@
   }
 
   span {
-    @apply align-base;
-  }
-}
-
-.Icon {
-  @apply inline-block -ml-1 mr-1;
-
-  svg {
-    @apply h-lg;
+    @apply capsize-medium-normal-base-skinny;
   }
 }
 
 .slim {
-  @apply px-4 py-2.5;
-  @apply text-sm leading-sm-normal;
+  @apply px-4 py-2;
 
-  .icon {
-    svg {
-      @apply h-base;
-    }
+  span {
+    @apply capsize-medium-normal-sm-normal;
   }
 }
 
 .large {
-  @apply px-6 py-3 text-lg;
+  @apply px-6 py-3;
 
   span {
-    @apply align-lg;
+    @apply capsize-medium-normal-lg-normal;
   }
 }
 

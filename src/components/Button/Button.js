@@ -14,29 +14,13 @@ export const Button = ({
   className,
   disabled,
   download,
-  icon,
   onClick,
   outline,
   plain,
   size = "medium",
   url,
 }) => {
-  let iconMarkup;
-  if (icon && size !== "large") {
-    const Icon = icon;
-    iconMarkup = (
-      <span className={styles.Icon}>
-        <Icon />
-      </span>
-    );
-  }
-
-  const content = (
-    <>
-      {iconMarkup}
-      <span>{children}</span>
-    </>
-  );
+  const content = <span>{children}</span>;
 
   className = cx(
     {
@@ -87,8 +71,6 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   /** Instructs the browser to download the file */
   download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  /** Icon to display to the left of the button content */
-  icon: PropTypes.func,
   /** Callback when clicked */
   onClick: PropTypes.func,
   /**
