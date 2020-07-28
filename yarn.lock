@@ -4366,6 +4366,11 @@ capital-case@^1.0.3:
     tslib "^1.10.0"
     upper-case-first "^2.0.1"
 
+capsize@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/capsize/-/capsize-1.0.1.tgz#7ef3e82d2a544bdeb72bec2bf69a429c1dc6c801"
+  integrity sha512-SJgcah1JnStqw7spP+JNaJG1mjY1zs8RA3lGRb7uOMBwtPhhmb0SlGFGBbbTgg6VtavQULuCzN60YF8XjoP2ZQ==
+
 capture-exit@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/capture-exit/-/capture-exit-2.0.0.tgz#fb953bfaebeb781f62898239dabb426d08a509a4"
