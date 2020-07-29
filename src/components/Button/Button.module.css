@@ -6,7 +6,7 @@
   @apply bg-brand border-brand;
   @apply inline-block;
 
-  &:hover {
+  &:hover:not(.disabled) {
     @apply bg-brand-hover;
   }
 
@@ -49,13 +49,13 @@
 
 .disabled {
   @apply opacity-40;
-  @apply cursor-default pointer-events-none;
+  @apply cursor-not-allowed;
 }
 
 .plain {
   @apply bg-white border-transparent text-carbon-80%;
 
-  &:hover {
+  &:hover:not(.disabled) {
     @apply bg-arctic;
   }
 
@@ -68,7 +68,7 @@
   composes: plain;
   @apply border-arctic;
 
-  &:hover {
+  &:hover:not(.disabled) {
     @apply border-carbon-20%;
   }
 
@@ -80,7 +80,7 @@
 .brandOutline {
   @apply text-brand bg-white;
 
-  &:hover {
+  &:hover:not(.disabled) {
     @apply bg-brand-lightest;
   }
 
