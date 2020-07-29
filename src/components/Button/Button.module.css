@@ -3,12 +3,8 @@
   @apply font-medium text-white text-base leading-base-normal;
   @apply px-4 py-2.75;
   @apply self-center;
-  @apply bg-brand border-brand;
   @apply inline-block;
-
-  &:hover {
-    @apply bg-brand-hover;
-  }
+  @apply bg-carbon-80%;
 
   &:focus {
     @apply outline-none;
@@ -48,8 +44,16 @@
 }
 
 .disabled {
-  @apply opacity-40;
-  @apply cursor-default pointer-events-none;
+  @apply opacity-50;
+  @apply cursor-not-allowed;
+}
+
+.brand {
+  @apply bg-brand border-brand;
+
+  &:hover {
+    @apply bg-brand-hover;
+  }
 }
 
 .plain {
