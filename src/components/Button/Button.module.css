@@ -7,13 +7,13 @@
   @apply inline-block;
   @apply select-none;
 
-  &:hover:not(.disabled) {
-    @apply bg-brand-hover;
-  }
-
   &:focus {
     @apply outline-none;
     @apply shadow-outline-brand;
+  }
+
+  &:hover:not(.disabled) {
+    @apply bg-brand-hover;
   }
 
   span {
@@ -56,12 +56,12 @@
 .plain {
   @apply bg-white border-transparent text-carbon-80%;
 
-  &:hover:not(.disabled) {
-    @apply bg-arctic;
-  }
-
   &:focus {
     @apply shadow-outline;
+  }
+
+  &:hover:not(.disabled) {
+    @apply bg-arctic;
   }
 }
 
@@ -69,12 +69,12 @@
   composes: plain;
   @apply border-arctic;
 
-  &:hover:not(.disabled) {
-    @apply border-carbon-20%;
-  }
-
   &:focus {
     @apply border-arctic;
+  }
+
+  &:hover:not(.disabled) {
+    @apply border-carbon-20%;
   }
 }
 
