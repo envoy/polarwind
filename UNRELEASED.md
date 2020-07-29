@@ -11,6 +11,10 @@
 
 ### Bug fixes
 
+- Removed an unnecessary margin-top from Heading
+
+- A couple tweaks to disabled buttons to make it more usable against on a transparent Page
+
 ### Documentation
 
 ### Development workflow
