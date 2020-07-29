@@ -5,6 +5,7 @@
   @apply self-center;
   @apply bg-brand border-brand;
   @apply inline-block;
+  @apply select-none;
 
   &:hover:not(.disabled) {
     @apply bg-brand-hover;
