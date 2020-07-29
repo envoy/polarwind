@@ -25,7 +25,7 @@ import { FiTrash2 } from "react-icons/fi";
       withSmartKnobs({ ignoreProps: ["children", "icon", "className"] }),
     ]}
   >
-    <Button>{text("label", "Add product")}</Button>
+    <Button brand>{text("label", "Add product")}</Button>
   </Story>
 </Preview>
 
@@ -40,8 +40,8 @@ Apart from the standard button, we support slim and large variant buttons.
 <Preview>
   <Story name="Sizes">
     <Stack alignment="center" distribution="equalSpacingAround">
-      <Button size="slim">Add product</Button>
-      <Button size="large">Add product</Button>
+      <Button brand size="slim">Add product</Button>
+      <Button brand size="large">Add product</Button>
     </Stack>
   </Story>
 </Preview>
@@ -57,7 +57,7 @@ style can be used for tertiary actions.
     <div style={{ backgroundColor: "#f6f6f9", padding: "1rem" }}>
       <Stack distribution="equalSpacingAround">
         <ButtonGroup>
-          <Button>Invite</Button>
+          <Button brand>Invite</Button>
           <Button brandOutline>Invite</Button>
           <Button outline>Invite and add another</Button>
         </ButtonGroup>
@@ -75,7 +75,7 @@ condition has not been fulfilled, for example, when a form has a validation erro
 <Preview>
   <Story name="Disabled">
     <Stack distribution="equalSpacingAround">
-      <Button disabled>Add product</Button>
+      <Button brand disabled>Add product</Button>
       <Button brandOutline disabled>
         Add product
       </Button>
@@ -102,11 +102,11 @@ supported on the slim and normal buttons.
     }}
   >
     <Stack alignment="center" distribution="equalSpacingAround">
-      <Button size="slim" icon={FiTrash2}>
+      <Button brand size="slim" icon={FiTrash2}>
         Delete
       </Button>
-      <Button icon={FiTrash2}>Delete</Button>
-      <Button size="large" icon={FiTrash2}>
+      <Button brand icon={FiTrash2}>Delete</Button>
+      <Button brand size="large" icon={FiTrash2}>
         Delete
       </Button>
     </Stack>
@@ -121,8 +121,8 @@ navigational link)
 <Preview>
   <Story name="URL">
     <Stack distribution="equalSpacingAround">
-      <Button url="https://www.google.com">Visit</Button>
-      <Button disabled url="https://www.google.com">
+      <Button brand url="https://www.google.com">Visit</Button>
+      <Button brand disabled url="https://www.google.com">
         Visit
       </Button>
       <Button brandOutline url="https://www.google.com">
@@ -155,16 +155,16 @@ that it should download the file instead of navigating to it.
 <Preview>
   <Story name="Download">
     <Stack distribution="equalSpacingAround">
-      <Button url="https://www.google.com" download>
+      <Button brand url="https://www.google.com" download>
         Download Google homepage
       </Button>
-      <Button url="https://www.google.com" download="google.html">
+      <Button brand url="https://www.google.com" download="google.html">
         Customize the filename
       </Button>
-      <Button url="https://www.google.com" download={false}>
+      <Button brand url="https://www.google.com" download={false}>
         Download set to false
       </Button>
-      <Button download>No effect on non-URL button</Button>
+      <Button brand download>No effect on non-URL button</Button>
     </Stack>
   </Story>
 </Preview>

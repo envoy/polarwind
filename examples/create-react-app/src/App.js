@@ -58,7 +58,7 @@ function App() {
           <TextField label="Private notes" multiline={3} />
           <Stack distribution="equalSpacing">
             <ButtonGroup>
-              <Button>Invite</Button>
+              <Button brand>Invite</Button>
               <Button outline>Invite and add another</Button>
             </ButtonGroup>
             <Button plain>Cancel</Button>
