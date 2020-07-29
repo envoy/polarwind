@@ -4,11 +4,15 @@
   @apply px-4 py-2.75;
   @apply self-center;
   @apply inline-block;
-  @apply bg-carbon-80%;
+  @apply select-none;
 
   &:focus {
     @apply outline-none;
     @apply shadow-outline-brand;
+  }
+
+  &:hover:not(.disabled) {
+    @apply bg-brand-hover;
   }
 
   span {
@@ -44,27 +48,19 @@
 }
 
 .disabled {
-  @apply opacity-50;
+  @apply opacity-65;
   @apply cursor-not-allowed;
-}
-
-.brand {
-  @apply bg-brand border-brand;
-
-  &:hover {
-    @apply bg-brand-hover;
-  }
 }
 
 .plain {
   @apply bg-white border-transparent text-carbon-80%;
 
-  &:hover {
-    @apply bg-arctic;
-  }
-
   &:focus {
     @apply shadow-outline;
+  }
+
+  &:hover:not(.disabled) {
+    @apply bg-arctic;
   }
 }
 
@@ -72,19 +68,19 @@
   composes: plain;
   @apply border-arctic;
 
-  &:hover {
-    @apply border-carbon-20%;
-  }
-
   &:focus {
     @apply border-arctic;
+  }
+
+  &:hover:not(.disabled) {
+    @apply border-carbon-20%;
   }
 }
 
 .brandOutline {
   @apply text-brand bg-white;
 
-  &:hover {
+  &:hover:not(.disabled) {
     @apply bg-brand-lightest;
   }
 

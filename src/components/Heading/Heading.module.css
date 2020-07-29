@@ -1,6 +1,6 @@
 /* 16px */
 .Heading {
-  @apply text-carbon-100% font-bold mt-1;
+  @apply text-carbon-100% font-bold;
 }
 
 /* 30px */
