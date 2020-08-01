@@ -3,15 +3,11 @@
 }
 
 .transparent {
-  @apply bg-transparent;
+  @apply bg-transparent p-0;
 }
 
 .wrapper {
   @apply bg-arctic-50% p-8 min-h-full flex flex-col;
-
-  .transparent {
-    @apply p-0;
-  }
 }
 
 .withHeader {
