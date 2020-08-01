@@ -15,9 +15,6 @@
 
 - A couple tweaks to disabled buttons to make it more usable against on a transparent Page
 
-- Removed padding from transparent Page when embedded because the host would have already
-  added margins around the iframe
-
 ### Documentation
 
 ### Development workflow
