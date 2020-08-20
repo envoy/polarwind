@@ -21,6 +21,8 @@
 
 ### Dependency upgrades
 
+- Upgraded to tailwindcss 1.7.3
+
 ### Code quality
 
 ### Deprecations
