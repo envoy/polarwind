@@ -1,9 +1,5 @@
 .Link {
-  @apply text-pacific;
-
-  &:hover {
-    @apply underline;
-  }
+  @apply text-pacific hover:underline;
 }
 
 .underlined {
