@@ -6,14 +6,11 @@
   @apply bg-brand border-brand;
   @apply inline-block;
   @apply select-none;
+  @apply focus:outline-none;
+  @apply focus:shadow-outline-brand;
 
-  &:focus {
-    @apply outline-none;
-    @apply shadow-outline-brand;
-  }
-
-  &:hover:not(.disabled) {
-    @apply bg-brand-hover;
+  &:not(.disabled) {
+    @apply hover:bg-brand-hover;
   }
 
   span {
@@ -55,37 +52,31 @@
 
 .plain {
   @apply bg-white border-transparent text-carbon-80%;
+  @apply focus:shadow-outline;
 
-  &:focus {
-    @apply shadow-outline;
-  }
-
-  &:hover:not(.disabled) {
-    @apply bg-arctic;
+  &:not(.disabled) {
+    @apply hover:bg-arctic;
   }
 }
 
 .outline {
   composes: plain;
   @apply border-arctic;
+  @apply focus:border-arctic;
 
-  &:focus {
-    @apply border-arctic;
-  }
-
-  &:hover:not(.disabled) {
-    @apply border-carbon-20%;
+  &:not(.disabled) {
+    @apply hover:border-carbon-20%;
   }
 }
 
 .brandOutline {
   @apply text-brand bg-white;
 
-  &:hover:not(.disabled) {
-    @apply bg-brand-lightest;
+  &:not(.disabled) {
+    @apply hover:bg-brand-lightest;
   }
 
-  &:focus:not(:hover) {
-    @apply bg-transparent;
+  &:not(:hover) {
+    @apply focus:bg-transparent;
   }
 }
