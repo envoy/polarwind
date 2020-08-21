@@ -122,13 +122,8 @@ module.exports = {
         65: ".65",
       },
       spacing: {
-        1.5: "0.375rem",
         2.5: "0.604rem",
         2.75: "0.6666rem",
-        3.5: "0.9165rem",
-        7: "1.75rem",
-        9: "2.25rem",
-        15: "3.75rem",
       },
     },
     customForms: (theme) => ({
@@ -247,5 +242,6 @@ module.exports = {
   },
   experimental: {
     applyComplexClasses: true,
+    extendedSpacingScale: true,
   },
 };
