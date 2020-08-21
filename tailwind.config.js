@@ -217,6 +217,7 @@ module.exports = {
   },
   variants: {
     borderRadius: [...config.variants.borderRadius, "first", "last"],
+    borderWidth: [...config.variants.borderWidth, "hover"],
     margin: [...config.variants.margin, "first"],
   },
   plugins: [
