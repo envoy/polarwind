@@ -8,6 +8,23 @@ The format is based on [these versioning and changelog guidelines](https://git.i
 
 ---
 
+## 1.6.1 - 2020-08-24
+
+### Enhancements
+
+- Add a `size` prop to Heading with the values `small`, `medium` (default), `large` and
+  `extraLarge`
+
+### Bug fixes
+
+- Removed an unnecessary margin-top from Heading
+
+- A couple tweaks to disabled buttons to make it more usable against on a transparent Page
+
+### Dependency upgrades
+
+- Upgraded to tailwindcss 1.7.3
+
 ## 1.5.0 - 2020-07-25
 
 ### Breaking changes
