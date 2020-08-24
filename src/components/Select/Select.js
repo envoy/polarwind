@@ -45,6 +45,8 @@ function CustomSelect({
   );
 
   const { buttonProps } = useButton(triggerProps, ref);
+  // workaround for bug https://twitter.com/devongovett/status/1298033200644513793?s=20
+  buttonProps.onKeyDownCapture = triggerProps.onKeyDownCapture;
 
   return (
     <Labeled
