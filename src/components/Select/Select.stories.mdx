@@ -7,7 +7,7 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
-import { Select } from "./Select";
+import { Select, CustomSelect, Item } from "./Select";
 
 <Meta
   title="Components | Forms / Select"
@@ -193,5 +193,17 @@ Also supports a `disabled` attribute.
         { label: "Large", value: "l" },
       ]}
     />
+  </Story>
+</Preview>
+
+# Custom Select
+
+<Preview>
+  <Story name="Custom select">
+    <CustomSelect label="Size">
+      <Item key="s">Small</Item>
+      <Item key="m">Medium</Item>
+      <Item key="l">Large</Item>
+    </CustomSelect>
   </Story>
 </Preview>
