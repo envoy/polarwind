@@ -1548,6 +1548,19 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@react-aria/button@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/button/-/button-3.2.1.tgz#d1c65ddbd47a7a7349321a72f013b98034812a40"
+  integrity sha512-mdfRw1MK0B+ue3AxLbwegcwH7HKTjGDrKrQ9R4J56fKq8S4RkQApUwYwVFxvQI4Hrlsod5e7SCDClYgQhTEHUA==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/focus" "^3.2.0"
+    "@react-aria/i18n" "^3.1.0"
+    "@react-aria/interactions" "^3.2.0"
+    "@react-aria/utils" "^3.2.0"
+    "@react-stately/toggle" "^3.2.0"
+    "@react-types/button" "^3.2.0"
+
 "@react-aria/focus@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.2.0.tgz#d855c6a176ae9bb22af77b71a4eed197421d6d57"
@@ -1733,6 +1746,16 @@
     "@react-stately/utils" "^3.1.0"
     "@react-types/shared" "^3.2.0"
 
+"@react-stately/toggle@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/toggle/-/toggle-3.2.0.tgz#35a9edcd1c47bfb9d2744d9fb08cfd6d7cb14b9b"
+  integrity sha512-NQUP1WrIxQcB466PueZNJLcNoN1RJ42k/RjZRVvNyeSmnqJ6EwCylT5ZR3rUR/8T4Uggu+99laNkERFifnSlyQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/utils" "^3.1.0"
+    "@react-types/checkbox" "^3.1.0"
+    "@react-types/shared" "^3.2.0"
+
 "@react-stately/tree@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@react-stately/tree/-/tree-3.1.1.tgz#dad0fae9562afc41dd7cae4f0124253a5dbe03a3"
@@ -1757,6 +1780,13 @@
   integrity sha512-KwNE33u13nMq1c5At9clr4Hcl+UkL1wUWWGeMl3Q2t19TI7z7nDjb02wJdxs2uKXBgc4FT2ln53i0K1AQ1JZ0w==
   dependencies:
     "@react-types/shared" "^3.2.0"
+
+"@react-types/checkbox@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.1.0.tgz#fd8b35d5b672451f2b694d43f30f13011f5a8fd9"
+  integrity sha512-XOaoot5ArkxcDuo1aOsGr1BR4MjOBgHy3obs5d3M2FrlF1B7JBmWQMpzinIW+Zs6J0BOOMdqB19zOaCFCORMcw==
+  dependencies:
+    "@react-types/shared" "^3.1.0"
 
 "@react-types/label@^3.1.0":
   version "3.2.0"
