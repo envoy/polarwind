@@ -38,11 +38,7 @@ function CustomSelect({
   };
   const state = useSelectState(props);
   const ref = useRef();
-  const { labelProps, menuProps, triggerProps, valueProps } = useSelect(
-    props,
-    state,
-    ref
-  );
+  const { menuProps, triggerProps, valueProps } = useSelect(props, state, ref);
 
   const { buttonProps } = useButton(triggerProps, ref);
   // workaround for bug https://twitter.com/devongovett/status/1298033200644513793?s=20
@@ -50,7 +46,6 @@ function CustomSelect({
 
   return (
     <Labeled
-      {...labelProps}
       className={styles.Label}
       error={error}
       helpText={helpText}
