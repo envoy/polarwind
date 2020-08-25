@@ -1,5 +1,5 @@
 .Select {
-  @apply block w-full;
+  @apply block w-full text-left;
 }
 
 .Label {

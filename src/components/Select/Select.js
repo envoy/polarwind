@@ -198,6 +198,25 @@ const Select = ({
     value,
   };
 
+  const ref = useRef();
+  const props = { children: buildOptionsChildren(options) };
+  const state = useSelectState(props);
+  const { menuProps, triggerProps, valueProps } = useSelect(props, state, ref);
+  const { buttonProps } = useButton(triggerProps, ref);
+  buttonProps.onKeyDownCapture = triggerProps.onKeyDownCapture;
+
+  const activator = (
+    <button {...buttonProps} className={className} ref={ref}>
+      <span {...valueProps}>
+        {state.selectedItem ? state.selectedItem.rendered : "Select an option"}
+      </span>
+    </button>
+  );
+
+  const optionsMarkup = state.isOpen && (
+    <OptionList {...menuProps} state={state} />
+  );
+
   return (
     <Labeled
       className={styles.Label}
@@ -208,10 +227,43 @@ const Select = ({
       required={required}
       success={success}
     >
+      <HiddenSelect
+        isDisabled={disabled}
+        label={label}
+        state={state}
+        triggerRef={ref}
+      />
+      {activator}
+      {optionsMarkup}
       <select {...inputProps}>{options.map(renderOption)}</select>
     </Labeled>
   );
 };
+
+function buildOptionsChildren(options) {
+  return options.map((option) => (
+    <Item key={option.value}>{option.label}</Item>
+  ));
+}
+
+/* eslint-disable react/prop-types */
+function OptionList({ state, ...menuProps }) {
+  const ref = useRef();
+  const { listBoxProps } = useListBox(
+    { autoFocus: state.focusStrategy },
+    state,
+    ref
+  );
+
+  return (
+    <ul {...mergeProps(listBoxProps, menuProps)} ref={ref}>
+      {[...state.collection].map((item) => (
+        <Option item={item} key={item.key} state={state} />
+      ))}
+    </ul>
+  );
+}
+/* eslint-enable */
 
 Select.propTypes = {
   /** Disable the input */
