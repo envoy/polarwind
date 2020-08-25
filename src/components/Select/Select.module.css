@@ -2,7 +2,7 @@
   @apply block w-full text-left;
 
   &:disabled {
-    @apply opacity-65;
+    @apply opacity-65 pointer-events-none;
   }
 }
 
