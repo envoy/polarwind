@@ -178,8 +178,8 @@ const Select = ({
   const handleBlur = () => {
     onBlur && onBlur();
   };
-  const handleChange = (event) => {
-    onChange && onChange(event.currentTarget.value);
+  const handleChange = (value) => {
+    onChange && onChange(value);
   };
 
   const className = cx({
@@ -204,6 +204,7 @@ const Select = ({
     children: buildOptionsChildren(options),
     defaultSelectedKey: value,
     isDisabled: disabled,
+    onSelectionChange: handleChange,
   };
   const state = useSelectState(props);
   const { menuProps, triggerProps, valueProps } = useSelect(props, state, ref);
