@@ -9,11 +9,13 @@ import { Item } from "@react-stately/collections";
 import { useSelectState } from "@react-stately/select";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Labeled } from "../Labeled";
 import styles from "./Select.module.css";
 
 const cx = classnames.bind(styles);
+
+const EMPTY_STRING_ALT = "__EMPTY_STRING__";
 
 /* eslint-disable react/prop-types */
 function CustomSelect({
@@ -180,7 +182,7 @@ const Select = ({
     onBlur && onBlur();
   };
   const handleChange = (value) => {
-    onChange && onChange(value);
+    onChange && onChange(replaceAlternativeWithEmptyString(value));
   };
 
   const className = cx({
@@ -208,6 +210,7 @@ const Select = ({
     onSelectionChange: handleChange,
   };
   const state = useSelectState(props);
+  // TODO support sections
   const { menuProps, triggerProps, valueProps } = useSelect(props, state, ref);
   const { buttonProps } = useButton(
     { isDisabled: disabled, ...triggerProps },
@@ -215,14 +218,20 @@ const Select = ({
   );
   buttonProps.onKeyDownCapture = triggerProps.onKeyDownCapture;
 
-  // TODO robust handling of first item in options if default value is not provided, or
-  // use the option whose value is "" to mimic browser behavior. this probably exists or
-  // is a gap in react-aria
+  // Emulate browser selection heuristics when a controlled value is not set, or an
+  // uncontrolled selection is not set via a selected attribute on one of the options
+  useEffect(() => {
+    if (!state.selectedItem) {
+      const firstKey = state.collection.getFirstKey();
+      if (firstKey !== null) {
+        state.setSelectedKey(firstKey);
+      }
+    }
+  }, [state]);
+
   const activatorMarkup = (
     <button {...buttonProps} className={className} ref={ref}>
-      <span {...valueProps}>
-        {state.selectedItem ? state.selectedItem.rendered : "Select an option"}
-      </span>
+      <span {...valueProps}>{state.selectedItem?.rendered}</span>
     </button>
   );
 
@@ -248,17 +257,29 @@ const Select = ({
       />
       {activatorMarkup}
       {optionsMarkup}
-      <select {...inputProps}>{options.map(renderOption)}</select>
     </Labeled>
   );
 };
 
+// Temporary workaround for a bug with react-aria/select when dealing with empty string
+// keys https://github.com/adobe/react-spectrum/issues/1016
+function replaceEmptyStringWithAlternative(str) {
+  return str === "" ? EMPTY_STRING_ALT : str;
+}
+
+function replaceAlternativeWithEmptyString(str) {
+  return str === EMPTY_STRING_ALT ? "" : str;
+}
+
 function buildOptionsChildren(options) {
   return options.map((option) =>
     typeof option === "string" ? (
-      <Item key={option}>{option}</Item>
+      <Item key={replaceEmptyStringWithAlternative(option)}>{option}</Item>
     ) : (
-      <Item key={option.value}>{option.label}</Item>
+      // TODO support disabled
+      <Item key={replaceEmptyStringWithAlternative(option.value)}>
+        {option.label}
+      </Item>
     )
   );
 }
