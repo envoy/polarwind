@@ -172,6 +172,7 @@ const Select = ({
   success,
   value,
 }) => {
+  // TODO attach onFocus and onBlur handlers
   const handleFocus = () => {
     onFocus && onFocus();
   };
