@@ -1,8 +1,6 @@
 import { useButton } from "@react-aria/button";
-import { FocusScope } from "@react-aria/focus";
 import { useFocus } from "@react-aria/interactions";
 import { useListBox, useOption } from "@react-aria/listbox";
-import { DismissButton, useOverlay } from "@react-aria/overlays";
 import { HiddenSelect, useSelect } from "@react-aria/select";
 import { mergeProps } from "@react-aria/utils";
 import { Item } from "@react-stately/collections";
@@ -45,32 +43,6 @@ function Option({ item, state }) {
 }
 /* eslint-enable */
 
-function renderOption(option) {
-  const { disabled, label, options, title, value } = option;
-
-  if (label && typeof value === "string") {
-    return (
-      <option disabled={disabled} key={value} value={value}>
-        {label}
-      </option>
-    );
-  }
-
-  if (title && options) {
-    return (
-      <optgroup key={title} label={title}>
-        {options.map(renderOption)}
-      </optgroup>
-    );
-  }
-
-  return (
-    <option key={option} value={option}>
-      {option}
-    </option>
-  );
-}
-
 /**
  * Select lets users choose one option from an options menu. Consider select when you have
  * 4 or more options, to avoid cluttering the interface.
@@ -106,15 +78,6 @@ const Select = ({
     error,
     "form-select": true,
   });
-
-  const inputProps = {
-    className,
-    disabled,
-    onBlur: handleBlur,
-    onChange: handleChange,
-    onFocus: handleFocus,
-    value,
-  };
 
   const ref = useRef();
   const props = {
