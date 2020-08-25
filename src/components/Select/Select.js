@@ -200,6 +200,7 @@ const Select = ({
 
   const ref = useRef();
   const props = {
+    "aria-label": label,
     children: buildOptionsChildren(options),
     defaultSelectedKey: value,
     isDisabled: disabled,
@@ -224,7 +225,7 @@ const Select = ({
   );
 
   const optionsMarkup = state.isOpen && (
-    <OptionList {...menuProps} state={state} />
+    <OptionList {...menuProps} label={label} state={state} />
   );
 
   return (
@@ -258,10 +259,10 @@ function buildOptionsChildren(options) {
 }
 
 /* eslint-disable react/prop-types */
-function OptionList({ state, ...menuProps }) {
+function OptionList({ label, state, ...menuProps }) {
   const ref = useRef();
   const { listBoxProps } = useListBox(
-    { autoFocus: state.focusStrategy },
+    { autoFocus: state.focusStrategy, label },
     state,
     ref
   );
