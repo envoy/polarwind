@@ -36,6 +36,7 @@ function Option({ item, state }) {
   const [, setFocused] = useState(false);
   const { focusProps } = useFocus({ onFocusChange: setFocused });
 
+  // TODO style disabled item
   return (
     <li {...mergeProps(optionProps, focusProps)} ref={ref}>
       {item.rendered}
@@ -120,6 +121,7 @@ const Select = ({
     "aria-label": label,
     children: buildOptionsChildren(options),
     defaultSelectedKey: value,
+    disabledKeys: buildDisabledKeys(options),
     isDisabled: disabled,
     onSelectionChange: handleChange,
   };
@@ -185,12 +187,17 @@ function replaceAlternativeWithEmptyString(str) {
   return str === EMPTY_STRING_ALT ? "" : str;
 }
 
+function buildDisabledKeys(options) {
+  return options
+    .filter((option) => option.disabled)
+    .map((option) => option.value);
+}
+
 function buildOptionsChildren(options) {
   return options.map((option) =>
     typeof option === "string" ? (
       <Item key={replaceEmptyStringWithAlternative(option)}>{option}</Item>
     ) : (
-      // TODO support disabled
       <Item key={replaceEmptyStringWithAlternative(option.value)}>
         {option.label}
       </Item>
