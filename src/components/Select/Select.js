@@ -18,92 +18,6 @@ const cx = classnames.bind(styles);
 const EMPTY_STRING_ALT = "__EMPTY_STRING__";
 
 /* eslint-disable react/prop-types */
-function CustomSelect({
-  children,
-  disabled,
-  error,
-  helpText,
-  label,
-  labelHidden,
-  required,
-  success,
-  value,
-  ...otherProps
-}) {
-  const props = {
-    ...otherProps,
-    children,
-    defaultSelectedKey: value,
-    isDisabled: disabled,
-    isRequired: required,
-    label,
-  };
-  const state = useSelectState(props);
-  const ref = useRef();
-  const { menuProps, triggerProps, valueProps } = useSelect(props, state, ref);
-
-  const { buttonProps } = useButton(triggerProps, ref);
-  // workaround for bug https://twitter.com/devongovett/status/1298033200644513793?s=20
-  buttonProps.onKeyDownCapture = triggerProps.onKeyDownCapture;
-
-  return (
-    <Labeled
-      className={styles.Label}
-      error={error}
-      helpText={helpText}
-      hidden={labelHidden}
-      label={label}
-      required={required}
-      success={success}
-    >
-      <HiddenSelect
-        isDisabled={disabled}
-        label={label}
-        state={state}
-        triggerRef={ref}
-      />
-      <button {...buttonProps} className="form-select" ref={ref}>
-        <span {...valueProps}>{state.selectedItem?.rendered}</span>
-      </button>
-      {state.isOpen && <ListBoxPopup {...menuProps} state={state} />}
-    </Labeled>
-  );
-}
-
-function ListBoxPopup({ state, ...otherProps }) {
-  const ref = useRef();
-  const { listBoxProps } = useListBox(
-    {
-      autoFocus: state.focusStrategy,
-    },
-    state,
-    ref
-  );
-
-  // overlay
-  const overlayRef = useRef();
-  const { overlayProps } = useOverlay({
-    isDismissable: true,
-    isOpen: state.isOpen,
-    onClose: () => state.close(),
-    shouldCloseOnBlur: true,
-  });
-
-  return (
-    <FocusScope restoreFocus>
-      <div {...overlayProps} ref={overlayRef}>
-        <DismissButton onDismiss={() => state.close()} />
-        <ul {...mergeProps(listBoxProps, otherProps)} ref={ref}>
-          {[...state.collection].map((item) => {
-            return <Option item={item} key={item.key} state={state} />;
-          })}
-        </ul>
-        <DismissButton onDismiss={() => state.close()} />
-      </div>
-    </FocusScope>
-  );
-}
-
 function Option({ item, state }) {
   const ref = useRef();
   const isDisabled = state.disabledKeys.has(item.key);
@@ -354,4 +268,4 @@ Select.propTypes = {
   value: PropTypes.string,
 };
 
-export { Select, CustomSelect, Item };
+export { Select };
