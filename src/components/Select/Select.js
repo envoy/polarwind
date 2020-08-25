@@ -217,7 +217,7 @@ const Select = ({
   // TODO robust handling of first item in options if default value is not provided, or
   // use the option whose value is "" to mimic browser behavior. this probably exists or
   // is a gap in react-aria
-  const activator = (
+  const activatorMarkup = (
     <button {...buttonProps} className={className} ref={ref}>
       <span {...valueProps}>
         {state.selectedItem ? state.selectedItem.rendered : "Select an option"}
@@ -245,7 +245,7 @@ const Select = ({
         state={state}
         triggerRef={ref}
       />
-      {activator}
+      {activatorMarkup}
       {optionsMarkup}
       <select {...inputProps}>{options.map(renderOption)}</select>
     </Labeled>
