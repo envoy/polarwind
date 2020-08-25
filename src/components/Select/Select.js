@@ -252,11 +252,14 @@ const Select = ({
   );
 };
 
-// TODO handle options being an array of strings
 function buildOptionsChildren(options) {
-  return options.map((option) => (
-    <Item key={option.value}>{option.label}</Item>
-  ));
+  return options.map((option) =>
+    typeof option === "string" ? (
+      <Item key={option}>{option}</Item>
+    ) : (
+      <Item key={option.value}>{option.label}</Item>
+    )
+  );
 }
 
 /* eslint-disable react/prop-types */
