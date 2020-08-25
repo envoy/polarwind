@@ -199,12 +199,22 @@ const Select = ({
   };
 
   const ref = useRef();
-  const props = { children: buildOptionsChildren(options) };
+  const props = {
+    children: buildOptionsChildren(options),
+    defaultSelectedKey: value,
+    isDisabled: disabled,
+  };
   const state = useSelectState(props);
   const { menuProps, triggerProps, valueProps } = useSelect(props, state, ref);
-  const { buttonProps } = useButton(triggerProps, ref);
+  const { buttonProps } = useButton(
+    { isDisabled: disabled, ...triggerProps },
+    ref
+  );
   buttonProps.onKeyDownCapture = triggerProps.onKeyDownCapture;
 
+  // TODO robust handling of first item in options if default value is not provided, or
+  // use the option whose value is "" to mimic browser behavior. this probably exists or
+  // is a gap in react-aria
   const activator = (
     <button {...buttonProps} className={className} ref={ref}>
       <span {...valueProps}>
@@ -240,6 +250,7 @@ const Select = ({
   );
 };
 
+// TODO handle options being an array of strings
 function buildOptionsChildren(options) {
   return options.map((option) => (
     <Item key={option.value}>{option.label}</Item>

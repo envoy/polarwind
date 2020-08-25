@@ -1,5 +1,9 @@
 .Select {
   @apply block w-full text-left;
+
+  &:disabled {
+    @apply opacity-65;
+  }
 }
 
 .Label {
