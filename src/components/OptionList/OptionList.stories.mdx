@@ -1,0 +1,37 @@
+import {
+  Meta,
+  Story,
+  Props,
+  Description,
+  Preview,
+} from "@storybook/addon-docs/blocks";
+import { OptionList } from "./OptionList";
+
+<Meta
+  title="Components | Lists and tables / Option list"
+  component={OptionList}
+/>
+
+# Option list
+
+<Description of={OptionList} />
+
+<Preview withToolbar>
+  <Story name="Example">
+    <OptionList
+      options={[
+        { label: "Small", value: "s" },
+        { label: "Medium", value: "m" },
+        { label: "Large", value: "l" },
+      ]}
+    />
+  </Story>
+</Preview>
+
+<Props of={OptionList} />
+
+## Usage
+
+### Default Option list
+
+FIXME: Use to

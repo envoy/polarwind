@@ -1,0 +1,7 @@
+.OptionList {
+  @apply shadow-large rounded-md p-1 bg-white;
+
+  & li {
+    @apply rounded-md p-2;
+  }
+}
