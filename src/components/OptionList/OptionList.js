@@ -7,20 +7,32 @@ const cx = classnames.bind(styles);
 /**
  * FIXME: Description of OptionList
  */
-export const OptionList = ({ options }) => {
+export const OptionList = ({ options, selected }) => {
   const className = cx({
     OptionList: true,
   });
+
   return (
     <ul className={className}>
-      {options.map((option) => (
-        <li key={option.value}>{option.label}</li>
-      ))}
+      {options.map(({ label, value }) => {
+        const optionClassName = cx({
+          Option: true,
+          selected: selected.includes(value),
+        });
+
+        return (
+          <li className={optionClassName} key={value}>
+            {label}
+          </li>
+        );
+      })}
     </ul>
   );
 };
 
 OptionList.propTypes = {
+  /** Callback when selection is changed */
+  onChange: PropTypes.func.isRequired,
   /** List of options or option groups to choose from */
   options: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
@@ -47,4 +59,6 @@ OptionList.propTypes = {
       })
     ),
   ]),
+  /** The selected options */
+  selected: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
