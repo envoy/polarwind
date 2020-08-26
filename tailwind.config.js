@@ -228,6 +228,11 @@ module.exports = {
     fontSize: false,
     lineHeight: false,
     verticalAlign: false,
+    textOpacity: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
+    placeholderOpacity: false,
+    divideOpacity: false,
   },
   purge: {
     content: ["./src/**/*.js"],
