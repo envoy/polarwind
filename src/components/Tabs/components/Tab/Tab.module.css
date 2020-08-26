@@ -5,14 +5,10 @@
     @apply hover:text-carbon-80% hover:border-b-2 hover:border-carbon-20%;
   }
 
-  /* TODO: multiple classes applying a complex class currently doesn't work. will be fixed in tailwind 1.7.4 */
   button,
   a {
     @apply pb-1.5 block;
-
-    &:focus {
-      @apply outline-none;
-    }
+    @apply focus:outline-none;
 
     span {
       @apply align-sm;
