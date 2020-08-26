@@ -1,19 +1,16 @@
 .Button {
-  @apply rounded-md border border-transparent transition ease-in-out duration-150;
+  @apply rounded-md transition ease-in-out duration-150;
   @apply font-medium text-white text-base leading-base-normal;
   @apply px-4 py-2.75;
   @apply self-center;
-  @apply bg-brand border-brand;
+  @apply bg-brand hover:bg-brand-hover;
+  @apply border border-brand;
   @apply inline-block;
   @apply select-none;
-
-  &:focus {
-    @apply outline-none;
-    @apply shadow-outline-brand;
-  }
-
-  &:hover:not(.disabled) {
-    @apply bg-brand-hover;
+  @apply focus:outline-none;
+  @apply focus:shadow-outline-brand;
+  &.disabled {
+    @apply hover:bg-brand;
   }
 
   span {
@@ -54,38 +51,26 @@
 }
 
 .plain {
-  @apply bg-white border-transparent text-carbon-80%;
-
-  &:focus {
-    @apply shadow-outline;
-  }
-
-  &:hover:not(.disabled) {
-    @apply bg-arctic;
+  @apply border-transparent text-carbon-80%;
+  @apply bg-white hover:bg-arctic;
+  @apply focus:shadow-outline;
+  &.disabled {
+    @apply hover:bg-white;
   }
 }
 
 .outline {
   composes: plain;
-  @apply border-arctic;
-
-  &:focus {
-    @apply border-arctic;
-  }
-
-  &:hover:not(.disabled) {
-    @apply border-carbon-20%;
+  @apply border-arctic hover:border-carbon-20% focus:border-arctic;
+  &.disabled {
+    @apply hover:border-arctic;
   }
 }
 
 .brandOutline {
-  @apply text-brand bg-white;
-
-  &:hover:not(.disabled) {
-    @apply bg-brand-lightest;
-  }
-
-  &:focus:not(:hover) {
-    @apply bg-transparent;
+  @apply text-brand;
+  @apply bg-white hover:bg-brand-lightest focus:bg-transparent;
+  &.disabled {
+    @apply hover:bg-white;
   }
 }

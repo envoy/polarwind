@@ -4352,10 +4352,15 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30000989, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001111:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30000989:
   version "1.0.30001116"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001116.tgz#f3a3dea347f9294a3bdc4292309039cc84117fb8"
   integrity sha512-f2lcYnmAI5Mst9+g0nkMIznFGsArRmZ0qU+dnq8l91hymdc2J3SFbiPhOJEeDqC1vtE8nc1qNQyklzB8veJefQ==
+
+caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001111:
+  version "1.0.30001118"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001118.tgz#116a9a670e5264aec895207f5e918129174c6f62"
+  integrity sha512-RNKPLojZo74a0cP7jFMidQI7nvLER40HgNfgKQEJ2PFm225L0ectUungNQoK3Xk3StQcFbpBPNEvoWD59436Hg==
 
 capital-case@^1.0.3:
   version "1.0.3"
@@ -5966,10 +5971,15 @@ ejs@^2.7.4:
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
-electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.523:
+electron-to-chromium@^1.3.247:
   version "1.3.539"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.539.tgz#9952fb0bf3fb4295282e7df35f6e7a2a8b89d3fd"
   integrity sha512-rM0LWDIstdqfaRUADZetNrL6+zd/0NBmavbMEhBXgc2u/CC1d1GaDyN5hho29fFvBiOVFwrSWZkzmNcZnCEDog==
+
+electron-to-chromium@^1.3.523:
+  version "1.3.549"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.549.tgz#bf500c8eb75a7286a895e34f41aa144384ac613b"
+  integrity sha512-q09qZdginlqDH3+Y1P6ch5UDTW8nZ1ijwMkxFs15J/DAWOwqolIx8HZH1UP0vReByBigk/dPlU22xS1MaZ+kpQ==
 
 element-resize-detector@^1.2.1:
   version "1.2.1"
@@ -15350,10 +15360,10 @@ table@^5.2.3, table@^5.4.6:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.7.3.tgz#4aa53a482c8060e12a4a477caad562a4af0bfb16"
-  integrity sha512-e6o/qhn80hcJ+cB1jIK3C1xlDPkFHU98c2m4ONMfeIOf8jvKQ+bowD39QKsWN+JMOvfATtMjgScpjSaqO1hffQ==
+tailwindcss@^1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.7.4.tgz#3992c5cda50887da3f5e108388a58f199aa52a40"
+  integrity sha512-DEQ87VQdMkbjd+CpuAbcTS2lD/4zkTYsEadzY1bAynNgsKncN9bm6JgiPN4Bv7WT+620kvvHvHlSPr074aBsRA==
   dependencies:
     "@fullhuman/postcss-purgecss" "^2.1.2"
     autoprefixer "^9.4.5"

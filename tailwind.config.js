@@ -122,13 +122,8 @@ module.exports = {
         65: ".65",
       },
       spacing: {
-        1.5: "0.375rem",
         2.5: "0.604rem",
         2.75: "0.6666rem",
-        3.5: "0.9165rem",
-        7: "1.75rem",
-        9: "2.25rem",
-        15: "3.75rem",
       },
     },
     customForms: (theme) => ({
@@ -217,6 +212,7 @@ module.exports = {
   },
   variants: {
     borderRadius: [...config.variants.borderRadius, "first", "last"],
+    borderWidth: [...config.variants.borderWidth, "hover"],
     margin: [...config.variants.margin, "first"],
   },
   plugins: [
@@ -232,6 +228,11 @@ module.exports = {
     fontSize: false,
     lineHeight: false,
     verticalAlign: false,
+    textOpacity: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
+    placeholderOpacity: false,
+    divideOpacity: false,
   },
   purge: {
     content: ["./src/**/*.js"],
@@ -240,5 +241,12 @@ module.exports = {
         whitelistPatterns: [/^bg-/], // preserve bg- utilities for colors.stories.js
       }),
     },
+  },
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
+  experimental: {
+    applyComplexClasses: true,
+    extendedSpacingScale: true,
   },
 };

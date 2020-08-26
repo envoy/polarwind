@@ -20,9 +20,10 @@
 
 .standalone {
   @apply flex-auto;
+  @apply shadow-medium;
 
-  &:not(.transparent) {
-    @apply shadow-medium;
+  &.transparent {
+    @apply shadow-none;
   }
 }
 
