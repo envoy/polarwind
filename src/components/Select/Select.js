@@ -7,7 +7,7 @@ import { Item } from "@react-stately/collections";
 import { useSelectState } from "@react-stately/select";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Labeled } from "../Labeled";
 import styles from "./Select.module.css";
 
@@ -61,16 +61,26 @@ const Select = ({
   success,
   value,
 }) => {
-  // TODO attach onFocus and onBlur handlers
-  const handleFocus = () => {
-    onFocus && onFocus();
-  };
-  const handleBlur = () => {
-    onBlur && onBlur();
-  };
-  const handleChange = (value) => {
-    onChange && onChange(replaceAlternativeWithEmptyString(value));
-  };
+  const isFocused = useRef(false);
+
+  const handleFocus = useCallback(() => {
+    if (onFocus && !isFocused.current) {
+      onFocus();
+      isFocused.current = true;
+    }
+  }, [onFocus]);
+  const handleBlur = useCallback(() => {
+    if (onBlur && isFocused.current) {
+      onBlur();
+      isFocused.current = false;
+    }
+  }, [onBlur]);
+  const handleChange = useCallback(
+    (value) => {
+      onChange && onChange(replaceAlternativeWithEmptyString(value));
+    },
+    [onChange]
+  );
 
   const className = cx({
     Select: true,
@@ -107,6 +117,23 @@ const Select = ({
       }
     }
   }, [state]);
+
+  useEffect(() => {
+    // if the select is focused, we always call the handleFocus callback. this is not true
+    // for state.isOpen going from true to false, where we are merely opening and closing
+    // the menu while still having full focus on the select component
+    if (state.isFocused) {
+      handleFocus();
+    } else {
+      // workaround a bug(?) where isFocused is false when the focus moves from the button
+      // to the option list
+      if (state.isOpen) {
+        handleFocus();
+      } else {
+        handleBlur();
+      }
+    }
+  }, [state.isFocused, state.isOpen, handleFocus, handleBlur]);
 
   const activatorMarkup = (
     <button {...buttonProps} className={className} ref={ref}>
