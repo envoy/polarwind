@@ -1,14 +1,10 @@
 .Tab {
   @apply ml-6 text-sm text-carbon-65%;
-
-  &:not(.selected) {
-    @apply hover:text-carbon-80% hover:border-b-2 hover:border-carbon-20%;
-  }
+  @apply hover:text-carbon-80% hover:border-b-2 hover:border-carbon-20%;
 
   button,
   a {
-    @apply pb-1.5 block;
-    @apply focus:outline-none;
+    @apply pb-1.5 block focus:outline-none;
 
     span {
       @apply align-sm;
@@ -18,4 +14,7 @@
 
 .selected {
   @apply text-brand border-b-2 border-brand;
+
+  /* cancel out the general hover treatment */
+  @apply hover:text-brand hover:border-brand;
 }
