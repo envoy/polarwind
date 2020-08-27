@@ -1705,6 +1705,14 @@
     "@babel/runtime" "^7.6.2"
     "@react-types/shared" "^3.2.0"
 
+"@react-stately/data@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/data/-/data-3.1.0.tgz#314fc1baf8e53eff25f21c97ead98f95f276b9b6"
+  integrity sha512-moaZ0eEx90lkNShs6wNvrXuu2PuRntWsoI75bQtjJB0p7jqLuBf3gYKOVnrfPkVz+eAhcucpRPi/tL7AJtozrw==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-types/shared" "^3.1.0"
+
 "@react-stately/list@^3.1.0", "@react-stately/list@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.2.0.tgz#00846dc5bcec504e61617bb41c50d8c660b44c17"

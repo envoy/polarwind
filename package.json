@@ -55,6 +55,7 @@
     "@react-aria/button": "^3.2.1",
     "@react-aria/listbox": "^3.2.0",
     "@react-aria/select": "^3.2.0",
+    "@react-stately/data": "^3.1.0",
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-image": "^2.0.5",
     "@rollup/plugin-node-resolve": "^7.1.3",
