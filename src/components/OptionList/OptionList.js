@@ -59,6 +59,7 @@ export const OptionList = ({ allowMultiple, onChange, options, selected }) => {
 };
 
 OptionList.propTypes = {
+  /** Allow more than one option to be selected */
   allowMultiple: PropTypes.bool,
   /** Callback when selection is changed */
   onChange: PropTypes.func.isRequired,
