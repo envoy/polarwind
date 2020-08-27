@@ -33,7 +33,6 @@ export const OptionList = ({ allowMultiple, onChange, options, selected }) => {
         const isSelected = selected.includes(value);
         const optionClassName = cx({
           Option: true,
-          disabled,
         });
         const optionButtonClassName = cx({
           selected: isSelected,
