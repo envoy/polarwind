@@ -6,6 +6,7 @@ import {
   Preview,
 } from "@storybook/addon-docs/blocks";
 import { OptionList } from "./OptionList";
+import { useState } from "react";
 
 <Meta
   title="Components | Lists and tables / Option list"
@@ -18,14 +19,21 @@ import { OptionList } from "./OptionList";
 
 <Preview withToolbar>
   <Story name="Example">
-    <OptionList
-      options={[
-        { label: "Small", value: "s" },
-        { label: "Medium", value: "m" },
-        { label: "Large", value: "l" },
-      ]}
-      selected="s"
-    />
+    {() => {
+      const [selected, setSelected] = useState([]);
+      return (
+        <OptionList
+          options={[
+            { label: "Small", value: "s" },
+            { label: "Medium", value: "m" },
+            { label: "Large", value: "l", disabled: true },
+          ]}
+          selected={selected}
+          onChange={setSelected}
+          allowMultiple
+        />
+      );
+    }}
   </Story>
 </Preview>
 

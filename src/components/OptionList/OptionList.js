@@ -5,24 +5,53 @@ import styles from "./OptionList.module.css";
 const cx = classnames.bind(styles);
 
 /**
+ * Returns selected plus item if it doesn't already exist, or if it exists, return
+ * selected minus item.
+ *
+ * @param {string[]} selected
+ * @param {string} item
+ */
+function toggleSelected(selected, item) {
+  const index = selected.indexOf(item);
+
+  return index < 0
+    ? [...selected, item]
+    : [...selected.slice(0, index), ...selected.slice(index + 1)];
+}
+
+/**
  * FIXME: Description of OptionList
  */
-export const OptionList = ({ options, selected }) => {
+export const OptionList = ({ allowMultiple, onChange, options, selected }) => {
   const className = cx({
     OptionList: true,
   });
 
   return (
     <ul className={className}>
-      {options.map(({ label, value }) => {
+      {options.map(({ disabled, label, value }) => {
+        const isSelected = selected.includes(value);
         const optionClassName = cx({
           Option: true,
-          selected: selected.includes(value),
+          disabled,
+        });
+        const optionButtonClassName = cx({
+          selected: isSelected,
         });
 
         return (
           <li className={optionClassName} key={value}>
-            {label}
+            <button
+              className={optionButtonClassName}
+              disabled={disabled}
+              onClick={() => {
+                onChange(
+                  allowMultiple ? toggleSelected(selected, value) : [value]
+                );
+              }}
+            >
+              {label}
+            </button>
           </li>
         );
       })}
@@ -31,6 +60,7 @@ export const OptionList = ({ options, selected }) => {
 };
 
 OptionList.propTypes = {
+  allowMultiple: PropTypes.bool,
   /** Callback when selection is changed */
   onChange: PropTypes.func.isRequired,
   /** List of options or option groups to choose from */
