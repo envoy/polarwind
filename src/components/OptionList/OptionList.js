@@ -1,3 +1,5 @@
+import { useListData } from "@react-stately/data";
+import { useListState } from "@react-stately/list";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import styles from "./OptionList.module.css";
@@ -23,6 +25,21 @@ function toggleSelected(selected, item) {
  * FIXME: Description of OptionList
  */
 export const OptionList = ({ allowMultiple, onChange, options, selected }) => {
+  const list = useListData({
+    getKey: (item) => item.value,
+    initialItems: options,
+    initialSelectedKeys: selected,
+  });
+
+  const props = {
+    ...list,
+    disabledKeys: list.items.filter((item) => item.disabled),
+    onSelectionChange: onChange,
+    selectionMode: allowMultiple ? "multiple" : "single",
+  };
+
+  const state = useListState(props);
+
   const className = cx({
     OptionList: true,
   });
