@@ -58,13 +58,13 @@ const Select = ({
     /* eslint-disable react/display-name */
     children: (item) => <Item aria-label={item.label}>{item.label}</Item>,
     /* eslint-enable */
-    defaultSelectedKeys: value,
     disabledKeys: options
       .filter((option) => option.disabled)
       .map((option) => option.value),
     isDisabled: disabled,
     items,
     onSelectionChange: handleChange,
+    selectedKey: value,
   });
 
   // TODO support sections
