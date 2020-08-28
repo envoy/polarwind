@@ -42,10 +42,6 @@ const Select = ({
 
   const ref = useRef();
 
-  // NOTE: for single select, `disallowEmptySelection: true` prevents the user from
-  // unselecting the current selected item by clicking it. this is an impossible
-  // interaction in select dropdowns for example. It has no effect in multiple
-  // selection mode.
   const items = options.map((option) => {
     if (typeof option === "string") {
       return { key: option, label: option };
