@@ -1,42 +1,14 @@
+import { useFocus } from "@react-aria/interactions";
 import { useListBox, useOption } from "@react-aria/listbox";
+import { mergeProps } from "@react-aria/utils";
 import { Item } from "@react-stately/collections";
 import { useListState } from "@react-stately/list";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styles from "./OptionList.module.css";
 
 const cx = classnames.bind(styles);
-
-function Option({ item, state }) {
-  const ref = useRef();
-
-  const isDisabled = state.disabledKeys.has(item.key);
-  const isSelected = state.selectionManager.isSelected(item.key);
-
-  const { optionProps } = useOption(
-    {
-      "aria-label": item["aria-label"],
-      key: item.key,
-      shouldFocusOnHover: true,
-      shouldSelectOnPressUp: true,
-    },
-    state,
-    ref
-  );
-
-  const optionClassName = cx({
-    Option: true,
-    disabled: isDisabled,
-    selected: isSelected,
-  });
-
-  return (
-    <li {...optionProps} className={optionClassName} ref={ref}>
-      {item.rendered}
-    </li>
-  );
-}
 
 /**
  * FIXME: Description of OptionList
@@ -60,6 +32,7 @@ export const OptionList = ({
     disabledKeys: options
       .filter((option) => option.disabled)
       .map((option) => option.value),
+    disallowEmptySelection: true,
     items: options,
     onSelectionChange: onChange,
     selectedKeys: selected,
@@ -88,6 +61,45 @@ export const OptionList = ({
     </ul>
   );
 };
+
+function Option({ item, state }) {
+  const ref = useRef();
+
+  const isDisabled = state.disabledKeys.has(item.key);
+  const isSelected = state.selectionManager.isSelected(item.key);
+
+  const { optionProps } = useOption(
+    {
+      "aria-label": item["aria-label"],
+      isDisabled,
+      key: item.key,
+      shouldFocusOnHover: true,
+      shouldSelectOnPressUp: true,
+    },
+    state,
+    ref
+  );
+
+  const [focused, setFocused] = useState(false);
+  const { focusProps } = useFocus({ onFocusChange: setFocused });
+
+  const optionClassName = cx({
+    Option: true,
+    disabled: isDisabled,
+    focused,
+    selected: isSelected,
+  });
+
+  return (
+    <li
+      {...mergeProps(optionProps, focusProps)}
+      className={optionClassName}
+      ref={ref}
+    >
+      {item.rendered}
+    </li>
+  );
+}
 
 OptionList.propTypes = {
   /** Allow more than one option to be selected */

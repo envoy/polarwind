@@ -3,11 +3,15 @@
 }
 
 .Option {
-  @apply rounded-md font-medium w-full p-2 text-left focus:outline-none hover:bg-pacific-lightest hover:text-pacific-dark cursor-pointer;
+  @apply rounded-md font-medium w-full p-2 text-left focus:outline-none;
+}
+
+.focused {
+  @apply bg-pacific-lightest text-pacific-dark;
 }
 
 .disabled {
-  @apply opacity-65 pointer-events-none;
+  @apply opacity-65;
 }
 
 .selected {
