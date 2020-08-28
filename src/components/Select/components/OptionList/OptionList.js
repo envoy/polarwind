@@ -21,7 +21,11 @@ export const OptionList = ({ state, ...otherProps }) => {
   // behavior of the listbox itself, like should the focus wrap, isLoading,
   // loadMore for lazy loading.
   const { listBoxProps } = useListBox(
-    { autoFocus: state.focusStrategy, disallowEmptySelection: true },
+    {
+      "aria-labelledby": otherProps["aria-labelledby"],
+      autoFocus: state.focusStrategy,
+      disallowEmptySelection: true,
+    },
     state,
     ref
   );

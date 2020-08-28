@@ -64,7 +64,11 @@ const Select = ({
   });
 
   // TODO support sections
-  const { menuProps, triggerProps, valueProps } = useSelect({}, state, ref);
+  const { menuProps, triggerProps, valueProps } = useSelect(
+    { label },
+    state,
+    ref
+  );
 
   const { buttonProps } = useButton(
     { isDisabled: disabled, ...triggerProps },
