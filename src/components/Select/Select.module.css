@@ -15,7 +15,7 @@
 }
 
 .OptionList {
-  @apply shadow-large rounded-md p-1 bg-white;
+  @apply shadow-large rounded-md p-1 bg-white mt-1;
 }
 
 .Option {
