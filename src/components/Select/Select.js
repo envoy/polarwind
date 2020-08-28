@@ -122,6 +122,7 @@ const Select = ({
       <HiddenSelect
         isDisabled={disabled}
         label={label}
+        name={label}
         state={state}
         triggerRef={ref}
       />
