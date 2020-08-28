@@ -1,6 +1,6 @@
 import { FocusScope } from "@react-aria/focus";
 import { useListBox } from "@react-aria/listbox";
-import { useOverlay } from "@react-aria/overlays";
+import { DismissButton, useOverlay } from "@react-aria/overlays";
 import { mergeProps } from "@react-aria/utils";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
@@ -42,6 +42,7 @@ export const OptionList = ({ state, ...otherProps }) => {
   return (
     <FocusScope restoreFocus>
       <div {...overlayProps} ref={overlayRef}>
+        <DismissButton onDismiss={state.close} />
         <ul
           {...mergeProps(listBoxProps, otherProps)}
           className={className}
@@ -51,6 +52,7 @@ export const OptionList = ({ state, ...otherProps }) => {
             <Option item={item} key={item.key} state={state} />
           ))}
         </ul>
+        <DismissButton onDismiss={state.close} />
       </div>
     </FocusScope>
   );
