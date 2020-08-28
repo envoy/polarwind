@@ -23,7 +23,7 @@ export const Option = ({ item, state }) => {
       isDisabled,
       key: item.key,
       shouldFocusOnHover: true,
-      shouldSelectOnPressUp: false,
+      shouldSelectOnPressUp: true,
     },
     state,
     ref

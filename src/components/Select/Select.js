@@ -30,6 +30,7 @@ const Select = ({
   value,
 }) => {
   const handleChange = (value) => {
+    console.log("handleChange called with", value);
     onChange && onChange(value);
   };
 
@@ -59,6 +60,7 @@ const Select = ({
       .filter((option) => option.disabled)
       .map((option) => option.value),
     disallowEmptySelection: true,
+    isDisabled: disabled,
     items: options,
     onSelectionChange: handleChange,
   });
@@ -74,14 +76,15 @@ const Select = ({
 
   // Emulate browser selection heuristics when a controlled value is not set, or an
   // uncontrolled selection is not set via a selected attribute on one of the options
-  useEffect(() => {
-    if (!state.selectedItem) {
-      const firstKey = state.collection.getFirstKey();
-      if (firstKey !== null) {
-        state.setSelectedKey(firstKey);
-      }
-    }
-  }, [state]);
+  // useEffect(() => {
+  //   if (!state.selectedItem) {
+  //     console.log("defaulting to first item");
+  //     const firstKey = state.collection.getFirstKey();
+  //     if (firstKey !== null) {
+  //       state.setSelectedKey(firstKey);
+  //     }
+  //   }
+  // }, [state]);
 
   // useSelectState isFocused is only true when the activator has focus. when the menu is
   // opened, isFocused is false, but isOpen then becomes true. for onFocus and onBlur to
