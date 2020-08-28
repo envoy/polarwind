@@ -59,7 +59,6 @@ const Select = ({
     disabledKeys: options
       .filter((option) => option.disabled)
       .map((option) => option.value),
-    disallowEmptySelection: true,
     isDisabled: disabled,
     items: options,
     onSelectionChange: handleChange,
