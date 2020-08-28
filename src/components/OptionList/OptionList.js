@@ -87,6 +87,7 @@ function Option({ item, state }) {
     Option: true,
     disabled: isDisabled,
     focused,
+    selectable: !isDisabled,
     selected: isSelected,
   });
 

@@ -6,6 +6,10 @@
   @apply rounded-md font-medium w-full p-2 text-left focus:outline-none;
 }
 
+.selectable {
+  @apply cursor-pointer;
+}
+
 .focused {
   @apply bg-pacific-lightest text-pacific-dark;
 }
