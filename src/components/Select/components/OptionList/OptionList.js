@@ -1,3 +1,4 @@
+import { FocusScope } from "@react-aria/focus";
 import { useListBox } from "@react-aria/listbox";
 import { mergeProps } from "@react-aria/utils";
 import classnames from "classnames/bind";
@@ -27,15 +28,17 @@ export const OptionList = ({ state, ...otherProps }) => {
   const className = cx({ OptionList: true });
 
   return (
-    <ul
-      {...mergeProps(listBoxProps, otherProps)}
-      className={className}
-      ref={ref}
-    >
-      {[...state.collection].map((item) => (
-        <Option item={item} key={item.key} state={state} />
-      ))}
-    </ul>
+    <FocusScope restoreFocus>
+      <ul
+        {...mergeProps(listBoxProps, otherProps)}
+        className={className}
+        ref={ref}
+      >
+        {[...state.collection].map((item) => (
+          <Option item={item} key={item.key} state={state} />
+        ))}
+      </ul>
+    </FocusScope>
   );
 };
 
