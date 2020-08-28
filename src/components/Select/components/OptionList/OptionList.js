@@ -1,5 +1,6 @@
 import { FocusScope } from "@react-aria/focus";
 import { useListBox } from "@react-aria/listbox";
+import { useOverlay } from "@react-aria/overlays";
 import { mergeProps } from "@react-aria/utils";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
@@ -25,19 +26,32 @@ export const OptionList = ({ state, ...otherProps }) => {
     ref
   );
 
+  const overlayRef = useRef();
+  const { overlayProps } = useOverlay(
+    {
+      isDismissable: true,
+      isOpen: state.isOpen,
+      onClose: state.close,
+      shouldCloseOnBlur: true,
+    },
+    overlayRef
+  );
+
   const className = cx({ OptionList: true });
 
   return (
     <FocusScope restoreFocus>
-      <ul
-        {...mergeProps(listBoxProps, otherProps)}
-        className={className}
-        ref={ref}
-      >
-        {[...state.collection].map((item) => (
-          <Option item={item} key={item.key} state={state} />
-        ))}
-      </ul>
+      <div {...overlayProps} ref={overlayRef}>
+        <ul
+          {...mergeProps(listBoxProps, otherProps)}
+          className={className}
+          ref={ref}
+        >
+          {[...state.collection].map((item) => (
+            <Option item={item} key={item.key} state={state} />
+          ))}
+        </ul>
+      </div>
     </FocusScope>
   );
 };
