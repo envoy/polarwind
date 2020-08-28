@@ -11,7 +11,10 @@ import styles from "./OptionList.module.css";
 const cx = classnames.bind(styles);
 
 /**
- * FIXME: Description of OptionList
+ * The option list component lets you create a list of items that users can pick from.
+ * This can include single selection or multiple selection of options. Option list usually
+ * appears in a popover, and sometimes in a modal or a sidebar. Option lists are styled
+ * differently than choice lists and should not be used within a form, but as a standalone menu.
  */
 export const OptionList = ({
   allowMultiple,
@@ -20,8 +23,10 @@ export const OptionList = ({
   selected,
   title,
 }) => {
-  // set up state using list created above + options to manage selection like disabled
-  // items, single or multiple selection, and the callback when selection did change
+  // NOTE: for single select, `disallowEmptySelection: true` prevents the user from
+  // unselecting the current selected item by clicking it. this is an impossible
+  // interaction in select dropdowns for example. It has no effect in multiple
+  // selection mode.
   const state = useListState({
     /* eslint-disable react/display-name */
     children: (item) => (
@@ -29,6 +34,7 @@ export const OptionList = ({
         {item.label}
       </Item>
     ),
+    /* eslint-enable */
     disabledKeys: options
       .filter((option) => option.disabled)
       .map((option) => option.value),
@@ -39,19 +45,15 @@ export const OptionList = ({
     selectionMode: allowMultiple ? "multiple" : "single",
   });
 
-  // ref to the main dom element
   const ref = useRef();
 
-  // actually start getting the props to build out our listbox
-  // the interesting props like items, selectedKeys should now all be in state, so we
-  // don't really need to pass those as props. the only remaining props you can define
-  // control the behavior of the listbox itself, like should the focus wrap, isLoading,
-  // loadMore for lazy loading
-  const { listBoxProps } = useListBox({ label: title }, state, ref);
+  // useListBox has most of the data it needs already in state, so we don't have to repeat
+  // ourselves in the first argument. that argument will be more more controlling the
+  // behavior of the listbox itself, like should the focus wrap, isLoading,
+  // loadMore for lazy loading.
+  const { listBoxProps } = useListBox({ "aria-label": title }, state, ref);
 
-  const className = cx({
-    OptionList: true,
-  });
+  const className = cx({ OptionList: true });
 
   return (
     <ul {...listBoxProps} className={className} ref={ref}>
