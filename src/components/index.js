@@ -11,7 +11,6 @@ export { FormLayout } from "./FormLayout";
 export { Heading } from "./Heading";
 export { Label } from "./Label";
 export { Link } from "./Link";
-export { OptionList } from "./OptionList";
 export { Page } from "./Page";
 export { Select } from "./Select";
 export { Stack } from "./Stack";

@@ -4,7 +4,7 @@ import { mergeProps } from "@react-aria/utils";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { useRef, useState } from "react";
-import styles from "../../OptionList.module.css";
+import styles from "../../Select.module.css";
 
 const cx = classnames.bind(styles);
 
@@ -23,7 +23,7 @@ export const Option = ({ item, state }) => {
       isDisabled,
       key: item.key,
       shouldFocusOnHover: true,
-      shouldSelectOnPressUp: true,
+      shouldSelectOnPressUp: false,
     },
     state,
     ref
@@ -65,4 +65,4 @@ Option.propTypes = {
   }),
 };
 
-Option.displayName = "OptionList.Option";
+Option.displayName = "Select.Option";

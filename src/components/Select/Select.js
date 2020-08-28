@@ -1,47 +1,15 @@
 import { useButton } from "@react-aria/button";
-import { useFocus } from "@react-aria/interactions";
-import { useListBox, useOption } from "@react-aria/listbox";
 import { HiddenSelect, useSelect } from "@react-aria/select";
-import { mergeProps } from "@react-aria/utils";
 import { Item } from "@react-stately/collections";
 import { useSelectState } from "@react-stately/select";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Labeled } from "../Labeled";
+import { Option, OptionList } from "./components";
 import styles from "./Select.module.css";
 
 const cx = classnames.bind(styles);
-
-const EMPTY_STRING_ALT = "__EMPTY_STRING__";
-
-/* eslint-disable react/prop-types */
-function Option({ item, state }) {
-  const ref = useRef();
-  const isDisabled = state.disabledKeys.has(item.key);
-  const isSelected = state.selectionManager.isSelected(item.key);
-  const { optionProps } = useOption(
-    {
-      isDisabled,
-      isSelected,
-      key: item.key,
-      shouldFocusOnHover: true,
-      shouldSelectOnPressUp: true,
-    },
-    state,
-    ref
-  );
-  const [, setFocused] = useState(false);
-  const { focusProps } = useFocus({ onFocusChange: setFocused });
-
-  // TODO style disabled item
-  return (
-    <li {...mergeProps(optionProps, focusProps)} ref={ref}>
-      {item.rendered}
-    </li>
-  );
-}
-/* eslint-enable */
 
 /**
  * Select lets users choose one option from an options menu. Consider select when you have
@@ -61,26 +29,9 @@ const Select = ({
   success,
   value,
 }) => {
-  const isFocused = useRef(false);
-
-  const handleFocus = useCallback(() => {
-    if (onFocus && !isFocused.current) {
-      onFocus();
-      isFocused.current = true;
-    }
-  }, [onFocus]);
-  const handleBlur = useCallback(() => {
-    if (onBlur && isFocused.current) {
-      onBlur();
-      isFocused.current = false;
-    }
-  }, [onBlur]);
-  const handleChange = useCallback(
-    (value) => {
-      onChange && onChange(replaceAlternativeWithEmptyString(value));
-    },
-    [onChange]
-  );
+  const handleChange = (value) => {
+    onChange && onChange(value);
+  };
 
   const className = cx({
     Select: true,
@@ -90,17 +41,31 @@ const Select = ({
   });
 
   const ref = useRef();
-  const props = {
-    "aria-label": label,
-    children: buildOptionsChildren(options),
-    defaultSelectedKey: value,
-    disabledKeys: buildDisabledKeys(options),
-    isDisabled: disabled,
+
+  // NOTE: for single select, `disallowEmptySelection: true` prevents the user from
+  // unselecting the current selected item by clicking it. this is an impossible
+  // interaction in select dropdowns for example. It has no effect in multiple
+  // selection mode.
+  const state = useSelectState({
+    /* eslint-disable react/display-name */
+    children: (item) => (
+      <Item aria-label={item.label} key={item.value}>
+        {item.label}
+      </Item>
+    ),
+    /* eslint-enable */
+    defaultSelectedKeys: value,
+    disabledKeys: options
+      .filter((option) => option.disabled)
+      .map((option) => option.value),
+    disallowEmptySelection: true,
+    items: options,
     onSelectionChange: handleChange,
-  };
-  const state = useSelectState(props);
+  });
+
   // TODO support sections
-  const { menuProps, triggerProps, valueProps } = useSelect(props, state, ref);
+  const { menuProps, triggerProps, valueProps } = useSelect({}, state, ref);
+
   const { buttonProps } = useButton(
     { isDisabled: disabled, ...triggerProps },
     ref
@@ -118,22 +83,19 @@ const Select = ({
     }
   }, [state]);
 
+  // useSelectState isFocused is only true when the activator has focus. when the menu is
+  // opened, isFocused is false, but isOpen then becomes true. for onFocus and onBlur to
+  // have the same semantics as a regular select onFocus/onBlur, we need to consider both
+  // properties
+  const isFocused = state.isFocused || state.isOpen;
+
   useEffect(() => {
-    // if the select is focused, we always call the handleFocus callback. this is not true
-    // for state.isOpen going from true to false, where we are merely opening and closing
-    // the menu while still having full focus on the select component
-    if (state.isFocused) {
-      handleFocus();
+    if (isFocused) {
+      onFocus && onFocus();
     } else {
-      // workaround a bug(?) where isFocused is false when the focus moves from the button
-      // to the option list
-      if (state.isOpen) {
-        handleFocus();
-      } else {
-        handleBlur();
-      }
+      onBlur && onBlur();
     }
-  }, [state.isFocused, state.isOpen, handleFocus, handleBlur]);
+  }, [isFocused, onFocus, onBlur]);
 
   const activatorMarkup = (
     <button {...buttonProps} className={className} ref={ref}>
@@ -142,7 +104,7 @@ const Select = ({
   );
 
   const optionsMarkup = state.isOpen && (
-    <OptionList {...menuProps} label={label} state={state} />
+    <OptionList {...menuProps} state={state} />
   );
 
   return (
@@ -166,53 +128,6 @@ const Select = ({
     </Labeled>
   );
 };
-
-// Temporary workaround for a bug with react-aria/select when dealing with empty string
-// keys https://github.com/adobe/react-spectrum/issues/1016
-function replaceEmptyStringWithAlternative(str) {
-  return str === "" ? EMPTY_STRING_ALT : str;
-}
-
-function replaceAlternativeWithEmptyString(str) {
-  return str === EMPTY_STRING_ALT ? "" : str;
-}
-
-function buildDisabledKeys(options) {
-  return options
-    .filter((option) => option.disabled)
-    .map((option) => option.value);
-}
-
-function buildOptionsChildren(options) {
-  return options.map((option) =>
-    typeof option === "string" ? (
-      <Item key={replaceEmptyStringWithAlternative(option)}>{option}</Item>
-    ) : (
-      <Item key={replaceEmptyStringWithAlternative(option.value)}>
-        {option.label}
-      </Item>
-    )
-  );
-}
-
-/* eslint-disable react/prop-types */
-function OptionList({ label, state, ...menuProps }) {
-  const ref = useRef();
-  const { listBoxProps } = useListBox(
-    { autoFocus: state.focusStrategy, label },
-    state,
-    ref
-  );
-
-  return (
-    <ul {...mergeProps(listBoxProps, menuProps)} ref={ref}>
-      {[...state.collection].map((item) => (
-        <Option item={item} key={item.key} state={state} />
-      ))}
-    </ul>
-  );
-}
-/* eslint-enable */
 
 Select.propTypes = {
   /** Disable the input */
@@ -266,3 +181,6 @@ Select.propTypes = {
 };
 
 export { Select };
+
+Select.OptionList = OptionList;
+Select.Option = Option;
