@@ -3,14 +3,11 @@
 }
 
 .Option {
-  button {
-    @apply rounded-md font-medium;
-    @apply w-full p-2 text-left focus:outline-none hover:bg-pacific-lightest hover:text-pacific-dark;
+  @apply rounded-md font-medium w-full p-2 text-left focus:outline-none hover:bg-pacific-lightest hover:text-pacific-dark cursor-pointer;
+}
 
-    &:disabled {
-      @apply pointer-events-none opacity-65;
-    }
-  }
+.disabled {
+  @apply opacity-65 pointer-events-none;
 }
 
 .selected {

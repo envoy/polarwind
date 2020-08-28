@@ -1,76 +1,90 @@
-import { useListData } from "@react-stately/data";
+import { useListBox, useOption } from "@react-aria/listbox";
+import { Item } from "@react-stately/collections";
 import { useListState } from "@react-stately/list";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
+import { useRef } from "react";
 import styles from "./OptionList.module.css";
 
 const cx = classnames.bind(styles);
 
-/**
- * Returns selected plus item if it doesn't already exist, or if it exists, return
- * selected minus item.
- *
- * @param {string[]} selected
- * @param {string} item
- */
-function toggleSelected(selected, item) {
-  const index = selected.indexOf(item);
+function Option({ item, state }) {
+  const ref = useRef();
 
-  return index < 0
-    ? [...selected, item]
-    : [...selected.slice(0, index), ...selected.slice(index + 1)];
+  const isDisabled = state.disabledKeys.has(item.key);
+  const isSelected = state.selectionManager.isSelected(item.key);
+
+  const { optionProps } = useOption(
+    {
+      "aria-label": item["aria-label"],
+      key: item.key,
+      shouldFocusOnHover: true,
+      shouldSelectOnPressUp: true,
+    },
+    state,
+    ref
+  );
+
+  const optionClassName = cx({
+    Option: true,
+    disabled: isDisabled,
+    selected: isSelected,
+  });
+
+  return (
+    <li {...optionProps} className={optionClassName} ref={ref}>
+      {item.rendered}
+    </li>
+  );
 }
 
 /**
  * FIXME: Description of OptionList
  */
-export const OptionList = ({ allowMultiple, onChange, options, selected }) => {
-  const list = useListData({
-    getKey: (item) => item.value,
-    initialItems: options,
-    initialSelectedKeys: selected,
+export const OptionList = ({
+  allowMultiple,
+  onChange,
+  options,
+  selected,
+  title,
+}) => {
+  // set up state using list created above + options to manage selection like disabled
+  // items, single or multiple selection, and the callback when selection did change
+  const state = useListState({
+    /* eslint-disable react/display-name */
+    children: (item) => (
+      <Item aria-label={item.label} key={item.value}>
+        {item.label}
+      </Item>
+    ),
+    disabledKeys: options
+      .filter((option) => option.disabled)
+      .map((option) => option.value),
+    items: options,
+    onSelectionChange: onChange,
+    selectedKeys: selected,
+    selectionMode: allowMultiple ? "multiple" : "single",
   });
 
-  const props = {
-    ...list,
-    disabledKeys: list.items.filter((item) => item.disabled),
-    onSelectionChange: onChange,
-    selectionMode: allowMultiple ? "multiple" : "single",
-  };
+  // ref to the main dom element
+  const ref = useRef();
 
-  const state = useListState(props);
+  // actually start getting the props to build out our listbox
+  // the interesting props like items, selectedKeys should now all be in state, so we
+  // don't really need to pass those as props. the only remaining props you can define
+  // control the behavior of the listbox itself, like should the focus wrap, isLoading,
+  // loadMore for lazy loading
+  const { listBoxProps } = useListBox({ label: title }, state, ref);
 
   const className = cx({
     OptionList: true,
   });
 
   return (
-    <ul className={className}>
-      {options.map(({ disabled, label, value }) => {
-        const isSelected = selected.includes(value);
-        const optionClassName = cx({
-          Option: true,
-        });
-        const optionButtonClassName = cx({
-          selected: isSelected,
-        });
-
-        return (
-          <li className={optionClassName} key={value}>
-            <button
-              className={optionButtonClassName}
-              disabled={disabled}
-              onClick={() => {
-                onChange(
-                  allowMultiple ? toggleSelected(selected, value) : [value]
-                );
-              }}
-            >
-              {label}
-            </button>
-          </li>
-        );
-      })}
+    <ul {...listBoxProps} className={className} ref={ref}>
+      {[...state.collection].map((item) => (
+        <Option item={item} key={item.key} state={state} />
+      ))}
     </ul>
   );
 };
@@ -107,5 +121,24 @@ OptionList.propTypes = {
     ),
   ]),
   /** The selected options */
-  selected: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selected: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.arrayOf(PropTypes.string),
+  ]).isRequired,
+  /** The title of the list */
+  title: PropTypes.string.isRequired,
+};
+
+Option.propTypes = {
+  item: PropTypes.shape({
+    "aria-label": PropTypes.string,
+    key: PropTypes.string.isRequired,
+    rendered: PropTypes.string,
+  }),
+  state: PropTypes.shape({
+    disabledKeys: PropTypes.objectOf(PropTypes.string),
+    selectionManager: PropTypes.shape({
+      isSelected: PropTypes.func,
+    }),
+  }),
 };
