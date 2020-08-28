@@ -13,7 +13,6 @@ const cx = classnames.bind(styles);
  */
 export const Option = ({ item, state }) => {
   const ref = useRef();
-
   const isDisabled = state.disabledKeys.has(item.key);
   const isSelected = state.selectionManager.isSelected(item.key);
 
@@ -21,6 +20,7 @@ export const Option = ({ item, state }) => {
     {
       "aria-label": item["aria-label"],
       isDisabled,
+      isSelected,
       key: item.key,
       shouldFocusOnHover: true,
       shouldSelectOnPressUp: true,
