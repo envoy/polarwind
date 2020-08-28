@@ -46,20 +46,24 @@ const Select = ({
   // unselecting the current selected item by clicking it. this is an impossible
   // interaction in select dropdowns for example. It has no effect in multiple
   // selection mode.
+  const items = options.map((option) => {
+    if (typeof option === "string") {
+      return { key: option, label: option };
+    } else {
+      return { key: option.value, label: option.label };
+    }
+  });
+
   const state = useSelectState({
     /* eslint-disable react/display-name */
-    children: (item) => (
-      <Item aria-label={item.label} key={item.value}>
-        {item.label}
-      </Item>
-    ),
+    children: (item) => <Item aria-label={item.label}>{item.label}</Item>,
     /* eslint-enable */
     defaultSelectedKeys: value,
     disabledKeys: options
       .filter((option) => option.disabled)
       .map((option) => option.value),
     isDisabled: disabled,
-    items: options,
+    items,
     onSelectionChange: handleChange,
   });
 
