@@ -1,6 +1,11 @@
 import { FocusScope } from "@react-aria/focus";
 import { useListBox } from "@react-aria/listbox";
-import { DismissButton, useOverlay } from "@react-aria/overlays";
+import {
+  DismissButton,
+  OverlayContainer,
+  useOverlay,
+  useOverlayPosition,
+} from "@react-aria/overlays";
 import { mergeProps } from "@react-aria/utils";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
@@ -13,7 +18,7 @@ const cx = classnames.bind(styles);
 /**
  * Implements the option menu when the select is opened
  */
-export const OptionList = ({ state, ...otherProps }) => {
+export const OptionList = ({ state, triggerRef, ...otherProps }) => {
   const ref = useRef();
 
   // useListBox has most of the data it needs already in state, so we don't have to repeat
@@ -41,29 +46,42 @@ export const OptionList = ({ state, ...otherProps }) => {
     overlayRef
   );
 
+  const { overlayProps: positionProps } = useOverlayPosition({
+    isOpen: state.isOpen,
+    offset: 4,
+    overlayRef,
+    targetRef: triggerRef,
+  });
+
   const className = cx({ OptionList: true });
 
   return (
-    <FocusScope restoreFocus>
-      <div {...overlayProps} ref={overlayRef}>
-        <DismissButton onDismiss={state.close} />
-        <ul
-          {...mergeProps(listBoxProps, otherProps)}
-          className={className}
-          ref={ref}
-        >
-          {[...state.collection].map((item) => (
-            <Option item={item} key={item.key} state={state} />
-          ))}
-        </ul>
-        <DismissButton onDismiss={state.close} />
-      </div>
-    </FocusScope>
+    <OverlayContainer>
+      <FocusScope restoreFocus>
+        <div {...mergeProps(overlayProps, positionProps)} ref={overlayRef}>
+          <DismissButton onDismiss={state.close} />
+          <ul
+            {...mergeProps(listBoxProps, otherProps)}
+            className={className}
+            ref={ref}
+          >
+            {[...state.collection].map((item) => (
+              <Option item={item} key={item.key} state={state} />
+            ))}
+          </ul>
+          <DismissButton onDismiss={state.close} />
+        </div>
+      </FocusScope>
+    </OverlayContainer>
   );
 };
 
 OptionList.propTypes = {
   state: PropTypes.object,
+  triggerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
 };
 
 OptionList.displayName = "Select.OptionList";

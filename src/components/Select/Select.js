@@ -101,14 +101,14 @@ const Select = ({
     }
   }, [isFocused, onFocus, onBlur]);
 
-  const activatorMarkup = (
+  const triggerMarkup = (
     <button {...buttonProps} className={className} ref={ref}>
       <span {...valueProps}>{state.selectedItem?.rendered}</span>
     </button>
   );
 
   const optionsMarkup = state.isOpen && (
-    <OptionList {...menuProps} state={state} />
+    <OptionList {...menuProps} state={state} triggerRef={ref} />
   );
 
   return (
@@ -128,7 +128,7 @@ const Select = ({
         state={state}
         triggerRef={ref}
       />
-      {activatorMarkup}
+      {triggerMarkup}
       {optionsMarkup}
     </Labeled>
   );
