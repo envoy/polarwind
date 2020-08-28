@@ -1,11 +1,10 @@
-import { useFocus } from "@react-aria/interactions";
-import { useListBox, useOption } from "@react-aria/listbox";
-import { mergeProps } from "@react-aria/utils";
+import { useListBox } from "@react-aria/listbox";
 import { Item } from "@react-stately/collections";
 import { useListState } from "@react-stately/list";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import { Option } from "./components";
 import styles from "./OptionList.module.css";
 
 const cx = classnames.bind(styles);
@@ -64,46 +63,6 @@ export const OptionList = ({
   );
 };
 
-function Option({ item, state }) {
-  const ref = useRef();
-
-  const isDisabled = state.disabledKeys.has(item.key);
-  const isSelected = state.selectionManager.isSelected(item.key);
-
-  const { optionProps } = useOption(
-    {
-      "aria-label": item["aria-label"],
-      isDisabled,
-      key: item.key,
-      shouldFocusOnHover: true,
-      shouldSelectOnPressUp: true,
-    },
-    state,
-    ref
-  );
-
-  const [focused, setFocused] = useState(false);
-  const { focusProps } = useFocus({ onFocusChange: setFocused });
-
-  const optionClassName = cx({
-    Option: true,
-    disabled: isDisabled,
-    focused,
-    selectable: !isDisabled,
-    selected: isSelected,
-  });
-
-  return (
-    <li
-      {...mergeProps(optionProps, focusProps)}
-      className={optionClassName}
-      ref={ref}
-    >
-      {item.rendered}
-    </li>
-  );
-}
-
 OptionList.propTypes = {
   /** Allow more than one option to be selected */
   allowMultiple: PropTypes.bool,
@@ -144,16 +103,4 @@ OptionList.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-Option.propTypes = {
-  item: PropTypes.shape({
-    "aria-label": PropTypes.string,
-    key: PropTypes.string.isRequired,
-    rendered: PropTypes.string,
-  }),
-  state: PropTypes.shape({
-    disabledKeys: PropTypes.objectOf(PropTypes.string),
-    selectionManager: PropTypes.shape({
-      isSelected: PropTypes.func,
-    }),
-  }),
-};
+OptionList.Option = Option;
