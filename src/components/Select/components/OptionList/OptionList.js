@@ -56,11 +56,15 @@ export const OptionList = ({ state, triggerRef, ...otherProps }) => {
 
   const className = cx({ OptionList: true });
 
-  const style = {
-    ...positionProps.style,
-    minWidth: "100%",
-    width: "100%",
-  };
+  let style = positionProps.style;
+  if (triggerRef.current) {
+    const { width } = triggerRef.current.getBoundingClientRect();
+    style = {
+      ...style,
+      minWidth: width,
+      width,
+    };
+  }
 
   return (
     <OverlayContainer>
