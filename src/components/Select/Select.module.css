@@ -6,6 +6,10 @@
   }
 }
 
+.triggerFocused {
+  @apply shadow-input-pacific border-pacific;
+}
+
 .Label {
   @apply block;
 

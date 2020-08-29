@@ -33,13 +33,6 @@ const Select = ({
     onChange && onChange(value);
   };
 
-  const className = cx({
-    Select: true,
-    disabled,
-    error,
-    "form-select": true,
-  });
-
   const ref = useRef();
 
   const items = options.map((option) => {
@@ -92,7 +85,6 @@ const Select = ({
   // have the same semantics as a regular select onFocus/onBlur, we need to consider both
   // properties
   const isFocused = state.isFocused || state.isOpen;
-
   useEffect(() => {
     if (isFocused) {
       onFocus && onFocus();
@@ -100,6 +92,14 @@ const Select = ({
       onBlur && onBlur();
     }
   }, [isFocused, onFocus, onBlur]);
+
+  const className = cx({
+    Select: true,
+    disabled,
+    error,
+    "form-select": true,
+    triggerFocused: isFocused,
+  });
 
   const triggerMarkup = (
     <button {...buttonProps} className={className} ref={ref}>
