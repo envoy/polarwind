@@ -47,6 +47,7 @@ export const OptionList = ({ state, triggerRef, ...otherProps }) => {
   );
 
   const { overlayProps: positionProps } = useOverlayPosition({
+    containerPadding: 0,
     isOpen: state.isOpen,
     offset: 4,
     overlayRef,
@@ -55,10 +56,16 @@ export const OptionList = ({ state, triggerRef, ...otherProps }) => {
 
   const className = cx({ OptionList: true });
 
+  const style = {
+    ...positionProps.style,
+    minWidth: "100%",
+    width: "100%",
+  };
+
   return (
     <OverlayContainer>
       <FocusScope restoreFocus>
-        <div {...mergeProps(overlayProps, positionProps)} ref={overlayRef}>
+        <div {...overlayProps} ref={overlayRef} style={style}>
           <DismissButton onDismiss={state.close} />
           <ul
             {...mergeProps(listBoxProps, otherProps)}
