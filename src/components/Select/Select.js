@@ -11,6 +11,9 @@ import styles from "./Select.module.css";
 
 const cx = classnames.bind(styles);
 
+// TODO fix the falsy selectedItem
+// TODO implement sections
+
 /**
  * Select lets users choose one option from an options menu. Consider select when you have
  * 4 or more options, to avoid cluttering the interface.

@@ -34,8 +34,8 @@ test("when options is set later", () => {
     return <Select label="test" options={options} value="two" />;
   };
   render(<AsyncSelect />);
-  expect(screen.getByRole("combobox")).not.toHaveValue();
+  expect(screen.getByRole("button")).not.toHaveTextContent();
 
   jest.runAllTimers();
-  expect(screen.getByDisplayValue("World")).not.toBeNull();
+  expect(screen.getByRole("button")).toHaveTextContent("World");
 });
