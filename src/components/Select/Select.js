@@ -1,10 +1,10 @@
 import { useButton } from "@react-aria/button";
 import { HiddenSelect, useSelect } from "@react-aria/select";
 import { Item, Section } from "@react-stately/collections";
-import { useSelectState } from "@react-stately/select";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
+import { useSelectState } from "../../utils/useSelectState";
 import { Labeled } from "../Labeled";
 import { OptionList } from "./components";
 import styles from "./Select.module.css";
