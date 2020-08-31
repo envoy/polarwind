@@ -1,41 +1,36 @@
+import { useButton } from "@react-aria/button";
+import { HiddenSelect, useSelect } from "@react-aria/select";
+import { Item, Section } from "@react-stately/collections";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
+import { useEffect, useRef } from "react";
+import { useSelectState } from "../../utils/useSelectState";
 import { Labeled } from "../Labeled";
+import { OptionList } from "./components";
 import styles from "./Select.module.css";
 
 const cx = classnames.bind(styles);
 
-function renderOption(option) {
-  const { disabled, label, options, title, value } = option;
+// TODO fix the falsy selectedItem
 
-  if (label && typeof value === "string") {
-    return (
-      <option disabled={disabled} key={value} value={value}>
-        {label}
-      </option>
-    );
+function normalizeOption(option) {
+  if (typeof option === "string") {
+    return { key: option, label: option };
+  } else {
+    const { label, options, title, value } = option;
+    if (title && options) {
+      return { items: options.map(normalizeOption), key: title, label: title };
+    } else {
+      return { key: value, label };
+    }
   }
-
-  if (title && options) {
-    return (
-      <optgroup key={title} label={title}>
-        {options.map(renderOption)}
-      </optgroup>
-    );
-  }
-
-  return (
-    <option key={option} value={option}>
-      {option}
-    </option>
-  );
 }
 
 /**
  * Select lets users choose one option from an options menu. Consider select when you have
  * 4 or more options, to avoid cluttering the interface.
  */
-export const Select = ({
+const Select = ({
   disabled,
   error,
   helpText,
@@ -49,31 +44,108 @@ export const Select = ({
   success,
   value,
 }) => {
-  const handleFocus = () => {
-    onFocus && onFocus();
+  const handleChange = (value) => {
+    onChange && onChange(value);
   };
-  const handleBlur = () => {
-    onBlur && onBlur();
-  };
-  const handleChange = (event) => {
-    onChange && onChange(event.currentTarget.value);
-  };
+
+  const ref = useRef();
+
+  const state = useSelectState({
+    /* eslint-disable react/display-name */
+    children: (option) => {
+      const { items, label } = option;
+      return items ? (
+        <Section items={items} title={label}>
+          {(item) => <Item aria-label={item.label}>{item.label}</Item>}
+        </Section>
+      ) : (
+        <Item aria-label={label}>{label}</Item>
+      );
+    },
+    /* eslint-enable */
+    disabledKeys: options
+      .flatMap((option) => option.options || option)
+      .filter((option) => option.disabled)
+      .map((option) => option.value),
+    isDisabled: disabled,
+    items: options.map(normalizeOption),
+    onSelectionChange: handleChange,
+    selectedKey: value,
+  });
+
+  // TODO support sections
+  const { menuProps, triggerProps, valueProps } = useSelect(
+    { label },
+    state,
+    ref
+  );
+
+  const { buttonProps } = useButton(
+    { isDisabled: disabled, ...triggerProps },
+    ref
+  );
+  buttonProps.onKeyDownCapture = triggerProps.onKeyDownCapture;
+
+  // Emulate browser selection heuristics when a controlled value is not set, or an
+  // uncontrolled selection is not set via a selected attribute on one of the options
+  useEffect(() => {
+    if (!state.selectedItem) {
+      let firstKey;
+
+      for (const key of state.collection.getKeys()) {
+        const item = state.collection.getItem(key);
+
+        if (item.type === "section") {
+          for (const child of item.childNodes) {
+            if (!state.disabledKeys.has(child.key)) {
+              firstKey = child.key;
+              break;
+            }
+          }
+        } else {
+          if (!state.disabledKeys.has(item.key)) {
+            firstKey = item.key;
+            break;
+          }
+        }
+      }
+
+      if (firstKey !== null) {
+        state.setSelectedKey(firstKey);
+      }
+    }
+  }, [state]);
+
+  // useSelectState isFocused is only true when the activator has focus. when the menu is
+  // opened, isFocused is false, but isOpen then becomes true. for onFocus and onBlur to
+  // have the same semantics as a regular select onFocus/onBlur, we need to consider both
+  // properties
+  const isFocused = state.isFocused || state.isOpen;
+  useEffect(() => {
+    if (isFocused) {
+      onFocus && onFocus();
+    } else {
+      onBlur && onBlur();
+    }
+  }, [isFocused, onFocus, onBlur]);
 
   const className = cx({
     Select: true,
     disabled,
     error,
     "form-select": true,
+    triggerFocused: isFocused,
   });
 
-  const inputProps = {
-    className,
-    disabled,
-    onBlur: handleBlur,
-    onChange: handleChange,
-    onFocus: handleFocus,
-    value,
-  };
+  const triggerMarkup = (
+    <button {...buttonProps} className={className} ref={ref}>
+      <span {...valueProps}>{state.selectedItem?.rendered}</span>
+    </button>
+  );
+
+  const optionsMarkup = state.isOpen && (
+    <OptionList {...menuProps} state={state} triggerRef={ref} />
+  );
 
   return (
     <Labeled
@@ -85,7 +157,15 @@ export const Select = ({
       required={required}
       success={success}
     >
-      <select {...inputProps}>{options.map(renderOption)}</select>
+      <HiddenSelect
+        isDisabled={disabled}
+        label={label}
+        name={label}
+        state={state}
+        triggerRef={ref}
+      />
+      {triggerMarkup}
+      {optionsMarkup}
     </Labeled>
   );
 };
@@ -140,3 +220,5 @@ Select.propTypes = {
   /** Initial value for the input */
   value: PropTypes.string,
 };
+
+export { Select };

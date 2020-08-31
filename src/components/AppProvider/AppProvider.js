@@ -1,3 +1,4 @@
+import { OverlayProvider } from "@react-aria/overlays";
 import PropTypes from "prop-types";
 import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
@@ -15,7 +16,9 @@ export const AppProvider = ({
   return (
     <EmbeddedContext.Provider value={embedded}>
       <OriginContext.Provider value={origin}>
-        <ParentProvider>{children}</ParentProvider>
+        <ParentProvider>
+          <OverlayProvider>{children}</OverlayProvider>
+        </ParentProvider>
       </OriginContext.Provider>
     </EmbeddedContext.Provider>
   );

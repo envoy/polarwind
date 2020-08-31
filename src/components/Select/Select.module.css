@@ -1,5 +1,13 @@
 .Select {
-  @apply block w-full;
+  @apply block w-full text-left;
+
+  &:disabled {
+    @apply pointer-events-none;
+  }
+}
+
+.triggerFocused {
+  @apply shadow-input-pacific border-pacific;
 }
 
 .Label {
@@ -7,5 +15,48 @@
 
   .Polarwind-Label {
     @apply text-sm;
+  }
+}
+
+.OptionList {
+  @apply shadow-large rounded-md p-1 bg-white;
+}
+
+.Option {
+  @apply rounded-md font-normal w-full p-2 focus:outline-none;
+}
+
+.selectable {
+  @apply cursor-pointer;
+}
+
+.focused {
+  @apply bg-pacific-lightest text-pacific-dark;
+}
+
+.disabled {
+  @apply opacity-65;
+}
+
+.selected {
+  @apply text-pacific-dark;
+  @apply bg-no-repeat pr-10;
+
+  /**
+   * NOTE that it is not easy to fill an svg which is used as a background image url. the
+   * fill value here is hardcoded to the rgb of pacific.dark
+   */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23006688' viewBox='0 0 24 24'%3E%3Cpath d='M3.86 10.75c-.27 0-.54-.11-.72-.31l-2.86-3a.996.996 0 111.44-1.38l2.07 2.17L10.07.38c.34-.43.97-.5 1.41-.16.43.34.5.97.16 1.41l-6.99 8.75c-.18.23-.45.36-.74.38-.02-.01-.04-.01-.05-.01z' /%3E%3C/svg%3E");
+  background-position: right 0.8rem;
+  background-size: 1.5rem 1.5rem;
+}
+
+.OptionGroup {
+  & > span {
+    @apply text-carbon-50% p-2 block font-bold text-sm pointer-events-none;
+  }
+
+  li > span {
+    @apply ml-4;
   }
 }
