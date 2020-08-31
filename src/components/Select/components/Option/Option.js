@@ -9,7 +9,7 @@ import styles from "../../Select.module.css";
 const cx = classnames.bind(styles);
 
 /**
- * The option itself
+ * Internal component that implements a select option
  */
 export const Option = ({ item, state }) => {
   const ref = useRef();
@@ -46,17 +46,19 @@ export const Option = ({ item, state }) => {
       className={optionClassName}
       ref={ref}
     >
-      {item.rendered}
+      <span>{item.rendered}</span>
     </li>
   );
 };
 
 Option.propTypes = {
+  /** The option */
   item: PropTypes.shape({
     "aria-label": PropTypes.string,
     key: PropTypes.string.isRequired,
     rendered: PropTypes.string,
   }),
+  /** The OptionList state object */
   state: PropTypes.shape({
     disabledKeys: PropTypes.objectOf(PropTypes.string),
     selectionManager: PropTypes.shape({

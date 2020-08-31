@@ -1,18 +1,30 @@
 import { useButton } from "@react-aria/button";
 import { HiddenSelect, useSelect } from "@react-aria/select";
-import { Item } from "@react-stately/collections";
+import { Item, Section } from "@react-stately/collections";
 import { useSelectState } from "@react-stately/select";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
 import { Labeled } from "../Labeled";
-import { Option, OptionList } from "./components";
+import { OptionList } from "./components";
 import styles from "./Select.module.css";
 
 const cx = classnames.bind(styles);
 
 // TODO fix the falsy selectedItem
-// TODO implement sections
+
+function normalizeOption(option) {
+  if (typeof option === "string") {
+    return { key: option, label: option };
+  } else {
+    const { label, options, title, value } = option;
+    if (title && options) {
+      return { items: options.map(normalizeOption), key: title, label: title };
+    } else {
+      return { key: value, label };
+    }
+  }
+}
 
 /**
  * Select lets users choose one option from an options menu. Consider select when you have
@@ -38,23 +50,25 @@ const Select = ({
 
   const ref = useRef();
 
-  const items = options.map((option) => {
-    if (typeof option === "string") {
-      return { key: option, label: option };
-    } else {
-      return { key: option.value, label: option.label };
-    }
-  });
-
   const state = useSelectState({
     /* eslint-disable react/display-name */
-    children: (item) => <Item aria-label={item.label}>{item.label}</Item>,
+    children: (option) => {
+      const { items, label } = option;
+      return items ? (
+        <Section items={items} title={label}>
+          {(item) => <Item aria-label={item.label}>{item.label}</Item>}
+        </Section>
+      ) : (
+        <Item aria-label={label}>{label}</Item>
+      );
+    },
     /* eslint-enable */
     disabledKeys: options
+      .flatMap((option) => option.options || option)
       .filter((option) => option.disabled)
       .map((option) => option.value),
     isDisabled: disabled,
-    items,
+    items: options.map(normalizeOption),
     onSelectionChange: handleChange,
     selectedKey: value,
   });
@@ -189,6 +203,3 @@ Select.propTypes = {
 };
 
 export { Select };
-
-Select.OptionList = OptionList;
-Select.Option = Option;

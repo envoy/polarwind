@@ -12,11 +12,12 @@ import PropTypes from "prop-types";
 import { useRef } from "react";
 import styles from "../../Select.module.css";
 import { Option } from "../Option";
+import { OptionGroup } from "../OptionGroup";
 
 const cx = classnames.bind(styles);
 
 /**
- * Implements the option menu when the select is opened
+ * Internal component that implements the option menu when the select is opened
  */
 export const OptionList = ({ state, triggerRef, ...otherProps }) => {
   const ref = useRef();
@@ -76,9 +77,13 @@ export const OptionList = ({ state, triggerRef, ...otherProps }) => {
             className={className}
             ref={ref}
           >
-            {[...state.collection].map((item) => (
-              <Option item={item} key={item.key} state={state} />
-            ))}
+            {[...state.collection].map((item) =>
+              item.type === "section" ? (
+                <OptionGroup group={item} key={item.key} state={state} />
+              ) : (
+                <Option item={item} key={item.key} state={state} />
+              )
+            )}
           </ul>
           <DismissButton onDismiss={state.close} />
         </div>
@@ -88,7 +93,9 @@ export const OptionList = ({ state, triggerRef, ...otherProps }) => {
 };
 
 OptionList.propTypes = {
+  /** The select state obj */
   state: PropTypes.object,
+  /** The ref of the activator button */
   triggerRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
