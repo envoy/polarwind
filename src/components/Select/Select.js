@@ -90,7 +90,26 @@ const Select = ({
   // uncontrolled selection is not set via a selected attribute on one of the options
   useEffect(() => {
     if (!state.selectedItem) {
-      const firstKey = state.collection.getFirstKey();
+      let firstKey;
+
+      for (const key of state.collection.getKeys()) {
+        const item = state.collection.getItem(key);
+
+        if (item.type === "section") {
+          for (const child of item.childNodes) {
+            if (!state.disabledKeys.has(child.key)) {
+              firstKey = child.key;
+              break;
+            }
+          }
+        } else {
+          if (!state.disabledKeys.has(item.key)) {
+            firstKey = item.key;
+            break;
+          }
+        }
+      }
+
       if (firstKey !== null) {
         state.setSelectedKey(firstKey);
       }

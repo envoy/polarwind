@@ -36,7 +36,7 @@ OptionGroup.propTypes = {
   /** The optgroup */
   group: PropTypes.shape({
     "aria-label": PropTypes.string,
-    childNodes: PropTypes.array,
+    childNodes: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     key: PropTypes.string.isRequired,
     rendered: PropTypes.string,
   }),
