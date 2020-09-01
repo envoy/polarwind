@@ -1,15 +1,9 @@
-import { FocusScope } from "@react-aria/focus";
 import { useListBox } from "@react-aria/listbox";
-import {
-  DismissButton,
-  OverlayContainer,
-  useOverlay,
-  useOverlayPosition,
-} from "@react-aria/overlays";
 import { mergeProps } from "@react-aria/utils";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { useRef } from "react";
+import { Popover } from "../../../Popover";
 import styles from "../../Select.module.css";
 import { Option } from "../Option";
 import { OptionGroup } from "../OptionGroup";
@@ -36,59 +30,28 @@ export const OptionList = ({ state, triggerRef, ...otherProps }) => {
     ref
   );
 
-  const overlayRef = useRef();
-  const { overlayProps } = useOverlay(
-    {
-      isDismissable: true,
-      isOpen: state.isOpen,
-      onClose: state.close,
-      shouldCloseOnBlur: true,
-    },
-    overlayRef
-  );
-
-  const { overlayProps: positionProps } = useOverlayPosition({
-    containerPadding: 0,
-    isOpen: state.isOpen,
-    offset: 4,
-    overlayRef,
-    targetRef: triggerRef,
-  });
-
   const className = cx({ OptionList: true });
 
-  let style = positionProps.style;
-  if (triggerRef.current) {
-    const { width } = triggerRef.current.getBoundingClientRect();
-    style = {
-      ...style,
-      minWidth: width,
-      width,
-    };
-  }
-
   return (
-    <OverlayContainer>
-      <FocusScope restoreFocus>
-        <div {...overlayProps} ref={overlayRef} style={style}>
-          <DismissButton onDismiss={state.close} />
-          <ul
-            {...mergeProps(listBoxProps, otherProps)}
-            className={className}
-            ref={ref}
-          >
-            {[...state.collection].map((item) =>
-              item.type === "section" ? (
-                <OptionGroup group={item} key={item.key} state={state} />
-              ) : (
-                <Option item={item} key={item.key} state={state} />
-              )
-            )}
-          </ul>
-          <DismissButton onDismiss={state.close} />
-        </div>
-      </FocusScope>
-    </OverlayContainer>
+    <Popover
+      activatorRef={triggerRef}
+      active={state.isOpen}
+      onClose={state.close}
+    >
+      <ul
+        {...mergeProps(listBoxProps, otherProps)}
+        className={className}
+        ref={ref}
+      >
+        {[...state.collection].map((item) =>
+          item.type === "section" ? (
+            <OptionGroup group={item} key={item.key} state={state} />
+          ) : (
+            <Option item={item} key={item.key} state={state} />
+          )
+        )}
+      </ul>
+    </Popover>
   );
 };
 

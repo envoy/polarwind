@@ -29,7 +29,7 @@ export const Popover = ({ activatorRef, active, children, onClose }) => {
     containerPadding: 0,
     isOpen: active,
     offset: 4,
-    ref,
+    overlayRef: ref,
     targetRef: activatorRef,
   });
 
@@ -61,11 +61,11 @@ Popover.propTypes = {
   activatorRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  ]),
+  ]).isRequired,
   /** Whether the overlay is currently open */
-  active: PropTypes.bool,
+  active: PropTypes.bool.isRequired,
   /** The content to display inside the popover */
   children: PropTypes.node,
   /** Handler that is called when the overlay should close */
-  onClose: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
