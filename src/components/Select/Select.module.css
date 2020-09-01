@@ -1,5 +1,5 @@
 .Select {
-  @apply block w-full text-left;
+  @apply w-full block text-left truncate;
 
   &:disabled {
     @apply pointer-events-none;
