@@ -3,7 +3,6 @@ import { mergeProps } from "@react-aria/utils";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { useRef } from "react";
-import { Popover } from "../../../Popover";
 import styles from "../../Select.module.css";
 import { Option } from "../Option";
 import { OptionGroup } from "../OptionGroup";
@@ -13,7 +12,7 @@ const cx = classnames.bind(styles);
 /**
  * Internal component that implements the option menu when the select is opened
  */
-export const OptionList = ({ state, triggerRef, ...otherProps }) => {
+export const OptionList = ({ state, ...otherProps }) => {
   const ref = useRef();
 
   // useListBox has most of the data it needs already in state, so we don't have to repeat
@@ -33,25 +32,19 @@ export const OptionList = ({ state, triggerRef, ...otherProps }) => {
   const className = cx({ OptionList: true });
 
   return (
-    <Popover
-      activatorRef={triggerRef}
-      active={state.isOpen}
-      onClose={state.close}
+    <ul
+      {...mergeProps(listBoxProps, otherProps)}
+      className={className}
+      ref={ref}
     >
-      <ul
-        {...mergeProps(listBoxProps, otherProps)}
-        className={className}
-        ref={ref}
-      >
-        {[...state.collection].map((item) =>
-          item.type === "section" ? (
-            <OptionGroup group={item} key={item.key} state={state} />
-          ) : (
-            <Option item={item} key={item.key} state={state} />
-          )
-        )}
-      </ul>
-    </Popover>
+      {[...state.collection].map((item) =>
+        item.type === "section" ? (
+          <OptionGroup group={item} key={item.key} state={state} />
+        ) : (
+          <Option item={item} key={item.key} state={state} />
+        )
+      )}
+    </ul>
   );
 };
 

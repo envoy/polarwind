@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
 import { useSelectState } from "../../utils/useSelectState";
 import { Labeled } from "../Labeled";
+import { Popover } from "../Popover";
 import { OptionList } from "./components";
 import styles from "./Select.module.css";
 
@@ -142,7 +143,9 @@ const Select = ({
   );
 
   const optionsMarkup = state.isOpen && (
-    <OptionList {...menuProps} state={state} triggerRef={ref} />
+    <Popover activatorRef={ref} active={state.isOpen} onClose={state.close}>
+      <OptionList {...menuProps} state={state} />
+    </Popover>
   );
 
   return (
