@@ -1,8 +1,12 @@
 .Select {
-  @apply w-full block text-left truncate;
+  @apply w-full block text-left truncate text-base leading-base-normal;
 
   &:disabled {
     @apply pointer-events-none;
+  }
+
+  span {
+    @apply align-base;
   }
 }
 
