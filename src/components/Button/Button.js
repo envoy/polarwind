@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
-import { forwardRef } from "react";
+import React from "react";
 import { UnstyledLink } from "../UnstyledLink/UnstyledLink";
 import styles from "./Button.module.css";
 
@@ -9,83 +9,81 @@ const cx = classNames.bind(styles);
 /**
  * Buttons are used primarily for actions, such as "Add", "Close", "Cancel", or "Save".
  */
-export const Button = forwardRef(
-  (
+const Button = (
+  {
+    brandOutline,
+    children,
+    className,
+    disabled,
+    download,
+    icon,
+    onClick,
+    outline,
+    plain,
+    size = "medium",
+    url,
+  },
+  ref
+) => {
+  let iconMarkup;
+  if (icon && size !== "large") {
+    const Icon = icon;
+    iconMarkup = (
+      <span className={styles.Icon}>
+        <Icon />
+      </span>
+    );
+  }
+
+  const content = (
+    <>
+      {iconMarkup}
+      <span>{children}</span>
+    </>
+  );
+
+  className = cx(
     {
+      Button: true,
       brandOutline,
-      children,
-      className,
       disabled,
-      download,
-      icon,
-      onClick,
       outline,
       plain,
-      size = "medium",
-      url,
     },
-    ref
-  ) => {
-    let iconMarkup;
-    if (icon && size !== "large") {
-      const Icon = icon;
-      iconMarkup = (
-        <span className={styles.Icon}>
-          <Icon />
-        </span>
-      );
-    }
+    size != "medium" && size,
+    className
+  );
 
-    const content = (
-      <>
-        {iconMarkup}
-        <span>{children}</span>
-      </>
-    );
-
-    className = cx(
-      {
-        Button: true,
-        brandOutline,
-        disabled,
-        outline,
-        plain,
-      },
-      size != "medium" && size,
-      className
-    );
-
-    return url ? (
-      disabled ? (
-        // Render an `<a>` so toggling disabled/enabled state changes only the `href`
-        // attribute instead of replacing the whole element.
-        // eslint-disable-next-line jsx-a11y/anchor-is-valid
-        <a className={className} ref={ref}>
-          {content}
-        </a>
-      ) : (
-        <UnstyledLink
-          className={className}
-          download={download}
-          ref={ref}
-          url={url}
-          onClick={onClick}
-        >
-          {content}
-        </UnstyledLink>
-      )
+  return url ? (
+    disabled ? (
+      // Render an `<a>` so toggling disabled/enabled state changes only the `href`
+      // attribute instead of replacing the whole element.
+      // eslint-disable-next-line jsx-a11y/anchor-is-valid
+      <a className={className} ref={ref}>
+        {content}
+      </a>
     ) : (
-      <button
+      <UnstyledLink
         className={className}
-        disabled={disabled}
+        download={download}
         ref={ref}
+        url={url}
         onClick={onClick}
       >
         {content}
-      </button>
-    );
-  }
-);
+      </UnstyledLink>
+    )
+  ) : (
+    <button
+      className={className}
+      disabled={disabled}
+      ref={ref}
+      onClick={onClick}
+    >
+      {content}
+    </button>
+  );
+};
 
 Button.propTypes = {
   /**
@@ -117,3 +115,6 @@ Button.propTypes = {
   /** A destination to link to, rendered in the href attribute of a link */
   url: PropTypes.string,
 };
+
+const forwardRefButton = React.forwardRef(Button);
+export { forwardRefButton as Button };
