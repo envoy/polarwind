@@ -206,6 +206,8 @@ module.exports = {
         },
         select: {
           iconColor: theme("colors.carbon.50%"),
+          paddingTop: theme("spacing")["2.75"],
+          paddingBottom: theme("spacing")["2.75"],
         },
       },
     }),
