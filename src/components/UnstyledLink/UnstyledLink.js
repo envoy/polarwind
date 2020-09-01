@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useCallback, useContext } from "react";
+import { forwardRef, useCallback, useContext } from "react";
 import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
 import { useParent } from "../../utils/parent";
@@ -21,57 +21,53 @@ function isOwnUrl(url) {
  * It provides behaviors when dealing with internal and external links, and sending
  * navigation events to the parent if run in an embedded way.
  */
-export const UnstyledLink = ({
-  children,
-  download,
-  external,
-  onClick,
-  url,
-  ...rest
-}) => {
-  const origin = useContext(OriginContext);
-  const embedded = useContext(EmbeddedContext);
-  const { sendMessage } = useParent();
+export const UnstyledLink = forwardRef(
+  ({ children, download, external, onClick, url, ...rest }, ref) => {
+    const origin = useContext(OriginContext);
+    const embedded = useContext(EmbeddedContext);
+    const { sendMessage } = useParent();
 
-  const isHostUrl = isAbsoluteUrlFor(url, origin);
-  const isThirdPartyUrl = !isOwnUrl(url) && !isHostUrl;
-  // popup when explicitly set. if it's not set, popup when it's a third party url in
-  // embedded mode. but if download it set, ignore all of that.
-  const shouldPopup = download
-    ? false
-    : external ?? (embedded && isThirdPartyUrl);
-  const shouldSendMessage = embedded && isHostUrl;
+    const isHostUrl = isAbsoluteUrlFor(url, origin);
+    const isThirdPartyUrl = !isOwnUrl(url) && !isHostUrl;
+    // popup when explicitly set. if it's not set, popup when it's a third party url in
+    // embedded mode. but if download it set, ignore all of that.
+    const shouldPopup = download
+      ? false
+      : external ?? (embedded && isThirdPartyUrl);
+    const shouldSendMessage = embedded && isHostUrl;
 
-  const handleClick = useCallback(
-    (e) => {
-      onClick && onClick();
-      if (shouldSendMessage) {
-        e.preventDefault();
-        sendMessage({
-          event: "navigate",
-          url: e.currentTarget.href,
-        });
-      }
-    },
-    [shouldSendMessage, sendMessage, onClick]
-  );
+    const handleClick = useCallback(
+      (e) => {
+        onClick && onClick();
+        if (shouldSendMessage) {
+          e.preventDefault();
+          sendMessage({
+            event: "navigate",
+            url: e.currentTarget.href,
+          });
+        }
+      },
+      [shouldSendMessage, sendMessage, onClick]
+    );
 
-  const target = shouldPopup ? "_blank" : undefined;
-  const rel = shouldPopup ? "noopener noreferrer" : undefined;
+    const target = shouldPopup ? "_blank" : undefined;
+    const rel = shouldPopup ? "noopener noreferrer" : undefined;
 
-  return (
-    <a
-      {...rest}
-      download={download}
-      href={url}
-      rel={rel}
-      target={target}
-      onClick={handleClick}
-    >
-      {children}
-    </a>
-  );
-};
+    return (
+      <a
+        {...rest}
+        download={download}
+        href={url}
+        ref={ref}
+        rel={rel}
+        target={target}
+        onClick={handleClick}
+      >
+        {children}
+      </a>
+    );
+  }
+);
 
 UnstyledLink.propTypes = {
   /** The content to display inside the link */

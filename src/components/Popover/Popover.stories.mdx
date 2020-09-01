@@ -5,7 +5,12 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { useRef, useState } from "react";
 import { Popover } from "./Popover";
+import { Button } from "../Button";
+import { Card } from "../Card";
+import { Page } from "../Page";
+import { EmbeddedContext } from "../../utils/embedded";
 
 <Meta title="Components | Overlays / Popover" component={Popover} />
 
@@ -15,9 +20,31 @@ import { Popover } from "./Popover";
 
 <Preview withToolbar>
   <Story name="Example">
-    <Popover>
-      <span>FIXME</span>
-    </Popover>
+    {() => {
+      const ref = useRef();
+      const [active, setActive] = useState(false);
+      return (
+        <div style={{ backgroundColor: "#f6f6f9", height: "100vh" }}>
+          <EmbeddedContext.Provider value={false}>
+            <Page title="Popover demo">
+              <Button ref={ref} onClick={() => setActive((active) => !active)}>
+                Click me
+              </Button>
+              <Popover
+                active={active}
+                onClose={() => setActive(false)}
+                triggerRef={ref}
+              >
+                <Card>
+                  I'm an arbitrary content inside a card. Press anywhere to
+                  dismiss.
+                </Card>
+              </Popover>
+            </Page>
+          </EmbeddedContext.Provider>
+        </div>
+      );
+    }}
   </Story>
 </Preview>
 
