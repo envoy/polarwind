@@ -4,6 +4,9 @@
 
 ### New components
 
+- Add a Popover component for general purpose rendering of an element over all the other
+  content. Useful for menus.
+
 ### Enhancements
 
 - The Select component has been rebuilt from the ground up without any breaking changes.
