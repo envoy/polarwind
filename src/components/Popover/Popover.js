@@ -30,6 +30,7 @@ export const Popover = ({ active, children, onClose, triggerRef }) => {
     isOpen: active,
     offset: 4,
     overlayRef: ref,
+    placement: "bottom start",
     targetRef: triggerRef,
   });
 
