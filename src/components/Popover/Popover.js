@@ -44,15 +44,17 @@ export const Popover = ({ activatorRef, active, children, onClose }) => {
   }
 
   return (
-    <OverlayContainer>
-      <FocusScope restoreFocus>
-        <div {...overlayProps} ref={ref} style={style}>
-          <DismissButton onDismiss={onClose} />
-          {children}
-          <DismissButton onDismiss={onClose} />
-        </div>
-      </FocusScope>
-    </OverlayContainer>
+    active && (
+      <OverlayContainer>
+        <FocusScope restoreFocus>
+          <div {...overlayProps} ref={ref} style={style}>
+            <DismissButton onDismiss={onClose} />
+            {children}
+            <DismissButton onDismiss={onClose} />
+          </div>
+        </FocusScope>
+      </OverlayContainer>
+    )
   );
 };
 
