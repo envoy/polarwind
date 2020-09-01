@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useCallback, useContext } from "react";
+import React, { useCallback, useContext } from "react";
 import { EmbeddedContext } from "../../utils/embedded";
 import { OriginContext } from "../../utils/origin";
 import { useParent } from "../../utils/parent";
@@ -21,14 +21,10 @@ function isOwnUrl(url) {
  * It provides behaviors when dealing with internal and external links, and sending
  * navigation events to the parent if run in an embedded way.
  */
-export const UnstyledLink = ({
-  children,
-  download,
-  external,
-  onClick,
-  url,
-  ...rest
-}) => {
+const UnstyledLink = (
+  { children, download, external, onClick, url, ...rest },
+  ref
+) => {
   const origin = useContext(OriginContext);
   const embedded = useContext(EmbeddedContext);
   const { sendMessage } = useParent();
@@ -64,6 +60,7 @@ export const UnstyledLink = ({
       {...rest}
       download={download}
       href={url}
+      ref={ref}
       rel={rel}
       target={target}
       onClick={handleClick}
@@ -85,3 +82,6 @@ UnstyledLink.propTypes = {
   /** The url to link to */
   url: PropTypes.string.isRequired,
 };
+
+const forwardRefUnstyledLink = React.forwardRef(UnstyledLink);
+export { forwardRefUnstyledLink as UnstyledLink };

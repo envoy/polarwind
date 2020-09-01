@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
+import React from "react";
 import { UnstyledLink } from "../UnstyledLink/UnstyledLink";
 import styles from "./Button.module.css";
 
@@ -8,19 +9,22 @@ const cx = classNames.bind(styles);
 /**
  * Buttons are used primarily for actions, such as "Add", "Close", "Cancel", or "Save".
  */
-export const Button = ({
-  brandOutline,
-  children,
-  className,
-  disabled,
-  download,
-  icon,
-  onClick,
-  outline,
-  plain,
-  size = "medium",
-  url,
-}) => {
+const Button = (
+  {
+    brandOutline,
+    children,
+    className,
+    disabled,
+    download,
+    icon,
+    onClick,
+    outline,
+    plain,
+    size = "medium",
+    url,
+  },
+  ref
+) => {
   let iconMarkup;
   if (icon && size !== "large") {
     const Icon = icon;
@@ -55,11 +59,14 @@ export const Button = ({
       // Render an `<a>` so toggling disabled/enabled state changes only the `href`
       // attribute instead of replacing the whole element.
       // eslint-disable-next-line jsx-a11y/anchor-is-valid
-      <a className={className}>{content}</a>
+      <a className={className} ref={ref}>
+        {content}
+      </a>
     ) : (
       <UnstyledLink
         className={className}
         download={download}
+        ref={ref}
         url={url}
         onClick={onClick}
       >
@@ -67,7 +74,12 @@ export const Button = ({
       </UnstyledLink>
     )
   ) : (
-    <button className={className} disabled={disabled} onClick={onClick}>
+    <button
+      className={className}
+      disabled={disabled}
+      ref={ref}
+      onClick={onClick}
+    >
       {content}
     </button>
   );
@@ -103,3 +115,6 @@ Button.propTypes = {
   /** A destination to link to, rendered in the href attribute of a link */
   url: PropTypes.string,
 };
+
+const forwardRefButton = React.forwardRef(Button);
+export { forwardRefButton as Button };

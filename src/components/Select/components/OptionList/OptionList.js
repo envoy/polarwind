@@ -1,11 +1,4 @@
-import { FocusScope } from "@react-aria/focus";
 import { useListBox } from "@react-aria/listbox";
-import {
-  DismissButton,
-  OverlayContainer,
-  useOverlay,
-  useOverlayPosition,
-} from "@react-aria/overlays";
 import { mergeProps } from "@react-aria/utils";
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
@@ -19,7 +12,7 @@ const cx = classnames.bind(styles);
 /**
  * Internal component that implements the option menu when the select is opened
  */
-export const OptionList = ({ state, triggerRef, ...otherProps }) => {
+export const OptionList = ({ state, ...otherProps }) => {
   const ref = useRef();
 
   // useListBox has most of the data it needs already in state, so we don't have to repeat
@@ -36,59 +29,22 @@ export const OptionList = ({ state, triggerRef, ...otherProps }) => {
     ref
   );
 
-  const overlayRef = useRef();
-  const { overlayProps } = useOverlay(
-    {
-      isDismissable: true,
-      isOpen: state.isOpen,
-      onClose: state.close,
-      shouldCloseOnBlur: true,
-    },
-    overlayRef
-  );
-
-  const { overlayProps: positionProps } = useOverlayPosition({
-    containerPadding: 0,
-    isOpen: state.isOpen,
-    offset: 4,
-    overlayRef,
-    targetRef: triggerRef,
-  });
-
   const className = cx({ OptionList: true });
 
-  let style = positionProps.style;
-  if (triggerRef.current) {
-    const { width } = triggerRef.current.getBoundingClientRect();
-    style = {
-      ...style,
-      minWidth: width,
-      width,
-    };
-  }
-
   return (
-    <OverlayContainer>
-      <FocusScope restoreFocus>
-        <div {...overlayProps} ref={overlayRef} style={style}>
-          <DismissButton onDismiss={state.close} />
-          <ul
-            {...mergeProps(listBoxProps, otherProps)}
-            className={className}
-            ref={ref}
-          >
-            {[...state.collection].map((item) =>
-              item.type === "section" ? (
-                <OptionGroup group={item} key={item.key} state={state} />
-              ) : (
-                <Option item={item} key={item.key} state={state} />
-              )
-            )}
-          </ul>
-          <DismissButton onDismiss={state.close} />
-        </div>
-      </FocusScope>
-    </OverlayContainer>
+    <ul
+      {...mergeProps(listBoxProps, otherProps)}
+      className={className}
+      ref={ref}
+    >
+      {[...state.collection].map((item) =>
+        item.type === "section" ? (
+          <OptionGroup group={item} key={item.key} state={state} />
+        ) : (
+          <Option item={item} key={item.key} state={state} />
+        )
+      )}
+    </ul>
   );
 };
 

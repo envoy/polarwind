@@ -12,6 +12,7 @@ export { Heading } from "./Heading";
 export { Label } from "./Label";
 export { Link } from "./Link";
 export { Page } from "./Page";
+export { Popover } from "./Popover";
 export { Select } from "./Select";
 export { Stack } from "./Stack";
 export { Tabs } from "./Tabs";

@@ -8,6 +8,7 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Select } from "./Select";
+import { FormLayout } from "../FormLayout";
 
 <Meta
   title="Components | Forms / Select"
@@ -194,5 +195,37 @@ Also supports a `disabled` attribute.
         { label: "Large", value: "l" },
       ]}
     />
+  </Story>
+</Preview>
+
+### Menu widths
+
+<Preview>
+  <Story name="Option width and placement">
+    <FormLayout>
+      <FormLayout.Group>
+        <Select
+          label="Size"
+          labelHidden
+          options={[
+            { label: "Small", value: "s" },
+            { label: "Medium", value: "m" },
+            { label: "Large", value: "l" },
+          ]}
+        />
+        <Select
+          label="Country"
+          labelHidden
+          options={[
+            {
+              label: "United Kingdom of Great Britain and Northern Ireland",
+              value: "uk",
+            },
+            { label: "USA", value: "us" },
+          ]}
+        />
+        <Select label="Color" labelHidden options={["Red", "Green", "Blue"]} />
+      </FormLayout.Group>
+    </FormLayout>
   </Story>
 </Preview>

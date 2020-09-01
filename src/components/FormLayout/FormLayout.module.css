@@ -3,7 +3,7 @@
 }
 
 .Item {
-  @apply mt-5 ml-6;
+  @apply mt-5 ml-6 min-w-0 max-w-full flex-initial;
 }
 
 .Group {
