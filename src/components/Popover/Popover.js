@@ -12,7 +12,7 @@ import { useRef } from "react";
  * Popovers are small overlays that open on demand. They form the building blocks for
  * Select options, menus, modals and slideovers.
  */
-export const Popover = ({ activatorRef, active, children, onClose }) => {
+export const Popover = ({ active, children, onClose, triggerRef }) => {
   const ref = useRef();
 
   const { overlayProps } = useOverlay(
@@ -30,11 +30,11 @@ export const Popover = ({ activatorRef, active, children, onClose }) => {
     isOpen: active,
     offset: 4,
     overlayRef: ref,
-    targetRef: activatorRef,
+    targetRef: triggerRef,
   });
 
   let style = positionProps.style;
-  const activator = activatorRef.current;
+  const activator = triggerRef.current;
   if (activator) {
     const { width } = activator.getBoundingClientRect();
     style = {
@@ -59,15 +59,15 @@ export const Popover = ({ activatorRef, active, children, onClose }) => {
 };
 
 Popover.propTypes = {
-  /** The ref of the activator button */
-  activatorRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  ]).isRequired,
   /** Whether the overlay is currently open */
   active: PropTypes.bool.isRequired,
   /** The content to display inside the popover */
   children: PropTypes.node,
   /** Handler that is called when the overlay should close */
   onClose: PropTypes.func.isRequired,
+  /** The ref of the trigger button */
+  triggerRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
 };

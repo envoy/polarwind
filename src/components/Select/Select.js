@@ -143,7 +143,7 @@ const Select = ({
   );
 
   const optionsMarkup = (
-    <Popover activatorRef={ref} active={state.isOpen} onClose={state.close}>
+    <Popover active={state.isOpen} triggerRef={ref} onClose={state.close}>
       <OptionList {...menuProps} state={state} />
     </Popover>
   );
