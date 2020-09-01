@@ -11,8 +11,6 @@ import styles from "./Select.module.css";
 
 const cx = classnames.bind(styles);
 
-// TODO fix the falsy selectedItem
-
 function normalizeOption(option) {
   if (typeof option === "string") {
     return { key: option, label: option };
