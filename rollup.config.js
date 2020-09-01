@@ -6,20 +6,21 @@ const postcss = require("rollup-plugin-postcss");
 const packageJson = require("./package.json");
 const { generateScopedName } = require("./src/plugins/polarisNamingStrategy");
 
+const externalPackages = [
+  "react",
+  "classnames",
+  "react-autosize-textarea",
+  "react-is",
+  "prop-types",
+  "object-assign",
+];
+
 module.exports = [
   {
-    external: [
-      "react",
-      "classnames",
-      "react-autosize-textarea",
-      "@react-aria/select",
-      "@react-aria/button",
-      "@react-aria/listbox",
-      "@react-aria/button",
-      "@react-aria/listbox",
-      "@react-aria/select",
-      "@react-stately/data",
-    ],
+    external: (id) =>
+      externalPackages.includes(id) ||
+      id.includes("react-aria") ||
+      id.includes("react-stately"),
     input: "src/index.js",
     plugins: [
       resolve(),
