@@ -21,6 +21,13 @@ export const Popover = ({ active, children, onClose, triggerRef }) => {
       isOpen: active,
       onClose,
       shouldCloseOnBlur: true,
+      shouldCloseOnInteractOutside: (element) => {
+        // if clicking on the trigger, do not close to let the button click close it
+        // instead. this is to avoid a situation when the user clicks on the trigger
+        // button to close the optionlist, only to be reopened because the button onclick
+        // now runs against the most recent state.
+        return triggerRef.current !== element;
+      },
     },
     ref
   );
