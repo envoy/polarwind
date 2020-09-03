@@ -85,7 +85,9 @@ const Button = (
   );
 };
 
-Button.propTypes = {
+const _Button = React.forwardRef(Button);
+
+_Button.propTypes = {
   /**
    * Gives the button an outline alternative to the default button styling, appropriate for
    * secondary actions
@@ -116,5 +118,4 @@ Button.propTypes = {
   url: PropTypes.string,
 };
 
-const forwardRefButton = React.forwardRef(Button);
-export { forwardRefButton as Button };
+export { _Button as Button };

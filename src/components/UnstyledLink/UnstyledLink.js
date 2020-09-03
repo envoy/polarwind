@@ -70,7 +70,9 @@ const UnstyledLink = (
   );
 };
 
-UnstyledLink.propTypes = {
+const _UnstyledLink = React.forwardRef(UnstyledLink);
+
+_UnstyledLink.propTypes = {
   /** The content to display inside the link */
   children: PropTypes.node,
   /** Instructs the browser to download the file */
@@ -83,5 +85,4 @@ UnstyledLink.propTypes = {
   url: PropTypes.string.isRequired,
 };
 
-const forwardRefUnstyledLink = React.forwardRef(UnstyledLink);
-export { forwardRefUnstyledLink as UnstyledLink };
+export { _UnstyledLink as UnstyledLink };
