@@ -21,10 +21,10 @@ function isOwnUrl(url) {
  * It provides behaviors when dealing with internal and external links, and sending
  * navigation events to the parent if run in an embedded way.
  */
-const UnstyledLink = (
+const UnstyledLink = React.forwardRef(function UnstyledLink(
   { children, download, external, onClick, url, ...rest },
   ref
-) => {
+) {
   const origin = useContext(OriginContext);
   const embedded = useContext(EmbeddedContext);
   const { sendMessage } = useParent();
@@ -68,11 +68,9 @@ const UnstyledLink = (
       {children}
     </a>
   );
-};
+});
 
-const _UnstyledLink = React.forwardRef(UnstyledLink);
-
-_UnstyledLink.propTypes = {
+UnstyledLink.propTypes = {
   /** The content to display inside the link */
   children: PropTypes.node,
   /** Instructs the browser to download the file */
@@ -85,4 +83,4 @@ _UnstyledLink.propTypes = {
   url: PropTypes.string.isRequired,
 };
 
-export { _UnstyledLink as UnstyledLink };
+export { UnstyledLink };
