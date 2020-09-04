@@ -22,7 +22,7 @@ export const OptionList = ({ state, ...otherProps }) => {
   const { listBoxProps } = useListBox(
     {
       "aria-labelledby": otherProps["aria-labelledby"],
-      autoFocus: true,
+      autoFocus: state.focusStrategy || true,
       disallowEmptySelection: true,
     },
     state,

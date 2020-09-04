@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 /**
  * Buttons are used primarily for actions, such as "Add", "Close", "Cancel", or "Save".
  */
-const Button = (
+const Button = React.forwardRef(function Button(
   {
     brandOutline,
     children,
@@ -24,7 +24,7 @@ const Button = (
     url,
   },
   ref
-) => {
+) {
   let iconMarkup;
   if (icon && size !== "large") {
     const Icon = icon;
@@ -83,7 +83,7 @@ const Button = (
       {content}
     </button>
   );
-};
+});
 
 Button.propTypes = {
   /**
@@ -116,5 +116,4 @@ Button.propTypes = {
   url: PropTypes.string,
 };
 
-const forwardRefButton = React.forwardRef(Button);
-export { forwardRefButton as Button };
+export { Button };
