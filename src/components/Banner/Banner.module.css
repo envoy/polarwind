@@ -1,0 +1,33 @@
+.Banner {
+  @apply p-4 rounded-md grid grid-cols-banner gap-4 max-w-banner;
+}
+
+.success {
+  @apply bg-cilantro-lightest;
+
+  .Icon {
+    @apply text-carbon-100%;
+  }
+}
+
+.info {
+  @apply bg-pacific-lightest;
+
+  .Icon {
+    @apply text-pacific;
+  }
+}
+
+.warning {
+  @apply bg-honeycomb-lightest;
+
+  .Icon {
+    @apply text-honeycomb;
+  }
+}
+
+.Body {
+  @apply text-sm;
+
+  line-height: 1.5;
+}
