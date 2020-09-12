@@ -6,6 +6,7 @@
 
 - Add a Popover component for general purpose rendering of an element over all the other
   content. Useful for menus.
+- Add a Banner component for displaying persistent information to the user in a prominent way.
 
 ### Enhancements
 
