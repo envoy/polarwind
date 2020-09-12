@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
+import { useState } from "react";
 import TextareaAutosize from "react-autosize-textarea";
 import { Labeled } from "../Labeled";
 import styles from "./TextField.module.css";
@@ -26,6 +27,11 @@ export const TextField = ({
   type = "text",
   value,
 }) => {
+  // remember if the TextField started off without setting a value prop, making it an
+  // uncontrolled input field. this value doesn't change during the lifetime of the
+  // component.
+  const [isControlled] = useState(value ?? false);
+
   // == LABEL ==
   labelHidden = labelHidden ?? type === "search";
 
@@ -63,8 +69,9 @@ export const TextField = ({
     onFocus: handleFocus,
     placeholder: labelHidden ? label : undefined,
     type,
-    value: value || "",
+    ...(isControlled && { value }),
   };
+
   const inputMarkup = multiline ? (
     <TextareaAutosize
       {...inputProps}
