@@ -1,6 +1,6 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { Info, Success, Warning } from "../../assets";
+import { Info, Success, Warning } from "../../icons";
 import { Heading } from "../Heading";
 import { Stack } from "../Stack";
 import styles from "./Banner.module.css";
@@ -21,12 +21,13 @@ const icons = {
 export const Banner = ({ children, status, title }) => {
   const className = cx("Banner", status);
 
+  const IconComponent = icons[status];
   const titleMarkup = title && <Heading size="small">{title}</Heading>;
 
   return (
     <div className={className}>
       <span className={styles.Icon}>
-        <img alt={`${status} icon`} src={icons[status]} />
+        <IconComponent />
       </span>
       <Stack vertical>
         {titleMarkup}
