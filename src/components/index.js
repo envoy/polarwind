@@ -1,5 +1,6 @@
 export { AppProvider } from "./AppProvider";
 export { Badge } from "./Badge";
+export { Banner } from "./Banner";
 export { Button } from "./Button";
 export { ButtonGroup } from "./ButtonGroup";
 export { Caption } from "./Caption";
