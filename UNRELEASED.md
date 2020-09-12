@@ -14,6 +14,9 @@
 
 ### Bug fixes
 
+- Fixed the warning where a textfield would go from uncontrolled to controlled due to
+  value being undefined/null. We now default the value to an empty string.
+
 ### Documentation
 
 ### Development workflow
