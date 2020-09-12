@@ -63,7 +63,7 @@ export const TextField = ({
     onFocus: handleFocus,
     placeholder: labelHidden ? label : undefined,
     type,
-    value,
+    value: value || "",
   };
   const inputMarkup = multiline ? (
     <TextareaAutosize
