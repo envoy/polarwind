@@ -27,7 +27,7 @@ export const TextField = ({
   type = "text",
   value,
 }) => {
-  // figure out if the TextField started off without setting a value prop, making it an
+  // remember if the TextField started off without setting a value prop, making it an
   // uncontrolled input field. this value doesn't change during the lifetime of the
   // component.
   const [isControlled] = useState(value ?? false);
