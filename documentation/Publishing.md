@@ -16,7 +16,8 @@
    `examples/create-react-app/package.json` to the new version number, but don't run yarn
    install (there is no entry in `package.lock` on purpose)
 1. Create a PR containing all the above.
-1. When the PR is merged, create a git tag similar in form to `v1.7.0`. Push the tag to
-   remote.
+1. When the PR is merged, run `yarn publish`. It will prompt you to set a new version,
+   just skip this since we have already updated the version number in `package.json`.
+1. `yarn publish` will create a git tag. Push the tag to remote with `git push origin --tags`
 1. Create a release on GitHub with the tag as the title. The content of the release should
    be the entries from `CHANGELOG.md` for that version.
