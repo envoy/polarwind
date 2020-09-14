@@ -18,6 +18,7 @@
 1. Create a PR containing all the above.
 1. When the PR is merged, run `yarn publish`. It will prompt you to set a new version,
    just skip this since we have already updated the version number in `package.json`.
-1. `yarn publish` will create a git tag. Push the tag to remote with `git push origin --tags`
-1. Create a release on GitHub with the tag as the title. The content of the release should
-   be the entries from `CHANGELOG.md` for that version.
+1. Create a git tag of the form `v1.x.x`. Push the tag to remote with `git push origin --tags`.
+1. Create a release on GitHub by going to https://github.com/envoy/polarwind/tags. Select
+   "Create release" from the action button next to the tag. Fill in the content of the
+   release with the entries from `CHANGELOG.md`.
