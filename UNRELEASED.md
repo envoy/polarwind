@@ -4,30 +4,15 @@
 
 ### New components
 
-- Add a Popover component for general purpose rendering of an element over all the other
-  content. Useful for menus.
-- Add a Banner component for displaying persistent information to the user in a prominent way.
-
 ### Enhancements
 
-- The Select component has been rebuilt from the ground up without any breaking changes.
-  The options dropdown is now styled to match the design system.
-
 ### Bug fixes
-
-- Fixed the warning where a textfield would go from uncontrolled to controlled due to
-  value being undefined/null. We now default the value to an empty string.
 
 ### Documentation
 
 ### Development workflow
 
-- Removed a babel plugin that stripped proptypes from the production build. This should
-  help IDEs autocomplete props.
-
 ### Dependency upgrades
-
-- Upgraded to tailwindcss 1.7.4
 
 ### Code quality
 
