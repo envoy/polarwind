@@ -47,9 +47,9 @@ component and is responsible for providing an `onClick` handler that updates the
     {() => {
       const [selected, setSelected] = useState(0);
       return (
-        <Tabs selected={selected}>
-          <span onClick={() => setSelected(0)}>Single invite</span>
-          <span onClick={() => setSelected(1)}>Group invite</span>
+        <Tabs selected={selected} onSelect={setSelected}>
+          <span>Single invite</span>
+          <span>Group invite</span>
           <a href="https://envoy.com">Go to Envoy</a>
         </Tabs>
       );

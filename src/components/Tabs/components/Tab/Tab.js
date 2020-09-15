@@ -1,7 +1,7 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
 import { Linkable } from "../../../Linkable";
-import styles from "./Tab.module.css";
+import styles from "../../Tabs.module.css";
 
 const cx = classnames.bind(styles);
 
