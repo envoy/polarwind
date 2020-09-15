@@ -23,11 +23,7 @@ import { Tabs } from "./Tabs";
         { id: "group-invite", content: "Group invite" },
         { id: "envoy", content: "Go to Envoy", url: "https://envoy.com" },
       ];
-      return (
-        <Tabs tabs={tabs} selected={selected} onSelect={setSelected}>
-          <p>Tab {selected} selected</p>
-        </Tabs>
-      );
+      return <Tabs tabs={tabs} selected={selected} onSelect={setSelected} />;
     }}
   </Story>
 </Preview>
@@ -39,3 +35,24 @@ import { Tabs } from "./Tabs";
 ### Default tabs
 
 Use for most cases, especially when the number of tabs may be more than three.
+
+### Static tabs
+
+Use when it's easier to define the tabs via JSX. Each tab item will be wrapped in a Tab
+component and is responsible for providing an `onClick` handler that updates the parent
+`selected` prop.
+
+<Preview withToolbar>
+  <Story name="Static tabs">
+    {() => {
+      const [selected, setSelected] = useState(0);
+      return (
+        <Tabs selected={selected}>
+          <span onClick={() => setSelected(0)}>Single invite</span>
+          <span onClick={() => setSelected(1)}>Group invite</span>
+          <a href="https://envoy.com">Go to Envoy</a>
+        </Tabs>
+      );
+    }}
+  </Story>
+</Preview>
