@@ -13,6 +13,7 @@ module.exports = {
     "@storybook/addon-a11y",
     "storybook-addon-playroom",
     "@storybook/addon-knobs",
+    "@storybook/addon-actions",
   ],
   webpackFinal: (config) => {
     // Remove the existing css rule

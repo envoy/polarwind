@@ -6,6 +6,7 @@ import {
   Description,
   Preview,
 } from "@storybook/addon-docs/blocks";
+import { action } from "@storybook/addon-actions";
 import { Tabs } from "./Tabs";
 
 <Meta title="Components | Navigation / Tabs" component={Tabs} />
@@ -39,3 +40,39 @@ import { Tabs } from "./Tabs";
 ### Default tabs
 
 Use for most cases, especially when the number of tabs may be more than three.
+
+### Tab onClick
+
+Tabs can pass in an additional handler when each item is clicked which will be executed
+first followed by calling the onSelect handler on the parent.
+
+<Preview>
+  <Story name="Tab onClick">
+    {() => {
+      const [selected, setSelected] = useState(0);
+      const tabs = [
+        {
+          id: "single-invite",
+          content: "Single invite",
+          onClick: action("Single invite"),
+        },
+        {
+          id: "group-invite",
+          content: "Group invite",
+          onClick: action("Group invite"),
+        },
+        {
+          id: "envoy",
+          content: "Go to Envoy",
+          url: "https://envoy.com",
+          onClick: action("Go to Envoy"),
+        },
+      ];
+      return (
+        <Tabs tabs={tabs} selected={selected} onSelect={setSelected}>
+          <p>Tab {selected} selected</p>
+        </Tabs>
+      );
+    }}
+  </Story>
+</Preview>

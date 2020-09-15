@@ -9,22 +9,21 @@ const cx = classnames.bind(styles);
  * Use to alternate among related views within the same context.
  */
 export const Tabs = ({ children, onSelect, selected, tabs }) => {
-  const handleSelect = (index) => () => {
-    onSelect && onSelect(index);
-  };
-
   const className = cx({
     Tabs: true,
   });
   return (
     <>
       <ul className={className}>
-        {tabs.map(({ content, id, url }, index) => (
+        {tabs.map(({ content, id, onClick, url }, index) => (
           <Tab
             key={id}
             selected={selected === index}
             url={url}
-            onClick={handleSelect(index)}
+            onClick={() => {
+              onClick?.call(this);
+              onSelect?.call(this, index);
+            }}
           >
             {content}
           </Tab>
@@ -49,6 +48,8 @@ Tabs.propTypes = {
       content: PropTypes.string.isRequired,
       /** A unique identifier for the tab */
       id: PropTypes.string.isRequired,
+      /** Handler when tab is clicked */
+      onClick: PropTypes.func,
       /** A destination to link to */
       url: PropTypes.string,
     })
