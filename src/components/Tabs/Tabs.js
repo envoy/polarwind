@@ -21,8 +21,8 @@ export const Tabs = ({ children, onSelect, selected, tabs }) => {
             selected={selected === index}
             url={url}
             onClick={() => {
-              onClick?.call(this);
-              onSelect?.call(this, index);
+              onClick && onClick();
+              onSelect && onSelect(index);
             }}
           >
             {content}
