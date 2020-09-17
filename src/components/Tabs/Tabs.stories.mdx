@@ -48,9 +48,11 @@ component and is responsible for providing an `onClick` handler that updates the
       const [selected, setSelected] = useState(0);
       return (
         <Tabs selected={selected} onSelect={setSelected}>
-          <span>Single invite</span>
-          <span>Group invite</span>
-          <a href="https://envoy.com">Go to Envoy</a>
+          <span>Tab created using a span</span>
+          <Tabs.Tab>Tab created using Tabs.Tab</Tabs.Tab>
+          <a href="https://envoy.com">
+            Tab with external link with a regular anchor tag
+          </a>
         </Tabs>
       );
     }}

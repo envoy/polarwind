@@ -1,6 +1,6 @@
 import classnames from "classnames/bind";
 import PropTypes from "prop-types";
-import { Children, isValidElement } from "react";
+import { Children, cloneElement, isValidElement } from "react";
 import { isElementOfType } from "../../utils/components";
 import { Tab } from "./components";
 import styles from "./Tabs.module.css";
@@ -27,7 +27,14 @@ export const Tabs = ({ children, onSelect, selected, tabs }) => {
       {tabsIterator((tab, index) => {
         if (isValidElement(tab)) {
           if (isElementOfType(tab, Tab)) {
-            return tab;
+            return cloneElement(tab, {
+              key: index,
+              onClick: () => {
+                handleSelect(index)();
+                tab.props.onClick && tab.props.onClick();
+              },
+              selected: selected === index,
+            });
           } else {
             return (
               <Tab
