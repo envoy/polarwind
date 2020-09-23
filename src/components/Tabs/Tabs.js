@@ -51,7 +51,7 @@ export const Tabs = ({ children, onSelect, selected, tabs }) => {
               key={index}
               selected={selected === index}
               url={tab.url}
-              onClick={handleSelect(index)}
+              onClick={handleSelect(index, tab.onClick)}
             >
               {tab.content}
             </Tab>
@@ -75,6 +75,8 @@ Tabs.propTypes = {
       PropTypes.shape({
         /** Content for the tab */
         content: PropTypes.string.isRequired,
+        /** An additional onClick handler to execute */
+        onClick: PropTypes.func,
         /** A destination to link to */
         url: PropTypes.string,
       }),
