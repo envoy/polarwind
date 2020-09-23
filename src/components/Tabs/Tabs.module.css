@@ -8,7 +8,7 @@
 
   & > button,
   & > a {
-    @apply px-1.5 block focus:outline-none;
+    @apply py-1.5 block focus:outline-none;
 
     & > span {
       @apply align-sm;
