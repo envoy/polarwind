@@ -11,8 +11,9 @@ const cx = classnames.bind(styles);
  * Use to alternate among related views within the same context.
  */
 export const Tabs = ({ children, onSelect, selected, tabs }) => {
-  const handleSelect = (index) => () => {
-    onSelect && onSelect(index);
+  const handleSelect = (index, onClick) => () => {
+    onSelect?.(index);
+    onClick?.();
   };
 
   const className = cx({
@@ -29,10 +30,7 @@ export const Tabs = ({ children, onSelect, selected, tabs }) => {
           if (isElementOfType(tab, Tab)) {
             return cloneElement(tab, {
               key: index,
-              onClick: () => {
-                handleSelect(index)();
-                tab.props.onClick && tab.props.onClick();
-              },
+              onClick: handleSelect(index, tab.props.onClick),
               selected: selected === index,
             });
           } else {
@@ -41,7 +39,7 @@ export const Tabs = ({ children, onSelect, selected, tabs }) => {
                 key={index}
                 selected={selected === index}
                 url={tab.props.href}
-                onClick={handleSelect(index)}
+                onClick={handleSelect(index, tab.props.onClick)}
               >
                 {tab.props.children}
               </Tab>
@@ -53,7 +51,7 @@ export const Tabs = ({ children, onSelect, selected, tabs }) => {
               key={index}
               selected={selected === index}
               url={tab.url}
-              onClick={handleSelect(index)}
+              onClick={handleSelect(index, tab.onClick)}
             >
               {tab.content}
             </Tab>
@@ -73,12 +71,17 @@ Tabs.propTypes = {
   selected: PropTypes.number.isRequired,
   /** List of tabs */
   tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      /** Content for the tab */
-      content: PropTypes.string.isRequired,
-      /** A destination to link to */
-      url: PropTypes.string,
-    })
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        /** Content for the tab */
+        content: PropTypes.string.isRequired,
+        /** An additional onClick handler to execute */
+        onClick: PropTypes.func,
+        /** A destination to link to */
+        url: PropTypes.string,
+      }),
+      PropTypes.node,
+    ])
   ),
 };
 
