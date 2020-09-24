@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "yarn build -w",
     "prebuild": "rm -rf build",
-    "build": "NODE_ENV=production rollup -c",
+    "build": "NODE_ENV=production rollup -c && NODE_ENV=production SKIP_PREFLIGHT=true rollup -c",
     "prepack": "yarn build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "STORYBOOK=1 build-storybook",
@@ -41,7 +41,8 @@
   "files": [
     "index.cjs.js",
     "index.esm.js",
-    "polarwind.css"
+    "polarwind.css",
+    "polarwind-skip-preflight.css"
   ],
   "peerDependencies": {
     "react": "^16.13.1"

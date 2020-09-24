@@ -33,7 +33,9 @@ module.exports = [
             extension: ".module.css",
           }),
         },
-        extract: "polarwind.css",
+        extract: process.env.SKIP_PREFLIGHT
+          ? "polarwind-skip-preflight.css"
+          : "polarwind.css",
         minimize: true,
       }),
       image(),

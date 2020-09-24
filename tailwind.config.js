@@ -241,6 +241,7 @@ module.exports = {
     borderOpacity: false,
     placeholderOpacity: false,
     divideOpacity: false,
+    preflight: process.env.SKIP_PREFLIGHT ? false : true,
   },
   purge: {
     content: ["./src/**/*.js"],

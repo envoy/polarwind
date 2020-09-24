@@ -5,6 +5,7 @@
 /package
 polarwind-v*.tgz
 /polarwind.css
+/polarwind-skip-preflight.css
 
 .now
 /storybook-static
