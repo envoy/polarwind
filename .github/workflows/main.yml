@@ -22,3 +22,7 @@ jobs:
           custom-command: "yarn snapshot"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      - name: Chromatic
+        run: "yarn chromatic"
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
