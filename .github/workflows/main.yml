@@ -23,6 +23,6 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       - name: Chromatic
-        run: "yarn chromatic"
+        run: "yarn chromatic --exit-once-uploaded"
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
