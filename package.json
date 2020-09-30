@@ -21,7 +21,8 @@
     "playroom": "playroom start",
     "build-playroom": "playroom build",
     "start": "run-p storybook playroom",
-    "build-docs": "run-s build-storybook:docs build-playroom"
+    "build-docs": "run-s build-storybook:docs build-playroom",
+    "chromatic": "npx chromatic"
   },
   "homepage": "https://envoy.github.io/polarwind",
   "bugs": "https://github.com/envoy/polarwind/issues",
