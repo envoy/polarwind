@@ -8,6 +8,8 @@
 
 ### Bug fixes
 
+- Updated the default brand color to the right value
+
 ### Documentation
 
 ### Development workflow
