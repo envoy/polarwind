@@ -38,7 +38,7 @@ module.exports = {
         lightest: "#fcf4ea",
       },
       cilantro: {
-        default: "#20944e",
+        default: "#21944e",
         dark: "#0a652e",
         light: "#52bc7c",
         lightest: "#e8f4ed",
