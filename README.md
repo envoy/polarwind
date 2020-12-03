@@ -105,11 +105,11 @@ the list of generators provided.
 
 ### Visual regression testing
 
-[Percy](https://percy.io/) runs for every pull request. Percy is a tool that compares
+[Chromatic](https://chromatic.com/) runs for every pull request. Chromatic is a tool that compares
 screenshots for every single component we have in the library.
 
-Percy is not always 100% accurate. Since it uses screenshot comparison, even browser
-sub-pixel rendering differences can cause Percy to ask for user confirmation of whether a
+Chromatic is not always 100% accurate. Since it uses screenshot comparison, even browser
+sub-pixel rendering differences can cause Chromatic to ask for user confirmation of whether a
 change was intended or not. In cases like that, use your best judgement to determine
 whether you need to address it or not. This is why the choice to approve something or not
 is always manual. While everyone can view changes, only members of the Envoy team an

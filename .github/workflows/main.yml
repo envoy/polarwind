@@ -9,14 +9,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
-      - name: Install
-        uses: bahmutov/npm-install@v1
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # chromatic needs the full history to find ancestors
+
+      - name: Get Node.js version
+        id: node-version
+        run: |
+          echo "::set-output name=version::$(node --version)"
+
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        id: cache-node-modules
+        with:
+          path: node_modules
+          key: v1-node-${{ steps.node-version.outputs.version }}-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+
       - name: Lint
-        run: "yarn lint"
+        run: yarn lint
+
       - name: Test
-        run: "yarn test"
+        run: yarn test
+
       - name: Chromatic
-        run: "yarn chromatic --exit-once-uploaded"
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          exitOnceUploaded: true

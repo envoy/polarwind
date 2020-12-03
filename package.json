@@ -12,7 +12,6 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "STORYBOOK=1 build-storybook",
     "build-storybook:docs": "yarn build-storybook -o docs",
-    "snapshot": "yarn build-storybook && percy-storybook --widths=1280",
     "lint": "yarn eslint && yarn stylelint",
     "eslint": "eslint .",
     "stylelint": "stylelint src",
@@ -20,11 +19,9 @@
     "generate": "plop",
     "playroom": "playroom start",
     "build-playroom": "playroom build",
-    "start": "run-p storybook playroom",
-    "build-docs": "run-s build-storybook:docs build-playroom",
-    "chromatic": "npx chromatic"
+    "start": "run-p storybook playroom"
   },
-  "homepage": "https://envoy.github.io/polarwind",
+  "homepage": "https://www.chromatic.com/library?appId=5fc91dfd5650050021374090",
   "bugs": "https://github.com/envoy/polarwind/issues",
   "repository": {
     "url": "https://github.com/envoy/polarwind",
@@ -52,7 +49,6 @@
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
-    "@percy/storybook": "^3.3.1",
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-image": "^2.0.5",
     "@rollup/plugin-node-resolve": "^7.1.3",
@@ -72,7 +68,6 @@
     "babel-plugin-react-docgen": "^4.1.0",
     "babel-plugin-react-require": "^3.1.3",
     "change-case": "^4.1.1",
-    "chromatic": "^5.2.0",
     "color": "^3.1.2",
     "dedent": "^0.7.0",
     "eslint": "^6.8.0",
