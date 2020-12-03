@@ -34,7 +34,7 @@ function Color({ color, hex }) {
   );
 }
 
-const stories = storiesOf("Design | Colors", module).addParameters({
+const stories = storiesOf("Design / Colors", module).addParameters({
   playroom: { disabled: true },
 });
 
