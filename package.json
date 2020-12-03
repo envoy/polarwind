@@ -20,8 +20,7 @@
     "generate": "plop",
     "playroom": "playroom start",
     "build-playroom": "playroom build",
-    "start": "run-p storybook playroom",
-    "build-docs": "run-s build-storybook:docs build-playroom"
+    "start": "run-p storybook playroom"
   },
   "homepage": "https://envoy.github.io/polarwind",
   "bugs": "https://github.com/envoy/polarwind/issues",
