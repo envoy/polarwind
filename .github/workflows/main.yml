@@ -16,12 +16,6 @@ jobs:
         run: "yarn lint"
       - name: Test
         run: "yarn test"
-      - name: Visual test
-        uses: percy/storybook-action@v0.1.1
-        with:
-          custom-command: "yarn snapshot"
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       - name: Chromatic
         run: "yarn chromatic --exit-once-uploaded"
         env:
