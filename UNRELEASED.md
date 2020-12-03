@@ -6,6 +6,8 @@
 
 ### Enhancements
 
+- Scroll long Select lists
+
 ### Bug fixes
 
 - Updated the default brand color to the right value
@@ -14,6 +16,8 @@
 ### Documentation
 
 ### Development workflow
+
+- Upgraded Storybook to 6.1
 
 ### Dependency upgrades
 
