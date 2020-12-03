@@ -22,7 +22,7 @@
     "build-playroom": "playroom build",
     "start": "run-p storybook playroom"
   },
-  "homepage": "https://envoy.github.io/polarwind",
+  "homepage": "https://www.chromatic.com/library?appId=5fc91dfd5650050021374090",
   "bugs": "https://github.com/envoy/polarwind/issues",
   "repository": {
     "url": "https://github.com/envoy/polarwind",
