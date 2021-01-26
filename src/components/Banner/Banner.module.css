@@ -3,26 +3,26 @@
 }
 
 .success {
-  @apply bg-cilantro-lightest;
+  @apply bg-cilantro-5;
 
   .Icon {
-    @apply text-carbon-100%;
+    @apply text-carbon-70;
   }
 }
 
 .info {
-  @apply bg-pacific-lightest;
+  @apply bg-gem-5;
 
   .Icon {
-    @apply text-pacific;
+    @apply text-gem-50;
   }
 }
 
 .warning {
-  @apply bg-honeycomb-lightest;
+  @apply bg-papaya-5;
 
   .Icon {
-    @apply text-honeycomb;
+    @apply text-papaya-50;
   }
 }
 

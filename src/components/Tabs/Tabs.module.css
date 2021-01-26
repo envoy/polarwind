@@ -3,8 +3,8 @@
 }
 
 .Tab {
-  @apply ml-6 text-sm text-carbon-65%;
-  @apply hover:text-carbon-80% hover:border-b-2 hover:border-carbon-20%;
+  @apply ml-6 text-sm text-carbon-50;
+  @apply hover:text-carbon-60 hover:border-b-2 hover:border-carbon-20;
 
   & > button,
   & > a {
@@ -17,8 +17,8 @@
 }
 
 .selected {
-  @apply text-brand border-b-2 border-brand;
+  @apply text-red-50 border-b-2 border-red-50;
 
   /* cancel out the general hover treatment */
-  @apply hover:text-brand hover:border-brand;
+  @apply hover:text-red-50 hover:border-red-50;
 }

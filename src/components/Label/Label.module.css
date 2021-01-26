@@ -1,10 +1,10 @@
 .Label {
-  @apply text-carbon-65% inline-flex items-center;
+  @apply text-carbon-50 inline-flex items-center;
 }
 
 .required::after {
   content: " ";
-  @apply block bg-brand rounded-md h-1 w-1 ml-1;
+  @apply block bg-red-50 rounded-md h-1 w-1 ml-1;
 }
 
 .hidden {

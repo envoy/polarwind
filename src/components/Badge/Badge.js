@@ -21,5 +21,5 @@ Badge.propTypes = {
   /** The content to display inside the badge */
   children: PropTypes.node,
   /** Set the color of the badge for the given status */
-  status: PropTypes.oneOf(["info", "success", "error"]),
+  status: PropTypes.oneOf(["info", "success", "error", "warning"]),
 };
