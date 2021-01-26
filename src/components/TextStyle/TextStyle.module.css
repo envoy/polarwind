@@ -7,7 +7,7 @@
 }
 
 .negative {
-  @apply text-brand;
+  @apply text-red-50;
 }
 
 .warning {

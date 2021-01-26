@@ -17,8 +17,8 @@
 }
 
 .selected {
-  @apply text-brand border-b-2 border-brand;
+  @apply text-red-50 border-b-2 border-red-50;
 
   /* cancel out the general hover treatment */
-  @apply hover:text-brand hover:border-brand;
+  @apply hover:text-red-50 hover:border-red-50;
 }

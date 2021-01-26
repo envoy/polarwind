@@ -104,7 +104,7 @@ module.exports = {
       large: "0px 4px 8px rgba(0, 0, 0, 0.12)",
       xl: "0px 4px 16px rgba(0, 0, 0, 0.16)",
       outline: `0 0 0 2px ${theme("colors.arctic.default")}`,
-      "outline-brand": `0 0 0 2px ${rgba(theme("colors.brand.default"), 0.3)}`,
+      "outline-red-50": `0 0 0 2px ${rgba(theme("colors.red.50"), 0.3)}`,
       "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20%")}`,
       "input-gem": [
         `0 0 0 1px ${theme("colors.gem.50")}`,
