@@ -6,6 +6,8 @@
 
 ### Enhancements
 
+- New color palette with better constrast that meets accessibility standards
+
 ### Bug fixes
 
 - Updated the default brand color to the right value
