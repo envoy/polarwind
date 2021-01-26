@@ -197,7 +197,7 @@ module.exports = {
         checkbox: {
           color: theme("colors.gem.50"),
           borderRadius: theme("borderRadius.checkbox"),
-          borderColor: theme("colors.carbon.20 "),
+          borderColor: theme("colors.carbon.checkbox"),
           boxShadow: theme("boxShadow.checkbox-inset"),
           borderWidth: theme("borderWidth.checkbox"),
           "&:checked": {
@@ -205,7 +205,7 @@ module.exports = {
           },
           "&:focus": {
             boxShadow: theme("boxShadow.checkbox-inset"),
-            borderColor: theme("colors.carbon.20 "),
+            borderColor: theme("colors.carbon.checkbox"),
           },
           "&:focus:checked": {
             boxShadow: theme("boxShadow.outline"),
