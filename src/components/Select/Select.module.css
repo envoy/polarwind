@@ -24,6 +24,10 @@
 
 .OptionList {
   @apply shadow-large rounded-md p-1 bg-white;
+
+  /** allow long lists to scroll */
+  max-height: calc(100vh - 6rem);
+  @apply overflow-y-auto;
 }
 
 .Option {
