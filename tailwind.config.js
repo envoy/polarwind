@@ -14,42 +14,63 @@ module.exports = {
 
       white: "#fff",
 
-      brand: {
-        default: "#fa4338",
-        dark: "#a00c1f",
-        light: "#ff7c73",
-        lightest: "#ffeceb",
-        hover: "#e23c32",
-      },
-      pacific: {
-        default: "#028eb7",
-        dark: "#006684",
-        light: "#b5dfeb",
-        lightest: "#effafd",
-      },
-      arctic: {
-        default: "#e9eaf2",
-        "50%": "#f6f6f9",
-      },
-      honeycomb: {
-        default: "#f2a53f",
-        dark: "#bc781f",
-        light: "#f7c277",
-        lightest: "#fcf4ea",
+      carbon: {
+        5: "#f6f6f9",
+        10: "#ebebf0",
+        20: "#c9cbd4",
+        30: "#a4a9b6",
+        40: "#8a8f9e",
+        50: "#717684",
+        60: "#5c6270",
+        70: "#3f4450",
+        80: "#303541",
+        90: "#1f232d",
+        checkbox: "#b4b4b4",
       },
       cilantro: {
-        default: "#21944e",
-        dark: "#0a652e",
-        light: "#52bc7c",
-        lightest: "#e8f4ed",
+        5: "#dffbe6",
+        10: "#c7f5d2",
+        20: "#96e3a9",
+        30: "#4ec176",
+        40: "#21944e",
+        50: "#018940",
+        60: "#017939",
       },
-      carbon: {
-        "100%": "#3f4450",
-        "80%": "#646974",
-        "65%": "#7e8391",
-        "50%": "#999fac",
-        "20%": "#d7d8de",
-        checkbox: "#b4b4b4",
+      gem: {
+        5: "#f0f4ff",
+        10: "#e0e8ff",
+        20: "#bdcdff",
+        30: "#8fa5ff",
+        40: "#7083ff",
+        50: "#6161ff",
+        60: "#4e4eda",
+        70: "#4141a2",
+        80: "#31317c",
+        90: "#1f1f51",
+      },
+      papaya: {
+        5: "#fff3d1",
+        10: "#ffe7bd",
+        20: "#ffc67a",
+        30: "#ff8f33",
+        40: "#f76902",
+        50: "#c25700",
+        60: "#a84f00",
+      },
+      pistachio: {
+        5: "#f8f8af",
+        10: "#f0ef94",
+        20: "#d3d236",
+        30: "#b8be04",
+        40: "#8e9d01",
+        50: "#6a7e07",
+        60: "#587000",
+      },
+      red: {
+        40: "#fa4338",
+        50: "#e91c1c",
+        60: "#c70a14",
+        70: "#a00c1f",
       },
     },
     // typography configs are based on
@@ -83,18 +104,18 @@ module.exports = {
       medium: "0px 2px 4px rgba(0, 0, 0, 0.08)",
       large: "0px 4px 8px rgba(0, 0, 0, 0.12)",
       xl: "0px 4px 16px rgba(0, 0, 0, 0.16)",
-      outline: `0 0 0 2px ${theme("colors.arctic.default")}`,
-      "outline-brand": `0 0 0 2px ${rgba(theme("colors.brand.default"), 0.3)}`,
-      "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20%")}`,
-      "input-pacific": [
-        `0 0 0 1px ${theme("colors.pacific.default")}`,
-        `0 1px 4px 0 ${rgba(theme("colors.pacific.default"), 0.16)}`,
+      outline: `0 0 0 2px ${theme("colors.carbon.10")}`,
+      "outline-red-50": `0 0 0 2px ${rgba(theme("colors.red.50"), 0.3)}`,
+      "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20")}`,
+      "input-gem": [
+        `0 0 0 1px ${theme("colors.gem.50")}`,
+        `0 1px 4px 0 ${rgba(theme("colors.gem.50"), 0.16)}`,
       ].join(),
-      "input-honeycomb": [
-        `0 0 0 1px ${theme("colors.honeycomb.default")}`,
-        `0 1px 4px 0 ${rgba(theme("colors.honeycomb.default"), 0.16)}`,
+      "input-papaya": [
+        `0 0 0 1px ${theme("colors.papaya.50")}`,
+        `0 1px 4px 0 ${rgba(theme("colors.papaya.50"), 0.16)}`,
       ].join(),
-      "input-blur-honeycomb": `0 0 0 1px ${theme("colors.honeycomb.default")}`,
+      "input-blur-papaya": `0 0 0 1px ${theme("colors.papaya.50")}`,
       "checkbox-inset": [
         "inset 0px 1px 1.5px rgba(0, 0, 0, 0.26)",
         "inset 0px -1px 1.5px rgba(0, 0, 0, 0.1)",
@@ -135,27 +156,27 @@ module.exports = {
     customForms: (theme) => ({
       default: {
         "input, textarea, select": {
-          color: theme("colors.carbon.100%"),
-          borderColor: theme("colors.arctic.default"),
+          color: theme("colors.carbon.70"),
+          borderColor: theme("colors.carbon.10"),
           borderRadius: theme("borderRadius.md"),
           "&:focus, &.focused:enabled:not(.error)": {
-            boxShadow: theme("boxShadow.input-pacific"), // defined in TextField.module.css due to complex requirement with error state
-            borderColor: theme("colors.pacific.default"),
+            boxShadow: theme("boxShadow.input-gem"), // defined in TextField.module.css due to complex requirement with error state
+            borderColor: theme("colors.gem.50"),
           },
           "&.error": {
-            borderColor: theme("colors.honeycomb.default"),
-            boxShadow: theme("boxShadow.input-blur-honeycomb"),
+            borderColor: theme("colors.papaya.50"),
+            boxShadow: theme("boxShadow.input-blur-papaya"),
             "&:focus": {
-              boxShadow: theme("boxShadow.input-honeycomb"),
+              boxShadow: theme("boxShadow.input-papaya"),
             },
           },
         },
         "input, textarea, checkbox, select": {
           "&:disabled": {
-            color: theme("colors.carbon.80%"),
-            "-webkit-text-fill-color": theme("colors.carbon.80%"),
-            borderColor: theme("colors.arctic.default"),
-            backgroundColor: theme("colors.arctic.50%"),
+            color: theme("colors.carbon.60"),
+            "-webkit-text-fill-color": theme("colors.carbon.60"),
+            borderColor: theme("colors.carbon.10"),
+            backgroundColor: theme("colors.carbon.5"),
           },
         },
         "input, textarea": {
@@ -164,7 +185,7 @@ module.exports = {
           paddingBottom: theme("spacing.2"),
           paddingLeft: theme("spacing.2"),
           "&::placeholder": {
-            color: theme("colors.carbon.20%"),
+            color: theme("colors.carbon.20"),
             lineHeight: "normal",
           },
         },
@@ -175,7 +196,7 @@ module.exports = {
           },
         },
         checkbox: {
-          color: theme("colors.pacific.default"),
+          color: theme("colors.gem.50"),
           borderRadius: theme("borderRadius.checkbox"),
           borderColor: theme("colors.carbon.checkbox"),
           boxShadow: theme("boxShadow.checkbox-inset"),
@@ -189,7 +210,7 @@ module.exports = {
           },
           "&:focus:checked": {
             boxShadow: theme("boxShadow.outline"),
-            borderColor: theme("colors.pacific.default"),
+            borderColor: theme("colors.gem.50"),
           },
           "&:indeterminate": {
             background:
@@ -211,7 +232,7 @@ module.exports = {
           },
         },
         select: {
-          iconColor: theme("colors.carbon.50%"),
+          iconColor: theme("colors.carbon.40"),
           paddingTop: theme("spacing")["2.75"],
           paddingBottom: theme("spacing")["2.75"],
         },
