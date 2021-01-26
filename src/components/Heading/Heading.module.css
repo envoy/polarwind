@@ -1,6 +1,6 @@
 /* 16px */
 .Heading {
-  @apply text-carbon-100% font-bold;
+  @apply text-carbon-70 font-bold;
 }
 
 /* 30px */
@@ -40,5 +40,5 @@
 }
 
 .secondary {
-  @apply text-carbon-65% font-medium;
+  @apply text-carbon-50 font-medium;
 }

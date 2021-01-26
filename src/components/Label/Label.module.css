@@ -1,5 +1,5 @@
 .Label {
-  @apply text-carbon-65% inline-flex items-center;
+  @apply text-carbon-50 inline-flex items-center;
 }
 
 .required::after {

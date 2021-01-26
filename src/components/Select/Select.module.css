@@ -57,7 +57,7 @@
 
 .OptionGroup {
   & > span {
-    @apply text-carbon-50% p-2 block font-bold text-sm pointer-events-none;
+    @apply text-carbon-40 p-2 block font-bold text-sm pointer-events-none;
   }
 
   li > span {

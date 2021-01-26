@@ -103,9 +103,9 @@ module.exports = {
       medium: "0px 2px 4px rgba(0, 0, 0, 0.08)",
       large: "0px 4px 8px rgba(0, 0, 0, 0.12)",
       xl: "0px 4px 16px rgba(0, 0, 0, 0.16)",
-      outline: `0 0 0 2px ${theme("colors.arctic.default")}`,
+      outline: `0 0 0 2px ${theme("colors.carbon.10")}`,
       "outline-red-50": `0 0 0 2px ${rgba(theme("colors.red.50"), 0.3)}`,
-      "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20%")}`,
+      "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20")}`,
       "input-gem": [
         `0 0 0 1px ${theme("colors.gem.50")}`,
         `0 1px 4px 0 ${rgba(theme("colors.gem.50"), 0.16)}`,
@@ -155,8 +155,8 @@ module.exports = {
     customForms: (theme) => ({
       default: {
         "input, textarea, select": {
-          color: theme("colors.carbon.100%"),
-          borderColor: theme("colors.arctic.default"),
+          color: theme("colors.carbon.70"),
+          borderColor: theme("colors.carbon.10"),
           borderRadius: theme("borderRadius.md"),
           "&:focus, &.focused:enabled:not(.error)": {
             boxShadow: theme("boxShadow.input-gem"), // defined in TextField.module.css due to complex requirement with error state
@@ -172,10 +172,10 @@ module.exports = {
         },
         "input, textarea, checkbox, select": {
           "&:disabled": {
-            color: theme("colors.carbon.80%"),
-            "-webkit-text-fill-color": theme("colors.carbon.80%"),
-            borderColor: theme("colors.arctic.default"),
-            backgroundColor: theme("colors.arctic.50%"),
+            color: theme("colors.carbon.60"),
+            "-webkit-text-fill-color": theme("colors.carbon.60"),
+            borderColor: theme("colors.carbon.10"),
+            backgroundColor: theme("colors.carbon.5"),
           },
         },
         "input, textarea": {
@@ -184,7 +184,7 @@ module.exports = {
           paddingBottom: theme("spacing.2"),
           paddingLeft: theme("spacing.2"),
           "&::placeholder": {
-            color: theme("colors.carbon.20%"),
+            color: theme("colors.carbon.20"),
             lineHeight: "normal",
           },
         },
@@ -231,7 +231,7 @@ module.exports = {
           },
         },
         select: {
-          iconColor: theme("colors.carbon.50%"),
+          iconColor: theme("colors.carbon.40"),
           paddingTop: theme("spacing")["2.75"],
           paddingBottom: theme("spacing")["2.75"],
         },

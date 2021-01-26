@@ -7,7 +7,7 @@
 }
 
 .wrapper {
-  @apply bg-arctic-50% p-8 min-h-full flex flex-col;
+  @apply bg-carbon-5 p-8 min-h-full flex flex-col;
 
   .transparent {
     @apply p-0;
@@ -28,7 +28,7 @@
 }
 
 .Title {
-  @apply text-carbon-100%;
+  @apply text-carbon-70;
   @apply flex;
 
   /** push title and title action to opposite ends */

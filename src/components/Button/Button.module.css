@@ -51,8 +51,8 @@
 }
 
 .plain {
-  @apply border-transparent text-carbon-80%;
-  @apply bg-white hover:bg-arctic;
+  @apply border-transparent text-carbon-60;
+  @apply bg-white hover:bg-carbon-10;
   @apply focus:shadow-outline;
   &.disabled {
     @apply hover:bg-white;
@@ -61,9 +61,9 @@
 
 .outline {
   composes: plain;
-  @apply border-arctic hover:border-carbon-20% focus:border-arctic;
+  @apply border-carbon-10 hover:border-carbon-20 focus:border-carbon-10;
   &.disabled {
-    @apply hover:border-arctic;
+    @apply hover:border-carbon-10;
   }
 }
 

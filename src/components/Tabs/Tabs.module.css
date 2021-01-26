@@ -3,8 +3,8 @@
 }
 
 .Tab {
-  @apply ml-6 text-sm text-carbon-65%;
-  @apply hover:text-carbon-80% hover:border-b-2 hover:border-carbon-20%;
+  @apply ml-6 text-sm text-carbon-50;
+  @apply hover:text-carbon-60 hover:border-b-2 hover:border-carbon-20;
 
   & > button,
   & > a {

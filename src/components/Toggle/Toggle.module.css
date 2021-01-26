@@ -1,5 +1,5 @@
 .Toggle {
-  @apply bg-arctic relative inline-block flex-shrink-0 h-8 w-15 border-4 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200;
+  @apply bg-carbon-10 relative inline-block flex-shrink-0 h-8 w-15 border-4 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200;
   @apply focus:outline-none focus:shadow-outline-toggle;
 
   span {

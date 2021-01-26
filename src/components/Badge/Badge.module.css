@@ -1,5 +1,5 @@
 .Badge {
-  @apply bg-carbon-65% text-white text-xs font-bold uppercase;
+  @apply bg-carbon-50 text-white text-xs font-bold uppercase;
   @apply rounded-full border-transparent border-t-6 border-b-4 border-l-8 border-r-8 inline-block;
 
   > span {
