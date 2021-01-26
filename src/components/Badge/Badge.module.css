@@ -12,7 +12,7 @@
 }
 
 .error {
-  @apply bg-honeycomb;
+  @apply bg-papaya-50;
 }
 
 .success {

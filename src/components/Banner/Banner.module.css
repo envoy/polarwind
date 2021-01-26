@@ -19,10 +19,10 @@
 }
 
 .warning {
-  @apply bg-honeycomb-lightest;
+  @apply bg-papaya-5;
 
   .Icon {
-    @apply text-honeycomb;
+    @apply text-papaya-50;
   }
 }
 

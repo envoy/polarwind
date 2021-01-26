@@ -110,11 +110,11 @@ module.exports = {
         `0 0 0 1px ${theme("colors.pacific.default")}`,
         `0 1px 4px 0 ${rgba(theme("colors.pacific.default"), 0.16)}`,
       ].join(),
-      "input-honeycomb": [
-        `0 0 0 1px ${theme("colors.honeycomb.default")}`,
-        `0 1px 4px 0 ${rgba(theme("colors.honeycomb.default"), 0.16)}`,
+      "input-papaya": [
+        `0 0 0 1px ${theme("colors.papaya.50")}`,
+        `0 1px 4px 0 ${rgba(theme("colors.papaya.50"), 0.16)}`,
       ].join(),
-      "input-blur-honeycomb": `0 0 0 1px ${theme("colors.honeycomb.default")}`,
+      "input-blur-papaya": `0 0 0 1px ${theme("colors.papaya.50")}`,
       "checkbox-inset": [
         "inset 0px 1px 1.5px rgba(0, 0, 0, 0.26)",
         "inset 0px -1px 1.5px rgba(0, 0, 0, 0.1)",
@@ -163,10 +163,10 @@ module.exports = {
             borderColor: theme("colors.pacific.default"),
           },
           "&.error": {
-            borderColor: theme("colors.honeycomb.default"),
-            boxShadow: theme("boxShadow.input-blur-honeycomb"),
+            borderColor: theme("colors.papaya.50"),
+            boxShadow: theme("boxShadow.input-blur-papaya"),
             "&:focus": {
-              boxShadow: theme("boxShadow.input-honeycomb"),
+              boxShadow: theme("boxShadow.input-papaya"),
             },
           },
         },
