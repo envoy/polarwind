@@ -106,9 +106,9 @@ module.exports = {
       outline: `0 0 0 2px ${theme("colors.arctic.default")}`,
       "outline-brand": `0 0 0 2px ${rgba(theme("colors.brand.default"), 0.3)}`,
       "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20%")}`,
-      "input-pacific": [
-        `0 0 0 1px ${theme("colors.pacific.default")}`,
-        `0 1px 4px 0 ${rgba(theme("colors.pacific.default"), 0.16)}`,
+      "input-gem": [
+        `0 0 0 1px ${theme("colors.gem.50")}`,
+        `0 1px 4px 0 ${rgba(theme("colors.gem.50"), 0.16)}`,
       ].join(),
       "input-papaya": [
         `0 0 0 1px ${theme("colors.papaya.50")}`,
@@ -159,8 +159,8 @@ module.exports = {
           borderColor: theme("colors.arctic.default"),
           borderRadius: theme("borderRadius.md"),
           "&:focus, &.focused:enabled:not(.error)": {
-            boxShadow: theme("boxShadow.input-pacific"), // defined in TextField.module.css due to complex requirement with error state
-            borderColor: theme("colors.pacific.default"),
+            boxShadow: theme("boxShadow.input-gem"), // defined in TextField.module.css due to complex requirement with error state
+            borderColor: theme("colors.gem.50"),
           },
           "&.error": {
             borderColor: theme("colors.papaya.50"),
@@ -195,7 +195,7 @@ module.exports = {
           },
         },
         checkbox: {
-          color: theme("colors.pacific.default"),
+          color: theme("colors.gem.50"),
           borderRadius: theme("borderRadius.checkbox"),
           borderColor: theme("colors.carbon.checkbox"),
           boxShadow: theme("boxShadow.checkbox-inset"),
@@ -209,7 +209,7 @@ module.exports = {
           },
           "&:focus:checked": {
             boxShadow: theme("boxShadow.outline"),
-            borderColor: theme("colors.pacific.default"),
+            borderColor: theme("colors.gem.50"),
           },
           "&:indeterminate": {
             background:

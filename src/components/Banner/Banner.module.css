@@ -11,10 +11,10 @@
 }
 
 .info {
-  @apply bg-pacific-lightest;
+  @apply bg-gem-5;
 
   .Icon {
-    @apply text-pacific;
+    @apply text-gem-50;
   }
 }
 

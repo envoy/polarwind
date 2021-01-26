@@ -1,5 +1,5 @@
 .Link {
-  @apply text-pacific hover:underline;
+  @apply text-gem-50 hover:underline;
 }
 
 .underlined {
