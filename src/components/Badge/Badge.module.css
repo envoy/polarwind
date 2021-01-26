@@ -1,5 +1,5 @@
 .Badge {
-  @apply bg-carbon-50 text-white text-xs font-bold uppercase;
+  @apply bg-carbon-10 text-carbon-60 text-xs font-bold uppercase;
   @apply rounded-full border-transparent border-t-6 border-b-4 border-l-8 border-r-8 inline-block;
 
   > span {
@@ -8,13 +8,17 @@
 }
 
 .info {
-  @apply bg-gem-50;
+  @apply bg-gem-10 text-gem-60;
 }
 
 .error {
-  @apply bg-papaya-50;
+  @apply bg-papaya-10 text-papaya-60;
 }
 
 .success {
-  @apply bg-cilantro-50;
+  @apply bg-cilantro-10 text-cilantro-60;
+}
+
+.warning {
+  @apply bg-pistachio-10 text-pistachio-60;
 }

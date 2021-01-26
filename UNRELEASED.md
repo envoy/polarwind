@@ -7,6 +7,7 @@
 ### Enhancements
 
 - New color palette with better constrast that meets accessibility standards
+- Badge colors are now inverted and adds a warning variant
 
 ### Bug fixes
 
