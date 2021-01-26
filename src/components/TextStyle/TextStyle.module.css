@@ -3,7 +3,7 @@
 }
 
 .positive {
-  @apply text-cilantro;
+  @apply text-cilantro-50;
 }
 
 .negative {

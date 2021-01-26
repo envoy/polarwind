@@ -8,7 +8,7 @@
 }
 
 .enabled {
-  @apply bg-cilantro;
+  @apply bg-cilantro-50;
 
   span {
     @apply translate-x-7;

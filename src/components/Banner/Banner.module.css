@@ -3,7 +3,7 @@
 }
 
 .success {
-  @apply bg-cilantro-lightest;
+  @apply bg-cilantro-5;
 
   .Icon {
     @apply text-carbon-100%;
