@@ -8,6 +8,23 @@ The format is based on [these versioning and changelog guidelines](https://git.i
 
 ---
 
+## 1.8.0 - 2021-01-26
+
+### Enhancements
+
+- New color palette with better constrast that meets accessibility standards
+- Badge colors are now inverted and adds a warning variant
+- Scroll long Select lists
+
+### Bug fixes
+
+- Updated the default brand color to the right value
+- Updated the default cilantro color to the right value
+
+### Development workflow
+
+- Upgraded Storybook to 6.1
+
 ## 1.7.0 - 2020-09-14
 
 ### New components
