@@ -25,6 +25,7 @@ module.exports = {
         70: "#3f4450",
         80: "#303541",
         90: "#1f232d",
+        checkbox: "#b4b4b4",
       },
       cilantro: {
         5: "#dffbe6",
