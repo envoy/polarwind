@@ -97,6 +97,23 @@ documentation on how to install dependencies and run the app:
 
 ## Development
 
+This package has a development dependency on a private `@envoy/tailwind` package hosted on
+GitHub Packages. It contains the common Envoy shared preset for Tailwind. You will need to
+perform an `npm login` against the `@envoy` scope for you to be able to install the
+package (yes, even if this project uses `yarn` you still need to use `npm` for logging in)
+
+```
+$ npm login --scope envoy --registry=https://npm.pkg.github.com
+Username: <your github username>
+Password: <your personal access token with scopes `repo` and `read:packages`>
+Email: <your envoy email>
+```
+
+You will have to generate a Personal Access Token (PAT) with the scopes `repo` and
+`read:packages` in order to log in. Now you should be able to `yarn install` as normal.
+
+GitHub Actions in this project will use a PAT from envoybot.
+
 We use Storybook to create a simple, hot-reloading playground for development on these
 components. Run `yarn start` in order to start the Storybook server.
 
