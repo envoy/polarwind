@@ -1,5 +1,4 @@
 const hexRgb = require("hex-rgb");
-const config = require("tailwindcss/defaultConfig");
 
 function rgba(hex, alpha) {
   const { blue, green, red } = hexRgb(hex);
@@ -240,9 +239,9 @@ module.exports = {
     }),
   },
   variants: {
-    borderRadius: [...config.variants.borderRadius, "first", "last"],
-    borderWidth: [...config.variants.borderWidth, "hover"],
-    margin: [...config.variants.margin, "first"],
+    borderRadius: ({ after }) => after(["first", "last"]),
+    borderWidth: ({ after }) => after(["hover"]),
+    margin: ({ after }) => after(["first"]),
   },
   plugins: [
     require("@tailwindcss/custom-forms"),
@@ -264,6 +263,7 @@ module.exports = {
     divideOpacity: false,
   },
   purge: {
+    mode: "layers",
     content: ["./src/**/*.js"],
     options: {
       ...(process.env.STORYBOOK && {
