@@ -68,7 +68,7 @@
 }
 
 .brandOutline {
-  @apply text-red-50;
+  @apply text-red-50 hover:text-white active:text-red-50;
   @apply bg-white focus:bg-transparent;
   &.disabled {
     @apply hover:bg-white;

@@ -8,11 +8,17 @@
 
 ### Bug fixes
 
+- Fixed outline button text color when hovered and active
+
 ### Documentation
 
 ### Development workflow
 
+- Used Tailwind presets for common, shareable config
+
 ### Dependency upgrades
+
+- Upgraded to Tailwind 1.9.6
 
 ### Code quality
 
