@@ -6,94 +6,8 @@ function rgba(hex, alpha) {
 }
 
 module.exports = {
+  presets: [require("@envoy/tailwind")],
   theme: {
-    colors: {
-      transparent: "transparent",
-      current: "currentColor",
-
-      white: "#fff",
-
-      carbon: {
-        5: "#f6f6f9",
-        10: "#ebebf0",
-        20: "#c9cbd4",
-        30: "#a4a9b6",
-        40: "#8a8f9e",
-        50: "#717684",
-        60: "#5c6270",
-        70: "#3f4450",
-        80: "#303541",
-        90: "#1f232d",
-        checkbox: "#b4b4b4",
-      },
-      cilantro: {
-        5: "#dffbe6",
-        10: "#c7f5d2",
-        20: "#96e3a9",
-        30: "#4ec176",
-        40: "#21944e",
-        50: "#018940",
-        60: "#017939",
-      },
-      gem: {
-        5: "#f0f4ff",
-        10: "#e0e8ff",
-        20: "#bdcdff",
-        30: "#8fa5ff",
-        40: "#7083ff",
-        50: "#6161ff",
-        60: "#4e4eda",
-        70: "#4141a2",
-        80: "#31317c",
-        90: "#1f1f51",
-      },
-      papaya: {
-        5: "#fff3d1",
-        10: "#ffe7bd",
-        20: "#ffc67a",
-        30: "#ff8f33",
-        40: "#f76902",
-        50: "#c25700",
-        60: "#a84f00",
-      },
-      pistachio: {
-        5: "#f8f8af",
-        10: "#f0ef94",
-        20: "#d3d236",
-        30: "#b8be04",
-        40: "#8e9d01",
-        50: "#6a7e07",
-        60: "#587000",
-      },
-      red: {
-        40: "#fa4338",
-        50: "#e91c1c",
-        60: "#c70a14",
-        70: "#a00c1f",
-      },
-    },
-    // typography configs are based on
-    // https://github.com/envoy/garaje/blob/jon/style-guide-updates/app/styles/_type.scss
-    fontFamily: {
-      sans: [
-        "SofiaPro",
-        '"Helvetica Neue"',
-        "Helvetica",
-        "Arial",
-        "sans-serif",
-      ],
-    },
-    fontWeight: {
-      normal: 400,
-      medium: 500,
-      bold: 600,
-    },
-    lineHeight: {
-      none: 1,
-      skinny: 1.15,
-      tight: 1.25,
-      normal: 1.5,
-    },
     // it's hard to extend boxShadow since it needs the complete string including color,
     // which is why the best place to define it is by overriding the entire boxShadow
     // theme
@@ -121,37 +35,6 @@ module.exports = {
       ].join(),
       toggle: "0px 2px 6px rgba(0, 0, 0, 0.48)",
     }),
-    extend: {
-      borderRadius: {
-        checkbox: "0.1875rem",
-        page: "0.625rem",
-      },
-      borderWidth: {
-        checkbox: "0.5px",
-        6: "6px",
-      },
-      flex: {
-        fill: "1 0",
-      },
-      gridTemplateColumns: {
-        banner: "1rem minmax(auto, 40em)",
-      },
-      maxWidth: {
-        banner: "624px",
-      },
-      minWidth: {
-        min: "min-content",
-        fit: "fit-content",
-      },
-      opacity: {
-        40: ".4",
-        65: ".65",
-      },
-      spacing: {
-        2.5: "0.604rem",
-        2.75: "0.6666rem",
-      },
-    },
     customForms: (theme) => ({
       default: {
         "input, textarea, select": {
@@ -270,12 +153,5 @@ module.exports = {
         whitelistPatterns: [/^bg-/], // preserve bg- utilities for colors.stories.js
       }),
     },
-  },
-  future: {
-    removeDeprecatedGapUtilities: true,
-  },
-  experimental: {
-    applyComplexClasses: true,
-    extendedSpacingScale: true,
   },
 };
