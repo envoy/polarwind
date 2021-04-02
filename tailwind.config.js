@@ -125,6 +125,7 @@ module.exports = {
     borderRadius: ({ after }) => after(["first", "last"]),
     borderWidth: ({ after }) => after(["hover"]),
     margin: ({ after }) => after(["first"]),
+    textColor: ({ after }) => after(["active"]),
   },
   plugins: [
     require("@tailwindcss/custom-forms"),
