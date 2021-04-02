@@ -263,6 +263,7 @@ module.exports = {
     divideOpacity: false,
   },
   purge: {
+    mode: "layers",
     content: ["./src/**/*.js"],
     options: {
       ...(process.env.STORYBOOK && {
