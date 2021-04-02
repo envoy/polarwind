@@ -47,7 +47,7 @@ module.exports = function ({
       _.map(capHeights, ([modifier, capHeight]) => {
         let selector;
 
-        if (config("corePlugins.fontSize") === false) {
+        if (config("corePlugins").indexOf("fontSize") < 0) {
           selector = ["text", modifier];
         } else {
           assert(infix, "infix required if fontSize corePlugin is enabled");
@@ -70,7 +70,7 @@ module.exports = function ({
         return _.map(capHeights, ([fontSizeModifier, capHeight]) => {
           let selector;
 
-          if (config("corePlugins.lineHeight") === false) {
+          if (config("corePlugins").indexOf("lineHeight") < 0) {
             selector = ["leading", fontSizeModifier, modifier];
           } else {
             assert(infix, "infix required if lineHeight corePlugin is enabled");
