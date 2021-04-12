@@ -1,4 +1,8 @@
+const preset = require("@envoy/tailwind/tailwind.config.js");
 const hexRgb = require("hex-rgb");
+const resolveConfig = require("tailwindcss/resolveConfig");
+
+const { theme } = resolveConfig(preset);
 
 function rgba(hex, alpha) {
   const { blue, green, red } = hexRgb(hex);
@@ -38,6 +42,9 @@ module.exports = {
     extend: {
       colors: {
         carbon: {
+          // TODO: tailwind 2.x will automatically perform deep merges so it won't be
+          // necessary to spread the previous values anymore
+          ...theme.colors.carbon,
           checkbox: "#b4b4b4",
         },
       },
