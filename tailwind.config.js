@@ -1,4 +1,8 @@
+const preset = require("@envoy/tailwind/tailwind.config.js");
 const hexRgb = require("hex-rgb");
+const resolveConfig = require("tailwindcss/resolveConfig");
+
+const { theme } = resolveConfig(preset);
 
 function rgba(hex, alpha) {
   const { blue, green, red } = hexRgb(hex);
@@ -35,6 +39,44 @@ module.exports = {
       ].join(),
       toggle: "0px 2px 6px rgba(0, 0, 0, 0.48)",
     }),
+    extend: {
+      colors: {
+        carbon: {
+          // TODO: tailwind 2.x will automatically perform deep merges so it won't be
+          // necessary to spread the previous values anymore
+          ...theme.colors.carbon,
+          checkbox: "#b4b4b4",
+        },
+      },
+      borderRadius: {
+        checkbox: "0.1875rem",
+      },
+      borderWidth: {
+        checkbox: "0.5px",
+        6: "6px",
+      },
+      flex: {
+        fill: "1 0",
+      },
+      gridTemplateColumns: {
+        banner: "1rem minmax(auto, 40em)",
+      },
+      maxWidth: {
+        banner: "624px",
+      },
+      minWidth: {
+        min: "min-content",
+        fit: "fit-content",
+      },
+      opacity: {
+        40: ".4",
+        65: ".65",
+      },
+      spacing: {
+        2.5: "0.604rem",
+        2.75: "0.6666rem",
+      },
+    },
     customForms: (theme) => ({
       default: {
         "input, textarea, select": {
@@ -154,5 +196,12 @@ module.exports = {
         whitelistPatterns: [/^bg-/], // preserve bg- utilities for colors.stories.js
       }),
     },
+  },
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
+  experimental: {
+    applyComplexClasses: true,
+    extendedSpacingScale: true,
   },
 };
