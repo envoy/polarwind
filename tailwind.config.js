@@ -36,9 +36,13 @@ module.exports = {
       toggle: "0px 2px 6px rgba(0, 0, 0, 0.48)",
     }),
     extend: {
+      colors: {
+        carbon: {
+          checkbox: "#b4b4b4",
+        },
+      },
       borderRadius: {
         checkbox: "0.1875rem",
-        page: "0.625rem",
       },
       borderWidth: {
         checkbox: "0.5px",
