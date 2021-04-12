@@ -1168,10 +1168,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@envoy/tailwind@^1.0.1":
-  version "1.0.1"
-  resolved "https://npm.pkg.github.com/download/@envoy/tailwind/1.0.1/1f89469ff4f8871144accecbcb00eba9647ec729c5609537388c9fce934a0ced#c67ca22341e54c9e7ac702b889980901788b2488"
-  integrity sha512-NNRE0baV1uv5JIsVpjBo5Ri3aV0MZmjhSp2bq7haD/xPH2Mwuj0kHlV12o+/FlEHSVT1YMbtX2evOhhSUxvSTA==
+"@envoy/tailwind@^1.0.2":
+  version "1.0.2"
+  resolved "https://npm.pkg.github.com/download/@envoy/tailwind/1.0.2/e240c071b18505a8537358b7d8ca6fd3375cbf5ffd7d738336d9ee05c9ffcbf6#86f33626787d82c6d304743cb01f593762c3e9c7"
+  integrity sha512-t8gz6iVuqqNfMrw1p+wyhRdXc7hqi88iOqIhvxxk9WmORJKw1qEWu4YjHvwmNRIEFNsnhsmHhrHC2qZkA0kriw==
 
 "@fullhuman/postcss-purgecss@^2.1.2":
   version "2.3.0"
