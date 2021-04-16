@@ -1,15 +1,16 @@
 .Select {
-  @apply w-full block text-left truncate text-base leading-base-normal;
-
-  &:disabled {
-    @apply pointer-events-none;
-  }
+  @apply leading-base-normal;
 
   span {
     @apply align-base;
   }
 }
 
+/**
+ * We still need this style even though the select has :focus style so that we can
+ * programmatically keep the trigger looking like it's focused when the option list is
+ * open because technically the option list is the one with focus now, not the trigger
+ */
 .triggerFocused {
   @apply shadow-input-gem border-gem-50;
 }

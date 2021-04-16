@@ -1,12 +1,10 @@
 .TextField {
-  @apply block w-full;
-
-  /* theme values from the fontMetrics plugin is not availabe in theme() */
-  @apply leading-base-normal;
+  /* placeholder so that it will generate .Polarwind-TextField instead of just .TextField */
 }
 
-.multiline {
-  line-height: 1.5;
+.input {
+  /* theme values from the fontMetrics plugin is not availabe in theme() */
+  @apply leading-base-normal;
 }
 
 .Label {
