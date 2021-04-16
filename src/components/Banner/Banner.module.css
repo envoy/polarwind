@@ -1,5 +1,9 @@
 .Banner {
-  @apply p-4 rounded-md grid grid-cols-banner gap-4 max-w-banner;
+  @apply p-4 rounded-md max-w-banner flex space-x-4;
+}
+
+.Icon {
+  @apply w-4;
 }
 
 .success {

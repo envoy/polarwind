@@ -58,9 +58,6 @@ module.exports = {
       flex: {
         fill: "1 0",
       },
-      gridTemplateColumns: {
-        banner: "1rem minmax(auto, 40em)",
-      },
       maxWidth: {
         banner: "624px",
       },
