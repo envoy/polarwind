@@ -1,4 +1,4 @@
-const preset = require("@envoy/tailwind/tailwind.config.js");
+const preset = require("@envoy/tailwind");
 const hexRgb = require("hex-rgb");
 const resolveConfig = require("tailwindcss/resolveConfig");
 
@@ -10,7 +10,7 @@ function rgba(hex, alpha) {
 }
 
 module.exports = {
-  presets: [require("@envoy/tailwind")],
+  presets: [preset],
   theme: {
     // it's hard to extend boxShadow since it needs the complete string including color,
     // which is why the best place to define it is by overriding the entire boxShadow
@@ -74,94 +74,8 @@ module.exports = {
       },
       spacing: {
         2.5: "0.604rem",
-        2.75: "0.6666rem",
       },
     },
-    customForms: (theme) => ({
-      default: {
-        "input, textarea, select": {
-          color: theme("colors.carbon.70"),
-          borderColor: theme("colors.carbon.10"),
-          borderRadius: theme("borderRadius.md"),
-          "&:focus, &.focused:enabled:not(.error)": {
-            boxShadow: theme("boxShadow.input-gem"), // defined in TextField.module.css due to complex requirement with error state
-            borderColor: theme("colors.gem.50"),
-          },
-          "&.error": {
-            borderColor: theme("colors.papaya.50"),
-            boxShadow: theme("boxShadow.input-blur-papaya"),
-            "&:focus": {
-              boxShadow: theme("boxShadow.input-papaya"),
-            },
-          },
-        },
-        "input, textarea, checkbox, select": {
-          "&:disabled": {
-            color: theme("colors.carbon.60"),
-            "-webkit-text-fill-color": theme("colors.carbon.60"),
-            borderColor: theme("colors.carbon.10"),
-            backgroundColor: theme("colors.carbon.5"),
-          },
-        },
-        "input, textarea": {
-          paddingTop: theme("spacing.2"),
-          paddingRight: theme("spacing.2"),
-          paddingBottom: theme("spacing.2"),
-          paddingLeft: theme("spacing.2"),
-          "&::placeholder": {
-            color: theme("colors.carbon.20"),
-            lineHeight: "normal",
-          },
-        },
-        input: {
-          "&[type=search]": {
-            borderRadius: theme("borderRadius.full"),
-            paddingLeft: theme("spacing.8"),
-          },
-        },
-        checkbox: {
-          color: theme("colors.gem.50"),
-          borderRadius: theme("borderRadius.checkbox"),
-          borderColor: theme("colors.carbon.checkbox"),
-          boxShadow: theme("boxShadow.checkbox-inset"),
-          borderWidth: theme("borderWidth.checkbox"),
-          "&:checked": {
-            boxShadow: "none",
-          },
-          "&:focus": {
-            boxShadow: theme("boxShadow.checkbox-inset"),
-            borderColor: theme("colors.carbon.checkbox"),
-          },
-          "&:focus:checked": {
-            boxShadow: theme("boxShadow.outline"),
-            borderColor: theme("colors.gem.50"),
-          },
-          "&:indeterminate": {
-            background:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='8' height='2' x='4' y='7' rx='1'/%3E%3C/svg%3E\");",
-            borderColor: "transparent",
-            backgroundColor: "currentColor",
-            backgroundSize: "100% 100%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            boxShadow: "none",
-          },
-          "&:focus:indeterminate": {
-            boxShadow: theme("boxShadow.outline"),
-          },
-          // fix for :disabled overriding the :checked backgroundColor
-          "&:checked:disabled": {
-            backgroundColor: "currentColor",
-            borderColor: "currentColor",
-          },
-        },
-        select: {
-          iconColor: theme("colors.carbon.40"),
-          paddingTop: theme("spacing")["2.75"],
-          paddingBottom: theme("spacing")["2.75"],
-        },
-      },
-    }),
   },
   variants: {
     borderRadius: ({ after }) => after(["first", "last"]),
@@ -170,7 +84,6 @@ module.exports = {
     textColor: ({ after }) => after(["active"]),
   },
   plugins: [
-    require("@tailwindcss/custom-forms"),
     require("./src/plugins/fontMetrics")({
       emSquare: 1000,
       ascender: 756,
