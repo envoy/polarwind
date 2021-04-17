@@ -1168,10 +1168,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@envoy/tailwind@^1.0.3":
-  version "1.0.3"
-  resolved "https://npm.pkg.github.com/download/@envoy/tailwind/1.0.3/a80449a88a1df55623b42dc8329b143553bc0a4c1d9ebcc52c3af70dcc97304f#83d871036e4ee20dce515b36035ce3e93b2d5dfa"
-  integrity sha512-RG6M8Jf5CApuOH8UmiBuU2wsOmN+eQk5NXHMMOy7o5C2g5nzwHifE/5ATntKhZmtzgamuSW/8anHU+BqCC1ovA==
+"@envoy/tailwind@^1.0.4":
+  version "1.0.4"
+  resolved "https://npm.pkg.github.com/download/@envoy/tailwind/1.0.4/8d6f60c1a5cd8976028526a96ac6ebff96d1ec6f55fd2c4ce3959f4247350954#c1a251e82ad39c31ddc587b43a7e37dc988aa227"
+  integrity sha512-tv7pF/5QHm6VoUWGsxeZF40StKAMKfF6U6OO/BbACSAP4oMdQPs6ElOkeH8uWSPjtKnRbvHC5hap8J+Vvis0Ng==
   dependencies:
     "@tailwindcss/custom-forms" "^0.2.1"
 
