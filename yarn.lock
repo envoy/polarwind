@@ -1168,12 +1168,13 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@envoy/tailwind@^1.0.4":
-  version "1.0.4"
-  resolved "https://npm.pkg.github.com/download/@envoy/tailwind/1.0.4/8d6f60c1a5cd8976028526a96ac6ebff96d1ec6f55fd2c4ce3959f4247350954#c1a251e82ad39c31ddc587b43a7e37dc988aa227"
-  integrity sha512-tv7pF/5QHm6VoUWGsxeZF40StKAMKfF6U6OO/BbACSAP4oMdQPs6ElOkeH8uWSPjtKnRbvHC5hap8J+Vvis0Ng==
+"@envoy/tailwind@^1.0.5":
+  version "1.0.5"
+  resolved "https://npm.pkg.github.com/download/@envoy/tailwind/1.0.5/3049829ebb8d4d68cff6fc5ca7fce6a058c2fd281bd7851b6cd77edba965c75b#9322d1117fc32c1818092db76384bc3cf8efc593"
+  integrity sha512-CVgUBnpicth6Y1RYoa6JjewoMHOWyTzLfBsO16neMhgfkjUQQA96B+vDd8dffue43qd74VL2Lv4WStO4XQc8dQ==
   dependencies:
     "@tailwindcss/custom-forms" "^0.2.1"
+    hex-rgb "^4.3.0"
 
 "@fullhuman/postcss-purgecss@^2.1.2":
   version "2.3.0"
@@ -7980,10 +7981,10 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-hex-rgb@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/hex-rgb/-/hex-rgb-4.1.0.tgz#2d5d3a2943bd40e7dc9b0d5b98903d7d17035967"
-  integrity sha512-n7xsIfyBkFChITGPh6FLtxNzAt2HxZLcQIY9hYH4gm2gmMQJHMguMH3E+jnmvUbSTF5QrmFnGab5Ippi+D7e/g==
+hex-rgb@^4.1.0, hex-rgb@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/hex-rgb/-/hex-rgb-4.3.0.tgz#af5e974e83bb2fefe44d55182b004ec818c07776"
+  integrity sha512-Ox1pJVrDCyGHMG9CFg1tmrRUMRPRsAWYc/PinY0XzJU4K7y7vjNoLKIQ7BR5UJMCxNN8EM1MNDmHWA/B3aZUuw==
 
 highlight.js@^10.1.1, highlight.js@~10.4.0:
   version "10.4.1"
