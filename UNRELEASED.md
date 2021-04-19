@@ -19,7 +19,7 @@
 ### Dependency upgrades
 
 - Upgraded to Tailwind 1.9.6
-- Upgraded to @envoy/tailwind 1.0.3
+- Upgraded to @envoy/tailwind 1.0.6
 
 ### Code quality
 
