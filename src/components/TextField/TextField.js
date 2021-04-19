@@ -58,7 +58,7 @@ export const TextField = ({
     focused,
     "form-input": !multiline,
     "form-textarea": multiline,
-    multiline,
+    input: !multiline, // only apply line-height to normal input. avoids trampling over textarea's line-height: 1.5
   });
 
   const inputProps = {
