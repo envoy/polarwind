@@ -22,6 +22,10 @@ module.exports = {
       "outline-toggle": `0 0 0 2px ${theme("colors.carbon.20")}`,
       toggle: "0px 2px 6px rgba(0, 0, 0, 0.48)",
     }),
+    lineHeight: {
+      skinny: 1.15,
+      normal: 1.5,
+    },
     extend: {
       borderWidth: {
         6: "6px",
