@@ -101,7 +101,7 @@
     "rollup": "^2.6.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-postcss": "^2.6.4",
-    "snapshot-diff": "^0.7.0",
+    "snapshot-diff": "^0.8.1",
     "storybook-addon-playroom": "^2.0.0",
     "storybook-addon-smart-knobs": "^6.0.2",
     "stylelint": "^13.3.3",
