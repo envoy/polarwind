@@ -32,6 +32,9 @@ module.exports = {
     {
       extends: ["plugin:mdx/recommended"],
       files: ["*.mdx"],
+      rules: {
+        "mdx/no-unescaped-entities": "off",
+      },
     },
     {
       files: ["*.config.js", "plopfile.js"],
