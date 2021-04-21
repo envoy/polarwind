@@ -83,4 +83,6 @@ UnstyledLink.propTypes = {
   url: PropTypes.string.isRequired,
 };
 
+UnstyledLink.displayName = "UnstyledLink";
+
 export { UnstyledLink };
