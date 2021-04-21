@@ -1,21 +1,21 @@
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
-import { Card } from "./Card";
-import { Stack } from "../Stack";
+import { User } from "../../icons";
 import { Button } from "../Button";
 import { Heading } from "../Heading";
-import { User } from "../../icons";
+import { Stack } from "../Stack";
+import { Card } from "./Card";
 
 <Meta
-  title="Components / Structure / Card"
   component={Card}
   decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+  title="Components / Structure / Card"
 />
 
 # Card
@@ -25,7 +25,7 @@ import { User } from "../../icons";
 <Preview withToolbar>
   <Story name="Example">
     <Card>
-      <Stack distribution="equalSpacing" alignment="center" wrap={false}>
+      <Stack alignment="center" distribution="equalSpacing" wrap={false}>
         <Stack wrap={false}>
           <User height={44} width={44} />
           <Stack vertical>

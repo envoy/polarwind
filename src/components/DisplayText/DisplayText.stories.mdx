@@ -1,19 +1,19 @@
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
-import { DisplayText } from "./DisplayText";
 import { Heading } from "../Heading";
 import { Stack } from "../Stack";
+import { DisplayText } from "./DisplayText";
 
 <Meta
-  title="Components / Titles and text / Display text"
   component={DisplayText}
   decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+  title="Components / Titles and text / Display text"
 />
 
 # Display text
@@ -84,7 +84,7 @@ a header.
         <Heading element="h3" secondary>
           Total hours saved
         </Heading>
-        <DisplayText size="extraLarge" secondary>
+        <DisplayText secondary size="extraLarge">
           50
         </DisplayText>
       </Stack>

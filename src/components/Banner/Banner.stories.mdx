@@ -1,13 +1,13 @@
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
 import { Banner } from "./Banner";
 
-<Meta title="Components / Feedback indicators / Banner" component={Banner} />
+<Meta component={Banner} title="Components / Feedback indicators / Banner" />
 
 # Banner
 
@@ -15,12 +15,10 @@ import { Banner } from "./Banner";
 
 <Preview withToolbar>
   <Story name="Example">
-    <Banner
-      title="The header is optional"
-      status="warning"
-      children="This message box has a maximum width of 40em. The whole symbol should be
-        no wider than 624px (text width 560px)."
-    ></Banner>
+    <Banner status="warning" title="The header is optional">
+      This message box has a maximum width of 40em. The whole symbol should be
+      no wider than 624px (text width 560px).
+    </Banner>
   </Story>
 </Preview>
 
@@ -33,7 +31,7 @@ import { Banner } from "./Banner";
 Use to update users about a change or give them advice.
 
 <Story name="Info">
-  <Banner title="The header is optional" status="info">
+  <Banner status="info" title="The header is optional">
     <p>
       This message box has a maximum width of 40em. The whole symbol should be
       no wider than 624px (text width 560px).
@@ -48,7 +46,7 @@ Use to update users about a change or give them advice.
 - Include next steps if applicable
 
 <Story name="Success">
-  <Banner title="The header is optional" status="success">
+  <Banner status="success" title="The header is optional">
     <p>
       This message box has a maximum width of 40em. The whole symbol should be
       no wider than 624px (text width 560px).
@@ -62,7 +60,7 @@ Use to update users about a change or give them advice.
 - Seeing these banners can be stressful for users so be cautious about using them
 
 <Story name="Warning">
-  <Banner title="The header is optional" status="warning">
+  <Banner status="warning" title="The header is optional">
     <p>
       This message box has a maximum width of 40em. The whole symbol should be
       no wider than 624px (text width 560px).

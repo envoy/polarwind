@@ -1,21 +1,21 @@
-import { useState } from "react";
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
+import { useState } from "react";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
-import { TextField } from "./TextField";
 import { Stack } from "../Stack";
+import { TextField } from "./TextField";
 
 <Meta
-  title="Components / Forms / Text field"
   component={TextField}
   decorators={[
     withSmartKnobs({ ignoreProps: ["children", "value", "helpText"] }),
   ]}
+  title="Components / Forms / Text field"
 />
 
 # Text field
@@ -27,7 +27,7 @@ import { Stack } from "../Stack";
     {() => {
       const [value, setValue] = useState("Esteban Arango");
       // prettier-ignore
-      return <TextField label="Name" required helpText="Help me out" value={value} onChange={setValue} />
+      return <TextField helpText="Help me out" label="Name" required value={value} onChange={setValue} />
     }}
   </Story>
 </Preview>
@@ -44,11 +44,11 @@ will take precedence over the `success` and `helpText` if set.
 <Preview>
   <Story name="Text field with validation error">
     <TextField
-      label="Name"
       error="Name can't be empty"
-      success="Saved" // not shown
-      helpText="Help me out" // not shown
-      required
+      helpText="Help me out"
+      label="Name" // not shown
+      required // not shown
+      success="Saved"
     />
   </Story>
 </Preview>
@@ -61,9 +61,9 @@ field. The success message will take precedence over the `helpText` if set.
 <Preview>
   <Story name="Text field with success">
     <TextField
+      helpText="Help me out"
       label="Name"
-      success="Saved"
-      helpText="Help me out" // not shown
+      success="Saved" // not shown
     />
   </Story>
 </Preview>
@@ -76,7 +76,7 @@ will still be able to read the visually hidden label.
 
 <Preview>
   <Story name="Search field">
-    <TextField type="search" label="Search" />
+    <TextField label="Search" type="search" />
   </Story>
 </Preview>
 
@@ -87,9 +87,9 @@ Forces the focused state of the text fields.
 <Preview>
   <Story name="Focused">
     <Stack vertical>
-      <TextField label="Name" focused />
-      <TextField label="Name" error="Bad news" focused />
-      <TextField type="search" label="Search" focused />
+      <TextField focused label="Name" />
+      <TextField error="Bad news" focused label="Name" />
+      <TextField focused label="Search" type="search" />
     </Stack>
   </Story>
 </Preview>
@@ -101,21 +101,21 @@ error input is also disabled, the disabled state overrides the error state.
 
 <Preview>
   <Story name="Disabled">
-    <Stack vertical distribution="equalSpacingAround">
+    <Stack distribution="equalSpacingAround" vertical>
       <TextField
+        disabled
+        focused
         label="Input with a value"
         value="Hello, world"
-        focused
-        disabled
       />
       <TextField
-        label="Username (with error)"
-        error="Username can't be empty"
-        helpText="Choose a unique username"
-        focused
         disabled
+        error="Username can't be empty"
+        focused
+        helpText="Choose a unique username"
+        label="Username (with error)"
       />
-      <TextField type="search" label="Search" focused disabled />
+      <TextField disabled focused label="Search" type="search" />
     </Stack>
   </Story>
 </Preview>
@@ -129,19 +129,19 @@ to accommodate additional text.
   <Story name="Multiline">
     <Stack vertical>
       <TextField
-        label="Default multiline"
         helpText="Be as detailed as possible"
+        label="Default multiline"
         multiline
       />
       <TextField label="Multiline set to a number" multiline={3} />
       <TextField
-        label="Error multiline"
         error="Enter a valid address"
+        label="Error multiline"
         multiline
       />
       <TextField
-        label="Disabled multiline"
         disabled
+        label="Disabled multiline"
         multiline
         value={`The default rows attribute is set to 2
 but this textarea has an initial value

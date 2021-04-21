@@ -1,14 +1,14 @@
-import { useState } from "react";
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
+import { useState } from "react";
 import { Tabs } from "./Tabs";
 
-<Meta title="Components / Navigation / Tabs" component={Tabs} />
+<Meta component={Tabs} title="Components / Navigation / Tabs" />
 
 # Tabs
 
@@ -19,11 +19,11 @@ import { Tabs } from "./Tabs";
     {() => {
       const [selected, setSelected] = useState(0);
       const tabs = [
-        { id: "single-invite", content: "Single invite" },
-        { id: "group-invite", content: "Group invite" },
-        { id: "envoy", content: "Go to Envoy", url: "https://envoy.com" },
+        { content: "Single invite", id: "single-invite" },
+        { content: "Group invite", id: "group-invite" },
+        { content: "Go to Envoy", id: "envoy", url: "https://envoy.com" },
       ];
-      return <Tabs tabs={tabs} selected={selected} onSelect={setSelected} />;
+      return <Tabs selected={selected} tabs={tabs} onSelect={setSelected} />;
     }}
   </Story>
 </Preview>

@@ -1,10 +1,9 @@
 module.exports = {
-  parser: "babel-eslint",
   env: {
     browser: true,
     es6: true,
-    node: true,
     "jest/globals": true,
+    node: true,
   },
   extends: [
     "eslint:recommended",
@@ -21,6 +20,30 @@ module.exports = {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
   },
+  ignorePatterns: [
+    "node_modules/",
+    "storybook-static/",
+    "index.cjs.js",
+    "index.esm.js",
+    "examples/",
+    "docs/",
+  ],
+  overrides: [
+    {
+      extends: ["plugin:mdx/recommended"],
+      files: ["*.mdx"],
+      rules: {
+        "mdx/no-unescaped-entities": "off",
+      },
+    },
+    {
+      files: ["*.config.js", "plopfile.js"],
+      rules: {
+        "sort-keys-fix/sort-keys-fix": "off",
+      },
+    },
+  ],
+  parser: "babel-eslint",
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -30,34 +53,40 @@ module.exports = {
   },
   plugins: ["sort-destructure-keys", "sort-keys-fix", "jest"],
   rules: {
-    "react/react-in-jsx-scope": "off", // we use babel-plugin-react-require which injects the import React anyway
-    "react/jsx-sort-props": [
-      "error",
-      {
-        callbacksLast: true,
-      },
-    ],
-    "jsx-a11y/label-has-for": [
-      2,
-      {
-        allowChildren: true,
-      },
-    ],
     "import/no-anonymous-default-export": [
       "error",
       {
         allowArray: true,
       },
     ],
+
     "import/order": [
       "error",
       {
         alphabetize: {
-          order: "asc",
           caseInsensitive: true,
+          order: "asc",
         },
       },
     ],
+
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        allowChildren: true,
+      },
+    ],
+
+    "object-shorthand": ["error", "always"],
+    // we use babel-plugin-react-require which injects the import React anyway
+    "react/jsx-sort-props": [
+      "error",
+      {
+        callbacksLast: true,
+      },
+    ],
+    "react/react-in-jsx-scope": "off",
+    "sort-destructure-keys/sort-destructure-keys": [2, { caseSensitive: true }],
     "sort-imports": [
       "error",
       {
@@ -66,32 +95,11 @@ module.exports = {
         memberSyntaxSortOrder: ["all", "single", "multiple", "none"],
       },
     ],
-    "sort-destructure-keys/sort-destructure-keys": [2, { caseSensitive: true }],
     "sort-keys-fix/sort-keys-fix": "error",
-    "object-shorthand": ["error", "always"],
   },
-  ignorePatterns: [
-    "node_modules/",
-    "storybook-static/",
-    "index.cjs.js",
-    "index.esm.js",
-    "examples/",
-  ],
   settings: {
     react: {
       version: "detect",
     },
   },
-  overrides: [
-    {
-      files: ["*.mdx"],
-      extends: ["plugin:mdx/recommended"],
-    },
-    {
-      files: ["*.config.js", "plopfile.js"],
-      rules: {
-        "sort-keys-fix/sort-keys-fix": "off",
-      },
-    },
-  ],
 };

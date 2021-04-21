@@ -1,28 +1,28 @@
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
+import { EmbeddedContext } from "../../utils/embedded";
 import { Button } from "../Button";
 import { ButtonGroup } from "../ButtonGroup";
 import { Card } from "../Card";
 import { DisplayText } from "../DisplayText";
-import { EmbeddedContext } from "../../utils/embedded";
 import { FormLayout } from "../FormLayout";
 import { Heading } from "../Heading";
-import { Page } from "./Page";
 import { Select } from "../Select";
 import { Stack } from "../Stack";
 import { Tabs } from "../Tabs";
 import { TextField } from "../TextField";
+import { Page } from "./Page";
 
 <Meta
-  title="Components / Structure / Page"
   component={Page}
   decorators={[withSmartKnobs({ ignoreProps: ["children", "titleAction"] })]}
+  title="Components / Structure / Page"
 />
 
 # Page
@@ -32,17 +32,17 @@ import { TextField } from "../TextField";
 <Preview withToolbar>
   <Story name="Example">
     <Page
-      title="New invite"
       breadcrumbs={[{ content: "Invites", url: "/invites" }]}
       tabs={
         <Tabs
+          selected={0}
           tabs={[
             { content: "Single invite", id: "1" },
             { content: "Group invite", id: "2" },
           ]}
-          selected={0}
         />
       }
+      title="New invite"
     >
       <FormLayout>
         <Select
@@ -80,8 +80,8 @@ Use when you want to present the user with a quick way to navigate where they ca
 <Preview>
   <Story name="Page with breadcrumb">
     <Page
-      title="New invite"
       breadcrumbs={[{ content: "Invites", url: "/invites" }]}
+      title="New invite"
     />
   </Story>
 </Preview>
@@ -96,7 +96,7 @@ Use when exposing additional components on the right of the page title.
       title="10 visitors"
       titleAction={
         <Stack spacing="extraLoose">
-          <TextField type="search" label="Search" />
+          <TextField label="Search" type="search" />
           <Button>New visitor</Button>
         </Stack>
       }
@@ -149,11 +149,11 @@ background.
         titleAction={
           <Stack alignment="trailing">
             <Select
-              options={["All delivery areas"]}
               label="Delivery area"
               labelHidden
+              options={["All delivery areas"]}
             />
-            <Select options={["Last 7 days"]} label="Date range" labelHidden />
+            <Select label="Date range" labelHidden options={["Last 7 days"]} />
             <Button outline>Export</Button>
           </Stack>
         }
@@ -166,7 +166,7 @@ background.
                 <Heading element="h3" secondary>
                   Deliveries scanned
                 </Heading>
-                <DisplayText size="extraLarge" secondary>
+                <DisplayText secondary size="extraLarge">
                   57
                 </DisplayText>
               </Stack>
@@ -176,7 +176,7 @@ background.
                 <Heading element="h3" secondary>
                   Avg deliveries/week
                 </Heading>
-                <DisplayText size="extraLarge" secondary>
+                <DisplayText secondary size="extraLarge">
                   57
                 </DisplayText>
               </Stack>
@@ -188,7 +188,7 @@ background.
                 <Heading element="h3" secondary>
                   Total hours saved
                 </Heading>
-                <DisplayText size="extraLarge" secondary>
+                <DisplayText secondary size="extraLarge">
                   50
                 </DisplayText>
               </Stack>
@@ -198,7 +198,7 @@ background.
                 <Heading element="h3" secondary>
                   Avg time to pick-up
                 </Heading>
-                <DisplayText size="extraLarge" secondary>
+                <DisplayText secondary size="extraLarge">
                   35h:45m
                 </DisplayText>
               </Stack>
