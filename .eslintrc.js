@@ -76,6 +76,7 @@ module.exports = {
     "index.cjs.js",
     "index.esm.js",
     "examples/",
+    "docs/",
   ],
   settings: {
     react: {
