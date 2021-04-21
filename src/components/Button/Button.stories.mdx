@@ -1,18 +1,18 @@
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
 import { text } from "@storybook/addon-knobs";
+import { FiTrash2 } from "react-icons/fi";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
-import { Button } from "./Button";
 import { ButtonGroup } from "../ButtonGroup";
 import { Stack } from "../Stack";
-import { FiTrash2 } from "react-icons/fi";
+import { Button } from "./Button";
 
-<Meta title="Components / Actions / Button" component={Button} />
+<Meta component={Button} title="Components / Actions / Button" />
 
 # Button
 
@@ -20,10 +20,10 @@ import { FiTrash2 } from "react-icons/fi";
 
 <Preview withToolbar>
   <Story
-    name="Standard button"
     decorators={[
       withSmartKnobs({ ignoreProps: ["children", "icon", "className"] }),
     ]}
+    name="Standard button"
   >
     <Button>{text("label", "Add product")}</Button>
   </Story>
@@ -79,10 +79,10 @@ condition has not been fulfilled, for example, when a form has a validation erro
       <Button brandOutline disabled>
         Add product
       </Button>
-      <Button outline disabled>
+      <Button disabled outline>
         Add product
       </Button>
-      <Button plain disabled>
+      <Button disabled plain>
         Add product
       </Button>
     </Stack>
@@ -102,11 +102,11 @@ supported on the slim and normal buttons.
     }}
   >
     <Stack alignment="center" distribution="equalSpacingAround">
-      <Button size="slim" icon={FiTrash2}>
+      <Button icon={FiTrash2} size="slim">
         Delete
       </Button>
       <Button icon={FiTrash2}>Delete</Button>
-      <Button size="large" icon={FiTrash2}>
+      <Button icon={FiTrash2} size="large">
         Delete
       </Button>
     </Stack>
@@ -131,16 +131,16 @@ navigational link)
       <Button brandOutline disabled url="https://www.google.com">
         Visit
       </Button>
-      <Button url="https://www.google.com" outline>
+      <Button outline url="https://www.google.com">
         Visit
       </Button>
-      <Button disabled url="https://www.google.com" outline>
+      <Button disabled outline url="https://www.google.com">
         Visit
       </Button>
-      <Button url="https://www.google.com" plain>
+      <Button plain url="https://www.google.com">
         Visit
       </Button>
-      <Button disabled url="https://www.google.com" plain>
+      <Button disabled plain url="https://www.google.com">
         Visit
       </Button>
     </Stack>
@@ -155,13 +155,13 @@ that it should download the file instead of navigating to it.
 <Preview>
   <Story name="Download">
     <Stack distribution="equalSpacingAround">
-      <Button url="https://www.google.com" download>
+      <Button download url="https://www.google.com">
         Download Google homepage
       </Button>
-      <Button url="https://www.google.com" download="google.html">
+      <Button download="google.html" url="https://www.google.com">
         Customize the filename
       </Button>
-      <Button url="https://www.google.com" download={false}>
+      <Button download={false} url="https://www.google.com">
         Download set to false
       </Button>
       <Button download>No effect on non-URL button</Button>

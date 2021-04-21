@@ -1,18 +1,18 @@
-import { useState } from "react";
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
+import { useState } from "react";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Toggle } from "./Toggle";
 
 <Meta
-  title="Components / Actions / Toggle"
   component={Toggle}
   decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+  title="Components / Actions / Toggle"
 />
 
 # Toggle
@@ -49,8 +49,8 @@ Use when Toggle is in readonly/non-interactive disabled state.
       return (
         <Toggle
           enabled={enabled}
-          onClick={() => setEnabled(!enabled)}
           readOnly
+          onClick={() => setEnabled(!enabled)}
         />
       );
     }}

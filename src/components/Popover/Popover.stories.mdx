@@ -1,18 +1,18 @@
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
 import { useRef, useState } from "react";
-import { Popover } from "./Popover";
+import { EmbeddedContext } from "../../utils/embedded";
 import { Button } from "../Button";
 import { Card } from "../Card";
 import { Page } from "../Page";
-import { EmbeddedContext } from "../../utils/embedded";
+import { Popover } from "./Popover";
 
-<Meta title="Components / Overlays / Popover" component={Popover} />
+<Meta component={Popover} title="Components / Overlays / Popover" />
 
 # Popover
 
@@ -32,8 +32,8 @@ import { EmbeddedContext } from "../../utils/embedded";
               </Button>
               <Popover
                 active={active}
-                onClose={() => setActive(false)}
                 triggerRef={ref}
+                onClose={() => setActive(false)}
               >
                 <Card>
                   I'm an arbitrary content inside a card. Press anywhere to

@@ -1,18 +1,18 @@
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
-import { AppProvider } from "./AppProvider";
 import { Page } from "../Page";
+import { AppProvider } from "./AppProvider";
 
 <Meta
-  title="Components / Structure / App provider"
   component={AppProvider}
   decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+  title="Components / Structure / App provider"
 />
 
 # App provider

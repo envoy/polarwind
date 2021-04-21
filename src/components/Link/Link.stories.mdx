@@ -1,17 +1,17 @@
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
 import { Link } from "./Link";
 
 <Meta
-  title="Components / Navigation / Link"
   component={Link}
   decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+  title="Components / Navigation / Link"
 />
 
 # Link
@@ -44,7 +44,7 @@ Use when set against a background that is similar in color to give it visual con
 
 <Preview>
   <Story name="Underlined">
-    <Link url="https://dashboard.envoy.com/deliveries" underlined>
+    <Link underlined url="https://dashboard.envoy.com/deliveries">
       Give it a try →
     </Link>
   </Story>
@@ -59,15 +59,15 @@ Use for text links that are the same color as the surrounding text.
     <div>
       <p>
         Monochrome links get underlines so that we you can differentiate{" "}
-        <Link url="https://dashboard.envoy.com/deliveries" monochrome>
+        <Link monochrome url="https://dashboard.envoy.com/deliveries">
           what's a link
         </Link>{" "}
         and what's just text.
       </p>
       <Link
-        url="https://dashboard.envoy.com/deliveries"
         monochrome
         underlined={false}
+        url="https://dashboard.envoy.com/deliveries"
       >
         You can also turn off underlines if you really wanted
       </Link>
@@ -86,7 +86,7 @@ in an iframe.
 
 <Preview>
   <Story name="External">
-    <Link url="https://www.google.com" external>
+    <Link external url="https://www.google.com">
       Google
     </Link>
   </Story>

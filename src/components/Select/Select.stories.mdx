@@ -1,21 +1,21 @@
-import { useState } from "react";
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
+import { useState } from "react";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
-import { Select } from "./Select";
 import { FormLayout } from "../FormLayout";
+import { Select } from "./Select";
 
 <Meta
-  title="Components / Forms / Select"
   component={Select}
   decorators={[
     withSmartKnobs({ ignoreProps: ["children", "value", "helpText"] }),
   ]}
+  title="Components / Forms / Select"
 />
 
 # Select
@@ -35,11 +35,11 @@ import { FormLayout } from "../FormLayout";
       return (
         <>
           <Select
+            helpText={helpText}
             label="Size"
             options={options}
             value={value}
             onChange={setValue}
-            helpText={helpText}
           />
         </>
       );
@@ -72,11 +72,11 @@ The simplest way to define options. It will use the string as both the label and
       return (
         <>
           <Select
+            helpText={helpText}
             label="Size"
             options={options}
             value={value}
             onChange={setValue}
-            helpText={helpText}
           />
         </>
       );
@@ -97,16 +97,16 @@ Also supports a `disabled` attribute.
       const options = [
         { label: "Small", value: "s" },
         { label: "Medium", value: "m" },
-        { label: "Large", value: "l", disabled: true },
+        { disabled: true, label: "Large", value: "l" },
         { label: "Extra large", value: "xl" },
       ];
       return (
         <Select
+          helpText={helpText}
           label="Size"
           options={options}
           value={value}
           onChange={setValue}
-          helpText={helpText}
         />
       );
     }}
@@ -122,26 +122,26 @@ Also supports a `disabled` attribute.
       const helpText = <>Current value is {value}</>;
       const options = [
         {
-          title: "String array",
           options: ["One", "Two", "Three"],
+          title: "String array",
         },
         {
-          title: "Label/value array",
           options: [
             { label: "Small", value: "s" },
             { label: "Medium", value: "m" },
-            { label: "Large", value: "l", disabled: true },
+            { disabled: true, label: "Large", value: "l" },
             { label: "Extra large", value: "xl" },
           ],
+          title: "Label/value array",
         },
       ];
       return (
         <Select
+          helpText={helpText}
           label="Size"
           options={options}
           value={value}
           onChange={setValue}
-          helpText={helpText}
         />
       );
     }}
@@ -153,15 +153,15 @@ Also supports a `disabled` attribute.
 <Preview>
   <Story name="Error">
     <Select
+      error="You must choose a size"
       label="Size"
-      value=""
       options={[
         { label: "Select a size", value: "" },
         { label: "Small", value: "s" },
         { label: "Medium", value: "m" },
         { label: "Large", value: "l" },
       ]}
-      error="You must choose a size"
+      value=""
     />
   </Story>
 </Preview>
@@ -171,13 +171,13 @@ Also supports a `disabled` attribute.
 <Preview>
   <Story name="Disabled">
     <Select
+      disabled
       label="Size"
       options={[
         { label: "Small", value: "s" },
         { label: "Medium", value: "m" },
         { label: "Large", value: "l" },
       ]}
-      disabled
     />
   </Story>
 </Preview>

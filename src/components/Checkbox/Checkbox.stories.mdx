@@ -1,19 +1,19 @@
-import { useState, useCallback } from "react";
 import {
-  Meta,
-  Story,
-  Props,
   Description,
+  Meta,
   Preview,
+  Props,
+  Story,
 } from "@storybook/addon-docs/blocks";
+import { useCallback, useState } from "react";
 import { withSmartKnobs } from "storybook-addon-smart-knobs";
-import { Checkbox } from "./Checkbox";
 import { Stack } from "../Stack";
+import { Checkbox } from "./Checkbox";
 
 <Meta
-  title="Components / Forms / Checkbox"
   component={Checkbox}
   decorators={[withSmartKnobs({ ignoreProps: ["children"] })]}
+  title="Components / Forms / Checkbox"
 />
 
 # Checkbox
@@ -27,7 +27,7 @@ import { Stack } from "../Stack";
       // prettier-ignore
       const handleChange = useCallback((newChecked) => setChecked(newChecked), []);
       // prettier-ignore
-      return <Checkbox label="Basic checkbox" checked={checked} onChange={handleChange} />;
+      return <Checkbox checked={checked} label="Basic checkbox" onChange={handleChange} />;
     }}
   </Story>
 </Preview>
@@ -43,7 +43,7 @@ two states: selected and disabled, or unselected.
 
 <Preview withToolbar>
   <Story name="checked set">
-    <Checkbox label="Pre-checked" checked={true} />
+    <Checkbox checked={true} label="Pre-checked" />
   </Story>
 </Preview>
 
@@ -54,7 +54,7 @@ where the children are a mix of checked and unchecked checkboxes.
 
 <Preview>
   <Story name="Indeterminate">
-    <Checkbox label="Select all" checked="indeterminate" />
+    <Checkbox checked="indeterminate" label="Select all" />
   </Story>
 </Preview>
 
@@ -63,9 +63,9 @@ where the children are a mix of checked and unchecked checkboxes.
 <Preview>
   <Story name="Disabled">
     <Stack vertical>
-      <Checkbox label="Select all" disabled checked="indeterminate" />
-      <Checkbox label="Select all" disabled checked />
-      <Checkbox label="Select all" disabled checked={false} />
+      <Checkbox checked="indeterminate" disabled label="Select all" />
+      <Checkbox checked disabled label="Select all" />
+      <Checkbox checked={false} disabled label="Select all" />
     </Stack>
   </Story>
 </Preview>
