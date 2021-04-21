@@ -49,3 +49,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           exitOnceUploaded: true
+
+      - name: Percy
+        if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
+        run: yarn snapshot
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

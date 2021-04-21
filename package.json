@@ -11,7 +11,6 @@
     "prepack": "yarn build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "STORYBOOK=1 build-storybook",
-    "build-storybook:docs": "yarn build-storybook -o docs",
     "lint": "yarn eslint && yarn stylelint",
     "eslint": "eslint .",
     "stylelint": "stylelint src",
@@ -19,7 +18,8 @@
     "generate": "plop",
     "playroom": "playroom start",
     "build-playroom": "playroom build",
-    "start": "run-p storybook playroom"
+    "start": "run-p storybook playroom",
+    "snapshot": "STORYBOOK=1 yarn build-storybook && percy-storybook --widths=800"
   },
   "homepage": "https://www.chromatic.com/library?appId=5fc91dfd5650050021374090",
   "bugs": "https://github.com/envoy/polarwind/issues",
@@ -50,6 +50,7 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@envoy/tailwind": "^1.0.7",
+    "@percy/storybook": "^3.3.1",
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-image": "^2.0.5",
     "@rollup/plugin-node-resolve": "^7.1.3",
