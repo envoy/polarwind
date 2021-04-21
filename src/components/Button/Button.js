@@ -116,4 +116,6 @@ Button.propTypes = {
   url: PropTypes.string,
 };
 
+Button.displayName = "Button";
+
 export { Button };
