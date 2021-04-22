@@ -1,6 +1,13 @@
 .Select {
   @apply leading-base-normal;
 
+  /**
+   * Override custom-form's select padding of 10px because that works well on an actual
+   * select element, but is too small when the trigger is replaced with a button as what
+   * we do with react-aria select
+   */
+  @apply py-2.75;
+
   span {
     @apply align-base;
   }
