@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-conditional-expect */
 /* eslint-disable react/prop-types */
 
 import { fireEvent, render, screen } from "@testing-library/react";
