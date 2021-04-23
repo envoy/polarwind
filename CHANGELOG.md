@@ -8,6 +8,40 @@ The format is based on [these versioning and changelog guidelines](https://git.i
 
 ---
 
+## 1.9.0 - 2021-04-23
+
+# Unreleased changes
+
+### Breaking changes
+
+### New components
+
+### Enhancements
+
+### Bug fixes
+
+- Fixed outline button text color when hovered and active
+
+### Documentation
+
+### Development workflow
+
+- Started to use a shared Tailwind preset for applying Envoy's design
+- Packages are now published to npm (public) and GitHub Package Registry (private)
+- Moved visual regression from Chromatic to [Percy.io](https://percy.io/envoy/polarwind)
+
+### Dependency upgrades
+
+- Upgraded `tailwindcss` to 1.9.6
+- Upgraded `@react-aria/button` to 3.3.1
+- Upgraded `@react-aria/listbox` to 3.2.4
+- Upgraded `@react-aria/select` to 3.3.1
+- Upgraded `@react-stately/data` to 3.3.0
+
+### Code quality
+
+### Deprecations
+
 ## 1.8.0 - 2021-01-26
 
 ### Enhancements
