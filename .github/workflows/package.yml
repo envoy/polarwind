@@ -8,10 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
-          registry-url: "https://npm.pkg.github.com"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Get Node.js version
         id: node-version
@@ -31,14 +30,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ENVOYBOT_PERSONAL_ACCESS_TOKEN }}
 
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/setup-node@v2
-        with:
-          registry-url: "https://registry.npmjs.org"
-
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ENVOY_NPM_AUTOMATION_TOKEN }}
+
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v2
+        with:
+          registry-url: "https://npm.pkg.github.com"
+
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
