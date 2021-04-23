@@ -8,6 +8,12 @@ The format is based on [these versioning and changelog guidelines](https://git.i
 
 ---
 
+## 1.9.1 - 2021-04-23
+
+### Development workflow
+
+- Resolved issues with building and publishing the package
+
 ## 1.9.0 - 2021-04-23
 
 ### Bug fixes
