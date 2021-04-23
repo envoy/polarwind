@@ -1,6 +1,6 @@
 const { babel } = require("@rollup/plugin-babel");
 const image = require("@rollup/plugin-image");
-const resolve = require("@rollup/plugin-node-resolve");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
 const commonjs = require("rollup-plugin-commonjs");
 const postcss = require("rollup-plugin-postcss");
 const packageJson = require("./package.json");
@@ -23,7 +23,7 @@ module.exports = [
       id.includes("react-stately"),
     input: "src/index.js",
     plugins: [
-      resolve(),
+      nodeResolve(),
       babel({ babelHelpers: "bundled" }),
       commonjs(),
       postcss({
