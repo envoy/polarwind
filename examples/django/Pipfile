@@ -9,7 +9,7 @@ pycodestyle = "*"
 autopep8 = "*"
 
 [packages]
-django = "==3.0.14"
+django = "==3.1.9"
 django-cra-helper = "*"
 authlib = "*"
 
